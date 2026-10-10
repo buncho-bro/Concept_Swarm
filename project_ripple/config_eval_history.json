@@ -1,0 +1,10 @@
+[
+  {
+    "task": "電磁気学の初歩について400字でまとめてください。",
+    "lesson": "For improved configurations in self-evaluating tasks, consider adjusting parameters such as terrain injection, viscosity, and decay rates based on the specific content or complexity of the information being conveyed. In this case, using Quantum Mechanics for the terrain injection was appropriate because it relates directly to electromagnetism, aiding in understanding its foundational concepts. Adjustments like setting an intermediate viscosity level and a slower decay rate helped maintain readability while allowing for efficient analysis."
+  },
+  {
+    "task": "流体のシミレーションプログラムを作成してください。言語は任せます。",
+    "lesson": "The output did not collapse, but the terrain injection was not used as intended. The viscosity was set too high, which might have made the program ignore the main task. To improve future configs, consider using 'TerrainInjection' with a lower viscosity value or adjusting the decay rate to better balance readability and computational efficiency."
+  }
+]

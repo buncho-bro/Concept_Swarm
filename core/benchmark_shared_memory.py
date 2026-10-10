@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+benchmark_shared_memory.py
+
+プロジェクトの一部として作成されたPythonスクリプト。
+"""
+
 import os
 import sys
 sys.stdout.reconfigure(encoding="utf-8")

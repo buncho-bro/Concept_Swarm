@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+main.py
+
+Raspberry Pi RP2350 (MicroPython) 上で動作するメインファームウェア。SRAM 520KB以内で局所100語の物理シミュレーションを実行し、推論を行います。
+"""
+
 import struct
 import sys
 import gc

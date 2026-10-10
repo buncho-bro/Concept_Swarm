@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Project Ripple - Diorama UI</title>
+<style>
+    body, html {
+        margin: 0; padding: 0; width: 100vw; height: 100vh;
+        background-color: #050814; font-family: 'Courier New', monospace;
+        overflow: hidden; color: white; display: flex; justify-content: center; align-items: center;
+    }
+    #app-container {
+        width: 90vw; height: 90vh; max-width: 1200px;
+        background: #0f172a; border: 2px solid #334155; border-radius: 8px;
+        display: flex; flex-direction: column; position: relative;
+        box-shadow: 0 0 50px rgba(0,0,0,0.8); overflow: hidden;
+    }
+    #header {
+        height: 50px; background: #1e293b; display: flex; align-items: center; padding: 0 20px;
+        border-bottom: 2px solid #334155; z-index: 50; justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; }
+    .hamburger { font-size: 24px; cursor: pointer; color: #94a3b8; user-select: none; }
+    .hamburger:hover { color: #38bdf8; }
+    .header-title { margin-left: 15px; color: #94a3b8; font-size: 14px; letter-spacing: 2px; }
+
+    /* モデル選択ドロップダウン */
+    .header-right { display: flex; align-items: center; gap: 10px; }
+    select#model-selector {
+        background: #0f172a; color: #38bdf8; border: 1px solid #475569; padding: 5px 10px;
+        border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; cursor: pointer;
+        max-width: 300px;
+    }
+    select#model-selector:focus { outline: none; border-color: #38bdf8; }
+
+    #sidebar {
+        position: absolute; top: 50px; left: -250px; width: 250px; height: calc(100% - 50px);
+        background: rgba(15, 23, 42, 0.95); border-right: 1px solid #334155;
+        z-index: 40; transition: left 0.3s ease; display: flex; flex-direction: column;
+        backdrop-filter: blur(5px); overflow-y: auto;
+    }
+    #sidebar.open { left: 0; }
+    .session-item {
+        padding: 15px 20px; border-bottom: 1px solid #334155; cursor: pointer; color: #cbd5e1; font-size: 14px;
+    }
+    .session-item:hover, .session-item.active { background: rgba(56, 189, 248, 0.1); color: #38bdf8; }
+    .new-session-btn {
+        padding: 15px; text-align: center; background: #1e293b; cursor: pointer; color: #38bdf8; font-weight: bold; border-bottom: 1px solid #334155;
+    }
+
+    #main-window {
+        flex: 1; position: relative; background-color: #000; overflow: hidden;
+        box-shadow: inset 0 0 30px rgba(0,0,0,1);
+    }
+    #diorama-canvas {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        image-rendering: pixelated; z-index: 1;
+    }
+    #chat-overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        padding: 20px; box-sizing: border-box; overflow-y: auto; z-index: 10;
+    }
+    .msg { 
+        margin-bottom: 20px; padding: 12px 18px; border-radius: 4px; line-height: 1.6; font-size: 14px; 
+        max-width: 80%; background: rgba(10, 15, 30, 0.7); backdrop-filter: blur(2px); border: 1px solid rgba(255,255,255,0.05); 
+    }
+    .msg.user { margin-left: auto; border-left: 2px solid #38bdf8; }
+    .msg.ai { margin-right: auto; border-left: 2px solid #94a3b8; }
+    .sys-text { color: #64748b; font-style: italic; font-size: 13px; }
+
+    #skill-menu {
+        position: absolute; bottom: 80px; left: 20px; width: 200px;
+        background: rgba(15, 23, 42, 0.95); border: 1px solid #334155; border-radius: 4px;
+        z-index: 40; display: none; flex-direction: column; padding: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    }
+    #skill-menu.show { display: flex; }
+    .skill-option {
+        display: flex; align-items: center; padding: 8px 10px; color: #cbd5e1; cursor: pointer; font-size: 14px;
+    }
+    .skill-option:hover { background: rgba(56, 189, 248, 0.1); }
+    .skill-option input { margin-right: 10px; }
+
+    #control-bar {
+        height: 80px; background: #1e293b; display: flex; align-items: center; padding: 0 20px; gap: 15px;
+        border-top: 2px solid #334155; z-index: 50; position: relative;
+    }
+    .add-btn {
+        width: 36px; height: 36px; border-radius: 4px; background: #334155; border: 1px solid #475569;
+        color: white; font-size: 20px; cursor: pointer; display: flex; justify-content: center; align-items: center;
+    }
+    input[type="text"] {
+        flex: 1; height: 40px; background: #0f172a; border: 1px solid #475569; color: white; 
+        padding: 0 15px; font-family: inherit; font-size: 14px; border-radius: 2px;
+    }
+    .send-btn { background: transparent; border: none; color: #38bdf8; font-size: 20px; cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="app-container">
+    <div id="header">
+        <div class="header-left">
+            <div class="hamburger" id="btn-sidebar">≡</div>
+            <div class="header-title">TOPOGRAPHY TERMINAL</div>
+        </div>
+        <div class="header-right">
+            <span style="font-size:12px; color:#64748b;">CORE:</span>
+            <select id="model-selector">
+                <option value="">Loading models...</option>
+            </select>
+        </div>
+    </div>
+    
+    <div id="sidebar">
+        <div class="new-session-btn" onclick="createNewSession()">+ NEW SESSION</div>
+        <div id="session-list"></div>
+    </div>
+
+    <div id="main-window">
+        <canvas id="diorama-canvas"></canvas>
+        <div id="chat-overlay">
+            <!-- Messages go here -->
+        </div>
+    </div>
+    
+    <div id="skill-menu">
+        <label class="skill-option"><input type="checkbox" id="chk-web" checked> Web Search (Raindrop)</label>
+        <label class="skill-option"><input type="checkbox" id="chk-eval" checked> Self-Evaluation Protocol</label>
+    </div>
+
+    <div id="control-bar">
+        <button class="add-btn" id="btn-skill">＋</button>
+        <input type="text" id="user-input" placeholder="Enter task..." autocomplete="off" />
+        <button class="send-btn" onclick="sendMessage()">＞</button>
+    </div>
+</div>
+
+<script>
+    let currentSessionId = generateId();
+    function generateId() { return Math.random().toString(36).substring(2, 15); }
+
+    // UI Interactions
+    const btnSidebar = document.getElementById('btn-sidebar');
+    const sidebar = document.getElementById('sidebar');
+    btnSidebar.addEventListener('click', () => { sidebar.classList.toggle('open'); });
+
+    const btnSkill = document.getElementById('btn-skill');
+    const skillMenu = document.getElementById('skill-menu');
+    btnSkill.addEventListener('click', () => { skillMenu.classList.toggle('show'); });
+
+    const chatOverlay = document.getElementById('chat-overlay');
+    const inputField = document.getElementById('user-input');
+    const sessionListEl = document.getElementById('session-list');
+    const modelSelector = document.getElementById('model-selector');
+    const chkWeb = document.getElementById('chk-web');
+    const chkEval = document.getElementById('chk-eval');
+
+    // --- Model Management ---
+    async function loadAvailableModels() {
+        try {
+            const res = await fetch('/api/models');
+            const data = await res.json();
+            modelSelector.innerHTML = '';
+            
+            data.available_models.forEach(model => {
+                const opt = document.createElement('option');
+                opt.value = model;
+                opt.innerText = model;
+                if (model === data.current_model) opt.selected = true;
+                modelSelector.appendChild(opt);
+            });
+            
+            // 概念蒸留モデルの手動パス追加（過去の遺産用）
+            const distillOpt = document.createElement('option');
+            distillOpt.value = "Concept-Distilled-Model-V1 (Local)";
+            distillOpt.innerText = "Concept-Distilled-Model-V1 (Local)";
+            modelSelector.appendChild(distillOpt);
+
+        } catch (e) {
+            modelSelector.innerHTML = '<option value="">Error loading models</option>';
+        }
+    }
+
+    modelSelector.addEventListener('change', async (e) => {
+        const newModel = e.target.value;
+        if (!newModel) return;
+        
+        inputField.disabled = true;
+        const sysMsg = appendMsg('ai', `<span class="sys-text">[SYS: PURGING VRAM & LOADING MODEL -> ${newModel}]</span><br>Please wait...`);
+        
+        try {
+            const res = await fetch('/api/change_model', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ model_id: newModel })
+            });
+            if (res.ok) {
+                sysMsg.innerHTML = `<span style="color:#38bdf8;">[SYS: MODEL CORE SWITCHED SUCCESSFULLY]</span>`;
+            } else {
+                sysMsg.innerHTML = `<span style="color:#ef4444;">[SYS: FAILED TO LOAD MODEL. PATH MAY NOT EXIST.]</span>`;
+            }
+        } catch (err) {
+            sysMsg.innerHTML = `<span style="color:#ef4444;">[SYS: ERROR COMMUNICATING WITH SERVER]</span>`;
+        } finally {
+            inputField.disabled = false;
+        }
+    });
+
+    // --- Session Management ---
+    function createNewSession() {
+        currentSessionId = generateId();
+        chatOverlay.innerHTML = '<div class="msg ai"><span class="sys-text">[SYS: INITIALIZED NEW TOPOGRAPHY SPACE]</span></div>';
+        sidebar.classList.remove('open');
+        refreshSessionList();
+    }
+
+    async function refreshSessionList() {
+        const res = await fetch('/api/sessions');
+        const sessions = await res.json();
+        sessionListEl.innerHTML = '';
+        sessions.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'session-item' + (s.id === currentSessionId ? ' active' : '');
+            div.innerText = s.name;
+            div.onclick = () => loadSession(s.id);
+            sessionListEl.appendChild(div);
+        });
+    }
+
+    async function loadSession(id) {
+        currentSessionId = id;
+        const res = await fetch('/api/session/' + id);
+        const history = await res.json();
+        
+        chatOverlay.innerHTML = '';
+        history.forEach(msg => { appendMsg(msg.role, msg.content); });
+        sidebar.classList.remove('open');
+        refreshSessionList();
+    }
+    
+    // --- Canvas Diorama ---
+    const canvas = document.getElementById('diorama-canvas');
+    const ctx = canvas.getContext('2d', { alpha: false });
+    const internalWidth = 320; const internalHeight = 180;
+    canvas.width = internalWidth; canvas.height = internalHeight;
+
+    let isThinking = false;
+    let raindrops = []; let ripples = [];
+    const horizonY = internalHeight * 0.4;
+    let simViscosity = 0.5; let simDecay = 0.5;
+
+    function drawDiorama() {
+        ctx.fillStyle = '#050814'; ctx.fillRect(0, 0, internalWidth, internalHeight);
+        const gradient = ctx.createLinearGradient(0, horizonY, 0, internalHeight);
+        gradient.addColorStop(0, '#050814'); gradient.addColorStop(1, 'rgba(14, 165, 233, 0.4)');
+        ctx.fillStyle = gradient; ctx.fillRect(0, horizonY, internalWidth, internalHeight - horizonY);
+
+        for (let i = ripples.length - 1; i >= 0; i--) {
+            let r = ripples[i];
+            let expansionSpeed = r.baseSpeed * (1.0 - (simViscosity * 0.5));
+            r.radius += expansionSpeed;
+            let decaySpeed = 0.002 + (simDecay * 0.008);
+            r.alpha -= decaySpeed;
+
+            if (r.alpha <= 0) { ripples.splice(i, 1); continue; }
+            let depthFactor = (r.y - horizonY) / (internalHeight - horizonY);
+            if (depthFactor < 0) depthFactor = 0;
+            let finalAlpha = r.alpha * depthFactor;
+
+            ctx.beginPath();
+            ctx.ellipse(r.x, r.y, r.radius, r.radius * 0.3, 0, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${finalAlpha})`;
+            ctx.lineWidth = 1; ctx.stroke();
+        }
+
+        if (isThinking && Math.random() < 0.4) {
+            raindrops.push({
+                x: Math.random() * internalWidth, y: 0, speed: 3 + Math.random() * 3,
+                targetY: horizonY + Math.random() * (internalHeight - horizonY)
+            });
+        }
+
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.6)';
+        for (let i = raindrops.length - 1; i >= 0; i--) {
+            let drop = raindrops[i];
+            drop.y += drop.speed;
+            ctx.fillRect(drop.x, drop.y, 1, 4);
+
+            if (drop.y >= drop.targetY) {
+                ripples.push({ x: drop.x, y: drop.y, radius: 1, baseSpeed: 0.5 + Math.random() * 0.5, alpha: 0.8 });
+                raindrops.splice(i, 1);
+            }
+        }
+        requestAnimationFrame(drawDiorama);
+    }
+    drawDiorama();
+
+    // --- Chat Logic ---
+    async function sendMessage() {
+        const text = inputField.value.trim();
+        if (!text) return;
+        
+        appendMsg('user', text);
+        inputField.value = '';
+        
+        isThinking = true;
+        simViscosity = 0.5; simDecay = 0.5;
+
+        const sysMsg = appendMsg('ai', '<span class="sys-text">[SYS: PROCESSING INPUT...]</span>');
+        
+        try {
+            if (chkWeb.checked) {
+                setTimeout(() => { sysMsg.innerHTML = '<span class="sys-text">[SYS: GATHERING RAINDROPS VIA WEB SEARCH...]</span>'; }, 500);
+            }
+            setTimeout(() => { sysMsg.innerHTML = '<span class="sys-text">[SYS: SURFACE INTERFERENCE. EXTRACTING POSSIBILITIES...]</span>'; }, 2000);
+
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    session_id: currentSessionId,
+                    message: text,
+                    use_web_search: chkWeb.checked,
+                    use_eval: chkEval.checked
+                })
+            });
+            const data = await response.json();
+            
+            if(data.config) {
+                simViscosity = parseFloat(data.config.viscosity) || 0.5;
+                simDecay = parseFloat(data.config.decay) || 0.5;
+            }
+            
+            sysMsg.innerHTML = `<span style="color:#38bdf8;">[PROJECTION COMPLETE: Terrain=${data.config.terrain_injection}]</span><br><br>${data.reply}`;
+            refreshSessionList();
+        } catch (e) {
+            sysMsg.innerHTML = '<span style="color:#ef4444;">[SYS: CONNECTION ERROR]</span>';
+        } finally {
+            isThinking = false;
+            chatOverlay.scrollTop = chatOverlay.scrollHeight;
+        }
+    }
+    
+    function appendMsg(role, content) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + role;
+        div.innerHTML = content;
+        chatOverlay.appendChild(div);
+        chatOverlay.scrollTop = chatOverlay.scrollHeight;
+        return div;
+    }
+    
+    inputField.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') sendMessage();
+    });
+    
+    // Initialize
+    createNewSession();
+    loadAvailableModels();
+</script>
+
+</body>
+</html>

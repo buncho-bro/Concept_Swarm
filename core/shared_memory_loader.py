@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+shared_memory_loader.py
+
+VRAMゼロ環境下で、OSの共有メモリ(Shared Memory)を用いて数GBのモデル重みをプロセス間でゼロコピー共有するローダー。RAMの肥大化を防ぎます。
+"""
+
 import numpy as np
 from multiprocessing import shared_memory
 from typing import Dict, Tuple, Optional

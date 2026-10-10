@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+eval_worker.py
+
+MBPP+の生成コードを別プロセスでサンドボックス実行（exec）し、Assertion Errorや無限ループを安全に検知するワーカー。
+"""
+
 import multiprocessing
 
 def _run_exec(full_code, queue):

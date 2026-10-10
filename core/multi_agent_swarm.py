@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+multi_agent_swarm.py
+
+10体の専門エージェント群を並列稼働させ、各々のポテンシャル地形を用いた大円干渉（物理シミュレーション）で合議ベクトルを算出するオーケストレーター。
+"""
+
 import time
 import os
 import numpy as np

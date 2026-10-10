@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+agent_worker.py
+
+個々の専門ドメイン（生物学、法律等）を担当するエージェントの実体。固有の概念地形に基づき、提案ベクトルに対して勾配降下法を適用して合議に参加します。
+"""
+
 import time
 import numpy as np
 import multiprocessing as mp

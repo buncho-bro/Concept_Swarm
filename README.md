@@ -1,56 +1,48 @@
-# 🌌 Antigravity Concept Swarm & Micro Edge Agent
+# 🌌 Antigravity Concept Swarm & Experimental Cores
 
-VRAMを一切消費せず（VRAM 0MB）、CPUとメインメモリのみで動作する「10体並列・非言語合議型 AIエージェントスウォーム」および、SRAM 520KBの極小マイコン（Raspberry Pi RP2350）上で動作する「局所100語展開エージェント」のリファレンス実装です。
-
-## 🎯 What is this?
-一般的なLLMベースのマルチエージェントシステムは、テキストを介してプロンプトのやり取り（JSONや対話）を行いますが、これには莫大なトークン生成コストとレイテンシ（数秒〜数十秒）がかかります。
-本プロジェクトでは、大次元の**「概念核（潜在ベクトル）の座標」そのものをOSの共有メモリ（Shared Memory）経由で直接読み書きする**ことで、テキスト変換オーバーヘッドをゼロにし、**10体の専門エージェントによる合議をわずか数ミリ秒（10〜15ms）で完了させる**画期的なアーキテクチャを実装しています。
-
-また、最終フェーズではこの「空間的な概念干渉」の仕組みを極限まで軽量化し、520KBのSRAMしか持たないマイクロコントローラ上で自律完結する物理演算AIとしても実装しました。
+VRAMゼロで動作する10体並列の「非言語合議型 AIエージェントスウォーム」を中心に、本プロジェクト内で派生・並行して実験されてきたあらゆるコア（量子化推論、マルチモーダル、進化計算、Project Ripple等）を集約した統合リポジトリです。途中でフリーズしたアイデアや未完の実験コードも、将来の発展のためにすべてアーカイブ・ドキュメント化して保存されています。
 
 ---
 
-## 📂 リポジトリ構成と各ファイルの詳細
+## 📂 リポジトリ構成（目次）
 
-### 1. 🧠 Core (VRAM-Zero マルチエージェント合議エンジン)
-ディレクトリ: `core/`
-* **`shared_memory_loader.py`**
-  * **目的**: 巨大なモデルの重み（数GBのテンソル）をプロセス間でゼロコピー共有するローダー。
-  * **仕組み**: `multiprocessing.shared_memory` を用い、1つの行列をOSのRAM空間に配置します。10プロセス立ち上げてもメモリが10倍にならず、数GBのRAMフットプリントだけで全エージェントが瞬時に重みへアクセスできます。
-* **`latent_blackboard.py`**
-  * **目的**: エージェント同士が「テキスト」ではなく「ベクトル座標」で対話する通信基盤。
-  * **仕組み**: 共有メモリ上に固定長のスロット（ブラックボード）を用意し、各エージェントが非同期イベント駆動で座標を直接書き込みます。
-* **`agent_worker.py` / `multi_agent_swarm.py`**
-  * **目的**: 専門分野（生物学、法律など）ごとに分かれた10体のエージェント群（Master 1 + Worker 9）のオーケストレーター。
-  * **仕組み**: 共有ブラックボード上のベクトルを読み取り、自身の持つ「専門概念のポテンシャル地形（引力・反発）」に基づいてベクトルを微小に動かす（勾配降下）ことで、全大円の共鳴極大点（最も理にかなった合議点 $x^*$）を決定します。
-* **`dual_stream_decoder.py`**
-  * **目的**: 最終的に得られた合議ベクトル $x^*$ を、専門用語を壊さずに自然言語（人間が読めるテキスト）へデコードする。
-  * **仕組み**: 小型LLM（GPT-2等）の推論時に、合議から得られたキーワード群のロジット確率を動的にブースト（出力後は抑制）するカスタム `LogitsProcessor` を組み込み、確実な用語抽出と流暢な文章を両立させます。
+各Pythonファイルの先頭には、そのファイルの詳しい仕組みや目的を記載したDocstring（ブロックコメント）が埋め込まれています。各コードの詳細なメカニズムはファイル内を直接参照してください。
 
-### 2. 📊 Benchmark (論理コーディング性能評価)
-ディレクトリ: `benchmark/`
-* **`run_mbppplus_benchmark.py` / `eval_worker.py`**
-  * **目的**: 構築したトポロジー蒸留モデル（Qwen2.5-Coder-3Bベース）のコーディング論理力をMBPP+（EvalPlus）データセットで厳格に測定する。
-  * **仕組み**: Windows特有の `multiprocessing` spawn時の激しい遅延（重い機械学習ライブラリの再インポートによる7秒超のフリーズ）を、関数ローカルインポートによって0.1秒未満に改善。無限ループ誤検知バグを完全に排除し、安全かつ正確なコード実行評価（サンドボックス実行）を行います。
+### 1. 🧠 `core/` (VRAM-Zero マルチエージェント合議エンジン)
+*大次元の潜在ベクトルを共有メモリでやり取りし、テキスト変換なしで10体並列合議を行う中核システム。*
+- `shared_memory_loader.py` / `latent_blackboard.py` / `agent_worker.py` / `multi_agent_swarm.py` / `dual_stream_decoder.py`
 
-### 3. 💾 Edge Micro Agent (SRAM 520KB 限界実装)
-ディレクトリ: `edge_micro_agent/`
-* **`export_micro_topo.py`**
-  * **目的**: 巨大な概念空間からエッジデバイス用に必要な単語とベクトル（周辺100語分）だけを抽出してバイナリ（`micro_topo.bin`）化するPC側スクリプト。
-* **`main.py` / `st7789.py`**
-  * **目的**: Raspberry Pi RP2350-GEEK (Cortex-M33, SRAM 520KB) 上で動くMicroPythonファームウェア。
-  * **仕組み**: SRAM制限を回避するため、入力された文章に関連する最大100語のベクトルのみをFlashメモリから静的配列に局所展開（Local Topography）。数万回の浮動小数点演算（FPU）による大円干渉シミュレーションを数ミリ秒で完結させ、LCDディスプレイにYes/No判定を直接描画します。
+### 2. 📊 `benchmark/` (論理コーディング性能評価)
+*MBPP+データセットを用いて、概念蒸留によるコーディング能力の変容を正確に測定するサンドボックス環境。*
+- `run_mbppplus_benchmark.py` / `eval_worker.py`
 
-### 4. 🔬 AliceAI Profiler (Zero-Full-Load 専門性抽出)
-ディレクトリ: `alice_profiler/`
-* **`expert_topography_profiler.py`**
-  * **目的**: 約160GBに及ぶ80Bパラメータの巨大MoEモデル（AliceAI）から、数学/コード専門のExpertを抽出するプロファイラ。
-  * **仕組み**: **究極の省メモリ（Zero-Full-Load）**。モデルを一切ダウンロードせず、Hugging Face Hubの `.safetensors` に対して直接 **HTTP Rangeリクエスト** を発行。必要なゲートテンソルのブロック（数MB）だけをネットワーク越しにストリーミング取得し、オンメモリでBF16 $\to$ Float32デコードと幾何学的なコサイン類似度計算を行います。
+### 3. 💾 `edge_micro_agent/` (SRAM 520KB 限界実装)
+*RP2350 (Cortex-M33) などの極小エッジマイコン上で、局所100語展開（Local Topography）を用いて自律推論する組み込み向けAI。*
+- `main.py` / `export_micro_topo.py` / `st7789.py`
+
+### 4. 🔬 `alice_profiler/` (Zero-Full-Load 専門性抽出)
+*160GBの巨大MoEモデル（AliceAI-80B）から、HTTP Rangeリクエストを用いて必要な数MBのテンソルだけを直接ストリーミング取得し、ディスクとRAM消費を極小に抑えつつ数学・コードExpertを抽出するプロファイラ。*
+- `expert_topography_profiler.py`
+
+### 5. 👁️ `multimodal/` (視覚と言語のセマンティック・ブリッジ)
+*言語の概念空間と、CLIP等から得られる視覚（画像）の概念空間を大円干渉で結びつけるクロスモーダル実験群。*
+- `multimodal_topology.py` / `semantic_bridge.py`
+
+### 6. 💧 `project_ripple/` (波及効果型 物理推論エンジン)
+*概念空間における推論を「波紋（Ripple）」や流体力学的な物理式に見立て、Web UIとWebSocketを通じてリアルタイムに操作・可視化するバックエンド。*
+- `server.py` / `physics_core.py` / `standalone_concept_distiller.py` / etc.
+
+### 7. 🧩 `quantized_core/` (量子化・KNN・フラクタルルーティング)
+*量子化重みを用いた高速化実験や、KNNグラフによるトポロジー蒸留、さらにフラクタル構造を用いた再帰的なExpertルーティングなどの基礎実験群 (step1〜step8)。*
+- `step1_quantized_distillation.py` 〜 `step8_hierarchical_decoding.py`
+
+### 8. 🧬 `distillation_experiments/` (概念フォージ・進化計算・キメラ結合)
+*プロジェクト初期〜中期にかけて試作された、ポテンシャル地形のGUI操作（Concept Forge）、ASTベースのMCTS探索（Evolutionary Tree Coder）、複数LoRAの局所結合（Chimera Injector）など、多様なプロトタイプ群。*
+- `concept_forge_webui.py` / `evolutionary_tree_coder.py` / `chimera_injector.py` / `ultimate_resonant_tree.py` / etc.
 
 ---
 
-## 🚀 How to use
-本リポジトリのコードはモジュールごとに独立しています。
-- マルチエージェント合議を試す場合は `core/benchmark_phase3_10agents.py` を実行してください。
-- エッジマイコンで動かす場合は `edge_micro_agent/` 以下のファイルを Thonny 等で RP2350 に書き込んでください。
-- 160GBモデルのZero-Load走査を試す場合は `alice_profiler/expert_topography_profiler.py` を実行してください（※数十MBのRAMしか消費しません）。
+## 🚀 使い方
+本リポジトリのコード群はモジュール・実験ごとに独立しています。
+**詳しい実行目的とメカニズムは、各 `.py` ファイルの先頭にある解説ブロック（Docstring）をご覧ください。**
+※実験途中のPoC（Proof of Concept）スクリプトや、特定のローカルモデルパスに依存しているコードも含まれているため、実行時は環境に合わせて適宜パスを修正してください。

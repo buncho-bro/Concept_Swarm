@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+benchmark_phase3_10agents.py
+
+10体並列エージェントの合議とテキストデコードの全パイプラインをテストするための実行スクリプト。
+"""
+
 import os
 import sys
 sys.stdout.reconfigure(encoding="utf-8")

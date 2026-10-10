@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+expert_topography_profiler.py
+
+160GBのAliceAIモデルに対し、HTTP Rangeリクエストを用いてsafetensorsから必要なゲート重みだけをストリーミング取得し、ローカル容量・RAMをほぼ消費せずにExpertの専門性を抽出するスクリプト。
+"""
+
 import requests
 import json
 import struct

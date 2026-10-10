@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+dual_stream_decoder.py
+
+合議で得た潜在ベクトルから専門知識を破壊せずに自然言語へデコードするため、標準LLMの出力とキーワードロジットを動的にブーストする機構。
+"""
+
 import torch
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM, LogitsProcessor, LogitsProcessorList

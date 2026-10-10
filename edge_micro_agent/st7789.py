@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+st7789.py
+
+RP2350-GEEKのオンボードLCDをSPI制御するための軽量ディスプレイドライバ。
+"""
+
 # Lightweight ST7789 SPI Driver for MicroPython (RP2350-GEEK)
 
 import time

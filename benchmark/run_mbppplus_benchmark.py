@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+run_mbppplus_benchmark.py
+
+蒸留されたLoRAモデルの論理コーディング性能を測るため、MBPP+データセットを実行するスクリプト。Windowsプロセスの起動バグを回避する最適化済み。
+"""
+
 import os
 import json
 import re

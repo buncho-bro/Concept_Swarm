@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+export_micro_topo.py
+
+RP2350などのSRAM制約の厳しいエッジデバイス向けに、対象ドメインの概念地形を「局所100語展開用」のバイナリ（micro_topo.bin）へエクスポートするPC側スクリプト。
+"""
+
 import os
 import struct
 import numpy as np

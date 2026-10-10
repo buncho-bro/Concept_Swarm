@@ -1,3 +1,10 @@
+"""
+【ファイル概要】
+latent_blackboard.py
+
+プロセス間でテキストではなく「潜在ベクトル（概念核座標）」を直接送受信するための共有通信基盤。IPCオーバーヘッドをミリ秒単位に抑えます。
+"""
+
 import numpy as np
 from multiprocessing import shared_memory
 import multiprocessing as mp
