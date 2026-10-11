@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ephemeral Latent Coding Engine (ELCE)</title>
+    <title>Ephemeral Latent Coding Engine (ELCE v2.0)</title>
     <style>
         :root {
-            --bg-dark: #0f111a;
-            --panel-bg: #1a1c29;
-            --panel-border: #2b2e44;
+            --bg-dark: #0c0e17;
+            --panel-bg: #161826;
+            --panel-border: #262940;
             --accent-blue: #4d7cff;
             --accent-green: #38ef7d;
             --accent-red: #ff4b4b;
+            --accent-orange: #ff9800;
             --text-main: #e2e8f0;
             --text-muted: #8c9ba5;
         }
@@ -19,7 +20,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             height: 100vh;
@@ -29,7 +30,7 @@
         }
         
         header {
-            padding: 15px 25px;
+            padding: 12px 25px;
             background-color: var(--panel-bg);
             border-bottom: 1px solid var(--panel-border);
             display: flex;
@@ -38,7 +39,7 @@
         }
         
         header h1 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -56,16 +57,16 @@
         .main-container {
             display: flex;
             flex: 1;
-            height: calc(100vh - 65px);
+            height: calc(100vh - 58px);
         }
         
         /* Left: Chat Window */
         .chat-section {
-            width: 45%;
+            width: 42%;
             display: flex;
             flex-direction: column;
             border-right: 1px solid var(--panel-border);
-            background-color: #131520;
+            background-color: #11131e;
         }
         
         .chat-history {
@@ -78,10 +79,10 @@
         }
         
         .message {
-            max-width: 85%;
+            max-width: 90%;
             padding: 12px 16px;
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             line-height: 1.5;
         }
         
@@ -99,6 +100,65 @@
             border-bottom-left-radius: 2px;
         }
         
+        /* Plan Spec Box inside Chat */
+        .spec-box {
+            background-color: #1d2133;
+            border: 1px solid #3b4266;
+            border-radius: 6px;
+            padding: 14px;
+            margin-top: 10px;
+        }
+        
+        .spec-title {
+            font-weight: bold;
+            color: #79d4fd;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .resource-row {
+            font-size: 0.82rem;
+            color: #aaa;
+            background-color: #121420;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .subtask-list {
+            list-style: none;
+            margin: 8px 0;
+            font-size: 0.85rem;
+        }
+        .subtask-list li {
+            padding: 4px 0;
+            display: flex;
+            gap: 6px;
+        }
+        
+        button.approve-btn {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+        button.approve-btn:hover {
+            opacity: 0.95;
+            transform: scale(1.01);
+        }
+        button.approve-btn:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .chat-controls {
             padding: 15px 20px;
             background-color: var(--panel-bg);
@@ -108,7 +168,7 @@
         .quick-chips {
             display: flex;
             gap: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
         }
         
@@ -118,9 +178,8 @@
             border: 1px solid #343c5e;
             padding: 4px 10px;
             border-radius: 12px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             cursor: pointer;
-            transition: all 0.2s;
         }
         .chip:hover {
             background-color: #2e3555;
@@ -139,7 +198,7 @@
             background-color: #0b0d14;
             border: 1px solid var(--panel-border);
             color: white;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             outline: none;
         }
         input[type="text"]:focus {
@@ -147,85 +206,97 @@
         }
         
         button.send-btn {
-            padding: 12px 24px;
+            padding: 12px 20px;
             background-color: var(--accent-blue);
             color: white;
             border: none;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            transition: opacity 0.2s;
         }
-        button.send-btn:hover { opacity: 0.9; }
         
-        /* Right: Inspector Panels */
+        /* Right: Inspector Section */
         .inspector-section {
-            width: 55%;
+            width: 58%;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
             background-color: var(--bg-dark);
             padding: 20px;
-            gap: 20px;
+            gap: 16px;
         }
         
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 8px;
-            padding: 16px;
+            padding: 14px;
         }
         
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #c0caf5;
         }
         
+        /* Red Circle Bus Monitor */
+        .red-bus-container {
+            border: 2px dashed #ff4b4b;
+            background-color: rgba(255, 75, 75, 0.04);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .bus-hops {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 160px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+        
+        .bus-hop-item {
+            background-color: #121420;
+            border-left: 3px solid #ff4b4b;
+            padding: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .ref-answer-known { color: var(--accent-green); }
+        .ref-answer-unknown { color: var(--text-muted); opacity: 0.6; }
+        
         pre.code-block {
             background-color: #0b0d14;
-            padding: 14px;
+            padding: 12px;
             border-radius: 6px;
-            font-family: "Fira Code", "Courier New", monospace;
-            font-size: 0.88rem;
+            font-family: "Fira Code", monospace;
+            font-size: 0.85rem;
             color: #79d4fd;
             overflow-x: auto;
             border: 1px solid #1f2335;
+            max-height: 200px;
         }
         
         .graveyard-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            max-height: 220px;
+            gap: 8px;
+            max-height: 140px;
             overflow-y: auto;
         }
         
         .failure-node {
             background-color: rgba(255, 75, 75, 0.08);
             border-left: 3px solid var(--accent-red);
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-radius: 0 4px 4px 0;
-            font-size: 0.85rem;
-        }
-        
-        .failure-title {
-            color: #ff7b72;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        
-        .failure-anti {
-            color: #ffa657;
-            background: rgba(255, 166, 87, 0.1);
-            padding: 2px 6px;
-            border-radius: 3px;
-            display: inline-block;
-            margin-top: 4px;
+            font-size: 0.82rem;
         }
         
         .trace-console {
@@ -233,20 +304,12 @@
             border: 1px solid #1a1c26;
             color: #89ddff;
             font-family: monospace;
-            font-size: 0.82rem;
-            padding: 12px;
+            font-size: 0.8rem;
+            padding: 10px;
             border-radius: 6px;
-            height: 180px;
+            height: 150px;
             overflow-y: auto;
             white-space: pre-wrap;
-        }
-        
-        .repulsion-pill {
-            font-size: 0.75rem;
-            background: rgba(255, 75, 75, 0.2);
-            color: #ff7b72;
-            padding: 2px 6px;
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -255,10 +318,10 @@
     <header>
         <h1>
             <span>⚡ Ephemeral Latent Coding Engine</span>
-            <span class="badge">ELCE v1.0</span>
+            <span class="badge">ELCE v2.0 (階層スウォーム)</span>
         </h1>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">
-            記憶AI × レファレンスAI × 使い捨て作業AI (Context Wipe)
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+            メインAI(承認) ➔ 作業AI ➔ ⭕オンデマンド情報要求 ➔ 複数レファレンスAI ➔ 記憶AI
         </div>
     </header>
 
@@ -267,21 +330,21 @@
         <div class="chat-section">
             <div class="chat-history" id="chatHistory">
                 <div class="message ai-message">
-                    こんにちは！私は<b>レファレンスAI</b>です。<br>
-                    記憶AIのコード履歴と過去の失敗（斥力）を照合し、タスクごとに使い捨ての<b>作業AI</b>を起動して安全にコードを改修します。指示をどうぞ！
+                    こんにちは！私は<b>メインAI（PM）</b>です。<br>
+                    ご指示をいただくと、まず<b>設計書（タスク分割・リソース見積）</b>を作成してご提示します。内容を承認いただいてから作業AIをディスパッチします。
                 </div>
             </div>
             
             <div class="chat-controls">
                 <div class="quick-chips">
                     <div class="chip" onclick="setPrompt('平均値の集計関数を実装して')">平均値の集計関数を実装</div>
-                    <div class="chip" onclick="setPrompt('空データ（[]）でも安全に動くようにゼロ除算ガードを加えて')">ゼロ除算ガードを追加</div>
                     <div class="chip" onclick="setPrompt('正数をソートして返すようにリファクタリングして')">ソート機能への改修</div>
+                    <div class="chip" onclick="setPrompt('配列要素を2倍にする関数を追加して')">2倍変換関数の追加</div>
                 </div>
                 
                 <div class="input-row">
-                    <input type="text" id="promptInput" placeholder="指示を入力してください (Enterで送信)..." onkeydown="if(event.key==='Enter') sendRequest()">
-                    <button class="send-btn" onclick="sendRequest()">指示送信</button>
+                    <input type="text" id="promptInput" placeholder="作りたい機能や修正の指示を入力..." onkeydown="if(event.key==='Enter') sendPrompt()">
+                    <button class="send-btn" onclick="sendPrompt()">指示送信</button>
                 </div>
             </div>
         </div>
@@ -289,11 +352,22 @@
         <!-- Inspector Section -->
         <div class="inspector-section">
             
+            <!-- Red Circle Bus Monitor -->
+            <div class="card red-bus-container">
+                <div class="card-header" style="color: #ff6b6b; margin-bottom: 6px;">
+                    <span>⭕ 必要があれば情報要求（オンデマンド通信バス）</span>
+                    <span style="font-size: 0.75rem; color: #ffa657;">知っている者だけ回答 / 知らなければ『わからない』</span>
+                </div>
+                <div class="bus-hops" id="busHopList">
+                    <div style="color: var(--text-muted);">作業AIが作業中にレファレンスAIへ問い合わせた通信履歴がここに流れます。</div>
+                </div>
+            </div>
+
             <!-- Code Store -->
             <div class="card">
                 <div class="card-header">
-                    <span>📦 記憶AI: 正史コードストア (<span id="codeVersionTag">v1</span>)</span>
-                    <span style="font-size: 0.8rem; color: var(--accent-green);">● Verified DAG</span>
+                    <span>📦 記憶AI(コード): 正史コードストア (<span id="codeVersionTag">v1</span>)</span>
+                    <span style="font-size: 0.78rem; color: var(--accent-green);">● Verified DAG</span>
                 </div>
                 <pre class="code-block" id="codeDisplay">読み込み中...</pre>
             </div>
@@ -301,21 +375,20 @@
             <!-- Failure Graveyard -->
             <div class="card">
                 <div class="card-header">
-                    <span>🪦 失敗の圧縮墓地 (Failure Graveyard & Repulsion)</span>
-                    <span class="repulsion-pill" id="graveyardCount">0 件の戒め</span>
+                    <span>🪦 記憶AI(失敗): 失敗の圧縮墓地 & 斥力制約</span>
+                    <span style="font-size: 0.75rem; background: rgba(255,75,75,0.2); color:#ff7b72; padding:2px 6px; border-radius:8px;" id="graveyardCount">0 件</span>
                 </div>
                 <div class="graveyard-list" id="graveyardList">
-                    <div style="color: var(--text-muted); font-size: 0.85rem;">過去の失敗記録はありません。クリーンな状態です。</div>
+                    <div style="color: var(--text-muted); font-size: 0.8rem;">過去の失敗記録はありません。クリーンな状態です。</div>
                 </div>
             </div>
 
-            <!-- Worker LifeCycle & Sandbox Trace -->
+            <!-- Trace Console -->
             <div class="card">
                 <div class="card-header">
-                    <span>⚡ 作業AI 実行トレース & コンテキスト抹消モニター</span>
-                    <span style="font-size: 0.8rem; color: var(--accent-blue);">Ephemeral Lifecycle</span>
+                    <span>⚡ メインAI & 作業AI 実行トレース (コンテキスト抹消)</span>
                 </div>
-                <div class="trace-console" id="traceConsole">待機中... 指示を送信すると、作業AIの起動とコンテキスト破棄のログが流れます。</div>
+                <div class="trace-console" id="traceConsole">待機中... 指示を送信してください。</div>
             </div>
 
         </div>
@@ -328,6 +401,7 @@
         const codeVersionTag = document.getElementById('codeVersionTag');
         const graveyardList = document.getElementById('graveyardList');
         const graveyardCount = document.getElementById('graveyardCount');
+        const busHopList = document.getElementById('busHopList');
         const traceConsole = document.getElementById('traceConsole');
 
         function setPrompt(text) {
@@ -346,30 +420,27 @@
         }
 
         function updateInspector(state) {
-            // 1. Code
             const mainLogic = state.code_store["main_logic"];
             if (mainLogic) {
                 codeDisplay.innerText = mainLogic.code;
                 codeVersionTag.innerText = `v${mainLogic.version}`;
             }
 
-            // 2. Graveyard
-            const gy = state.failure_graveyard;
-            graveyardCount.innerText = `${gy.length} 件の戒め`;
-            if (gy.length === 0) {
-                graveyardList.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem;">過去の失敗記録はありません。クリーンな状態です。</div>';
+            const failures = state.failures || [];
+            graveyardCount.innerText = `${failures.length} 件`;
+            if (failures.length === 0) {
+                graveyardList.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8rem;">過去の失敗記録はありません。クリーンな状態です。</div>';
             } else {
-                graveyardList.innerHTML = gy.map(f => `
+                graveyardList.innerHTML = failures.map(f => `
                     <div class="failure-node">
-                        <div class="failure-title">⚠️ [${f.error_type}] ${f.root_cause}</div>
-                        <div style="color: var(--text-muted); font-size: 0.8rem;">意図: ${f.attempted_intent}</div>
-                        <div class="failure-anti">🛡️ 斥力制約: ${f.anti_pattern}</div>
+                        <div style="color:#ff7b72; font-weight:bold;">⚠️ [${f.error_type}] ${f.root_cause}</div>
+                        <div style="color:#ffa657; margin-top:2px;">🛡️ 斥力制約: ${f.anti_pattern}</div>
                     </div>
                 `).reverse().join('');
             }
         }
 
-        async function sendRequest() {
+        async function sendPrompt() {
             const prompt = promptInput.value.trim();
             if (!prompt) return;
 
@@ -381,36 +452,109 @@
             promptInput.value = '';
             chatHistory.scrollTop = chatHistory.scrollHeight;
 
-            traceConsole.innerText = `>>> レファレンスAIが要求を処理中: "${prompt}"\n`;
+            traceConsole.innerText = `[メインAI] 指示を受信。設計書・タスク分割を作成中...\n`;
 
             try {
-                const res = await fetch('/api/chat', {
+                const res = await fetch('/api/chat/plan', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ prompt: prompt })
                 });
-                const data = await res.json();
+                const spec = await res.json();
 
-                // Add AI response
+                // Render Design Spec Box with Approval Button
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'message ai-message';
-                aiDiv.innerText = data.reply;
+                aiDiv.innerHTML = `
+                    <div><b>[メインAI]</b> ご指示に基づき設計書を作成しました。内容をご確認の上、承認してください。</div>
+                    <div class="spec-box" id="box_${spec.spec_id}">
+                        <div class="spec-title">
+                            <span>📋 設計書: ${spec.spec_id}</span>
+                            <span style="font-size:0.75rem; color:#aaa;">対象: ${spec.target_symbol}</span>
+                        </div>
+                        <div class="resource-row">
+                            📊 <b>リソース見積:</b> RAM: ${spec.resource_impact.estimated_ram} | ストレージ: ${spec.resource_impact.disk_delta}
+                        </div>
+                        <div style="font-size:0.8rem; color:#c0caf5; margin-top:6px;"><b>▼ 分割された作業命令 (Subtasks):</b></div>
+                        <ul class="subtask-list">
+                            ${spec.subtasks.map(t => `<li><span>🔹</span> <span><b>Task ${t.id}:</b> ${t.title}</span></li>`).join('')}
+                        </ul>
+                        <button class="approve-btn" id="btn_${spec.spec_id}" onclick="approvePlan('${spec.spec_id}')">
+                            ✅ この設計書を承認して作業AIに命令を発行する
+                        </button>
+                    </div>
+                `;
                 chatHistory.appendChild(aiDiv);
                 chatHistory.scrollTop = chatHistory.scrollHeight;
 
-                // Update Trace Console
+            } catch(e) {
+                traceConsole.innerText += `\n[Error] 通信エラー: ${e.message}`;
+            }
+        }
+
+        async function approvePlan(specId) {
+            const btn = document.getElementById(`btn_${specId}`);
+            if (btn) {
+                btn.disabled = true;
+                btn.innerText = "⏳ 作業AIを実行中...";
+            }
+
+            traceConsole.innerText = `[メインAI] 承認を受信。指示を分割して作業AIへ命令を開始...\n`;
+
+            try {
+                const res = await fetch('/api/chat/approve', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ spec_id: specId })
+                });
+                const data = await res.json();
+
+                if (btn) {
+                    btn.innerText = "🎉 完了 (Approved & Executed)";
+                    btn.style.background = "#2b2e44";
+                }
+
+                // AI Reply
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'message ai-message';
+                aiDiv.innerHTML = `
+                    <b>[メインAI]</b> 設計書 ${specId} の全サブタスクが完了しました！<br>
+                    作業AIのコンテキストは毎回完全に抹消され、コードは正史ブランチへマージされました。
+                `;
+                chatHistory.appendChild(aiDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+
+                // Update Logs
                 traceConsole.innerText = data.logs.join('\n');
                 traceConsole.scrollTop = traceConsole.scrollHeight;
+
+                // Update Red Circle Bus Monitor
+                if (data.bus_traces && data.bus_traces.length > 0) {
+                    busHopList.innerHTML = data.bus_traces.map(hop => `
+                        <div class="bus-hop-item">
+                            <div style="color:#79d4fd;"><b>${hop.requester}</b> ➔ 要求: <code>${hop.question_type}</code></div>
+                            <div style="margin-top:4px;">
+                                ${hop.responses.map(r => `
+                                    <div>
+                                        - ${r.agent}: 
+                                        <span class="${r.known ? 'ref-answer-known' : 'ref-answer-unknown'}">
+                                            ${r.answer}
+                                        </span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('');
+                }
 
                 // Update Inspector
                 updateInspector(data.memory_state);
 
             } catch(e) {
-                traceConsole.innerText += `\n[Error] 通信失敗: ${e.message}`;
+                traceConsole.innerText += `\n[Error] 承認実行エラー: ${e.message}`;
             }
         }
 
-        // Initial load
         fetchState();
     </script>
 </body>
