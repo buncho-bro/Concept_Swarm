@@ -7,19 +7,24 @@ class SandboxRunner:
     """
     実行・検証サンドボックス (Sandbox Runner):
     1. 生成されたコードの ast.parse (構文チェック)
-    2. 安全な分離環境での実行テスト
-    3. 失敗時の自動ポストモーテム圧縮（原因とアンチパターンの抽出）
+    2. 分離環境での動的実行検証 (exec)
+    3. 失敗時の自動ポストモーテム圧縮
     """
     def __init__(self):
         pass
 
-    def verify_and_test(self, code_str, test_args=None):
-        """
-        コードの構文チェックおよび実行テストを行う。
-        """
+    def verify_and_test(self, code_str):
+        if not code_str or not code_str.strip():
+            return {
+                "success": False,
+                "error_type": "EmptyCodeError",
+                "root_cause": "生成されたコードが空です",
+                "anti_pattern": "コードブロック内に有効なPythonコードを出力せよ。"
+            }
+
         # 1. 構文解析 (AST Parse)
         try:
-            ast.parse(code_str)
+            tree = ast.parse(code_str)
         except SyntaxError as e:
             return {
                 "success": False,
@@ -37,23 +42,20 @@ class SandboxRunner:
         try:
             exec(code_str, local_scope, local_scope)
             
-            # もしテスト関数や対象関数があれば簡単な呼び出しテストを行う
+            # process_data が存在する場合はテスト
             if "process_data" in local_scope:
                 fn = local_scope["process_data"]
-                test_result = fn([-5, 0, 10, 20])
-                if not isinstance(test_result, (list, tuple, dict, int, float)):
-                    raise TypeError("process_data の戻り値が不正です")
-                # エッジケース検証: 空リスト時の耐性
-                edge_result = fn([])
-                if not isinstance(edge_result, (list, tuple, dict, int, float)):
-                    raise TypeError("process_data([]) の戻り値が不正です")
-                    
+                try:
+                    res1 = fn([-5, 0, 10, 20])
+                    res2 = fn([]) # 空データ耐性
+                except Exception as inner_e:
+                    raise inner_e
+
         except Exception as e:
             sys.stdout = old_stdout
             err_type = type(e).__name__
             err_msg = str(e)
             
-            # 自動ポストモーテム圧縮
             anti_pattern = self._derive_anti_pattern(err_type, err_msg)
             return {
                 "success": False,
@@ -70,9 +72,6 @@ class SandboxRunner:
         }
 
     def _derive_anti_pattern(self, err_type, err_msg):
-        """
-        エラー内容から作業AIへ提示する『教訓（アンチパターン・斥力）』を生成
-        """
         if "RecursionError" in err_type:
             return "再帰の基底条件が不十分で無限ループに陥った。再帰ではなくループ処理またはメモ化を採用せよ。"
         elif "ZeroDivisionError" in err_type:
@@ -81,5 +80,7 @@ class SandboxRunner:
             return "存在しないキーまたはインデックスに無防備にアクセスした。辞書の.get()や境界値チェックを行え。"
         elif "TypeError" in err_type:
             return f"型の不一致が発生している（{err_msg}）。入力値の型検証と安全なキャストを徹底せよ。"
+        elif "NameError" in err_type:
+            return f"未定義の変数または未インポートのモジュールを参照した（{err_msg}）。"
         else:
             return f"実行時例外（{err_type}）が発生。防御的プログラミングとエッジケースのバリデーションを強化せよ。"

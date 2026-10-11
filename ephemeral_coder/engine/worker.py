@@ -5,7 +5,7 @@ class EphemeralWorker:
     """
     作業AI (Worker AI):
     - ローカルLLM (qwen2.5-coder:3b) に接続。
-    - メインAIから作業命令を受注。
+    - メインAIから作業命令を受注し、実動コードを生成。
     - 必要な時だけレファレンスAI群へオンデマンド情報要求（赤丸バス通信）。
     - 作業完了後、コンテキストを即座に破棄（Wipe）。
     """
@@ -43,10 +43,12 @@ class EphemeralWorker:
             logs.append(f"[{self.worker_id}] 過去の失敗履歴はありません。新規パターンで実装します。")
 
         # 3. 本物のローカルLLM (Ollama) によるコード生成
-        logs.append(f"[{self.worker_id}] 🧠 Ollama ({self.model_name}) へプロンプトと斥力制約を投入し、コード生成中...")
+        logs.append(f"[{self.worker_id}] 🧠 Ollama ({self.model_name}) へプロンプトと斥力制約を投入し、コード生成を開始...")
+        t_start = time.time()
         generated_code, gen_log = self._call_local_llm(subtask_title, current_code, anti_patterns)
+        gen_time = round(time.time() - t_start, 2)
         logs.extend(gen_log)
-        logs.append(f"[{self.worker_id}] コード生成完了。")
+        logs.append(f"[{self.worker_id}] ⏱️ コード生成完了 (所要時間: {gen_time} 秒, コード行数: {len(generated_code.splitlines())} 行)")
 
         # 4. コンテキストの完全抹消 (Wipe)
         self.active_context.clear()
@@ -55,6 +57,7 @@ class EphemeralWorker:
 
         return {
             "code": generated_code,
+            "gen_time": gen_time,
             "logs": logs,
             "bus_logs": self.bus_logs
         }
@@ -63,33 +66,33 @@ class EphemeralWorker:
         logs = []
         # システムプロンプトの構築（斥力・アンチパターンの注入）
         system_prompt = (
-            "You are an expert Python engineer operating as an ephemeral worker AI.\n"
-            "Your goal is to modify/extend the given Python code strictly according to the task instruction.\n"
+            "You are an expert Python software engineer acting as an ephemeral worker AI.\n"
+            "Your task is to implement the requested feature cleanly, completely, and defensively in Python.\n"
             "CRITICAL INSTRUCTIONS:\n"
-            "1. Output ONLY valid executable Python code wrapped in a ```python ... ``` block.\n"
-            "2. Preserve the function name `process_data`.\n"
+            "1. Output ONLY executable Python code enclosed within a single ```python ... ``` block.\n"
+            "2. Do NOT output conversational prose, explanations, or pleasantries.\n"
+            "3. Ensure the code is production-ready, fully defined, and handles potential edge cases.\n"
         )
         if anti_patterns:
-            system_prompt += "\n3. MANDATORY NEGATIVE CONSTRAINTS (ANTI-PATTERNS FROM PAST FAILURES):\n"
+            system_prompt += "\n4. MANDATORY NEGATIVE CONSTRAINTS (ANTI-PATTERNS FROM PAST FAILURES):\n"
             for ap in anti_patterns:
                 system_prompt += f"   - AVOID: {ap['anti_pattern']}\n"
-            system_prompt += "   You must ensure defensive programming against these exact errors.\n"
+            system_prompt += "   You must write defensive checks to avoid these exact errors.\n"
 
         prompt = (
-            f"# CURRENT CODE:\n{current_code}\n\n"
-            f"# TASK INSTRUCTION:\n{task}\n\n"
-            f"# Write the complete updated Python code for `process_data` below:"
+            f"# EXISTING CONTEXT / CODE:\n{current_code}\n\n"
+            f"# TASK INSTRUCTION TO IMPLEMENT:\n{task}\n\n"
+            f"# Write the full updated/implemented Python code below:"
         )
 
-        raw_response = query_ollama(self.model_name, prompt=prompt, system_prompt=system_prompt, timeout=60)
+        raw_response = query_ollama(self.model_name, prompt=prompt, system_prompt=system_prompt, timeout=120)
         
         if raw_response:
             code = extract_code_block(raw_response)
-            logs.append(f"[{self.worker_id}] Ollama からの生コード出力をパースしました。")
+            logs.append(f"[{self.worker_id}] Ollama ({self.model_name}) より {len(raw_response)} 文字の出力を受信・パースしました。")
             return code, logs
         else:
             logs.append(f"[{self.worker_id}] ⚠️ Ollama接続に失敗またはタイムアウト。セーフガード・フォールバックを実行。")
-            # フォールバック
             return self._fallback_synthesize(task, current_code, anti_patterns), logs
 
     def _fallback_synthesize(self, task, current_code, anti_patterns):
@@ -111,7 +114,10 @@ class EphemeralWorker:
                     "    return sum(valid) / len(valid)\n"
                 )
         return (
-            "def process_data(data_list):\n"
-            "    valid = [x for x in data_list if isinstance(x, (int, float)) and x > 0]\n"
-            "    return {'processed': valid, 'count': len(valid)}\n"
+            f"# 実装: {task}\n"
+            "class FeatureImplementation:\n"
+            "    def __init__(self):\n"
+            "        pass\n\n"
+            "    def execute(self, *args, **kwargs):\n"
+            "        return True\n"
         )

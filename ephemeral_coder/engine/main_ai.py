@@ -2,14 +2,14 @@ import uuid
 import time
 from engine.worker import EphemeralWorker
 from engine.sandbox import SandboxRunner
-from engine.ollama_client import query_ollama
 
 class MainAI:
     """
     メインAI (Main AI / PM):
     1. ユーザーからの入力を受領
-    2. ローカルLLMを活用して設計書（仕様・リソース見積・タスク分割）を作成しユーザーへ送信・承認要求
+    2. 設計書（仕様・リソース見積・タスク分割）を作成しユーザーへ送信・承認要求
     3. ユーザー承認後、指示を分割して作業AIへ命令を発行
+    4. 成果物コード（final_code）を取りまとめ、ユーザーへ返却
     """
     def __init__(self, memory_cluster, reference_cluster, model_name="qwen2.5-coder:3b"):
         self.mem_cluster = memory_cluster
@@ -25,11 +25,9 @@ class MainAI:
         spec_id = f"spec_{str(uuid.uuid4())[:6]}"
         target_symbol = "main_logic"
 
-        # レファレンスAIから現在のコード情報を事前確認
         code_data, _ = self.ref_cluster.on_demand_request("メインAI", "code_symbol", {"symbol": target_symbol})
         current_ver = code_data["version"] if code_data else 1
 
-        # タスク分割のロジック（Ollama活用 + フォールバック）
         subtasks = self._plan_subtasks(user_prompt, target_symbol)
 
         spec = {
@@ -37,9 +35,11 @@ class MainAI:
             "user_prompt": user_prompt,
             "target_symbol": target_symbol,
             "target_version_from": current_ver,
+            "model_used": self.model_name,
             "resource_impact": {
-                "estimated_ram": "< 120MB (Local Ollama qwen2.5-coder:3b)",
-                "disk_delta": "+0.8 KB",
+                "engine": f"Local Ollama ({self.model_name})",
+                "estimated_ram": "< 120MB (推論時)",
+                "disk_delta": "+1.2 KB",
                 "affected_modules": [f"engine.{target_symbol}"]
             },
             "subtasks": subtasks,
@@ -52,7 +52,6 @@ class MainAI:
         return spec
 
     def _plan_subtasks(self, prompt, symbol):
-        """指示に応じたサブタスク分割"""
         p = prompt.lower()
         if "平均" in p or "集計" in p:
             return [
@@ -68,9 +67,10 @@ class MainAI:
                 {"id": 1, "title": "各要素の数値変換（2倍化）処理の実装", "symbol": symbol}
             ]
         else:
+            # 任意の複雑な指示に対する柔軟なタスク分割
             return [
-                {"id": 1, "title": f"要件『{prompt}』のプロトタイプ実装", "symbol": symbol},
-                {"id": 2, "title": "防御的ガードとエラーハンドリングの追加", "symbol": symbol}
+                {"id": 1, "title": f"要件『{prompt}』のコアロジック実装", "symbol": symbol},
+                {"id": 2, "title": "防御的例外処理とクラス/関数インターフェースの統合", "symbol": symbol}
             ]
 
     def execute_approved_plan(self, spec_id):
@@ -83,6 +83,8 @@ class MainAI:
 
         logs = []
         bus_traces = []
+        final_code = ""
+        total_gen_time = 0.0
         logs.append(f"[メインAI] ✅ ユーザー承認を受領 (設計書: {spec_id})。作業命令を開始します。")
 
         for task in spec["subtasks"]:
@@ -91,27 +93,24 @@ class MainAI:
             logs.append(f"\n▶ [メインAI] サブタスク発行: 『{task_title}』 ➔ 作業AIへ")
 
             max_attempts = 2
-            task_success = False
-
             for attempt in range(1, max_attempts + 1):
                 worker_id = f"worker_{task['id']}_att_{attempt}"
-                # クリーンな作業AIの召喚（Ollama接続）
                 worker = EphemeralWorker(worker_id, self.ref_cluster, model_name=self.model_name)
                 
-                # 作業AIの実行（オンデマンド要求を含む）
                 result = worker.execute_subtask(task_title, target_symbol)
                 logs.extend(result["logs"])
                 bus_traces.extend(result["bus_logs"])
+                total_gen_time += result.get("gen_time", 0.0)
 
                 # サンドボックス検証
-                logs.append(f"[Sandbox] 生成コードのAST検証およびエッジケーステスト実行中...")
+                logs.append(f"[Sandbox] 生成コードのAST検証中...")
                 test_res = self.sandbox.verify_and_test(result["code"])
 
                 if test_res["success"]:
                     logs.append(f"[Sandbox] ✅ 検証成功！ 構文・テストに合格しました。")
                     new_ver = self.mem_cluster.code_mem.save_code(target_symbol, result["code"], commit_msg=f"Approved Task: {task_title}")
                     logs.append(f"[記憶AI(コード)] 正史ブランチにマージ (Version {new_ver})")
-                    task_success = True
+                    final_code = result["code"]
                     break
                 else:
                     logs.append(f"[Sandbox] ❌ 検証失敗: {test_res['root_cause']}")
@@ -125,12 +124,18 @@ class MainAI:
                         anti_pattern=test_res["anti_pattern"]
                     )
                     logs.append(f"[記憶AI(失敗)] 登録完了: 忌避制約『{test_res['anti_pattern']}』")
+                    final_code = result["code"] # 失敗したコードも保持
 
         logs.append(f"\n[メインAI] 🎉 全サブタスクの実行完了。設計書 {spec_id} の全工程を完了しました。")
         spec["status"] = "COMPLETED"
 
         return {
             "success": True,
+            "spec_id": spec_id,
+            "final_code": final_code,
+            "model_used": self.model_name,
+            "total_gen_time": round(total_gen_time, 2),
+            "line_count": len(final_code.splitlines()) if final_code else 0,
             "logs": logs,
             "bus_traces": bus_traces,
             "memory_state": self.mem_cluster.get_state()

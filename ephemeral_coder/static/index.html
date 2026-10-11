@@ -39,19 +39,31 @@
         }
         
         header h1 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
         .badge {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             background: #25283d;
             border: 1px solid #3d4263;
             color: #9aa5ce;
             padding: 3px 8px;
             border-radius: 4px;
+        }
+
+        .model-live-badge {
+            font-size: 0.75rem;
+            background: rgba(56, 239, 125, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .main-container {
@@ -62,7 +74,7 @@
         
         /* Left: Chat Window */
         .chat-section {
-            width: 42%;
+            width: 48%;
             display: flex;
             flex-direction: column;
             border-right: 1px solid var(--panel-border);
@@ -79,7 +91,7 @@
         }
         
         .message {
-            max-width: 90%;
+            max-width: 95%;
             padding: 12px 16px;
             border-radius: 8px;
             font-size: 0.92rem;
@@ -118,7 +130,7 @@
         }
         
         .resource-row {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: #aaa;
             background-color: #121420;
             padding: 6px 10px;
@@ -158,6 +170,45 @@
             cursor: not-allowed;
             transform: none;
         }
+
+        /* Result Deliverable Box in Chat */
+        .deliverable-box {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        .deliverable-header {
+            background-color: #161b22;
+            padding: 8px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+            font-size: 0.82rem;
+        }
+        .deliverable-code {
+            padding: 12px;
+            font-family: "Fira Code", monospace;
+            font-size: 0.84rem;
+            color: #58a6ff;
+            overflow-x: auto;
+            max-height: 280px;
+            overflow-y: auto;
+            white-space: pre;
+            line-height: 1.45;
+        }
+        .copy-btn {
+            background-color: #21262d;
+            border: 1px solid #363b42;
+            color: #c9d1d9;
+            padding: 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+        .copy-btn:hover { background-color: #30363d; }
         
         .chat-controls {
             padding: 15px 20px;
@@ -217,7 +268,7 @@
         
         /* Right: Inspector Section */
         .inspector-section {
-            width: 58%;
+            width: 52%;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -239,11 +290,10 @@
             align-items: center;
             margin-bottom: 10px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #c0caf5;
         }
         
-        /* Red Circle Bus Monitor */
         .red-bus-container {
             border: 2px dashed #ff4b4b;
             background-color: rgba(255, 75, 75, 0.04);
@@ -255,7 +305,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            max-height: 160px;
+            max-height: 150px;
             overflow-y: auto;
             font-size: 0.8rem;
             font-family: monospace;
@@ -276,18 +326,18 @@
             padding: 12px;
             border-radius: 6px;
             font-family: "Fira Code", monospace;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: #79d4fd;
             overflow-x: auto;
             border: 1px solid #1f2335;
-            max-height: 200px;
+            max-height: 180px;
         }
         
         .graveyard-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            max-height: 140px;
+            max-height: 120px;
             overflow-y: auto;
         }
         
@@ -296,7 +346,7 @@
             border-left: 3px solid var(--accent-red);
             padding: 8px 10px;
             border-radius: 0 4px 4px 0;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
         }
         
         .trace-console {
@@ -304,10 +354,10 @@
             border: 1px solid #1a1c26;
             color: #89ddff;
             font-family: monospace;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             padding: 10px;
             border-radius: 6px;
-            height: 150px;
+            height: 140px;
             overflow-y: auto;
             white-space: pre-wrap;
         }
@@ -318,10 +368,13 @@
     <header>
         <h1>
             <span>⚡ Ephemeral Latent Coding Engine</span>
-            <span class="badge">ELCE v2.0 (階層スウォーム)</span>
+            <span class="badge">ELCE v2.0</span>
         </h1>
-        <div style="font-size: 0.82rem; color: var(--text-muted);">
-            メインAI(承認) ➔ 作業AI ➔ ⭕オンデマンド情報要求 ➔ 複数レファレンスAI ➔ 記憶AI
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <div class="model-live-badge">● Ollama: qwen2.5-coder:3b (Active)</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">
+                メインAI ➔ 作業AI ➔ ⭕オンデマンド要求 ➔ レファレンスAI ➔ 記憶AI
+            </div>
         </div>
     </header>
 
@@ -331,19 +384,19 @@
             <div class="chat-history" id="chatHistory">
                 <div class="message ai-message">
                     こんにちは！私は<b>メインAI（PM）</b>です。<br>
-                    ご指示をいただくと、まず<b>設計書（タスク分割・リソース見積）</b>を作成してご提示します。内容を承認いただいてから作業AIをディスパッチします。
+                    ローカルLLM（<b>qwen2.5-coder:3b</b>）が待機しています。指示をいただくと設計書を作成し、承認後に作業AIを起動して<b>完成したコード成果物を出力</b>します。
                 </div>
             </div>
             
             <div class="chat-controls">
                 <div class="quick-chips">
-                    <div class="chip" onclick="setPrompt('平均値の集計関数を実装して')">平均値の集計関数を実装</div>
-                    <div class="chip" onclick="setPrompt('正数をソートして返すようにリファクタリングして')">ソート機能への改修</div>
-                    <div class="chip" onclick="setPrompt('配列要素を2倍にする関数を追加して')">2倍変換関数の追加</div>
+                    <div class="chip" onclick="setPrompt('ユーザー管理システムの実装。ユーザー追加と認証を行うクラス UserManager を作成して')">ユーザー認証クラス UserManager 実装</div>
+                    <div class="chip" onclick="setPrompt('素数を判定して指定範囲の素数リストを返す関数 get_primes を作成して')">素数判定 get_primes 実装</div>
+                    <div class="chip" onclick="setPrompt('平均値の集計関数を実装して。空データでも安全に動くようにして')">堅牢なデータ集計関数 実装</div>
                 </div>
                 
                 <div class="input-row">
-                    <input type="text" id="promptInput" placeholder="作りたい機能や修正の指示を入力..." onkeydown="if(event.key==='Enter') sendPrompt()">
+                    <input type="text" id="promptInput" placeholder="作りたい機能や複雑な指示を入力してください..." onkeydown="if(event.key==='Enter') sendPrompt()">
                     <button class="send-btn" onclick="sendPrompt()">指示送信</button>
                 </div>
             </div>
@@ -356,7 +409,7 @@
             <div class="card red-bus-container">
                 <div class="card-header" style="color: #ff6b6b; margin-bottom: 6px;">
                     <span>⭕ 必要があれば情報要求（オンデマンド通信バス）</span>
-                    <span style="font-size: 0.75rem; color: #ffa657;">知っている者だけ回答 / 知らなければ『わからない』</span>
+                    <span style="font-size: 0.72rem; color: #ffa657;">知っている者だけ回答 / 知らなければ『わからない』</span>
                 </div>
                 <div class="bus-hops" id="busHopList">
                     <div style="color: var(--text-muted);">作業AIが作業中にレファレンスAIへ問い合わせた通信履歴がここに流れます。</div>
@@ -452,7 +505,7 @@
             promptInput.value = '';
             chatHistory.scrollTop = chatHistory.scrollHeight;
 
-            traceConsole.innerText = `[メインAI] 指示を受信。設計書・タスク分割を作成中...\n`;
+            traceConsole.innerText = `[メインAI] 指示を受信: "${prompt}"\n[メインAI] 設計書・タスク分割を作成中...\n`;
 
             try {
                 const res = await fetch('/api/chat/plan', {
@@ -470,10 +523,10 @@
                     <div class="spec-box" id="box_${spec.spec_id}">
                         <div class="spec-title">
                             <span>📋 設計書: ${spec.spec_id}</span>
-                            <span style="font-size:0.75rem; color:#aaa;">対象: ${spec.target_symbol}</span>
+                            <span style="font-size:0.75rem; color:#aaa;">駆動: ${spec.model_used}</span>
                         </div>
                         <div class="resource-row">
-                            📊 <b>リソース見積:</b> RAM: ${spec.resource_impact.estimated_ram} | ストレージ: ${spec.resource_impact.disk_delta}
+                            📊 <b>リソース見積:</b> ${spec.resource_impact.engine} | ${spec.resource_impact.estimated_ram}
                         </div>
                         <div style="font-size:0.8rem; color:#c0caf5; margin-top:6px;"><b>▼ 分割された作業命令 (Subtasks):</b></div>
                         <ul class="subtask-list">
@@ -496,7 +549,7 @@
             const btn = document.getElementById(`btn_${specId}`);
             if (btn) {
                 btn.disabled = true;
-                btn.innerText = "⏳ 作業AIを実行中...";
+                btn.innerText = "⏳ ローカルLLM (qwen2.5-coder:3b) でコード生成中...";
             }
 
             traceConsole.innerText = `[メインAI] 承認を受信。指示を分割して作業AIへ命令を開始...\n`;
@@ -514,12 +567,25 @@
                     btn.style.background = "#2b2e44";
                 }
 
-                // AI Reply
+                // AI Reply WITH DELIVERABLE CODE BLOCK
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'message ai-message';
                 aiDiv.innerHTML = `
-                    <b>[メインAI]</b> 設計書 ${specId} の全サブタスクが完了しました！<br>
-                    作業AIのコンテキストは毎回完全に抹消され、コードは正史ブランチへマージされました。
+                    <div>
+                        <b>[メインAI]</b> 設計書 ${specId} の実装が完了しました！<br>
+                        <span style="font-size:0.8rem; color:#aaa;">
+                            モデル: <code>${data.model_used}</code> | 生成時間: <b>${data.total_gen_time} 秒</b> | コード規模: <b>${data.line_count} 行</b>
+                        </span>
+                    </div>
+
+                    <!-- 成果物コード出力 -->
+                    <div class="deliverable-box">
+                        <div class="deliverable-header">
+                            <span>📄 <b>完成した成果物コード (Resulting Deliverable)</b></span>
+                            <button class="copy-btn" onclick="copyCode('code_${specId}')">📋 コピー</button>
+                        </div>
+                        <div class="deliverable-code" id="code_${specId}">${escapeHtml(data.final_code)}</div>
+                    </div>
                 `;
                 chatHistory.appendChild(aiDiv);
                 chatHistory.scrollTop = chatHistory.scrollHeight;
@@ -552,6 +618,24 @@
 
             } catch(e) {
                 traceConsole.innerText += `\n[Error] 承認実行エラー: ${e.message}`;
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function copyCode(elemId) {
+            const codeElem = document.getElementById(elemId);
+            if (codeElem) {
+                navigator.clipboard.writeText(codeElem.innerText);
+                alert("成果物コードをクリップボードにコピーしました！");
             }
         }
 
