@@ -108,6 +108,16 @@ class MainAI:
                 try:
                     data = json.loads(match.group(1))
                     if "subtasks" in data and isinstance(data["subtasks"], list):
+                        # 各フィールドがオブジェクトやリストの場合は文字列化して正規化
+                        for key in ["title", "overview", "architecture"]:
+                            if key in data and not isinstance(data[key], str):
+                                data[key] = json.dumps(data[key], ensure_ascii=False, indent=2)
+                        
+                        if "resource_impact" in data and isinstance(data["resource_impact"], dict):
+                            for r_key in ["memory_estimate", "storage_estimate", "risk_mitigation"]:
+                                if r_key in data["resource_impact"] and not isinstance(data["resource_impact"][r_key], str):
+                                    data["resource_impact"][r_key] = json.dumps(data["resource_impact"][r_key], ensure_ascii=False)
+                        
                         return data
                 except Exception as e:
                     print(f"[Main AI JSON Parse Error] {e}")
