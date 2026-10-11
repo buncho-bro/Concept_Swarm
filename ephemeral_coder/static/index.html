@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ephemeral Latent Coding Engine (ELCE)</title>
+    <style>
+        :root {
+            --bg-dark: #0f111a;
+            --panel-bg: #1a1c29;
+            --panel-border: #2b2e44;
+            --accent-blue: #4d7cff;
+            --accent-green: #38ef7d;
+            --accent-red: #ff4b4b;
+            --text-main: #e2e8f0;
+            --text-muted: #8c9ba5;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        header {
+            padding: 15px 25px;
+            background-color: var(--panel-bg);
+            border-bottom: 1px solid var(--panel-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header h1 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            background: #25283d;
+            border: 1px solid #3d4263;
+            color: #9aa5ce;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        .main-container {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 65px);
+        }
+        
+        /* Left: Chat Window */
+        .chat-section {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--panel-border);
+            background-color: #131520;
+        }
+        
+        .chat-history {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background-color: #27408b;
+            color: #ffffff;
+            border-bottom-right-radius: 2px;
+        }
+        
+        .ai-message {
+            align-self: flex-start;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-bottom-left-radius: 2px;
+        }
+        
+        .chat-controls {
+            padding: 15px 20px;
+            background-color: var(--panel-bg);
+            border-top: 1px solid var(--panel-border);
+        }
+        
+        .quick-chips {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .chip {
+            background-color: #212538;
+            color: #9bb1ff;
+            border: 1px solid #343c5e;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .chip:hover {
+            background-color: #2e3555;
+            color: #ffffff;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background-color: #0b0d14;
+            border: 1px solid var(--panel-border);
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: var(--accent-blue);
+        }
+        
+        button.send-btn {
+            padding: 12px 24px;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button.send-btn:hover { opacity: 0.9; }
+        
+        /* Right: Inspector Panels */
+        .inspector-section {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            background-color: var(--bg-dark);
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #c0caf5;
+        }
+        
+        pre.code-block {
+            background-color: #0b0d14;
+            padding: 14px;
+            border-radius: 6px;
+            font-family: "Fira Code", "Courier New", monospace;
+            font-size: 0.88rem;
+            color: #79d4fd;
+            overflow-x: auto;
+            border: 1px solid #1f2335;
+        }
+        
+        .graveyard-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+        
+        .failure-node {
+            background-color: rgba(255, 75, 75, 0.08);
+            border-left: 3px solid var(--accent-red);
+            padding: 10px 12px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.85rem;
+        }
+        
+        .failure-title {
+            color: #ff7b72;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .failure-anti {
+            color: #ffa657;
+            background: rgba(255, 166, 87, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        
+        .trace-console {
+            background-color: #08090d;
+            border: 1px solid #1a1c26;
+            color: #89ddff;
+            font-family: monospace;
+            font-size: 0.82rem;
+            padding: 12px;
+            border-radius: 6px;
+            height: 180px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .repulsion-pill {
+            font-size: 0.75rem;
+            background: rgba(255, 75, 75, 0.2);
+            color: #ff7b72;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            <span>⚡ Ephemeral Latent Coding Engine</span>
+            <span class="badge">ELCE v1.0</span>
+        </h1>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+            記憶AI × レファレンスAI × 使い捨て作業AI (Context Wipe)
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <div class="chat-history" id="chatHistory">
+                <div class="message ai-message">
+                    こんにちは！私は<b>レファレンスAI</b>です。<br>
+                    記憶AIのコード履歴と過去の失敗（斥力）を照合し、タスクごとに使い捨ての<b>作業AI</b>を起動して安全にコードを改修します。指示をどうぞ！
+                </div>
+            </div>
+            
+            <div class="chat-controls">
+                <div class="quick-chips">
+                    <div class="chip" onclick="setPrompt('平均値の集計関数を実装して')">平均値の集計関数を実装</div>
+                    <div class="chip" onclick="setPrompt('空データ（[]）でも安全に動くようにゼロ除算ガードを加えて')">ゼロ除算ガードを追加</div>
+                    <div class="chip" onclick="setPrompt('正数をソートして返すようにリファクタリングして')">ソート機能への改修</div>
+                </div>
+                
+                <div class="input-row">
+                    <input type="text" id="promptInput" placeholder="指示を入力してください (Enterで送信)..." onkeydown="if(event.key==='Enter') sendRequest()">
+                    <button class="send-btn" onclick="sendRequest()">指示送信</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inspector Section -->
+        <div class="inspector-section">
+            
+            <!-- Code Store -->
+            <div class="card">
+                <div class="card-header">
+                    <span>📦 記憶AI: 正史コードストア (<span id="codeVersionTag">v1</span>)</span>
+                    <span style="font-size: 0.8rem; color: var(--accent-green);">● Verified DAG</span>
+                </div>
+                <pre class="code-block" id="codeDisplay">読み込み中...</pre>
+            </div>
+
+            <!-- Failure Graveyard -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🪦 失敗の圧縮墓地 (Failure Graveyard & Repulsion)</span>
+                    <span class="repulsion-pill" id="graveyardCount">0 件の戒め</span>
+                </div>
+                <div class="graveyard-list" id="graveyardList">
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">過去の失敗記録はありません。クリーンな状態です。</div>
+                </div>
+            </div>
+
+            <!-- Worker LifeCycle & Sandbox Trace -->
+            <div class="card">
+                <div class="card-header">
+                    <span>⚡ 作業AI 実行トレース & コンテキスト抹消モニター</span>
+                    <span style="font-size: 0.8rem; color: var(--accent-blue);">Ephemeral Lifecycle</span>
+                </div>
+                <div class="trace-console" id="traceConsole">待機中... 指示を送信すると、作業AIの起動とコンテキスト破棄のログが流れます。</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const chatHistory = document.getElementById('chatHistory');
+        const promptInput = document.getElementById('promptInput');
+        const codeDisplay = document.getElementById('codeDisplay');
+        const codeVersionTag = document.getElementById('codeVersionTag');
+        const graveyardList = document.getElementById('graveyardList');
+        const graveyardCount = document.getElementById('graveyardCount');
+        const traceConsole = document.getElementById('traceConsole');
+
+        function setPrompt(text) {
+            promptInput.value = text;
+            promptInput.focus();
+        }
+
+        async function fetchState() {
+            try {
+                const res = await fetch('/api/state');
+                const data = await res.json();
+                updateInspector(data);
+            } catch(e) {
+                console.error(e);
+            }
+        }
+
+        function updateInspector(state) {
+            // 1. Code
+            const mainLogic = state.code_store["main_logic"];
+            if (mainLogic) {
+                codeDisplay.innerText = mainLogic.code;
+                codeVersionTag.innerText = `v${mainLogic.version}`;
+            }
+
+            // 2. Graveyard
+            const gy = state.failure_graveyard;
+            graveyardCount.innerText = `${gy.length} 件の戒め`;
+            if (gy.length === 0) {
+                graveyardList.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem;">過去の失敗記録はありません。クリーンな状態です。</div>';
+            } else {
+                graveyardList.innerHTML = gy.map(f => `
+                    <div class="failure-node">
+                        <div class="failure-title">⚠️ [${f.error_type}] ${f.root_cause}</div>
+                        <div style="color: var(--text-muted); font-size: 0.8rem;">意図: ${f.attempted_intent}</div>
+                        <div class="failure-anti">🛡️ 斥力制約: ${f.anti_pattern}</div>
+                    </div>
+                `).reverse().join('');
+            }
+        }
+
+        async function sendRequest() {
+            const prompt = promptInput.value.trim();
+            if (!prompt) return;
+
+            // Add user message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message user-message';
+            userDiv.innerText = prompt;
+            chatHistory.appendChild(userDiv);
+            promptInput.value = '';
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            traceConsole.innerText = `>>> レファレンスAIが要求を処理中: "${prompt}"\n`;
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+                const data = await res.json();
+
+                // Add AI response
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'message ai-message';
+                aiDiv.innerText = data.reply;
+                chatHistory.appendChild(aiDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+
+                // Update Trace Console
+                traceConsole.innerText = data.logs.join('\n');
+                traceConsole.scrollTop = traceConsole.scrollHeight;
+
+                // Update Inspector
+                updateInspector(data.memory_state);
+
+            } catch(e) {
+                traceConsole.innerText += `\n[Error] 通信失敗: ${e.message}`;
+            }
+        }
+
+        // Initial load
+        fetchState();
+    </script>
+</body>
+</html>
