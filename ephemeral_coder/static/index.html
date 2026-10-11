@@ -114,8 +114,8 @@
         
         /* Plan Spec Box inside Chat */
         .spec-box {
-            background-color: #1d2133;
-            border: 1px solid #3b4266;
+            background-color: #191c2c;
+            border: 1px solid #3a4163;
             border-radius: 6px;
             padding: 14px;
             margin-top: 10px;
@@ -123,30 +123,49 @@
         
         .spec-title {
             font-weight: bold;
+            font-size: 1rem;
             color: #79d4fd;
             margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2b304d;
+            padding-bottom: 6px;
+        }
+        
+        .spec-section {
+            margin-top: 8px;
+            font-size: 0.84rem;
+            line-height: 1.45;
+        }
+        .spec-section-title {
+            color: #ff9800;
+            font-weight: bold;
+            font-size: 0.82rem;
+            margin-bottom: 3px;
         }
         
         .resource-row {
             font-size: 0.8rem;
             color: #aaa;
-            background-color: #121420;
-            padding: 6px 10px;
+            background-color: #10121d;
+            padding: 8px 10px;
             border-radius: 4px;
-            margin-bottom: 8px;
+            margin-top: 8px;
+            border: 1px solid #202438;
         }
         
         .subtask-list {
             list-style: none;
             margin: 8px 0;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
         }
         .subtask-list li {
-            padding: 4px 0;
-            display: flex;
-            gap: 6px;
+            padding: 6px 8px;
+            background-color: #121421;
+            border-left: 3px solid var(--accent-blue);
+            margin-bottom: 5px;
+            border-radius: 0 4px 4px 0;
         }
         
         button.approve-btn {
@@ -158,8 +177,9 @@
             font-weight: bold;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 12px;
             transition: transform 0.1s, opacity 0.2s;
+            font-size: 0.9rem;
         }
         button.approve-btn:hover {
             opacity: 0.95;
@@ -194,7 +214,7 @@
             font-size: 0.84rem;
             color: #58a6ff;
             overflow-x: auto;
-            max-height: 280px;
+            max-height: 300px;
             overflow-y: auto;
             white-space: pre;
             line-height: 1.45;
@@ -368,12 +388,12 @@
     <header>
         <h1>
             <span>⚡ Ephemeral Latent Coding Engine</span>
-            <span class="badge">ELCE v2.0</span>
+            <span class="badge">ELCE v2.0 (全AIローカルLLM駆動)</span>
         </h1>
         <div style="display: flex; gap: 10px; align-items: center;">
             <div class="model-live-badge">● Ollama: qwen2.5-coder:3b (Active)</div>
             <div style="font-size: 0.8rem; color: var(--text-muted);">
-                メインAI ➔ 作業AI ➔ ⭕オンデマンド要求 ➔ レファレンスAI ➔ 記憶AI
+                メインAI(LLM設計書) ➔ 作業AI(LLM実装) ➔ ⭕オンデマンド要求 ➔ レファレンスAI ➔ 記憶AI
             </div>
         </div>
     </header>
@@ -383,15 +403,15 @@
         <div class="chat-section">
             <div class="chat-history" id="chatHistory">
                 <div class="message ai-message">
-                    こんにちは！私は<b>メインAI（PM）</b>です。<br>
-                    ローカルLLM（<b>qwen2.5-coder:3b</b>）が待機しています。指示をいただくと設計書を作成し、承認後に作業AIを起動して<b>完成したコード成果物を出力</b>します。
+                    こんにちは！私は<b>メインAI（ソフトウェアアーキテクト）</b>です。<br>
+                    ご指示をいただくと、私自身（ローカルLLM）が直接要件を分析して<b>詳細な設計書（アーキテクチャ・リスク見積・タスク分割）</b>を作成します。承認後に作業AIへ命令を発行します。
                 </div>
             </div>
             
             <div class="chat-controls">
                 <div class="quick-chips">
-                    <div class="chip" onclick="setPrompt('ユーザー管理システムの実装。ユーザー追加と認証を行うクラス UserManager を作成して')">ユーザー認証クラス UserManager 実装</div>
-                    <div class="chip" onclick="setPrompt('素数を判定して指定範囲の素数リストを返す関数 get_primes を作成して')">素数判定 get_primes 実装</div>
+                    <div class="chip" onclick="setPrompt('ユーザー管理システムの実装。ユーザー追加と認証を行うクラス UserManager を作成して')">ユーザー認証クラス UserManager</div>
+                    <div class="chip" onclick="setPrompt('A*アルゴリズムを用いた最短経路探索クラス PathFinder を作成して')">A* 最短経路探索クラス 実装</div>
                     <div class="chip" onclick="setPrompt('平均値の集計関数を実装して。空データでも安全に動くようにして')">堅牢なデータ集計関数 実装</div>
                 </div>
                 
@@ -505,7 +525,7 @@
             promptInput.value = '';
             chatHistory.scrollTop = chatHistory.scrollHeight;
 
-            traceConsole.innerText = `[メインAI] 指示を受信: "${prompt}"\n[メインAI] 設計書・タスク分割を作成中...\n`;
+            traceConsole.innerText = `[メインAI] 🧠 Ollama (qwen2.5-coder:3b) が要件を分析中...\n[メインAI] 詳細な設計書とサブタスク分割を立案中...\n`;
 
             try {
                 const res = await fetch('/api/chat/plan', {
@@ -515,23 +535,46 @@
                 });
                 const spec = await res.json();
 
-                // Render Design Spec Box with Approval Button
+                // Render Detailed LLM Design Spec Box with Approval Button
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'message ai-message';
                 aiDiv.innerHTML = `
-                    <div><b>[メインAI]</b> ご指示に基づき設計書を作成しました。内容をご確認の上、承認してください。</div>
+                    <div><b>[メインAI]</b> 要件を精査し、正式な<b>技術設計書</b>を作成しました（立案時間: ${spec.plan_gen_time} 秒）。内容をご確認の上、承認してください。</div>
                     <div class="spec-box" id="box_${spec.spec_id}">
                         <div class="spec-title">
-                            <span>📋 設計書: ${spec.spec_id}</span>
-                            <span style="font-size:0.75rem; color:#aaa;">駆動: ${spec.model_used}</span>
+                            <span>📋 ${escapeHtml(spec.title)}</span>
+                            <span style="font-size:0.75rem; color:#aaa;">ID: ${spec.spec_id}</span>
                         </div>
+                        
+                        <div class="spec-section">
+                            <div class="spec-section-title">💡 概要・設計思想:</div>
+                            <div>${escapeHtml(spec.overview)}</div>
+                        </div>
+
+                        <div class="spec-section">
+                            <div class="spec-section-title">🏛️ アーキテクチャ構成:</div>
+                            <div>${escapeHtml(spec.architecture)}</div>
+                        </div>
+
                         <div class="resource-row">
-                            📊 <b>リソース見積:</b> ${spec.resource_impact.engine} | ${spec.resource_impact.estimated_ram}
+                            📊 <b>リソース・リスク評価:</b><br>
+                            - メモリ見積: ${spec.resource_impact.memory_estimate || '< 50MB'}<br>
+                            - 永続化容量: ${spec.resource_impact.storage_estimate || '+1.5 KB'}<br>
+                            - リスク対策: ${escapeHtml(spec.resource_impact.risk_mitigation || '型検証・ガード処理')}
                         </div>
-                        <div style="font-size:0.8rem; color:#c0caf5; margin-top:6px;"><b>▼ 分割された作業命令 (Subtasks):</b></div>
-                        <ul class="subtask-list">
-                            ${spec.subtasks.map(t => `<li><span>🔹</span> <span><b>Task ${t.id}:</b> ${t.title}</span></li>`).join('')}
-                        </ul>
+
+                        <div class="spec-section" style="margin-top:10px;">
+                            <div class="spec-section-title">▼ 分割された作業命令 (Subtasks):</div>
+                            <ul class="subtask-list">
+                                ${spec.subtasks.map(t => `
+                                    <li>
+                                        <b>Task ${t.id}: ${escapeHtml(t.title)}</b><br>
+                                        <span style="color:#aaa; font-size:0.8rem;">命令詳細: ${escapeHtml(t.instruction || t.title)}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
                         <button class="approve-btn" id="btn_${spec.spec_id}" onclick="approvePlan('${spec.spec_id}')">
                             ✅ この設計書を承認して作業AIに命令を発行する
                         </button>
