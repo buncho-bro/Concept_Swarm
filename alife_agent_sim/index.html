@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Agent ALife V4 - 視界と群れ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0; padding: 20px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .container {
+            display: flex; gap: 30px; max-width: 1200px;
+        }
+        canvas {
+            background-color: #1a1a1a;
+            border: 2px solid #444;
+            border-radius: 8px;
+            cursor: crosshair;
+        }
+        .panel {
+            background-color: #1e1e1e;
+            border: 1px solid #444; padding: 20px;
+            width: 350px; border-radius: 8px;
+        }
+        button {
+            background-color: #2c5e2e; color: white;
+            border: 1px solid #666; padding: 10px 20px;
+            cursor: pointer; border-radius: 4px; font-weight: bold;
+        }
+        button:hover { background-color: #3d7f3f; }
+        #decoder-output {
+            background-color: #0a0a0a; color: #00ff00;
+            font-family: monospace; padding: 15px;
+            border-radius: 4px; min-height: 250px;
+            white-space: pre-wrap; border: 1px solid #333;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semantic Agent ALife V4</h1>
+    <p style="color:#888;">視界（Local Vision）と群れ（Boids / Cohesion & Alignment）のシミュレーション</p>
+    
+    <div class="container">
+        <div>
+            <div style="margin-bottom: 10px;">
+                <button id="autoBtn" onclick="toggleAuto()">シミュレーション開始</button>
+                <span id="tick-counter" style="margin-left:15px;">Ticks: 0</span>
+                <span id="pop-counter" style="margin-left:15px;">Population: 0</span>
+            </div>
+            
+            <canvas id="simCanvas" width="800" height="800"></canvas>
+        </div>
+        
+        <div class="panel">
+            <h3>🔬 細胞翻訳モニター</h3>
+            <p style="font-size:0.85em; color:#888;">個体の潜在ベクトルと行動プロファイルを言語化します。</p>
+            <div id="decoder-output">個体をクリックしてください...</div>
+            
+            <h4 style="margin-top: 30px;">V4の進化ルール（視界と群れ）</h4>
+            <ul style="font-size:0.9em; color:#aaa; line-height:1.6;">
+                <li>地形ルールは一時的にオフ（どこでも餌が食べられます）。</li>
+                <li><b>視界 (Vision Radius):</b> 全てを把握せず、半径150px以内の餌や他個体にのみ反応します。</li>
+                <li><b>群れ特性 (シアン色):</b> 類似したベクトル（仲間）が視界に入ると、近づき（凝集）、進行方向を合わせる（整列）ことで群れを形成します。</li>
+                <li><b>逃走と追跡:</b> 捕食者は視界内の獲物をロックオンして追いかけ、獲物は敵を視界に捉えると逆方向に逃走します。</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        const out = document.getElementById('decoder-output');
+        let agents = [];
+        let autoInterval = null;
+        let selectedAgentId = null;
+
+        async function fetchState() {
+            const res = await fetch('/api/state');
+            const data = await res.json();
+            
+            document.getElementById('tick-counter').innerText = `Ticks: ${data.ticks}`;
+            document.getElementById('pop-counter').innerText = `Population: ${data.agents.length}`;
+            agents = data.agents;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw Foods
+            ctx.fillStyle = '#4caf50';
+            for (let f of data.foods) {
+                ctx.beginPath();
+                ctx.arc(f.x, f.y, 4, 0, Math.PI*2);
+                ctx.fill();
+            }
+            
+            // Draw Agents
+            for (let a of data.agents) {
+                ctx.fillStyle = a.color;
+                ctx.beginPath();
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI*2);
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+                
+                // If selected, draw vision radius
+                if (a.id === selectedAgentId) {
+                    ctx.strokeStyle = 'rgba(255, 255, 0, 0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, 150, 0, Math.PI*2); // VISION_RADIUS = 150
+                    ctx.stroke();
+                    
+                    ctx.strokeStyle = '#ffff00';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r + 3, 0, Math.PI*2);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        function toggleAuto() {
+            const btn = document.getElementById('autoBtn');
+            if (autoInterval) {
+                clearInterval(autoInterval);
+                autoInterval = null;
+                btn.innerText = "シミュレーション再開";
+                btn.style.backgroundColor = "#2c5e2e";
+            } else {
+                autoInterval = setInterval(fetchState, 50);
+                btn.innerText = "一時停止";
+                btn.style.backgroundColor = "#8b0000";
+            }
+        }
+
+        canvas.addEventListener('click', async (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            let clicked = null;
+            for (let a of agents) {
+                let dx = a.x - mouseX;
+                let dy = a.y - mouseY;
+                if (Math.sqrt(dx*dx + dy*dy) < a.r * 2) {
+                    clicked = a;
+                    break;
+                }
+            }
+            
+            if (clicked) {
+                selectedAgentId = clicked.id;
+                out.innerText = `ID: ${clicked.id} を解析中...`;
+                const res = await fetch(`/api/decode?id=${clicked.id}`);
+                const data = await res.json();
+                
+                setTimeout(() => {
+                    out.innerText = data.text;
+                }, 100);
+            } else {
+                selectedAgentId = null;
+            }
+        });
+
+        fetchState();
+    </script>
+</body>
+</html>

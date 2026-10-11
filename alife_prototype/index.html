@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic ALife - 意味論的人工生命</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 { margin-bottom: 5px; }
+        .subtitle { color: #888; margin-bottom: 20px; }
+        
+        .container {
+            display: flex;
+            gap: 30px;
+            max-width: 1000px;
+        }
+        
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(15, 30px);
+            grid-template-rows: repeat(15, 30px);
+            gap: 1px;
+            background-color: #333;
+            border: 2px solid #555;
+            padding: 2px;
+        }
+        
+        .cell {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        
+        .cell:hover {
+            transform: scale(1.1);
+            outline: 2px solid white;
+            z-index: 10;
+        }
+        
+        .panel {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            background-color: #3a3a3a;
+            color: white;
+            border: 1px solid #666;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover { background-color: #4a4a4a; }
+        button.primary { background-color: #2c5e2e; }
+        button.primary:hover { background-color: #3d7f3f; }
+        
+        #decoder-output {
+            background-color: #0a0a0a;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 15px;
+            border-radius: 4px;
+            min-height: 200px;
+            white-space: pre-wrap;
+            border: 1px solid #333;
+        }
+        
+        .legend {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .color-box {
+            width: 15px; height: 15px; margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semantic ALife Biotope</h1>
+    <div class="subtitle">Powered by Latent Concept Vectors (Antigravity Concept Swarm)</div>
+    
+    <div class="container">
+        <!-- ALife Grid -->
+        <div>
+            <div class="controls">
+                <button onclick="fetchStep(1)">1世代進む</button>
+                <button onclick="fetchStep(10)">10世代進む</button>
+                <button class="primary" id="autoBtn" onclick="toggleAuto()">自動進行 (Start)</button>
+                <span id="gen-counter" style="margin-left: 10px; line-height: 35px;">Generation: 0</span>
+            </div>
+            <div id="grid-container"></div>
+            
+            <div class="legend">
+                <div class="legend-item"><div class="color-box" style="background: red;"></div> 捕食/攻撃のベクトル (Predator Attractor)</div>
+                <div class="legend-item"><div class="color-box" style="background: green;"></div> 協調/共生のベクトル (Cooperative Attractor)</div>
+                <div class="legend-item"><div class="color-box" style="background: blue;"></div> 探索/突然変異のベクトル (Explorer Attractor)</div>
+                <p>※クリックでOutputBridge（翻訳機）を通して細胞の概念を読み取ります</p>
+            </div>
+        </div>
+        
+        <!-- Information Panel -->
+        <div class="panel">
+            <h3>🔬 細胞翻訳モニター (Output Bridge)</h3>
+            <p style="font-size: 0.85em; color: #888;">ベクトル座標をLLMの概念空間と照合し、テキスト化します。</p>
+            <div id="decoder-output">待機中... 盤面の細胞をクリックしてください。</div>
+        </div>
+    </div>
+
+    <script>
+        const GRID_SIZE = 15;
+        const gridContainer = document.getElementById('grid-container');
+        const decoderOutput = document.getElementById('decoder-output');
+        const genCounter = document.getElementById('gen-counter');
+        const autoBtn = document.getElementById('autoBtn');
+        
+        let autoInterval = null;
+
+        // Initialize grid HTML
+        for (let i = 0; i < GRID_SIZE; i++) {
+            for (let j = 0; j < GRID_SIZE; j++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.id = `cell-${i}-${j}`;
+                cell.onclick = () => decodeCell(i, j);
+                gridContainer.appendChild(cell);
+            }
+        }
+
+        async function fetchState() {
+            const res = await fetch('/api/state');
+            const data = await res.json();
+            updateGrid(data);
+        }
+
+        async function fetchStep(n) {
+            const res = await fetch(`/api/step?n=${n}`);
+            const data = await res.json();
+            updateGrid(data);
+        }
+
+        function updateGrid(data) {
+            genCounter.innerText = `Generation: ${data.generation}`;
+            for (let i = 0; i < GRID_SIZE; i++) {
+                for (let j = 0; j < GRID_SIZE; j++) {
+                    const cell = document.getElementById(`cell-${i}-${j}`);
+                    cell.style.backgroundColor = data.colors[i][j];
+                }
+            }
+        }
+
+        async function decodeCell(i, j) {
+            decoderOutput.innerText = `[${i}, ${j}] のベクトルを解析中...\nLLM Output Bridgeに接続...`;
+            
+            // 視覚的エフェクト
+            const cell = document.getElementById(`cell-${i}-${j}`);
+            const oldBorder = cell.style.outline;
+            cell.style.outline = "3px solid yellow";
+            
+            const res = await fetch(`/api/decode?i=${i}&j=${j}`);
+            const data = await res.json();
+            
+            setTimeout(() => {
+                decoderOutput.innerText = data.text;
+                cell.style.outline = oldBorder;
+            }, 300); // ちょっとした解析ラグを演出
+        }
+
+        function toggleAuto() {
+            if (autoInterval) {
+                clearInterval(autoInterval);
+                autoInterval = null;
+                autoBtn.innerText = "自動進行 (Start)";
+                autoBtn.style.backgroundColor = "#2c5e2e";
+            } else {
+                autoInterval = setInterval(() => fetchStep(1), 500); // 0.5秒ごとに1世代
+                autoBtn.innerText = "自動進行 (Stop)";
+                autoBtn.style.backgroundColor = "#8b0000";
+            }
+        }
+
+        // Initial load
+        fetchState();
+    </script>
+</body>
+</html>
