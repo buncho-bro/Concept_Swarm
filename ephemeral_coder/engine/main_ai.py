@@ -4,6 +4,7 @@ import json
 from engine.worker import EphemeralWorker
 from engine.sandbox import SandboxRunner
 from engine.tree_architect import TreeArchitect
+from engine.rule_formulator import RuleFormulator
 
 class MainAI:
     """
@@ -24,11 +25,13 @@ class MainAI:
         self.main_model = main_model
         self.worker_model = worker_model
         self.architect = TreeArchitect(model_name=main_model)
+        self.rule_formulator = RuleFormulator(model_name=main_model)
         self.pending_trees = {}
 
     def generate_plan(self, user_prompt):
         """
-        Step 1: 指示を受信し、最深要素に対する null 判定再帰分解で Goal Tree を構築
+        Step 1: 指示を受信し、ゲームルール詳細仕様を抽出・策定した上で、
+                最深要素に対する null 判定再帰分解で Goal Tree を構築
         """
         spec_id = f"spec_{str(uuid.uuid4())[:6]}"
         target_symbol = "main_logic"
@@ -37,25 +40,30 @@ class MainAI:
         code_data, _ = self.ref_cluster.on_demand_request("メインAI", "code_symbol", {"symbol": target_symbol})
         current_ver = code_data["version"] if code_data else 1
 
-        # アトミック再帰分解ループの実行 (null到達ですべての葉が確定するまで)
         t0 = time.time()
-        goal_tree, plan_time = self.architect.build_goal_tree(user_prompt)
+        # 具体的ドメイン・ゲームルール仕様の自動策定
+        domain_rules = self.rule_formulator.formulate_rules(user_prompt)
+
+        # アトミック再帰分解ループの実行 (ルール仕様を基盤としてツリー展開)
+        goal_tree, plan_time = self.architect.build_goal_tree(user_prompt, domain_rules=domain_rules)
 
         # 実行用のアトミックサブタスク一覧を抽出
         atomic_leaves = goal_tree.get_atomic_leaves()
         subtasks = []
+        rule_info_str = f" 【具体的ルール仕様】: {json.dumps(domain_rules, ensure_ascii=False)}" if domain_rules else ""
         for idx, leaf in enumerate(atomic_leaves, 1):
             subtasks.append({
                 "id": idx,
                 "node_id": leaf.id,
                 "title": f"[{leaf.id}] {leaf.name}",
-                "instruction": f"要件『{user_prompt}』の構成要素である『{leaf.name}』を実装せよ。"
+                "instruction": f"要件『{user_prompt}』の構成要素である『{leaf.name}』を実装せよ。{rule_info_str}"
             })
 
         spec = {
             "spec_id": spec_id,
             "title": f"目標樹形図設計書: {user_prompt[:30]}",
             "user_prompt": user_prompt,
+            "domain_rules": domain_rules,
             "overview": f"要件『{user_prompt}』に対し、最深要素の再帰分解を行い、すべての末端要素が null（不可分アトミック単位）に到達した完全な目標樹形図です。",
             "architecture": f"階層ツリー構造 (全 {len(goal_tree.nodes)} ノード, アトミック実行単位 {len(atomic_leaves)} 件)",
             "target_symbol": target_symbol,
@@ -113,7 +121,7 @@ class MainAI:
             leaf.status = "EXECUTING"
             logs.append(f"\n▶ [メインAI] アトミック葉ノード発行: [{node_id}] 『{node_name}』 ➔ 使い捨て作業AIへ")
 
-            max_attempts = 2
+            max_attempts = 1
             success_for_node = False
 
             for attempt in range(1, max_attempts + 1):
@@ -121,8 +129,12 @@ class MainAI:
                 leaf.worker_id = worker_id
                 worker = EphemeralWorker(worker_id, self.ref_cluster, model_name=self.worker_model)
 
-                # 命令実行
-                task_inst = f"要件『{spec['user_prompt']}』の構成要素『{node_name}』を実装せよ。"
+                # 命令実行 (ルール仕様を注入)
+                rule_hint = ""
+                if spec.get("domain_rules"):
+                    dr = spec["domain_rules"]
+                    rule_hint = f" 【ルール仕様概要】: {dr.get('core_mechanics_summary', '')} / 評価基準: {dr.get('evaluation_criteria', '')}"
+                task_inst = f"要件『{spec['user_prompt']}』の構成要素『{node_name}』を実装せよ。{rule_hint}"
                 result = worker.execute_subtask(task_inst, target_symbol)
 
                 logs.extend(result["logs"])

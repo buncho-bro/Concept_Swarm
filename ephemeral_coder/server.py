@@ -1,6 +1,6 @@
 import json
 import os
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from engine.memory_cluster import MemoryCluster
 from engine.reference_cluster import ReferenceCluster
 from engine.main_ai import MainAI
@@ -73,7 +73,7 @@ class EphemeralCoderHandler(BaseHTTPRequestHandler):
 
 def run_server():
     server_address = ('', PORT)
-    httpd = HTTPServer(server_address, EphemeralCoderHandler)
+    httpd = ThreadingHTTPServer(server_address, EphemeralCoderHandler)
     print(f"==================================================")
     print(f" Ephemeral Latent Coding Engine (ELCE v2.0)       ")
     print(f" Hierarchical Main/Worker/Reference/Memory Swarm  ")

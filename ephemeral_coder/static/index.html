@@ -202,6 +202,40 @@
             margin-top: 5px;
         }
 
+        /* Domain Rules Box */
+        .domain-rules-box {
+            background-color: #0b0d14;
+            border: 1px solid #d29922;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 8px;
+            font-size: 0.8rem;
+        }
+        .domain-rules-header {
+            color: #e3b341;
+            font-weight: bold;
+            font-size: 0.84rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .domain-rules-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 180px;
+            overflow-y: auto;
+            color: #c9d1d9;
+        }
+        .domain-rule-item {
+            background-color: #161b22;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border-left: 3px solid #d29922;
+            line-height: 1.4;
+        }
+
         /* Deliverable Box */
         .deliverable-box {
             background-color: #0b0d14;
@@ -445,9 +479,9 @@
             
             <div class="chat-controls">
                 <div class="quick-chips">
+                    <div class="chip" onclick="setPrompt('元素対戦カードゲーム！手札の中で勝手にくっつく自動分子結合と、親和度による再結合、熱・衝撃特殊カードを実装して')">🧪 元素対戦カードゲーム (自動分子結合)</div>
                     <div class="chip" onclick="setPrompt('A*アルゴリズムを用いた最短経路探索クラス PathFinder を作成して')">A* 最短経路探索クラス (PathFinder)</div>
                     <div class="chip" onclick="setPrompt('ユーザー認証とセッション有効期限を管理する UserManager クラス')">ユーザー認証クラス (UserManager)</div>
-                    <div class="chip" onclick="setPrompt('正の数値のみを抽出して平均を計算する堅牢な集計関数 process_data')">堅牢なデータ集計関数 (process_data)</div>
                 </div>
                 
                 <div class="input-row">
@@ -619,6 +653,71 @@
 
                         <div class="section-label">🧪 完成形受入アサーション契約 (print逃げを完全遮断):</div>
                         <div class="assert-box">${escapeHtml(spec.acceptance_suite || '# 未定義')}</div>
+
+                        ${spec.domain_rules ? `
+                            <div class="section-label">📜 具体的ゲーム/ドメイン仕様定義 (Platitude Filtered):</div>
+                            <div class="domain-rules-box">
+                                <div class="domain-rules-header">
+                                    <span>⚙️ 抽出・数理化されたルール仕様: ${escapeHtml(spec.domain_rules.title || '')}</span>
+                                    <span style="font-size:0.7rem; color:#8b949e;">定量的パラメータ確定済</span>
+                                </div>
+                                <div class="domain-rules-content">
+                                    ${spec.domain_rules.core_mechanics_summary ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#79d4fd;">コア概要:</b> ${escapeHtml(spec.domain_rules.core_mechanics_summary)}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.entities ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#79d4fd;">登場カード・エンティティ:</b> ${spec.domain_rules.entities.map(e => {
+                                                const attrStr = typeof e.attributes === 'object' ? Object.entries(e.attributes).map(([k,v])=>`${k}:${v}`).join(', ') : (e.attributes || '');
+                                                return `<b>${escapeHtml(e.name)}</b> (${attrStr}${e.role ? ' / ' + escapeHtml(e.role) : ''})`;
+                                            }).join(' | ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.elements ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#79d4fd;">元素定義:</b> ${spec.domain_rules.elements.map(e => `${escapeHtml(e.name || e.symbol || '')} (価数:${e.valency ?? e.valence ?? '?'}, 親和:${e.affinity ?? '?'})`).join(', ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.molecules ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#a855f7;">分子定義:</b> ${spec.domain_rules.molecules.map(m => `${escapeHtml(m.name)} [${(m.components||[]).join('+')}] (安定度:${m.stability ?? '?'}, ${escapeHtml(m.category||'')})`).join(', ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.state_transitions ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#38ef7d;">状態遷移/結合イベント:</b> ${spec.domain_rules.state_transitions.map(st => `[${escapeHtml(st.event || '')}] 契機: ${escapeHtml(st.trigger || '')} ➔ ${escapeHtml(st.action || '')}`).join(' | ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.binding_mechanics ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#38ef7d;">結合メカニズム:</b> 自動結合: ${escapeHtml(spec.domain_rules.binding_mechanics.auto_binding || '')} | 再結合: ${escapeHtml(spec.domain_rules.binding_mechanics.re_binding || '')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.special_rules ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#ff7b72;">特殊効果ルール:</b> ${spec.domain_rules.special_rules.map(c => `<b>${escapeHtml(c.name)}</b>: ${escapeHtml(c.effect)}`).join(' | ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.special_cards ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#ff7b72;">特殊カード:</b> ${spec.domain_rules.special_cards.map(c => `${escapeHtml(c.name)}: ${escapeHtml(c.effect)}`).join(' | ')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.evaluation_criteria ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#f2cc60;">勝敗/スコアリング基準:</b> ${escapeHtml(spec.domain_rules.evaluation_criteria)}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.win_condition ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#f2cc60;">勝敗判定条件:</b> ${escapeHtml(spec.domain_rules.win_condition)}
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        ` : ''}
 
                         <div class="section-label">🌿 展開された階層ノード構造:</div>
                         <div class="tree-nodes-container" id="tree_nodes_${spec.spec_id}">
