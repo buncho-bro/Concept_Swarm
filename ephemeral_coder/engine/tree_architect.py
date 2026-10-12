@@ -68,7 +68,7 @@ class TreeArchitect:
                 # 分解成功 ➔ 子ノードを追加
                 target_node.status = "BRANCH"
                 added_children = []
-                for sub_elem in decomp_res[:3]:  # 1ノードあたり最大3分岐
+                for sub_elem in decomp_res[:4]:  # 成立要件（コア、テスト、ライブラリ、制約）を最大4件抽出
                     sub_clean = str(sub_elem).strip()
                     if sub_clean and sub_clean.lower() != "null":
                         child = tree.add_child(target_node, sub_clean)
@@ -94,15 +94,26 @@ class TreeArchitect:
            {現在最も遠い所にある要素}がもう分けられない場合はnullとだけ出力してください。
         """
         prompt = (
-            f"『{element_name}』に必要な要素とは何ですか？可能な限り列挙してください。\n"
-            f"もし『{element_name}』がこれ以上分けられない単一の関数・クラス・データ構造などの最小実装単位である場合は、null とだけ出力してください。"
+            f"『{element_name}』を現実に成立させ、正しく機能・実証するために不可欠な前提要素は何ですか？\n"
+            f"単なる部分品の内訳ではなく、以下のような【成立要件・前提依存】を多角的に含めて可能な限り列挙してください：\n"
+            f"- 1. コア実装・アルゴリズム本体（探索関数など）\n"
+            f"- 2. その正しさを立証・保証するテストコードおよび受入検証機構\n"
+            f"- 3. 支える数学計算ライブラリやデータ構造の基盤（優先度キュー、ヒューリスティック計算など）\n"
+            f"- 4. 実行環境や前提データ型・境界制約・最適化仕様\n\n"
+            f"もし『{element_name}』がこれ以上前提や依存を分ける必要のない最小の完結単位（単一の計算式、標準インポート、独立した単一テストなど）である場合は、null とだけ出力してください。"
         )
         sys_prompt = (
-            "You are an atomic software decomposition engine.\n"
-            "Analyze the given programming component:\n"
-            "1. If it needs sub-elements, return ONLY a JSON list of strings (in Japanese). Example: [\"要素1\", \"要素2\"]\n"
-            "2. If it is already an atomic, irreducible code unit (a single function, class helper, or basic logic) that cannot be divided further, output ONLY: null\n"
-            "3. Do NOT output markdown formatting or conversational text."
+            "You are a Systems & Architectural Foundation Decomposition Engine.\n"
+            "Your mission is to decompose a programming requirement into WHAT IS NECESSARY TO MAKE IT TRULY WORK AND BE PROVEN VALID (成立要件・前提依存の逆算因数分解).\n"
+            "Decompose across essential foundational layers:\n"
+            "1. Core Logic & Algorithm (コア関数・実装本体)\n"
+            "2. Verification & Acceptance Test Harness (受入テスト・検証コード)\n"
+            "3. Mathematical / Data Structure Foundations & Libraries (数学計算ライブラリ、データ構造基盤)\n"
+            "4. Execution Environment & Constraints (データ型、境界条件、最適化制約)\n\n"
+            "OUTPUT RULES:\n"
+            "- If it requires foundational components, output ONLY a JSON array of strings in Japanese: [\"要素1\", \"要素2\"]\n"
+            "- If it is already an irreducible atomic unit (a single primitive calculation, standard import, or atomic test assert), output ONLY: null\n"
+            "- Output NO markdown, NO commentary."
         )
 
         raw = query_ollama(self.model_name, prompt=prompt, system_prompt=sys_prompt, timeout=60)
