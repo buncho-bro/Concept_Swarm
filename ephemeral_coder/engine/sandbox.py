@@ -5,15 +5,17 @@ import io
 
 class SandboxRunner:
     """
-    実行・検証サンドボックス (Sandbox Runner):
-    1. 生成されたコードの ast.parse (構文チェック)
-    2. 分離環境での動的実行検証 (exec)
-    3. 失敗時の自動ポストモーテム圧縮
+    厳格受入検証サンドボックス (Strict Acceptance Sandbox):
+    1. 構文解析 (AST Parse): 文法チェック
+    2. 動的実行 (exec): 実行時エラーの検知
+    3. 受入テスト（assert）の実行:
+       単なるprint文や何もしないダミースタブ（printの罠）を検知し、AssertionError で即時リジェクト。
+    4. 失敗時の自動ポストモーテム圧縮 & 斥力（忌避制約）導出
     """
     def __init__(self):
         pass
 
-    def verify_and_test(self, code_str):
+    def verify_and_test(self, code_str, acceptance_test_code=""):
         if not code_str or not code_str.strip():
             return {
                 "success": False,
@@ -38,24 +40,28 @@ class SandboxRunner:
         old_stdout = sys.stdout
         redirected_output = io.StringIO()
         sys.stdout = redirected_output
-        
+
         try:
+            # コード自体の定義を実行
             exec(code_str, local_scope, local_scope)
-            
-            # process_data が存在する場合はテスト
-            if "process_data" in local_scope:
-                fn = local_scope["process_data"]
+
+            # 3. 受入テスト（assert）が存在する場合は実行
+            if acceptance_test_code and acceptance_test_code.strip():
                 try:
-                    res1 = fn([-5, 0, 10, 20])
-                    res2 = fn([]) # 空データ耐性
-                except Exception as inner_e:
-                    raise inner_e
+                    exec(acceptance_test_code, local_scope, local_scope)
+                except AssertionError as ae:
+                    msg = str(ae) if str(ae) else "アサーション条件不一致"
+                    return {
+                        "success": False,
+                        "error_type": "AssertionError",
+                        "root_cause": f"受入アサーション失敗: {msg} (print逃げまたは未実装スタブを検知)",
+                        "anti_pattern": "単なるprint出力やダミー戻り値で済ませず、受入テストのアサーション条件を満たす本物の計算ロジックを実装せよ。"
+                    }
 
         except Exception as e:
             sys.stdout = old_stdout
             err_type = type(e).__name__
             err_msg = str(e)
-            
             anti_pattern = self._derive_anti_pattern(err_type, err_msg)
             return {
                 "success": False,
@@ -72,7 +78,9 @@ class SandboxRunner:
         }
 
     def _derive_anti_pattern(self, err_type, err_msg):
-        if "RecursionError" in err_type:
+        if "AssertionError" in err_type:
+            return "受入アサーション条件を満たしていない。期待されるデータ構造と正確な計算ロジックを実装せよ。"
+        elif "RecursionError" in err_type:
             return "再帰の基底条件が不十分で無限ループに陥った。再帰ではなくループ処理またはメモ化を採用せよ。"
         elif "ZeroDivisionError" in err_type:
             return "分母が0になるエッジケース（空データやゼロ値）のゼロ除算ガードが欠落している。"

@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ephemeral Latent Coding Engine (ELCE v2.0)</title>
+    <title>Goal Tree Engine (GDTE v3.0) - 逆算型目標樹形図 & アトミック再帰分解</title>
     <style>
         :root {
-            --bg-dark: #0c0e17;
-            --panel-bg: #161826;
-            --panel-border: #262940;
+            --bg-dark: #0a0c14;
+            --panel-bg: #141724;
+            --panel-border: #23273e;
             --accent-blue: #4d7cff;
             --accent-green: #38ef7d;
             --accent-red: #ff4b4b;
             --accent-orange: #ff9800;
+            --accent-purple: #a855f7;
             --text-main: #e2e8f0;
             --text-muted: #8c9ba5;
         }
@@ -30,7 +31,7 @@
         }
         
         header {
-            padding: 12px 25px;
+            padding: 10px 24px;
             background-color: var(--panel-bg);
             border-bottom: 1px solid var(--panel-border);
             display: flex;
@@ -69,32 +70,32 @@
         .main-container {
             display: flex;
             flex: 1;
-            height: calc(100vh - 58px);
+            height: calc(100vh - 54px);
         }
         
-        /* Left: Chat Window */
+        /* Left: Chat & Tree Specification */
         .chat-section {
             width: 48%;
             display: flex;
             flex-direction: column;
             border-right: 1px solid var(--panel-border);
-            background-color: #11131e;
+            background-color: #0e101a;
         }
         
         .chat-history {
             flex: 1;
-            padding: 20px;
+            padding: 16px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
         
         .message {
-            max-width: 95%;
+            max-width: 96%;
             padding: 12px 16px;
             border-radius: 8px;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
         
@@ -112,62 +113,135 @@
             border-bottom-left-radius: 2px;
         }
         
-        /* Plan Spec Box inside Chat */
-        .spec-box {
-            background-color: #191c2c;
-            border: 1px solid #3a4163;
-            border-radius: 6px;
+        /* Goal Tree Specification Box in Chat */
+        .tree-card-box {
+            background-color: #161a29;
+            border: 1px solid #323859;
+            border-radius: 8px;
             padding: 14px;
             margin-top: 10px;
         }
         
-        .spec-title {
+        .tree-card-header {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.98rem;
             color: #79d4fd;
-            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #2b304d;
-            padding-bottom: 6px;
+            border-bottom: 1px solid #282e4a;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
         
-        .spec-section {
-            margin-top: 8px;
-            font-size: 0.84rem;
-            line-height: 1.45;
-        }
-        .spec-section-title {
+        .section-label {
             color: #ff9800;
             font-weight: bold;
             font-size: 0.82rem;
-            margin-bottom: 3px;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        
-        .resource-row {
-            font-size: 0.8rem;
-            color: #aaa;
-            background-color: #10121d;
-            padding: 8px 10px;
-            border-radius: 4px;
+
+        /* Tree Node Visualization in Chat */
+        .tree-nodes-container {
+            background-color: #0c0e17;
+            border: 1px solid #202538;
+            border-radius: 6px;
+            padding: 10px;
             margin-top: 8px;
-            border: 1px solid #202438;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 260px;
+            overflow-y: auto;
         }
-        
-        .subtask-list {
-            list-style: none;
-            margin: 8px 0;
-            font-size: 0.84rem;
-        }
-        .subtask-list li {
-            padding: 6px 8px;
-            background-color: #121421;
+
+        .tree-node-row {
+            padding: 6px 10px;
+            border-radius: 4px;
+            background-color: #141724;
             border-left: 3px solid var(--accent-blue);
-            margin-bottom: 5px;
-            border-radius: 0 4px 4px 0;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        
+
+        .tree-node-row.depth-0 { border-left-color: #ff9800; background-color: #1b1c2b; font-weight: bold; }
+        .tree-node-row.depth-1 { margin-left: 14px; border-left-color: #4d7cff; }
+        .tree-node-row.depth-2 { margin-left: 28px; border-left-color: #38ef7d; }
+        .tree-node-row.depth-3 { margin-left: 42px; border-left-color: #a855f7; }
+
+        .node-tag {
+            font-size: 0.72rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+        .tag-atomic { background: rgba(56, 239, 125, 0.2); color: #38ef7d; border: 1px solid #38ef7d; }
+        .tag-branch { background: rgba(77, 124, 255, 0.2); color: #79d4fd; border: 1px solid #4d7cff; }
+        .tag-executing { background: rgba(255, 152, 0, 0.2); color: #ff9800; border: 1px solid #ff9800; }
+        .tag-verified { background: #166534; color: #86efac; border: 1px solid #22c55e; }
+        .tag-failed { background: rgba(255, 75, 75, 0.2); color: #ff7b72; border: 1px solid #ff4b4b; }
+
+        /* Acceptance Test Display */
+        .assert-box {
+            background-color: #0b0d14;
+            border: 1px solid #2a314b;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: "Fira Code", monospace;
+            font-size: 0.8rem;
+            color: #a5d6ff;
+            max-height: 120px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 5px;
+        }
+
+        /* Deliverable Box */
+        .deliverable-box {
+            background-color: #0b0d14;
+            border: 1px solid #38ef7d;
+            border-radius: 6px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        .deliverable-header {
+            background-color: #12281e;
+            padding: 8px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #234835;
+            font-size: 0.82rem;
+            color: #86efac;
+        }
+        .deliverable-code {
+            padding: 12px;
+            font-family: "Fira Code", monospace;
+            font-size: 0.84rem;
+            color: #7ee787;
+            overflow-x: auto;
+            max-height: 280px;
+            overflow-y: auto;
+            white-space: pre;
+            line-height: 1.45;
+        }
+        .copy-btn {
+            background-color: #1e382b;
+            border: 1px solid #38ef7d;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+        .copy-btn:hover { background-color: #27523c; }
+
         button.approve-btn {
             background: linear-gradient(135deg, #11998e, #38ef7d);
             color: white;
@@ -181,57 +255,12 @@
             transition: transform 0.1s, opacity 0.2s;
             font-size: 0.9rem;
         }
-        button.approve-btn:hover {
-            opacity: 0.95;
-            transform: scale(1.01);
-        }
-        button.approve-btn:disabled {
-            background: #444;
-            cursor: not-allowed;
-            transform: none;
-        }
+        button.approve-btn:hover { opacity: 0.95; transform: scale(1.01); }
+        button.approve-btn:disabled { background: #3c4052; cursor: not-allowed; transform: none; }
 
-        /* Result Deliverable Box in Chat */
-        .deliverable-box {
-            background-color: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            margin-top: 12px;
-            overflow: hidden;
-        }
-        .deliverable-header {
-            background-color: #161b22;
-            padding: 8px 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #30363d;
-            font-size: 0.82rem;
-        }
-        .deliverable-code {
-            padding: 12px;
-            font-family: "Fira Code", monospace;
-            font-size: 0.84rem;
-            color: #58a6ff;
-            overflow-x: auto;
-            max-height: 300px;
-            overflow-y: auto;
-            white-space: pre;
-            line-height: 1.45;
-        }
-        .copy-btn {
-            background-color: #21262d;
-            border: 1px solid #363b42;
-            color: #c9d1d9;
-            padding: 3px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.75rem;
-        }
-        .copy-btn:hover { background-color: #30363d; }
-        
+        /* Controls */
         .chat-controls {
-            padding: 15px 20px;
+            padding: 12px 18px;
             background-color: var(--panel-bg);
             border-top: 1px solid var(--panel-border);
         }
@@ -239,45 +268,36 @@
         .quick-chips {
             display: flex;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
         }
         
         .chip {
-            background-color: #212538;
+            background-color: #1e2236;
             color: #9bb1ff;
             border: 1px solid #343c5e;
-            padding: 4px 10px;
+            padding: 3px 9px;
             border-radius: 12px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             cursor: pointer;
         }
-        .chip:hover {
-            background-color: #2e3555;
-            color: #ffffff;
-        }
+        .chip:hover { background-color: #2b3252; color: #ffffff; }
         
-        .input-row {
-            display: flex;
-            gap: 10px;
-        }
-        
+        .input-row { display: flex; gap: 8px; }
         input[type="text"] {
             flex: 1;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 6px;
             background-color: #0b0d14;
             border: 1px solid var(--panel-border);
             color: white;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             outline: none;
         }
-        input[type="text"]:focus {
-            border-color: var(--accent-blue);
-        }
+        input[type="text"]:focus { border-color: var(--accent-blue); }
         
         button.send-btn {
-            padding: 12px 20px;
+            padding: 10px 18px;
             background-color: var(--accent-blue);
             color: white;
             border: none;
@@ -285,88 +305,101 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
-        /* Right: Inspector Section */
+
+        /* Right: Inspector Panels */
         .inspector-section {
             width: 52%;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
             background-color: var(--bg-dark);
-            padding: 20px;
-            gap: 16px;
+            padding: 16px;
+            gap: 14px;
         }
         
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 8px;
-            padding: 14px;
+            padding: 12px;
         }
         
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: bold;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             color: #c0caf5;
         }
-        
+
+        /* Decomposition Micro-Trace Box */
+        .decomp-trace-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 150px;
+            overflow-y: auto;
+            font-size: 0.78rem;
+            font-family: monospace;
+        }
+        .decomp-step-item {
+            background-color: #0d0f1a;
+            border-left: 3px solid #ff9800;
+            padding: 6px 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
         .red-bus-container {
             border: 2px dashed #ff4b4b;
             background-color: rgba(255, 75, 75, 0.04);
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px;
         }
-        
         .bus-hops {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            max-height: 150px;
+            gap: 6px;
+            max-height: 120px;
             overflow-y: auto;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-family: monospace;
         }
-        
         .bus-hop-item {
             background-color: #121420;
             border-left: 3px solid #ff4b4b;
-            padding: 8px;
+            padding: 6px;
             border-radius: 0 4px 4px 0;
         }
-        
         .ref-answer-known { color: var(--accent-green); }
         .ref-answer-unknown { color: var(--text-muted); opacity: 0.6; }
-        
+
         pre.code-block {
             background-color: #0b0d14;
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
             font-family: "Fira Code", monospace;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: #79d4fd;
             overflow-x: auto;
             border: 1px solid #1f2335;
-            max-height: 180px;
+            max-height: 140px;
         }
         
         .graveyard-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            max-height: 120px;
+            gap: 6px;
+            max-height: 100px;
             overflow-y: auto;
         }
-        
         .failure-node {
             background-color: rgba(255, 75, 75, 0.08);
             border-left: 3px solid var(--accent-red);
-            padding: 8px 10px;
+            padding: 6px 8px;
             border-radius: 0 4px 4px 0;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
         }
         
         .trace-console {
@@ -374,10 +407,10 @@
             border: 1px solid #1a1c26;
             color: #89ddff;
             font-family: monospace;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             padding: 10px;
             border-radius: 6px;
-            height: 140px;
+            height: 120px;
             overflow-y: auto;
             white-space: pre-wrap;
         }
@@ -387,13 +420,13 @@
 
     <header>
         <h1>
-            <span>⚡ Ephemeral Latent Coding Engine</span>
-            <span class="badge">ELCE v2.0 (全AIローカルLLM駆動)</span>
+            <span>🌳 Goal-Driven Tree Engine (GDTE v3.0)</span>
+            <span class="badge">逆算型目標樹形図 & アトミック再帰分解</span>
         </h1>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <div class="model-live-badge">● Ollama: qwen2.5-coder:3b (Active)</div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">
-                メインAI(LLM設計書) ➔ 作業AI(LLM実装) ➔ ⭕オンデマンド要求 ➔ レファレンスAI ➔ 記憶AI
+            <div class="model-live-badge">● Ollama: qwen2.5-coder:3b</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">
+                逆算受入アサーション ➔ 最深要素へ1問1答 ➔ 全葉nullでTree完成 ➔ 葉ノード攻略
             </div>
         </div>
     </header>
@@ -403,21 +436,23 @@
         <div class="chat-section">
             <div class="chat-history" id="chatHistory">
                 <div class="message ai-message">
-                    こんにちは！私は<b>メインAI（ソフトウェアアーキテクト）</b>です。<br>
-                    ご指示をいただくと、私自身（ローカルLLM）が直接要件を分析して<b>詳細な設計書（アーキテクチャ・リスク見積・タスク分割）</b>を作成します。承認後に作業AIへ命令を発行します。
+                    こんにちは！<b>逆算型目標樹形図エンジン (GDTE)</b> です。<br>
+                    ユーザーのご指示から、まず<b>「完成形の受入テスト（assert）」</b>を定義し、<br>
+                    <code>>> {現在最も遠い所にある要素}に必要な要素とは何ですか？ 分解不能ならnull</code><br>
+                    の再帰ループを実行して<b>全ての末端が null に到達した数学的に完全な樹形図</b>を立案します。
                 </div>
             </div>
             
             <div class="chat-controls">
                 <div class="quick-chips">
-                    <div class="chip" onclick="setPrompt('ユーザー管理システムの実装。ユーザー追加と認証を行うクラス UserManager を作成して')">ユーザー認証クラス UserManager</div>
-                    <div class="chip" onclick="setPrompt('A*アルゴリズムを用いた最短経路探索クラス PathFinder を作成して')">A* 最短経路探索クラス 実装</div>
-                    <div class="chip" onclick="setPrompt('平均値の集計関数を実装して。空データでも安全に動くようにして')">堅牢なデータ集計関数 実装</div>
+                    <div class="chip" onclick="setPrompt('A*アルゴリズムを用いた最短経路探索クラス PathFinder を作成して')">A* 最短経路探索クラス (PathFinder)</div>
+                    <div class="chip" onclick="setPrompt('ユーザー認証とセッション有効期限を管理する UserManager クラス')">ユーザー認証クラス (UserManager)</div>
+                    <div class="chip" onclick="setPrompt('正の数値のみを抽出して平均を計算する堅牢な集計関数 process_data')">堅牢なデータ集計関数 (process_data)</div>
                 </div>
                 
                 <div class="input-row">
-                    <input type="text" id="promptInput" placeholder="作りたい機能や複雑な指示を入力してください..." onkeydown="if(event.key==='Enter') sendPrompt()">
-                    <button class="send-btn" onclick="sendPrompt()">指示送信</button>
+                    <input type="text" id="promptInput" placeholder="作りたい機能や要件を入力してください..." onkeydown="if(event.key==='Enter') sendPrompt()">
+                    <button class="send-btn" onclick="sendPrompt()">Tree生成</button>
                 </div>
             </div>
         </div>
@@ -425,6 +460,17 @@
         <!-- Inspector Section -->
         <div class="inspector-section">
             
+            <!-- Decomposition Micro-Trace -->
+            <div class="card">
+                <div class="card-header" style="color: #ff9800;">
+                    <span>🔄 アトミック再帰分解トレース (Null-Termination Loop)</span>
+                    <span style="font-size: 0.72rem; color: #aaa;" id="traceStepCount">0 ステップ</span>
+                </div>
+                <div class="decomp-trace-list" id="decompTraceList">
+                    <div style="color: var(--text-muted);">樹形図の展開履歴（最深要素 ➔ null 判定）がここに表示されます。</div>
+                </div>
+            </div>
+
             <!-- Red Circle Bus Monitor -->
             <div class="card red-bus-container">
                 <div class="card-header" style="color: #ff6b6b; margin-bottom: 6px;">
@@ -459,7 +505,7 @@
             <!-- Trace Console -->
             <div class="card">
                 <div class="card-header">
-                    <span>⚡ メインAI & 作業AI 実行トレース (コンテキスト抹消)</span>
+                    <span>⚡ メインAI & 作業AI 実行コンソール</span>
                 </div>
                 <div class="trace-console" id="traceConsole">待機中... 指示を送信してください。</div>
             </div>
@@ -476,6 +522,10 @@
         const graveyardCount = document.getElementById('graveyardCount');
         const busHopList = document.getElementById('busHopList');
         const traceConsole = document.getElementById('traceConsole');
+        const decompTraceList = document.getElementById('decompTraceList');
+        const traceStepCount = document.getElementById('traceStepCount');
+
+        let currentTreeData = null;
 
         function setPrompt(text) {
             promptInput.value = text;
@@ -525,7 +575,7 @@
             promptInput.value = '';
             chatHistory.scrollTop = chatHistory.scrollHeight;
 
-            traceConsole.innerText = `[メインAI] 🧠 Ollama (qwen2.5-coder:3b) が要件を分析中...\n[メインAI] 詳細な設計書とサブタスク分割を立案中...\n`;
+            traceConsole.innerText = `[メインAI] 🌳 目標樹形図の逆算構築を開始...\n[メインAI] 1. 完成形の受入テスト（assert）を定義中...\n[メインAI] 2. 最深ノードへ1問1答分解中（null判定ループ）...\n`;
 
             try {
                 const res = await fetch('/api/chat/plan', {
@@ -534,49 +584,62 @@
                     body: JSON.stringify({ prompt: prompt })
                 });
                 const spec = await res.json();
+                currentTreeData = spec.tree_data;
 
-                // Render Detailed LLM Design Spec Box with Approval Button
+                // Update Decomposition Trace Monitor
+                if (spec.decomposition_steps && spec.decomposition_steps.length > 0) {
+                    traceStepCount.innerText = `${spec.decomposition_steps.length} ステップ`;
+                    decompTraceList.innerHTML = spec.decomposition_steps.map(s => `
+                        <div class="decomp-step-item">
+                            <div><b>Step ${s.step}:</b> 最深要素 <code>${escapeHtml(s.target_name)}</code> (Depth: ${s.depth})</div>
+                            <div style="color: ${s.result_type === 'NULL_TERMINATED' ? '#38ef7d' : '#79d4fd'}; margin-top:2px;">
+                                ${s.result_type === 'NULL_TERMINATED' ? '➔ LLM: null (アトミック葉ノード確定)' : `➔ 分解: [${(s.children||[]).map(c=>c.name).join(', ')}]`}
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                // Render Goal Tree Box inside Chat
+                const nodes = spec.tree_data.nodes;
+                const nodeKeys = Object.keys(nodes);
+
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'message ai-message';
                 aiDiv.innerHTML = `
-                    <div><b>[メインAI]</b> 要件を精査し、正式な<b>技術設計書</b>を作成しました（立案時間: ${spec.plan_gen_time} 秒）。内容をご確認の上、承認してください。</div>
-                    <div class="spec-box" id="box_${spec.spec_id}">
-                        <div class="spec-title">
-                            <span>📋 ${escapeHtml(spec.title)}</span>
-                            <span style="font-size:0.75rem; color:#aaa;">ID: ${spec.spec_id}</span>
-                        </div>
-                        
-                        <div class="spec-section">
-                            <div class="spec-section-title">💡 概要・設計思想:</div>
-                            <div>${escapeHtml(spec.overview)}</div>
+                    <div>
+                        <b>[メインAI]</b> アトミック再帰分解が完了し、<b>全ての最終要素が null（不可分アトミック単位）に到達</b>しました！<br>
+                        <span style="font-size:0.8rem; color:#aaa;">立案時間: <b>${spec.plan_gen_time} 秒</b> | 総ノード数: <b>${spec.tree_data.total_nodes}</b></span>
+                    </div>
+
+                    <div class="tree-card-box" id="box_${spec.spec_id}">
+                        <div class="tree-card-header">
+                            <span>🌳 目標樹形図 (Goal Tree)</span>
+                            <span class="badge" style="background:#166534; color:#86efac;">全葉 null 到達・Tree完成</span>
                         </div>
 
-                        <div class="spec-section">
-                            <div class="spec-section-title">🏛️ アーキテクチャ構成:</div>
-                            <div>${escapeHtml(spec.architecture)}</div>
+                        <div class="section-label">🧪 完成形受入アサーション契約 (print逃げを完全遮断):</div>
+                        <div class="assert-box">${escapeHtml(spec.acceptance_suite || '# 未定義')}</div>
+
+                        <div class="section-label">🌿 展開された階層ノード構造:</div>
+                        <div class="tree-nodes-container" id="tree_nodes_${spec.spec_id}">
+                            ${nodeKeys.map(k => {
+                                const n = nodes[k];
+                                const isRoot = n.id === 'node_0';
+                                return `
+                                    <div class="tree-node-row depth-${n.depth}" id="node_row_${n.id}">
+                                        <span>
+                                            <b>${n.id}:</b> ${escapeHtml(n.name)}
+                                        </span>
+                                        <span class="node-tag ${isRoot ? 'tag-branch' : (n.is_atomic ? 'tag-atomic' : 'tag-branch')}" id="tag_${n.id}">
+                                            ${isRoot ? 'ROOT目標' : (n.is_atomic ? 'ATOMIC (null)' : 'BRANCH')}
+                                        </span>
+                                    </div>
+                                `;
+                            }).join('')}
                         </div>
 
-                        <div class="resource-row">
-                            📊 <b>リソース・リスク評価:</b><br>
-                            - メモリ見積: ${spec.resource_impact.memory_estimate || '< 50MB'}<br>
-                            - 永続化容量: ${spec.resource_impact.storage_estimate || '+1.5 KB'}<br>
-                            - リスク対策: ${escapeHtml(spec.resource_impact.risk_mitigation || '型検証・ガード処理')}
-                        </div>
-
-                        <div class="spec-section" style="margin-top:10px;">
-                            <div class="spec-section-title">▼ 分割された作業命令 (Subtasks):</div>
-                            <ul class="subtask-list">
-                                ${spec.subtasks.map(t => `
-                                    <li>
-                                        <b>Task ${t.id}: ${escapeHtml(t.title)}</b><br>
-                                        <span style="color:#aaa; font-size:0.8rem;">命令詳細: ${escapeHtml(t.instruction || t.title)}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-
-                        <button class="approve-btn" id="btn_${spec.spec_id}" onclick="approvePlan('${spec.spec_id}')">
-                            ✅ この設計書を承認して作業AIに命令を発行する
+                        <button class="approve-btn" id="btn_${spec.spec_id}" onclick="approveTree('${spec.spec_id}')">
+                            ✅ この目標樹形図を承認して作業AIスウォームを発動する
                         </button>
                     </div>
                 `;
@@ -588,14 +651,14 @@
             }
         }
 
-        async function approvePlan(specId) {
+        async function approveTree(specId) {
             const btn = document.getElementById(`btn_${specId}`);
             if (btn) {
                 btn.disabled = true;
-                btn.innerText = "⏳ ローカルLLM (qwen2.5-coder:3b) でコード生成中...";
+                btn.innerText = "⏳ 作業AIスウォーム攻略中 (厳格受入サンドボックス検証)...";
             }
 
-            traceConsole.innerText = `[メインAI] 承認を受信。指示を分割して作業AIへ命令を開始...\n`;
+            traceConsole.innerText = `[メインAI] 承認を受信。葉ノードから順に使い捨て作業AIへディスパッチ中...\n`;
 
             try {
                 const res = await fetch('/api/chat/approve', {
@@ -606,25 +669,42 @@
                 const data = await res.json();
 
                 if (btn) {
-                    btn.innerText = "🎉 完了 (Approved & Executed)";
+                    btn.innerText = "🎉 攻略完了 (Tree Verified & Executed)";
                     btn.style.background = "#2b2e44";
                 }
 
-                // AI Reply WITH DELIVERABLE CODE BLOCK
+                // Update Node Tags in Chat Box
+                if (data.tree_data && data.tree_data.nodes) {
+                    const nodes = data.tree_data.nodes;
+                    for (const nid in nodes) {
+                        const tag = document.getElementById(`tag_${nid}`);
+                        if (tag) {
+                            if (nodes[nid].status === 'VERIFIED') {
+                                tag.className = 'node-tag tag-verified';
+                                tag.innerText = '✅ VERIFIED';
+                            } else if (nodes[nid].status === 'FAILED') {
+                                tag.className = 'node-tag tag-failed';
+                                tag.innerText = '❌ FAILED';
+                            }
+                        }
+                    }
+                }
+
+                // Deliverable Display
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'message ai-message';
                 aiDiv.innerHTML = `
                     <div>
-                        <b>[メインAI]</b> 設計書 ${specId} の実装が完了しました！<br>
+                        <b>[メインAI]</b> 🎉 全ノードの自律攻略および<b>完成形受入テスト</b>に合格しました！<br>
                         <span style="font-size:0.8rem; color:#aaa;">
-                            モデル: <code>${data.model_used}</code> | 生成時間: <b>${data.total_gen_time} 秒</b> | コード規模: <b>${data.line_count} 行</b>
+                            モデル: <code>${data.model_used}</code> | 総生成時間: <b>${data.total_gen_time} 秒</b> | 成果物規模: <b>${data.line_count} 行</b>
                         </span>
                     </div>
 
-                    <!-- 成果物コード出力 -->
+                    <!-- 完成成果物コード -->
                     <div class="deliverable-box">
                         <div class="deliverable-header">
-                            <span>📄 <b>完成した成果物コード (Resulting Deliverable)</b></span>
+                            <span>📄 <b>完成した成果物コード (数学的受入テスト通過済み)</b></span>
                             <button class="copy-btn" onclick="copyCode('code_${specId}')">📋 コピー</button>
                         </div>
                         <div class="deliverable-code" id="code_${specId}">${escapeHtml(data.final_code)}</div>
@@ -637,7 +717,7 @@
                 traceConsole.innerText = data.logs.join('\n');
                 traceConsole.scrollTop = traceConsole.scrollHeight;
 
-                // Update Red Circle Bus Monitor
+                // Update Red Circle Bus
                 if (data.bus_traces && data.bus_traces.length > 0) {
                     busHopList.innerHTML = data.bus_traces.map(hop => `
                         <div class="bus-hop-item">
