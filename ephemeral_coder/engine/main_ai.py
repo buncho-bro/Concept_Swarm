@@ -17,12 +17,13 @@ class MainAI:
     4. ユーザーへ樹形図と受入基準を提示し承認を要求。
     5. 承認後、使い捨て作業AI（Ephemeral Worker Swarm）へ葉ノードを発行し、厳格受入サンドボックスで検証。
     """
-    def __init__(self, memory_cluster, reference_cluster, model_name="qwen2.5-coder:3b"):
+    def __init__(self, memory_cluster, reference_cluster, main_model="llama3.1:8b", worker_model="qwen2.5-coder:3b"):
         self.mem_cluster = memory_cluster
         self.ref_cluster = reference_cluster
         self.sandbox = SandboxRunner()
-        self.model_name = model_name
-        self.architect = TreeArchitect(model_name=model_name)
+        self.main_model = main_model
+        self.worker_model = worker_model
+        self.architect = TreeArchitect(model_name=main_model)
         self.pending_trees = {}
 
     def generate_plan(self, user_prompt):
@@ -59,7 +60,7 @@ class MainAI:
             "architecture": f"階層ツリー構造 (全 {len(goal_tree.nodes)} ノード, アトミック実行単位 {len(atomic_leaves)} 件)",
             "target_symbol": target_symbol,
             "target_version_from": current_ver,
-            "model_used": self.model_name,
+            "model_used": f"Main: {self.main_model} / Worker: {self.worker_model}",
             "plan_gen_time": plan_time,
             "tree_data": goal_tree.to_dict(),
             "acceptance_suite": goal_tree.acceptance_suite,
@@ -118,7 +119,7 @@ class MainAI:
             for attempt in range(1, max_attempts + 1):
                 worker_id = f"worker_{node_id}_att_{attempt}"
                 leaf.worker_id = worker_id
-                worker = EphemeralWorker(worker_id, self.ref_cluster, model_name=self.model_name)
+                worker = EphemeralWorker(worker_id, self.ref_cluster, model_name=self.worker_model)
 
                 # 命令実行
                 task_inst = f"要件『{spec['user_prompt']}』の構成要素『{node_name}』を実装せよ。"
@@ -185,7 +186,7 @@ class MainAI:
             "success": True,
             "spec_id": spec_id,
             "final_code": final_code,
-            "model_used": self.model_name,
+            "model_used": f"Main: {self.main_model} / Worker: {self.worker_model}",
             "total_gen_time": round(total_gen_time, 2),
             "line_count": len(final_code.splitlines()) if final_code else 0,
             "tree_data": tree.to_dict(),

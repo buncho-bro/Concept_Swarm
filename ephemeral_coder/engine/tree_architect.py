@@ -13,7 +13,7 @@ class TreeArchitect:
           {現在最も遠い所にある要素}がもう分けられない場合はnullとだけ出力してください。
        すべての最終要素がnullになったらTreeの完成。
     """
-    def __init__(self, model_name="qwen2.5-coder:3b"):
+    def __init__(self, model_name="llama3.1:8b"):
         self.model_name = model_name
 
     def build_goal_tree(self, user_prompt, max_depth=2, max_nodes=8):
