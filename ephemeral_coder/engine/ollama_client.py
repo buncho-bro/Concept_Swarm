@@ -2,14 +2,17 @@ import urllib.request
 import json
 import re
 
-def query_ollama(model, prompt, system_prompt=None, timeout=60):
+def query_ollama(model, prompt, system_prompt=None, timeout=120, num_ctx=8192):
     """
     ローカルの Ollama API (http://localhost:11434/api/generate) に問い合わせを行う
     """
     payload = {
         "model": model,
         "prompt": prompt,
-        "stream": False
+        "stream": False,
+        "options": {
+            "num_ctx": num_ctx
+        }
     }
     if system_prompt:
         payload["system"] = system_prompt

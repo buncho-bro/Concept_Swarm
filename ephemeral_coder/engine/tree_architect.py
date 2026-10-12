@@ -16,7 +16,7 @@ class TreeArchitect:
     def __init__(self, model_name="llama3.1:8b"):
         self.model_name = model_name
 
-    def build_goal_tree(self, user_prompt, domain_rules=None, max_depth=2, max_nodes=8):
+    def build_goal_tree(self, user_prompt, domain_rules=None, max_depth=3, max_nodes=18):
         tree = GoalTree(user_prompt)
         start_time = time.time()
         self.domain_rules = domain_rules
@@ -54,7 +54,7 @@ class TreeArchitect:
             decomp_res = self._query_atomic_decomposition(node_name)
 
             if decomp_res == "null" or not decomp_res:
-                # 分解不能 ➔ アトミック葉ノードとして確定
+                # 分解不能 ➔ 言語プリミティブ / アトミック葉ノードとして確定
                 target_node.is_atomic = True
                 target_node.status = "ATOMIC"
                 tree.decomposition_steps.append({
@@ -63,13 +63,13 @@ class TreeArchitect:
                     "target_name": node_name,
                     "depth": target_node.depth,
                     "result_type": "NULL_TERMINATED",
-                    "explanation": "LLMが 'null' を返答。これ以上分解できない不可分な実装単位として確定。"
+                    "explanation": "言語組み込み関数・プリミティブ定数レベルに到達（null確定）。"
                 })
             else:
                 # 分解成功 ➔ 子ノードを追加
                 target_node.status = "BRANCH"
                 added_children = []
-                for sub_elem in decomp_res[:4]:  # 成立要件を最大4件抽出
+                for sub_elem in decomp_res[:4]:  # 構成要素を最大4件抽出
                     sub_clean = str(sub_elem).strip()
                     if sub_clean and sub_clean.lower() != "null":
                         child = tree.add_child(target_node, sub_clean)
@@ -90,57 +90,82 @@ class TreeArchitect:
 
     def _query_atomic_decomposition(self, element_name):
         """
-        1. 【抽象・ドメイン実体化プロンプト】: 精神論（明確さ、一貫性等）を厳禁し、実装可能な具体的仕様・ルールを要求
-        2. 【レビューシステム】: 抽象形容詞を検知・リジェクトし、実装モジュールへ置換
+        【概念核（Concept Core）言語プリミティブ分解】:
+        プログラミング言語の組み込み関数（sum, len, range等）や演算子に行きつくまで徹底的に分解。
+        未定義領域（When / What / Scope）を排除する。
         """
+        # すでに言語組み込み関数・演算子・定数定義レベルに到達している場合は即座に null (アトミック確定)
+        primitive_indicators = [
+            "sum(", "len(", "range(", "dict", "辞書", "random.shuffle", "shuffle",
+            "比較演算", "定数定義", "スライス", "max(", "min(", ">", "<", "=="
+        ]
+        if any(ind in element_name.lower() for ind in primitive_indicators):
+            return "null"
+
         rule_context = ""
         if getattr(self, "domain_rules", None):
             rule_context = f"\n【背景ドメイン/ルール仕様】:\n{json.dumps(self.domain_rules, ensure_ascii=False, indent=2)}\n"
 
         prompt = (
             f"対象要素: 『{element_name}』\n{rule_context}\n"
-            f"この要素を実際にプログラムとして成立・動作させるために不可欠な【具体的仕様、データ構造、判定アルゴリズム】は何ですか？\n"
-            f"※厳格な禁止事項: 『明確さ』『一貫性』『品質』『使いやすさ』『管理』などの非機能的・精神論的な形容詞は絶対に含めないでください。\n"
-            f"要件に登場する具体的なドメインモデル（カードデータ、自動結合、再結合ロジック、特殊カード、勝敗スコア等）を直接反映した具体的な仕様・モジュール名のみを列挙してください。\n"
-            f"もしこれ以上前提を分ける必要のない最小の完結単位（単一の計算式、組み込み機能、アトミックな単一処理）である場合は、null とだけ出力してください。"
+            f"【概念核（Concept Core）分解原則】:\n"
+            f"すでにプログラミング言語上で定義されている組み込み関数（sum, len, range, random.shuffle等）、基本構文（if/else, 比較演算 ==/>/<, ループfor）、静的定数・辞書データに行きつくまで分解してください。\n"
+            f"未定義領域を残してはなりません。複合的な機能名（勝敗判定、デッキ構築、分子結合等）は、必ず【いつ行うか（タイミング）】【何をもって判定・集計するか（計算式・基準値）】【使用範囲・上限制約】へと分解してください。\n"
+            f"もしすでに言語組み込み関数や単一の演算子・定数定義（sum計算、比較、辞書参照など）に行きついており、これ以上分解不能なアトミック単位である場合は、null とだけ出力してください。"
         )
         sys_prompt = (
-            "You are a Lead Software & Game Systems Architect.\n"
-            "Decompose components into CONCRETE, IMPLEMENTABLE software modules, rule specifications, and data structures.\n"
-            "CRITICAL CONSTRAINTS:\n"
-            "1. STRICTLY FORBIDDEN: Abstract platitudes, vague qualities, or non-executable adjectives (e.g., '明確さ', '一貫性', '品質').\n"
-            "2. REQUIRED: Concrete domain entities, algorithmic mechanics, and state transitions.\n"
-            "3. Output ONLY a JSON array of strings in Japanese: [\"具体的仕様1\", \"具体的仕様2\"], or ONLY: null if irreducible.\n"
+            "You are a Lead Software & Game Systems Architect practicing 'Concept Core (概念核)' tree decomposition.\n"
+            "Core Philosophy:\n"
+            "Decompose components recursively until reaching LANGUAGE-DEFINED BUILT-IN FUNCTIONS, DATA PRIMITIVES, OR ELEMENTARY OPERATORS (e.g. sum(), len(), range(), dict lookup, comparisons >, if/else, const values).\n"
+            "There must be NO undefined or ambiguous gaps. For every system, define:\n"
+            "- What (exact criteria, formula, data fields)\n"
+            "- When (phase, timing, trigger)\n"
+            "- Scope (range of elements, maximum deck/hand size)\n"
+            "STRICTLY FORBIDDEN: Abstract platitudes ('明確さ', '一貫性', '品質', '管理').\n"
+            "Output ONLY a JSON array of concrete sub-elements in Japanese: [\"具体的仕様1\", \"具体的仕様2\"], or ONLY: null if irreducible language primitive.\n"
             "No markdown, no conversation."
         )
 
         raw = query_ollama(self.model_name, prompt=prompt, system_prompt=sys_prompt, timeout=60)
         candidates = self._parse_json_or_list(raw)
 
-        # Step B: レビューシステム（非機能形容詞の監査・リジェクト）
+        # Step B: レビューシステム（非機能形容詞の監査・リジェクト & プリミティブ整合性検証）
         reviewed = self._review_decomposition(element_name, candidates)
         return reviewed
 
     def _review_decomposition(self, element_name, candidates):
         """
         レビューシステム (Reviewer / Critic):
-        提案された前提要素を批判的に精査し、『明確さ』『一貫性』などの抽象的単語を排除して具体的ルールに修正する。
+        提案された要素を監査し、未定義領域がないか、言語プリミティブに到達しているかを精査。
+        抽象語が検出された場合のみ再レビューLLMを駆動し、オーバーヘッドを最小化する。
         """
         if candidates == "null" or not candidates:
             return "null"
 
+        abstract_keywords = ["明確さ", "一貫性", "品質", "管理", "対象ルール", "適切な", "向上", "最適化"]
+        needs_review = False
+        if isinstance(candidates, list):
+            for c in candidates:
+                if any(kw in str(c) for kw in abstract_keywords):
+                    needs_review = True
+                    break
+
+        if not needs_review:
+            return candidates
+
         review_prompt = (
             f"親要素: 『{element_name}』\n"
-            f"提案された前提要素候補: {json.dumps(candidates, ensure_ascii=False)}\n\n"
-            f"上記の前提要素候補を監査し、以下を実施してください:\n"
-            f"1. 『明確さ』『一貫性』『管理』などの抽象的・非機能的な単語があれば、実装可能な『具体的ルール仕様』『データモデル』『判定ロジック』に置換または削除せよ。\n"
-            f"2. 重複を削り、最大3〜4個の明確な実装モジュール・ルール仕様として最適化せよ。\n"
+            f"提案された構成要素候補: {json.dumps(candidates, ensure_ascii=False)}\n\n"
+            f"上記の構成要素候補に抽象的な非機能語が含まれています。以下を実施してください:\n"
+            f"1. 『明確さ』『一貫性』『管理』などの抽象形容詞があれば、実装可能な『具体的ルール仕様』『データモデル』『判定ロジック』に置換せよ。\n"
+            f"2. 複合機能（勝敗判定、デッキ構築等）について、【いつ行うか (When)】や【何をもって判定するか (What)】が曖昧な場合、明確な仕様名に補正せよ。\n"
+            f"3. すでに言語組み込み関数や単一の定数定義に到達している場合、または候補が重複している場合は整理し、最大3〜4個の明確なモジュールとして最適化せよ。\n"
             f"出力形式: JSON配列 [\"要素A\", \"要素B\"] または null のみ:"
         )
 
         sys_prompt = (
             "You are an Architectural Quality Auditor.\n"
-            "Enforce CONCRETE EXECUTABLE SPECIFICATIONS.\n"
+            "Enforce CONCRETE EXECUTABLE SPECIFICATIONS down to Language Primitives.\n"
             "Reject abstract qualities and convert them into real game mechanics and data structures.\n"
             "Output ONLY a JSON array of verified prerequisite strings in Japanese, or ONLY: null.\n"
             "No explanations, no markdown."
@@ -158,23 +183,29 @@ class TreeArchitect:
             return "null"
         match = re.search(r"(\[.*?\])", clean, re.DOTALL)
         if match:
+            items = None
             try:
                 items = json.loads(match.group(1))
-                if isinstance(items, list) and len(items) > 0:
-                    clean_items = []
-                    for x in items:
-                        if isinstance(x, dict):
-                            name = x.get("要素") or x.get("name") or x.get("module") or list(x.values())[0]
-                            desc = x.get("仕様") or x.get("description") or x.get("details") or ""
-                            combined = f"{name} ({desc})" if desc else str(name)
-                            clean_items.append(combined.strip())
-                        else:
-                            clean_items.append(str(x).strip())
-                    clean_items = [x for x in clean_items if x and x.lower() != "null"]
-                    if clean_items:
-                        return clean_items
             except Exception:
-                pass
+                try:
+                    import ast
+                    items = ast.literal_eval(match.group(1))
+                except Exception:
+                    items = None
+
+            if isinstance(items, list) and len(items) > 0:
+                clean_items = []
+                for x in items:
+                    if isinstance(x, dict):
+                        name = x.get("要素") or x.get("name") or x.get("module") or (list(x.values())[0] if x else "")
+                        desc = x.get("仕様") or x.get("description") or x.get("details") or ""
+                        combined = f"{name} ({desc})" if desc else str(name)
+                        clean_items.append(combined.strip())
+                    else:
+                        clean_items.append(str(x).strip())
+                clean_items = [x for x in clean_items if x and x.lower() != "null"]
+                if clean_items:
+                    return clean_items
         lines = [l.strip().lstrip("-*0123456789. ") for l in clean.splitlines() if l.strip().startswith(("-", "*", "1.", "2.", "3."))]
         clean_lines = [l for l in lines if l and l.lower() != "null"]
         if clean_lines:

@@ -667,6 +667,32 @@
                                             <b style="color:#79d4fd;">コア概要:</b> ${escapeHtml(spec.domain_rules.core_mechanics_summary)}
                                         </div>
                                     ` : ''}
+                                    ${spec.domain_rules.elements_spec ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#79d4fd;">定義元素範囲:</b> ${escapeHtml(spec.domain_rules.elements_spec.scope || '')}<br>
+                                            <span style="font-size:0.75rem; color:#aaa;">マスタ: ${(spec.domain_rules.elements_spec.master_table||[]).map(e => `${escapeHtml(e.symbol||e.name||'')}(価数:${e.valency}, 親和:${e.affinity})`).join(', ')}</span>
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.binding_spec ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#38ef7d;">分子結合システム:</b> 自動結合: ${escapeHtml(spec.domain_rules.binding_spec.auto_binding || '')} | 再結合: ${escapeHtml(spec.domain_rules.binding_spec.re_binding || '')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.deck_spec ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#c0caf5;">デッキ・手札制約:</b> 最大デッキ: ${escapeHtml(spec.domain_rules.deck_spec.max_deck_size || '')}枚 | 手札上限: ${escapeHtml(spec.domain_rules.deck_spec.hand_size || '')}枚 | 初期ドロー: ${escapeHtml(spec.domain_rules.deck_spec.initial_draw || '')}枚
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.victory_spec ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#f2cc60;">勝敗判定システム:</b> 【いつ】 ${escapeHtml(spec.domain_rules.victory_spec.timing || '')} | 【計算式】 ${escapeHtml(spec.domain_rules.victory_spec.formula || '')} | 【条件】 ${escapeHtml(spec.domain_rules.victory_spec.condition || '')}
+                                        </div>
+                                    ` : ''}
+                                    ${spec.domain_rules.ui_spec ? `
+                                        <div class="domain-rule-item">
+                                            <b style="color:#bb9af7;">UI・表示要件:</b> 手札表示: ${escapeHtml(spec.domain_rules.ui_spec.hand_display || '')} | ログ: ${escapeHtml(spec.domain_rules.ui_spec.battle_log || '')}
+                                        </div>
+                                    ` : ''}
                                     ${spec.domain_rules.entities ? `
                                         <div class="domain-rule-item">
                                             <b style="color:#79d4fd;">登場カード・エンティティ:</b> ${spec.domain_rules.entities.map(e => {

@@ -6,6 +6,15 @@ from engine.sandbox import SandboxRunner
 from engine.tree_architect import TreeArchitect
 from engine.rule_formulator import RuleFormulator
 
+def _safe_print(msg):
+    try:
+        print(msg, flush=True)
+    except Exception:
+        try:
+            print(msg.encode('ascii', 'replace').decode('ascii'), flush=True)
+        except Exception:
+            pass
+
 class MainAI:
     """
     目標樹形図メインAI (Main AI / Goal Tree PM):
@@ -119,7 +128,9 @@ class MainAI:
             node_id = leaf.id
             node_name = leaf.name
             leaf.status = "EXECUTING"
-            logs.append(f"\n▶ [メインAI] アトミック葉ノード発行: [{node_id}] 『{node_name}』 ➔ 使い捨て作業AIへ")
+            msg_leaf = f">> [MainAI] Atomic Leaf: [{node_id}] {node_name} -> Worker Swarm"
+            logs.append(f"\n{msg_leaf}")
+            _safe_print(msg_leaf)
 
             max_attempts = 1
             success_for_node = False
@@ -146,7 +157,9 @@ class MainAI:
                 test_res = self.sandbox.verify_and_test(result["code"], acceptance_test_code="")
 
                 if test_res["success"]:
-                    logs.append(f"[StrictSandbox] ✅ [{node_id}] 構文・基本実行に合格！")
+                    ver_msg = f"[StrictSandbox] PASSED [{node_id}]: Syntax & execution ok ({result.get('gen_time', 0)}s)"
+                    logs.append(ver_msg)
+                    _safe_print(ver_msg)
                     leaf.status = "VERIFIED"
                     leaf.code = result["code"]
                     final_code = result["code"]
@@ -160,7 +173,9 @@ class MainAI:
                     logs.append(f"[記憶AI(コード)] 正史ブランチへマージ完了 (Version {new_ver})")
                     break
                 else:
-                    logs.append(f"[StrictSandbox] ❌ [{node_id}] 検証失敗: {test_res['root_cause']}")
+                    fail_msg = f"[StrictSandbox] FAILED [{node_id}]: {test_res['root_cause']}"
+                    logs.append(fail_msg)
+                    _safe_print(fail_msg)
                     leaf.status = "FAILED"
                     leaf.error_log = test_res['root_cause']
 

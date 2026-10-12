@@ -47,6 +47,11 @@ class SandboxRunner:
 
             # 3. 受入テスト（assert）が存在する場合は実行
             if acceptance_test_code and acceptance_test_code.strip():
+                import types
+                mod = types.ModuleType("game_logic")
+                mod.__dict__.update(local_scope)
+                sys.modules["game_logic"] = mod
+                sys.modules["main_logic"] = mod
                 try:
                     exec(acceptance_test_code, local_scope, local_scope)
                 except AssertionError as ae:
@@ -71,6 +76,8 @@ class SandboxRunner:
             }
         finally:
             sys.stdout = old_stdout
+            sys.modules.pop("game_logic", None)
+            sys.modules.pop("main_logic", None)
 
         return {
             "success": True,

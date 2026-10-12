@@ -1,5 +1,12 @@
+import sys
 import json
 import os
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from engine.memory_cluster import MemoryCluster
 from engine.reference_cluster import ReferenceCluster
