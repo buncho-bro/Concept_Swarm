@@ -89,44 +89,73 @@ class TreeArchitect:
 
     def _query_atomic_decomposition(self, element_name):
         """
-        ユーザー考案の核となるプロンプト:
-        >> {現在最も遠い所にある要素}に必要な要素とは何ですか？可能な限り列挙してください。
-           {現在最も遠い所にある要素}がもう分けられない場合はnullとだけ出力してください。
+        1. 【抽象化プロンプト】: ドメイン具体例（探索、優先度キュー等）によるアンカーバイアスを完全排除
+        2. 【レビューシステム】: 提案された前提要素の妥当性・過不足・重複・ハルシネーションを監査
         """
+        # Step A: 抽象プロンプトによる前提要素の抽出
         prompt = (
-            f"『{element_name}』を現実に成立させ、正しく機能・実証するために不可欠な前提要素は何ですか？\n"
-            f"単なる部分品の内訳ではなく、以下のような【成立要件・前提依存】を多角的に含めて可能な限り列挙してください：\n"
-            f"- 1. コア実装・アルゴリズム本体（探索関数など）\n"
-            f"- 2. その正しさを立証・保証するテストコードおよび受入検証機構\n"
-            f"- 3. 支える数学計算ライブラリやデータ構造の基盤（優先度キュー、ヒューリスティック計算など）\n"
-            f"- 4. 実行環境や前提データ型・境界制約・最適化仕様\n\n"
-            f"もし『{element_name}』がこれ以上前提や依存を分ける必要のない最小の完結単位（単一の計算式、標準インポート、独立した単一テストなど）である場合は、null とだけ出力してください。"
+            f"『{element_name}』が実際に動作し、その正当性が実証されるために、前提としてあらかじめ成立・存在していなければならない基盤や条件は何ですか？\n"
+            f"本質的に不可欠な前提要素を列挙してください。\n"
+            f"もしこれ以上前提を分ける必要のない最小の完結単位（単一の計算式、組み込み機能、アトミックな単一処理）である場合は、null とだけ出力してください。"
         )
         sys_prompt = (
-            "You are a Systems & Architectural Foundation Decomposition Engine.\n"
-            "Your mission is to decompose a programming requirement into WHAT IS NECESSARY TO MAKE IT TRULY WORK AND BE PROVEN VALID (成立要件・前提依存の逆算因数分解).\n"
-            "Decompose across essential foundational layers:\n"
-            "1. Core Logic & Algorithm (コア関数・実装本体)\n"
-            "2. Verification & Acceptance Test Harness (受入テスト・検証コード)\n"
-            "3. Mathematical / Data Structure Foundations & Libraries (数学計算ライブラリ、データ構造基盤)\n"
-            "4. Execution Environment & Constraints (データ型、境界条件、最適化制約)\n\n"
-            "OUTPUT RULES:\n"
-            "- If it requires foundational components, output ONLY a JSON array of strings in Japanese: [\"要素1\", \"要素2\"]\n"
-            "- If it is already an irreducible atomic unit (a single primitive calculation, standard import, or atomic test assert), output ONLY: null\n"
-            "- Output NO markdown, NO commentary."
+            "You are an Architectural Foundation Decomposition Engine.\n"
+            "Analyze the given requirement in an abstract, objective manner without relying on fixed domain examples.\n"
+            "Determine the genuine prerequisites required for it to be implemented, executed, and verified.\n"
+            "RULES:\n"
+            "- If it has essential prerequisites, output ONLY a JSON array of strings in Japanese: [\"前提1\", \"前提2\"]\n"
+            "- If it is already an irreducible, self-contained atomic unit, output ONLY: null\n"
+            "- Output NO markdown, NO conversational text."
         )
 
         raw = query_ollama(self.model_name, prompt=prompt, system_prompt=sys_prompt, timeout=60)
-        if not raw:
-            return "null"
+        candidates = self._parse_json_or_list(raw)
 
-        text = raw.strip()
-        # null 判定
-        if text.lower() == "null" or text.lower().startswith("null"):
-            return "null"
+        # Step B: レビューシステム（監査・最適化）
+        reviewed = self._review_decomposition(element_name, candidates)
+        return reviewed
 
-        # JSON 配列の抽出
-        match = re.search(r"(\[.*?\])", text, re.DOTALL)
+    def _review_decomposition(self, element_name, candidates):
+        """
+        レビューシステム (Reviewer / Critic):
+        提案された前提要素を批判的に精査し、過不足、重複、幻覚（ハルシネーション）を削ぎ落とす。
+        """
+        if candidates == "null" or not candidates:
+            review_prompt = (
+                f"対象要素: 『{element_name}』\n"
+                f"初期判定: 分解不要な最小単位 (null)\n\n"
+                f"上記の要素は、本当にこれ以上前提を分ける必要がない最小の実装・定義単位ですか？\n"
+                f"妥当であれば 'null' と出力してください。もし複合的な責務があり前提分解が必要なら、真に必要な前提要素のJSON配列を出力してください。"
+            )
+        else:
+            review_prompt = (
+                f"対象要素: 『{element_name}』\n"
+                f"提案された前提要素候補: {json.dumps(candidates, ensure_ascii=False)}\n\n"
+                f"上記の前提要素候補をレビューし、過不足のない最小限の必須前提要素のJSON配列として最適化してください。\n"
+                f"- 親要素の成立に無関係な要素、過剰な具体例、重複を削除してください。\n"
+                f"- 候補がすべて不要またはすでに最小単位なら 'null' と出力してください。\n"
+                f"出力形式: JSON配列 [\"要素A\", \"要素B\"] または null のみ:"
+            )
+
+        sys_prompt = (
+            "You are an Architectural Quality Reviewer.\n"
+            "Critically evaluate proposed prerequisites for software components.\n"
+            "Eliminate hallucinations, redundancies, and arbitrary domain anchoring.\n"
+            "Output ONLY a JSON array of verified prerequisite strings in Japanese, or ONLY: null\n"
+            "No explanations, no markdown."
+        )
+
+        raw = query_ollama(self.model_name, prompt=review_prompt, system_prompt=sys_prompt, timeout=60)
+        reviewed_candidates = self._parse_json_or_list(raw)
+        return reviewed_candidates if reviewed_candidates else candidates
+
+    def _parse_json_or_list(self, text):
+        if not text:
+            return "null"
+        clean = text.strip()
+        if clean.lower() == "null" or clean.lower().startswith("null"):
+            return "null"
+        match = re.search(r"(\[.*?\])", clean, re.DOTALL)
         if match:
             try:
                 items = json.loads(match.group(1))
@@ -136,13 +165,10 @@ class TreeArchitect:
                         return clean_items
             except Exception:
                 pass
-
-        # 箇条書き判定 (フォールバック)
-        lines = [l.strip().lstrip("-*0123456789. ") for l in text.splitlines() if l.strip().startswith(("-", "*", "1.", "2.", "3."))]
+        lines = [l.strip().lstrip("-*0123456789. ") for l in clean.splitlines() if l.strip().startswith(("-", "*", "1.", "2.", "3."))]
         clean_lines = [l for l in lines if l and l.lower() != "null"]
         if clean_lines:
-            return clean_lines[:3]
-
+            return clean_lines[:4]
         return "null"
 
     def _generate_acceptance_test(self, user_prompt):
