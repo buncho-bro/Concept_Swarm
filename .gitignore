@@ -4,3 +4,5 @@
 *.pyc
 __pycache__/
 *.log
+tokenizer.json
+ephemeral_coder/scratch/*.txt

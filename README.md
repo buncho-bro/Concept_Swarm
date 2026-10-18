@@ -45,13 +45,22 @@ Google Antigravityによる開発 本プロジェクトのコアアルゴリズ�
 *量子化重みを用いた高速化実験や、KNNグラフによるトポロジー蒸留、さらにフラクタル構造を用いた再帰的なExpertルーティングなどの基礎実験群 (step1〜step8)。*
 - `step1_quantized_distillation.py` 〜 `step8_hierarchical_decoding.py`
 
-### 8. `distillation_experiments/` (概念フォージ・進化計算・キメラ結合)
-*プロジェクト初期〜中期にかけて試作された、ポテンシャル地形のGUI操作（Concept Forge）、ASTベースのMCTS探索（Evolutionary Tree Coder）、複数LoRAの局所結合（Chimera Injector）など、多様なプロトタイプ群。*
-- `concept_forge_webui.py` / `evolutionary_tree_coder.py` / `chimera_injector.py` / `ultimate_resonant_tree.py` / etc.
+### 8. `distillation_experiments/` (概念フォージ・スライストポロジー蒸留・純粋軌跡移転)
+*0VRAM全語彙大円干渉、スライストポロジー蒸留（`slice_topological_distiller.py`）、および人間定義ラベルを全廃して「画像概念核での重力軌跡を文章概念核へ移して直接発話させる」粗視化被覆・再細分化エンジン（`coarse_gravity_joint_terrain_engine.py`, `universal_vision_inspector_webui.py` v5.1）を含む中核実験群。*
+- `coarse_gravity_joint_terrain_engine.py` / `universal_vision_inspector_webui.py` / `universal_idea_core_engine.py` / `slice_topological_distiller.py` / `zero_vram_great_circle_genesis.py` / `concept_forge_webui.py` / etc.
+
+### 9. `ephemeral_coder/` (逆算型目標樹形図エンジン / GDTE v3.4)
+*目標ツリーを「すでに言語上で定義されている組み込み関数・演算子に行きつくまで再帰分解する不変の概念核」と定義し、使い捨てWorker AIスウォームが構文的補間のみを行って厳格受入テストを突破する自律開発エンジン。*
+- `server.py` / `engine/tree_architect.py` / `engine/rule_formulator.py` / `docs/goal_tree_engine_specification.md`
+
+### 10. `docs/` (全体年代記・アーキテクチャ仕様書)
+- `PROJECT_CHRONICLE.md` (全開発史・総括年代記 第1章〜第6章)
+- `goal_tree_engine_specification.md` (GDTE v3.4 概念核言語プリミティブ分解仕様書)
+- `universal_trajectory_transfer_specification.md` (v5.1 粗視化被覆・再細分化重力地形 ＆ 純粋軌跡移転仕様書)
 
 ---
 
 ## ・使い方
 本リポジトリのコード群はモジュール・実験ごとに独立しています。
-**詳しい実行目的とメカニズムは、各 `.py` ファイルの先頭にある解説ブロック（Docstring）をご覧ください。**
+**詳しい実行目的とメカニズムは、各 `.py` ファイルの先頭にある解説ブロック（Docstring）および `docs/` 内の仕様書をご覧ください。**
 ※実験途中のPoC（Proof of Concept）スクリプトや、特定のローカルモデルパスに依存しているコードも含まれているため、実行時は環境に合わせて適宜パスを修正してください。

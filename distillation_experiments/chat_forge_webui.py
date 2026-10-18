@@ -2,20 +2,30 @@
 【ファイル概要】
 chat_forge_webui.py
 
-蒸留された概念モデルとチャット形式で対話するためのGradioベースのWebUI。
+自律積層概念地形エンジン (Autonomous Stacked Terrain Genesis & AI Layer Sync) 搭載 WebUI。
+人間による「文章の指定・アンカー化」を完全に排除し、
+「Layer 0 吸収点 ➔ Layer 1 初期配置 ➔ Layer 2 自律成長」により自己組織化された幾何学多層地形と、
+実LLM（Qwen2.5等）の内部レイヤー（低次: Layer 6, 中次: Layer 12, 高次: Layer 18）を完全同期。
 """
 
-import gradio as gr
 import os
+import sys
 import gc
 import time
+import glob
+import math
 import torch
 import torch.nn.functional as F
 import numpy as np
+from threading import Thread
+
+# オフライン高速起動（ローカルキャッシュ優先）
+os.environ['HF_HUB_OFFLINE'] = '1'
+os.environ['TRANSFORMERS_OFFLINE'] = '1'
+
+import gradio as gr
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, TextIteratorStreamer
 from peft import PeftModel
-from threading import Thread
-import glob
 
 # ==========================================
 # グローバル状態
@@ -23,27 +33,22 @@ import glob
 current_model = None
 current_tokenizer = None
 current_model_name = "None"
+current_controller = None
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-cached_faiss_index = None
-cached_lm_head_weight = None
-cached_faiss_model_id = None
-cached_concept_vecs = None
-cached_model_id = None
-
-# 純度100%の概念アンカー（Universal Language / English）
-CONCEPT_WORDS = [
-    "Time", "Space", "Existence", "Nothingness", "Truth", "Logic", "Philosophy", "Ethics", "Morality", "Justice", "Freedom", "Equality", "Peace", "War", "History", "Future", "Past", "Eternity",
-    "Mathematics", "Chemistry", "Biology", "Geometry", "Algebra", "Probability", "Statistics", "Quantum", "Particle", "Light", "Gravity", "Magnetism", "Electricity", "Energy", "Mass", "Velocity",
-    "Economy", "Market", "Capital", "Currency", "Labor", "Industry", "Trade", "Enterprise", "Society", "Culture", "Law", "Nation", "Democracy", "Dictatorship", "Revolution", "Rights",
-    "Art", "Music", "Painting", "Sculpture", "Literature", "Poetry", "Theater", "Movie", "Beauty", "Expression", "Creation", "Tradition", "Religion", "Faith", "God", "Spirit", "Soul",
-    "Plant", "Tree", "Flower", "Grass", "Forest", "Ocean", "Mountain", "River", "Desert", "Climate", "Weather", "Rain", "Snow", "Wind", "Thunder", "Earth", "Planet", "Star",
-    "Machine", "Tool", "Engine", "Robot", "Circuit", "Communication", "Metal", "Iron", "Gold", "Silver", "Copper", "Water", "Fire", "Earth_soil", "Air", "Oxygen", "Hydrogen",
-    "Joy", "Sadness", "Fear", "Surprise", "Love", "Hate", "Hope", "Despair", "Loneliness", "Happiness", "Pain", "Pleasure", "Memory", "Thought", "Consciousness", "Unconscious"
+# 初期配置用 普遍基底アンカー（文章ではなく、初期の種となる普遍単語群）
+GENESIS_WORDS = [
+    "Entity", "Object", "Number", "Name", "Place", "Time", "Space", "Property", "State", "Definition", "Data", "Fact",
+    "Cause", "Effect", "Condition", "Relation", "Difference", "Mechanism", "Process", "Rule", "Change", "Function", "Action",
+    "Conclusion", "Principle", "System", "Truth", "Consistency", "Summary", "Invariance", "Resolution", "Optimization", "Insight",
+    "Logic", "Structure", "Language", "Thought", "Form", "Order", "Connection", "Balance", "Pattern", "Boundary"
 ]
 
 def free_vram():
-    global current_model, current_tokenizer, current_model_name
+    global current_model, current_tokenizer, current_model_name, current_controller
+    if current_controller is not None:
+        current_controller.detach()
+        current_controller = None
     if current_model is not None:
         del current_model
         current_model = None
@@ -52,33 +57,219 @@ def free_vram():
         current_tokenizer = None
     current_model_name = "None"
     gc.collect()
-    torch.cuda.empty_cache()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
-def get_word_embedding(model, tokenizer, word):
-    inputs = tokenizer(word, return_tensors="pt").to(device)
-    with torch.no_grad():
-        outputs = model(**inputs, output_hidden_states=True)
-    hidden = outputs.hidden_states[-1][0, -1, :] 
-    return F.normalize(hidden.to(torch.float32), p=2, dim=0)
+# ==========================================
+# 自律積層地形ジェネレーター (Autonomous Genesis)
+# ==========================================
+class AutonomousTerrainGenesis:
+    """
+    前層の吸収点を次層の初期配置として、自己組織的に多層地形を成長させる
+    """
+    def __init__(self, model, tokenizer, device, hidden_dim=896):
+        self.model = model
+        self.tokenizer = tokenizer
+        self.device = device
+        self.hidden_dim = hidden_dim
+
+    def extract_word_embeddings(self, words, target_layer):
+        vecs = []
+        for w in words:
+            inp = self.tokenizer(w, return_tensors="pt").to(self.device)
+            with torch.no_grad():
+                out = self.model(**inp, output_hidden_states=True)
+                h = out.hidden_states[target_layer][0, -1, :].to(torch.float32)
+                h = F.normalize(h, p=2, dim=-1)
+                vecs.append(h)
+        return torch.stack(vecs) # (N, D)
+
+    def find_absorbers(self, terrain_landscape, steps=25, lr=0.06, sigma=0.28, merge_sim=0.90):
+        N, D = terrain_landscape.shape
+        points = terrain_landscape.clone()
+
+        for step in range(steps):
+            cos_sims = torch.matmul(points, terrain_landscape.T)
+            dist_sq = 2.0 - 2.0 * cos_sims
+            pulls = torch.exp(- dist_sq / (2.0 * (sigma ** 2)))
+
+            weights = pulls / (torch.sum(pulls, dim=1, keepdim=True) + 1e-7)
+            target_dirs = torch.matmul(weights, terrain_landscape)
+
+            proj = torch.sum(target_dirs * points, dim=-1, keepdim=True) * points
+            tangent = target_dirs - proj
+            norm_t = torch.norm(tangent, p=2, dim=-1, keepdim=True)
+            tangent = tangent / (norm_t + 1e-7)
+
+            points = F.normalize(points + lr * tangent, p=2, dim=-1)
+
+        unique_absorbers = []
+        for p in points:
+            if len(unique_absorbers) == 0:
+                unique_absorbers.append(p)
+            else:
+                existing = torch.stack(unique_absorbers)
+                sims = torch.matmul(p, existing.T)
+                if torch.max(sims).item() < merge_sim:
+                    unique_absorbers.append(p)
+
+        return torch.stack(unique_absorbers)
+
+    def build_stacked_terrains(self, l_low=6, l_mid=12, l_high=18):
+        # 1. Layer 0 地形生成 (Layer 6 空間)
+        X0 = self.extract_word_embeddings(GENESIS_WORDS, target_layer=l_low)
+        A0 = self.find_absorbers(X0, steps=25, sigma=0.28, merge_sim=0.90)
+
+        # 2. Layer 1 地形生成: A₀ をそのまま初期配置 X₁ とする
+        X1 = F.normalize(A0, p=2, dim=-1)
+        A1 = self.find_absorbers(X1, steps=25, sigma=0.32, merge_sim=0.88)
+
+        # 3. Layer 2 地形生成: A₁ をそのまま初期配置 X₂ とする
+        X2 = F.normalize(A1, p=2, dim=-1)
+        A2 = self.find_absorbers(X2, steps=25, sigma=0.38, merge_sim=0.85)
+
+        return {
+            l_low: A0.to(self.device, dtype=torch.float16),
+            l_mid: A1.to(self.device, dtype=torch.float16),
+            l_high: A2.to(self.device, dtype=torch.float16)
+        }
+
+# ==========================================
+# 実LLMレイヤーとの完全同期フック & コントローラー
+# ==========================================
+class SynchronizedTerrainHook:
+    def __init__(self, layer_idx, layer_name, absorbers, gamma=0.06, threshold=0.15):
+        self.layer_idx = layer_idx
+        self.layer_name = layer_name
+        self.absorbers = absorbers # (M, D) float16 on cuda
+        self.gamma = gamma
+        self.threshold = threshold
+        self.active = True
+        self.records = []
+
+    def __call__(self, module, inputs, output):
+        if not self.active or self.absorbers is None:
+            return output
+
+        last_h = output[:, -1, :] # (B, D) float16
+        h_norm = F.normalize(last_h, p=2, dim=-1)
+
+        cos_sim = torch.matmul(h_norm, self.absorbers.T) # (B, M)
+        max_sim, best_idx = torch.max(cos_sim, dim=-1)
+
+        # 磁界ゲート: 類似度が閾値未満なら磁力はゼロ（自然言語や事実知識を阻害しない）
+        if max_sim.item() < self.threshold:
+            return output
+
+        gate = (max_sim - self.threshold) / (1.0 - self.threshold)
+        target_absorber = self.absorbers[best_idx]
+
+        # 接平面射影 (Tangent Nudge)
+        proj = torch.sum(target_absorber * h_norm, dim=-1, keepdim=True) * h_norm
+        tangent = target_absorber - proj
+        norm_t = torch.norm(tangent, p=2, dim=-1, keepdim=True)
+        if norm_t.item() < 1e-6:
+            return output
+        tangent_nudge = tangent / norm_t
+
+        shift_deg = float(torch.acos(torch.clamp(max_sim, -1.0, 1.0)).item() * 180.0 / math.pi)
+        self.records.append({"best_idx": best_idx.item(), "shift_deg": shift_deg, "sim": max_sim.item()})
+
+        h_mag = torch.norm(last_h, p=2, dim=-1, keepdim=True)
+        nudged = last_h + self.gamma * gate.unsqueeze(-1) * h_mag * tangent_nudge
+
+        new_output = output.clone()
+        new_output[:, -1, :] = nudged
+        return new_output
+
+class SynchronizedLayerController:
+    def __init__(self, model, terrains):
+        self.model = model
+        self.terrains = terrains
+        self.hooks = []
+        self.hook_handles = []
+
+        num_layers = getattr(model.config, "num_hidden_layers", len(model.model.layers))
+        self.l_low = int(num_layers * 0.25)
+        self.l_mid = int(num_layers * 0.50)
+        self.l_high = int(num_layers * 0.75)
+
+        for l_idx, absorbers in terrains.items():
+            hook = SynchronizedTerrainHook(
+                layer_idx=l_idx,
+                layer_name=f"Layer_{l_idx}_MLP",
+                absorbers=absorbers,
+                gamma=0.06,
+                threshold=0.15
+            )
+            handle = self.model.model.layers[l_idx].mlp.register_forward_hook(hook)
+            self.hooks.append(hook)
+            self.hook_handles.append(handle)
+
+    def set_active(self, active: bool):
+        for h in self.hooks:
+            h.active = active
+
+    def set_gamma(self, gamma: float):
+        for h in self.hooks:
+            h.gamma = gamma
+
+    def clear_records(self):
+        for h in self.hooks:
+            h.records.clear()
+
+    def detach(self):
+        for handle in self.hook_handles:
+            try:
+                handle.remove()
+            except Exception:
+                pass
+        self.hooks.clear()
+        self.hook_handles.clear()
 
 # ==========================================
 # モデルロード
 # ==========================================
-def load_model_for_chat(base_id, lora_dir, use_lora):
-    global current_model, current_tokenizer, current_model_name
+def load_model_for_chat(base_id, precision_opt, lora_dir, use_lora):
+    global current_model, current_tokenizer, current_model_name, current_controller
     free_vram()
     
     try:
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16
-        )
-        
         current_tokenizer = AutoTokenizer.from_pretrained(base_id)
-        current_model = AutoModelForCausalLM.from_pretrained(base_id, quantization_config=bnb_config, device_map={"": "cuda:0"})
         
+        if "4-bit" in precision_opt:
+            bnb_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_compute_dtype=torch.float16
+            )
+            current_model = AutoModelForCausalLM.from_pretrained(
+                base_id,
+                quantization_config=bnb_config,
+                device_map={"": "cuda:0"}
+            )
+            precision_label = "4-bit (NF4)"
+        else:
+            current_model = AutoModelForCausalLM.from_pretrained(
+                base_id,
+                torch_dtype=torch.float16,
+                device_map="cuda"
+            )
+            precision_label = "FP16 (Direct)"
+
+        current_model.eval()
+
+        num_layers = getattr(current_model.config, "num_hidden_layers", len(current_model.model.layers))
+        l_low = int(num_layers * 0.25)
+        l_mid = int(num_layers * 0.50)
+        l_high = int(num_layers * 0.75)
+
+        # 自律積層地形の生成
+        genesis = AutonomousTerrainGenesis(current_model, current_tokenizer, device, hidden_dim=current_model.config.hidden_size)
+        terrains = genesis.build_stacked_terrains(l_low=l_low, l_mid=l_mid, l_high=l_high)
+        current_controller = SynchronizedLayerController(current_model, terrains)
+
         if lora_dir == "None":
             use_lora = False
             
@@ -86,27 +277,37 @@ def load_model_for_chat(base_id, lora_dir, use_lora):
             if os.path.exists(lora_dir):
                 try:
                     current_model = PeftModel.from_pretrained(current_model, lora_dir)
-                    current_model_name = f"Distilled Model (LoRA: {os.path.basename(lora_dir)})"
+                    current_model_name = f"Distilled Model ({precision_label} + LoRA: {os.path.basename(lora_dir)})"
                 except Exception as lora_e:
-                    current_model_name = "Base Model (LoRA Load Failed)"
+                    current_model_name = f"Base Model ({precision_label}, LoRA Failed)"
                     return f"❌ ERROR: LoRAの適用に失敗しました。\n詳細: {str(lora_e)}"
             else:
-                current_model_name = "Base Model"
+                current_model_name = f"Base Model ({precision_label})"
                 return f"⚠️ WARNING: LoRA path '{lora_dir}' not found. Loaded Base Model instead."
         else:
-            current_model_name = "Base Model"
+            current_model_name = f"Base Model ({precision_label}: {base_id})"
             
-        return f"✅ Successfully loaded: {current_model_name}"
+        vram_mb = torch.cuda.memory_allocated(0) / (1024 ** 2) if torch.cuda.is_available() else 0.0
+        n0, n1, n2 = len(terrains[l_low]), len(terrains[l_mid]), len(terrains[l_high])
+        return (
+            f"✅ ロード成功: {current_model_name}\n"
+            f"VRAM使用量: {vram_mb:.1f} MB\n"
+            f"自律積層地形自律生成完了:\n"
+            f"  ・Layer {l_low} (要素地形): {n0} 吸収点\n"
+            f"  ・Layer {l_mid} (関係地形): {n1} 吸収点 (前層吸収点から自律生成)\n"
+            f"  ・Layer {l_high} (統合地形): {n2} 吸収点 (前層吸収点から自律生成)\n"
+            f"※ 文章指定・アンカー化なし (完全自己組織化)"
+        )
     except Exception as e:
         return f"❌ Error loading Model: {str(e)}"
 
 # ==========================================
-# チャットロジック (Deepthink & FAISS 搭載)
+# チャットロジック (自律積層同期 + ストリーミング)
 # ==========================================
-def chat_fn(message, history, use_deepthink, use_lightweight):
-    global current_model, current_tokenizer, current_model_name
+def chat_fn(message, history, use_sync, gamma_val, show_stats):
+    global current_model, current_tokenizer, current_model_name, current_controller
     if current_model is None:
-        yield "⚠️ Please load a model first in the options above."
+        yield "⚠️ 上部の「🚀 Load Model」ボタンを押して、まずモデルをロードしてください。"
         return
         
     messages = []
@@ -126,183 +327,56 @@ def chat_fn(message, history, use_deepthink, use_lightweight):
             
     if not isinstance(message, str):
         message = str(message)
-        
-    system_prompt = ""
-    thinking_log = ""
-    
-    # --- 🧠 Deepthink (Fractal Routing) Mode ---
-    if use_deepthink:
-        inputs_dt = current_tokenizer(message[-15:], return_tensors="pt").to(device)
-        with torch.no_grad():
-            outputs_dt = current_model(**inputs_dt, output_hidden_states=True)
-        user_vec = F.normalize(outputs_dt.hidden_states[-1][0, -1, :].to(torch.float32), p=2, dim=0)
-        
-        global cached_concept_vecs, cached_model_id
-        if 'cached_model_id' not in globals() or cached_model_id != current_model_name or cached_concept_vecs is None:
-            yield "Initializing Concept Topography Cache (First time only...)\n"
-            concept_vecs = []
-            for w in CONCEPT_WORDS:
-                concept_vecs.append(get_word_embedding(current_model, current_tokenizer, w))
-            cached_concept_vecs = torch.stack(concept_vecs)
-            cached_model_id = current_model_name
-            
-        concept_vecs = cached_concept_vecs
-        
-        sims_macro = F.cosine_similarity(user_vec.unsqueeze(0), concept_vecs)
-        macro_idx = torch.argmax(sims_macro).item()
-        c_macro_vec = concept_vecs[macro_idx]
-        macro_concept = CONCEPT_WORDS[macro_idx]
-        
-        dot_u = torch.dot(user_vec, c_macro_vec)
-        u_micro = user_vec - dot_u * c_macro_vec
-        u_micro = F.normalize(u_micro, p=2, dim=0)
-        
-        dot_c = torch.matmul(concept_vecs, c_macro_vec) 
-        concept_micro_vecs = concept_vecs - dot_c.unsqueeze(1) * c_macro_vec.unsqueeze(0)
-        concept_micro_vecs = F.normalize(concept_micro_vecs, p=2, dim=1)
-        
-        sims_micro = F.cosine_similarity(u_micro.unsqueeze(0), concept_micro_vecs)
-        sims_micro[macro_idx] = -1.0 
-        
-        sorted_sims, sorted_idx = torch.sort(sims_micro, descending=True)
-        
-        routed_concepts = []
-        max_sim = sorted_sims[0].item()
-        
-        for i in range(5):
-            current_sim = sorted_sims[i].item()
-            if (max_sim - current_sim) > 0.15 or current_sim <= 0.0:
-                break
-            routed_concepts.append(CONCEPT_WORDS[sorted_idx[i].item()])
-            
-        if not routed_concepts:
-            routed_concepts.append(CONCEPT_WORDS[sorted_idx[0].item()])
-        
-        thinking_log = f"**[Fractal Deepthink]**\n"
-        thinking_log += f"Macro Valley (重力源): `{macro_concept}`\n"
-        thinking_log += f"Micro Routing (重力除去後の突起探索): `{'` -> `'.join(routed_concepts)}`\n\n"
-        yield thinking_log
-        
-        system_prompt = (
-            f"System: [Latent Trajectory Suggestion]\n"
-            f"- Macro Concept: '{macro_concept}'\n"
-            f"- Micro Concepts: {', '.join(routed_concepts)}\n\n"
-            f"Instruction: Use these concepts as a creative scaffolding for your reasoning. "
-            f"However, you have absolute authority to self-correct: if you determine that any of these concepts lead to a logical dead end or are irrelevant to the user's actual prompt, you MUST ignore them and dynamically correct your trajectory to provide the most accurate answer.\n\n"
-        )
 
-    messages.append({"role": "user", "content": system_prompt + message})
+    if use_sync and current_controller is not None:
+        current_controller.set_gamma(float(gamma_val))
+        current_controller.set_active(True)
+        current_controller.clear_records()
+    else:
+        if current_controller is not None:
+            current_controller.set_active(False)
+
+    messages.append({"role": "user", "content": message})
     text = current_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = current_tokenizer(text, return_tensors="pt").to(device)
+
+    # ストリーミング生成 (TextIteratorStreamer)
+    streamer = TextIteratorStreamer(current_tokenizer, timeout=20.0, skip_prompt=True, skip_special_tokens=True)
+    generation_kwargs = dict(
+        inputs,
+        streamer=streamer,
+        max_new_tokens=2048,
+        do_sample=True,
+        temperature=0.7,
+        top_p=0.9
+    )
     
-    # --- 🍃 Lightweight Mode (FAISS 100-words Decoding) ---
-    if use_lightweight:
-        import faiss
-        global cached_faiss_index, cached_lm_head_weight, cached_faiss_model_id
-        
-        if 'cached_faiss_model_id' not in globals() or cached_faiss_model_id != current_model_name or cached_faiss_index is None:
-            yield thinking_log + "🍃 Initializing Lightweight FAISS Index (150,000 words). First time only...\n"
-            cached_lm_head_weight = current_model.lm_head.weight.detach()
-            lm_head_np = cached_lm_head_weight.cpu().to(torch.float32).numpy()
-            faiss.normalize_L2(lm_head_np)
-            D = lm_head_np.shape[1]
-            cached_faiss_index = faiss.IndexFlatIP(D)
-            cached_faiss_index.add(lm_head_np)
-            cached_faiss_model_id = current_model_name
-            
-        generated_text = thinking_log
+    thread = Thread(target=current_model.generate, kwargs=generation_kwargs)
+    thread.start()
+    
+    generated_text = ""
+    for new_text in streamer:
+        generated_text += new_text
         yield generated_text
-        
-        past_key_values = None
-        input_ids = inputs["input_ids"]
-        
-        with torch.no_grad():
-            outputs = current_model(input_ids=input_ids, use_cache=True, output_hidden_states=True)
-        past_key_values = outputs.past_key_values
-        hidden = outputs.hidden_states[-1][0, -1, :]
-        
-        past_generated_tokens = [] # 繰り返しペナルティ用の履歴
-        
-        for _ in range(2048):
-            # 1. 通常探査 (K=2048)
-            hidden_np = hidden.cpu().to(torch.float32).numpy().reshape(1, -1)
-            faiss.normalize_L2(hidden_np)
-            _, I = cached_faiss_index.search(hidden_np, 2048) 
-            candidates = I[0]
-            
-            local_weights = cached_lm_head_weight[candidates]
-            local_logits = torch.matmul(hidden.unsqueeze(0), local_weights.T)
-            
-            # --- 動的拡張探査 (Dynamic Fallback Expansion) ---
-            # 候補の中で一番自信がある単語でもロジット(確率の元)が極端に低い場合、
-            # 「この中には正解がない」と判断し、探索範囲を一気に拡張する
-            if torch.max(local_logits).item() < 5.0: # Qwenの一般的なロジット分布に基づく閾値
-                _, I_expand = cached_faiss_index.search(hidden_np, 15000) # 15000語まで緊急拡張
-                candidates = I_expand[0]
-                local_weights = cached_lm_head_weight[candidates]
-                local_logits = torch.matmul(hidden.unsqueeze(0), local_weights.T)
-            
-            # --- 繰り返しペナルティ (Repetition Penalty) ---
-            penalty = 1.15
-            for past_token in set(past_generated_tokens[-50:]): 
-                if past_token in candidates:
-                    idx = np.where(candidates == past_token)[0][0]
-                    score = local_logits[0, idx].item()
-                    local_logits[0, idx] = score / penalty if score > 0 else score * penalty
-            
-            # --- 温度付きサンプリング (Temperature Scaling) ---
-            temperature = 0.7
-            local_logits = local_logits / temperature
-            probs = F.softmax(local_logits, dim=-1)
-            
-            # --- Top-P (Nucleus) Sampling ---
-            top_p = 0.9
-            sorted_probs, sorted_indices = torch.sort(probs, descending=True)
-            cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
-            
-            mask = cumulative_probs > top_p
-            mask[0, 0] = False 
-            
-            sorted_probs[mask] = 0.0
-            sorted_probs = sorted_probs / sorted_probs.sum() 
-            
-            sampled_sorted_idx = torch.multinomial(sorted_probs, num_samples=1).item()
-            best_local_idx = sorted_indices[0, sampled_sorted_idx].item()
-            next_token = candidates[best_local_idx]
-            
-            past_generated_tokens.append(next_token)
-            
-            if next_token in [current_tokenizer.eos_token_id, current_tokenizer.pad_token_id] or next_token == 151645:
-                break
-                
-            # 文字化け対策: 全トークンを一気にデコードし直すことで、不完全なバイト列(漢字の欠片)が正しく結合される
-            new_text_full = current_tokenizer.decode(past_generated_tokens, skip_special_tokens=True)
-            yield thinking_log + new_text_full
-            
-            input_ids = torch.tensor([[next_token]]).to(device)
-            with torch.no_grad():
-                outputs = current_model(input_ids=input_ids, past_key_values=past_key_values, use_cache=True, output_hidden_states=True)
-            past_key_values = outputs.past_key_values
-            hidden = outputs.hidden_states[-1][0, -1, :]
-            
-    else:
-        # --- 従来方式 (全15万語計算) ---
-        streamer = TextIteratorStreamer(current_tokenizer, timeout=10.0, skip_prompt=True, skip_special_tokens=True)
-        generation_kwargs = dict(
-            inputs,
-            streamer=streamer,
-            max_new_tokens=2048,
-            do_sample=True,
-            temperature=0.7,
+    thread.join()
+
+    # 生成完了後に統計を表示
+    if use_sync and show_stats and current_controller is not None and len(current_controller.hooks) >= 3:
+        h6 = len(current_controller.hooks[0].records)
+        h12 = len(current_controller.hooks[1].records)
+        h18 = len(current_controller.hooks[2].records)
+        stats_header = (
+            f"\n\n---\n"
+            f"**[🧠 自律積層地形 同期統計 (Autonomous Layer Sync Telemetry)]**\n"
+            f"- Layer {current_controller.l_low} (要素地形): 磁界同調 `{h6}` 回\n"
+            f"- Layer {current_controller.l_mid} (関係地形): 磁界同調 `{h12}` 回 (前層吸収点から自律継承)\n"
+            f"- Layer {current_controller.l_high} (統合地形): 磁界同調 `{h18}` 回 (前層吸収点から自律継承)\n"
+            f"*(※文章アンカーなし・AIの思考深度に応じた自律的磁気浮上同期)*"
         )
-        
-        thread = Thread(target=current_model.generate, kwargs=generation_kwargs)
-        thread.start()
-        
-        generated_text = thinking_log
-        for new_text in streamer:
-            generated_text += new_text
-            yield generated_text
+        yield generated_text + stats_header
+
+    if current_controller is not None:
+        current_controller.set_active(False)
 
 def get_available_loras():
     lora_dirs = [d for d in glob.glob("./lora_*") if os.path.isdir(d)]
@@ -314,7 +388,7 @@ def refresh_lora_list():
     return gr.Dropdown(choices=get_available_loras())
 
 # ==========================================
-# Gradio UI 構築 (チャット専用)
+# Gradio UI 構築
 # ==========================================
 STUDENT_CHOICES = [
     "Qwen/Qwen2.5-0.5B-Instruct",
@@ -324,28 +398,71 @@ STUDENT_CHOICES = [
     "google/gemma-2-2b-it"
 ]
 
-with gr.Blocks(title="Chat Forge", theme=gr.themes.Soft()) as demo:
-    gr.Markdown("# 💬 Chat Forge")
-    gr.Markdown("Concept Forge によって蒸留・生成された概念地形（LoRA）を用いて、フラクタル・ルーティングによる高度な対話を行います。")
+with gr.Blocks(title="Chat Forge - 自律積層同期対話") as demo:
+    gr.Markdown("# 💬 Chat Forge — 自律積層概念地形 × AIレイヤー完全同期")
+    gr.Markdown(
+        "文章指定によるアンカー化（決めつけ）を完全排除。\n"
+        "**「Layer 0 吸収点 ➔ Layer 1 初期配置 ➔ Layer 2 自律成長」** により自己組織化した幾何学地形を、"
+        "実LLMの内部レイヤー（Layer 6: 要素 ➔ Layer 12: 因果 ➔ Layer 18: 統合）とリアルタイム完全同期させます。"
+    )
     
-    with gr.Row():
-        base_txt = gr.Dropdown(choices=STUDENT_CHOICES, value="Qwen/Qwen2.5-0.5B-Instruct", label="1. Select Base Model", allow_custom_value=True, scale=2)
-        lora_dropdown = gr.Dropdown(choices=get_available_loras(), value="None", label="2. Select Concept Topography (LoRA)", allow_custom_value=True, scale=3)
-        refresh_lora_btn = gr.Button("🔄 Refresh", scale=1)
-        use_lora_chk = gr.Checkbox(label="Apply LoRA", value=True, scale=1)
-        load_btn = gr.Button("🚀 Load Model", variant="primary", scale=2)
-        
-    refresh_lora_btn.click(refresh_lora_list, inputs=[], outputs=[lora_dropdown])
+    with gr.Accordion("⚙️ モデル設定 (Model Setup)", open=True):
+        with gr.Row():
+            base_txt = gr.Dropdown(choices=STUDENT_CHOICES, value="Qwen/Qwen2.5-0.5B-Instruct", label="1. Base Model", allow_custom_value=True, scale=3)
+            precision_opt = gr.Dropdown(choices=["FP16 (Direct, Recommended <=1.5B)", "4-bit (BitsAndBytes NF4)"], value="FP16 (Direct, Recommended <=1.5B)", label="2. Precision", scale=2)
+            lora_dropdown = gr.Dropdown(choices=get_available_loras(), value="None", label="3. Optional LoRA", allow_custom_value=True, scale=2)
+            refresh_lora_btn = gr.Button("🔄", scale=1)
+            use_lora_chk = gr.Checkbox(label="Apply LoRA", value=False, scale=1)
+            load_btn = gr.Button("🚀 Load Model", variant="primary", scale=2)
+            
+        load_status = gr.Textbox(label="System Status", interactive=False)
+        refresh_lora_btn.click(refresh_lora_list, inputs=[], outputs=[lora_dropdown])
+        load_btn.click(load_model_for_chat, inputs=[base_txt, precision_opt, lora_dropdown, use_lora_chk], outputs=[load_status])
     
-    load_status = gr.Textbox(label="System Status", interactive=False)
-    load_btn.click(load_model_for_chat, inputs=[base_txt, lora_dropdown, use_lora_chk], outputs=[load_status])
-    
-    gr.Markdown("### Interaction Modes")
-    with gr.Row():
-        deepthink_chk = gr.Checkbox(label="🧠 Deepthink (Fractal Routing)", value=False, info="局所重力をキャンセルし、微細な概念突起を探索して思考を構築します。")
-        lightweight_chk = gr.Checkbox(label="🍃 Lightweight (FAISS Edge Decoding)", value=False, info="出力語彙をFAISSで動的に絞り込み、計算量を極限まで削減します。（※語彙制限のトレードオフにより、ハルシネーションの可能性が高まります）")
-        
-    gr.ChatInterface(fn=chat_fn, additional_inputs=[deepthink_chk, lightweight_chk])
+    with gr.Accordion("🏔️ 自律積層同期設定 (Autonomous Stacked Sync Settings)", open=True):
+        gr.Markdown(
+            "🧠 **原理**: 人間が文章を一切与えず、Layer 0 の吸収点群をそのまま Layer 1 の初期配置とし、さらに Layer 2 へと自律成長させた幾何学地形と同期します。"
+        )
+        with gr.Row():
+            use_sync_chk = gr.Checkbox(
+                label="🏔️ 自律積層同期を有効化 (Autonomous Sync Active)",
+                value=True,
+                scale=2,
+                info="チェックを外すと素のベースモデル（無介入）に戻り、思考力・安定性の違いをA/Bテストできます。"
+            )
+            gamma_slider = gr.Slider(
+                minimum=0.00,
+                maximum=0.15,
+                value=0.06,
+                step=0.01,
+                label="同期介入強度 γ (Intervention Strength)",
+                scale=2,
+                info="0.05〜0.08推奨。事実性を保護しつつ思考を自律誘導します。"
+            )
+            show_stats_chk = gr.Checkbox(
+                label="磁界同調統計（テレメトリ）を表示",
+                value=True,
+                scale=2,
+                info="回答末尾に各階層での同調回数を表示します。"
+            )
+
+    sample_examples = [
+        ["日本の首都はどこですか？簡潔に答えてください。", True, 0.06, True],
+        ["オーストラリアの首都はどこですか？シドニーと誤解されやすいですが、正しい都市名を挙げてください。", True, 0.06, True],
+        ["3 + 5 × 4 の計算結果を数字のみで答えてください。", True, 0.06, True],
+        ["分散データベースにおけるデッドロック検出アルゴリズムについて、Wait-For Graph（待機グラフ）の観点から段階的に解説してください。", True, 0.06, True],
+        ["TransformerのSelf-Attentionにおいて、内積を次元数の平方根√d_kで割る数学的理由は何ですか？", True, 0.06, True]
+    ]
+
+    gr.ChatInterface(
+        fn=chat_fn,
+        additional_inputs=[
+            use_sync_chk,
+            gamma_slider,
+            show_stats_chk
+        ],
+        examples=sample_examples
+    )
 
 if __name__ == "__main__":
-    demo.launch(inbrowser=True)
+    demo.launch(inbrowser=True, server_port=7860, share=False, theme=gr.themes.Soft())
