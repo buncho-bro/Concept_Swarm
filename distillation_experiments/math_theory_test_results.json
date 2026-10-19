@@ -1,0 +1,201 @@
+[
+  {
+    "field": "Abstract Algebra (抽象代数)",
+    "pair": [
+      "group",
+      "commutative"
+    ],
+    "top_concepts": [
+      "setstatus",
+      "bmc",
+      "translating",
+      "زيادة",
+      "ores",
+      "שקל"
+    ],
+    "expected": [
+      "abelian",
+      "ring",
+      "field",
+      "homomorphism",
+      "symmetric",
+      "algebra"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Topology (位相幾何学)",
+    "pair": [
+      "compact",
+      "hausdorff"
+    ],
+    "top_concepts": [
+      "reckon",
+      "relating",
+      "divisive",
+      "国土资源",
+      "bladder",
+      "getenv"
+    ],
+    "expected": [
+      "normal",
+      "closed",
+      "regular",
+      "paracompact",
+      "tietze",
+      "urysohn",
+      "space"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Calculus & Analysis (解析学)",
+    "pair": [
+      "derivative",
+      "integral"
+    ],
+    "top_concepts": [
+      "knots",
+      "abdomen",
+      "kiến",
+      "halt",
+      "imminent",
+      "باح"
+    ],
+    "expected": [
+      "fundamental",
+      "calculus",
+      "continuous",
+      "leibniz",
+      "riemann",
+      "newton"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Linear Algebra (線形代数)",
+    "pair": [
+      "matrix",
+      "eigenvalue"
+    ],
+    "top_concepts": [
+      "שקל",
+      "bảng",
+      "sanct",
+      "elias",
+      "eliminates",
+      "قانون"
+    ],
+    "expected": [
+      "diagonalization",
+      "spectrum",
+      "eigenvector",
+      "determinant",
+      "orthogonal",
+      "spectral"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Number Theory (数論)",
+    "pair": [
+      "prime",
+      "zeta"
+    ],
+    "top_concepts": [
+      "intend",
+      "sentient",
+      "城市的",
+      "gamble",
+      "lanç",
+      "وان"
+    ],
+    "expected": [
+      "riemann",
+      "zeros",
+      "euler",
+      "dirichlet",
+      "distribution",
+      "hypothesis"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Differential Geometry (微分幾何)",
+    "pair": [
+      "manifold",
+      "curvature"
+    ],
+    "top_concepts": [
+      "quentin",
+      "رقم",
+      "אירוע",
+      "diner",
+      "עולה",
+      "的基本"
+    ],
+    "expected": [
+      "riemannian",
+      "geodesic",
+      "metric",
+      "tensor",
+      "ricci",
+      "einstein"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Probability Theory (確率論)",
+    "pair": [
+      "random",
+      "variable"
+    ],
+    "top_concepts": [
+      "resembl",
+      "חלוק",
+      "repost",
+      "intends",
+      "هوات",
+      "fortn"
+    ],
+    "expected": [
+      "distribution",
+      "variance",
+      "expectation",
+      "probability",
+      "density"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Complex Analysis (複素解析)",
+    "pair": [
+      "holomorphic",
+      "integral"
+    ],
+    "top_concepts": [
+      "如有侵权",
+      "nhằm",
+      "alumnos",
+      "interru",
+      "schemes",
+      "repost"
+    ],
+    "expected": [
+      "cauchy",
+      "residue",
+      "contour",
+      "analytic",
+      "singularities"
+    ],
+    "hits": [],
+    "is_hit": false
+  }
+]

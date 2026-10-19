@@ -1,0 +1,4901 @@
+{
+  "0.5": {
+    "hit_count": 7,
+    "escape_count": 88,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "traced_top5": [
+          "fires",
+          "火灾",
+          "木材",
+          "fired",
+          "firewall"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+ice",
+        "traced_top5": [
+          "太阳",
+          "sunlight",
+          "ices",
+          "sunshine",
+          "阳光"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cloud+cold",
+        "traced_top5": [
+          "clouds",
+          "colder",
+          "cloudy",
+          "云端",
+          "chilly"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "traced_top5": [
+          "cean",
+          "quake",
+          "ceans",
+          "géni",
+          "קשים"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+sand",
+        "traced_top5": [
+          "winds",
+          "sands",
+          "windy",
+          "风电",
+          "sandbox"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lightning+forest",
+        "traced_top5": [
+          "ning",
+          "ningen",
+          "forests",
+          "森林",
+          "nings"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "heat+water",
+        "traced_top5": [
+          "watermark",
+          "heatmap",
+          "waters",
+          "água",
+          "heats"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+soil",
+        "traced_top5": [
+          "il",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rain+earth",
+        "traced_top5": [
+          "地球",
+          "rainfall",
+          "rains",
+          "雨水",
+          "earthquake"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "gravity+apple",
+        "traced_top5": [
+          "苹果",
+          "apples",
+          "gravitational",
+          "引力",
+          "grav"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "magnet+iron",
+        "traced_top5": [
+          "agnet",
+          "agnetic",
+          "irony",
+          "中铁",
+          "钢铁"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "acid+base",
+        "traced_top5": [
+          "баз",
+          "bases",
+          "ベース",
+          "acids",
+          "基地"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "friction+motion",
+        "traced_top5": [
+          "iction",
+          "motions",
+          "ictions",
+          "otion",
+          "icted"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cold+water",
+        "traced_top5": [
+          "colder",
+          "watermark",
+          "воды",
+          "água",
+          "холод"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "light+prism",
+        "traced_top5": [
+          "ism",
+          "isms",
+          "isme",
+          "lighter",
+          "ismo"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "traced_top5": [
+          "壓力",
+          "pressures",
+          "压力",
+          "的压力",
+          "pressured"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lava+water",
+        "traced_top5": [
+          "ava",
+          "watermark",
+          "水中",
+          "水资源",
+          "água"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+flower",
+        "traced_top5": [
+          "flowers",
+          "太阳",
+          "sunlight",
+          "sunshine",
+          "阳光"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "storm+ship",
+        "traced_top5": [
+          "ships",
+          "storms",
+          "shipping",
+          "风暴",
+          "船舶"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "electricity+wire",
+        "traced_top5": [
+          "ity",
+          "wires",
+          "wired",
+          "wireless",
+          "wiring"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "traced_top5": [
+          "xygen",
+          "irony",
+          "钢铁",
+          "ironic",
+          "hở"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "spark+gasoline",
+        "traced_top5": [
+          "oline",
+          "sparks",
+          "火花",
+          "sparking",
+          "sparkle"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "winter+bear",
+        "traced_top5": [
+          "bears",
+          "冬季",
+          "冬天",
+          "winters",
+          "חורף"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "river+rock",
+        "traced_top5": [
+          "rocks",
+          "岩石",
+          "rivers",
+          "摇滚",
+          "rocking"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "moon+ocean",
+        "traced_top5": [
+          "cean",
+          "ceans",
+          "月亮",
+          "moons",
+          "lunar"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "drought+crops",
+        "traced_top5": [
+          "rought",
+          "rops",
+          "rop",
+          "ropped",
+          "ropping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frost+leaf",
+        "traced_top5": [
+          "rost",
+          "叶子",
+          "leafs",
+          "叶片",
+          "leaflet"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sound+wall",
+        "traced_top5": [
+          "walls",
+          "sounds",
+          "墙壁",
+          "wallpaper",
+          "sounded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "smoke+air",
+        "traced_top5": [
+          "oke",
+          "空气",
+          "airs",
+          "okes",
+          "airflow"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+skin",
+        "traced_top5": [
+          "skins",
+          "皮肤",
+          "太阳",
+          "sunlight",
+          "sunscreen"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ice+salt",
+        "traced_top5": [
+          "salts",
+          "salty",
+          "ices",
+          "iced",
+          "saline"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "volcano+ash",
+        "traced_top5": [
+          "cano",
+          "ashes",
+          "ashed",
+          "ashing",
+          "asher"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+windmill",
+        "traced_top5": [
+          "mill",
+          "mills",
+          "winds",
+          "windy",
+          "风电"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "mill",
+          "mills",
+          "millis",
+          "millennium",
+          "milling"
+        ]
+      },
+      {
+        "pair": "seed+water",
+        "traced_top5": [
+          "种子",
+          "seeds",
+          "seeding",
+          "watermark",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "oil+water",
+        "traced_top5": [
+          "watermark",
+          "воды",
+          "oils",
+          "água",
+          "waters"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cat+fish",
+        "traced_top5": [
+          "cats",
+          "fishes",
+          "鱼类",
+          "fisheries",
+          "catid"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bee+flower",
+        "traced_top5": [
+          "flowers",
+          "bees",
+          "花朵",
+          "floral",
+          "flowering"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bird+egg",
+        "traced_top5": [
+          "birds",
+          "eggs",
+          "鸟类",
+          "鸡蛋",
+          "trứng"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "chicken"
+        ]
+      },
+      {
+        "pair": "spider+fly",
+        "traced_top5": [
+          "ider",
+          "flies",
+          "iders",
+          "flew",
+          "flying"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "traced_top5": [
+          "ep",
+          "eps",
+          "wolves",
+          "eping",
+          "ép"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lion+zebra",
+        "traced_top5": [
+          "bra",
+          "狮子",
+          "lia",
+          "bral",
+          "ممار"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "traced_top5": [
+          "oon",
+          "oons",
+          "pillar",
+          "pillars",
+          "أوضاع"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cow+grass",
+        "traced_top5": [
+          "cows",
+          "grassroots",
+          "草地",
+          "cowboy",
+          "pasture"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "pasture"
+        ]
+      },
+      {
+        "pair": "dog+bone",
+        "traced_top5": [
+          "bones",
+          "dogs",
+          "canine",
+          "骨头",
+          "狗狗"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "traced_top5": [
+          "quito",
+          "血液",
+          "bloodstream",
+          "крови",
+          "鲜血"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "traced_top5": [
+          "light",
+          "plants",
+          "植物",
+          "lighter",
+          "lights"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "traced_top5": [
+          "ound",
+          "acteria",
+          "ounds",
+          "ounder",
+          "acterial"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "virus+cell",
+        "traced_top5": [
+          "irus",
+          "细胞",
+          "cells",
+          "セル",
+          "getcell"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "owl+mouse",
+        "traced_top5": [
+          "鼠标",
+          "mice",
+          "mouseclicked",
+          "老鼠",
+          "mousex"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frog+fly",
+        "traced_top5": [
+          "flies",
+          "flying",
+          "flew",
+          "frogs",
+          "flyer"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "horse+cart",
+        "traced_top5": [
+          "carts",
+          "cartitem",
+          "carta",
+          "horses",
+          "carte"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "snake+poison",
+        "traced_top5": [
+          "ison",
+          "snakes",
+          "isons",
+          "isoner",
+          "serpent"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "whale+plankton",
+        "traced_top5": [
+          "ale",
+          "ton",
+          "ales",
+          "tone",
+          "aled"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ant+sugar",
+        "traced_top5": [
+          "ugar",
+          "ants",
+          "anten",
+          "antenna",
+          "anta"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "baby+milk",
+        "traced_top5": [
+          "ilk",
+          "婴儿",
+          "babies",
+          "宝宝",
+          "infant"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "traced_top5": [
+          "ameleon",
+          "叶子",
+          "leafs",
+          "叶片",
+          "leaflet"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "beaver+tree",
+        "traced_top5": [
+          "aver",
+          "trees",
+          "avers",
+          "дерев",
+          "treeview"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bear+salmon",
+        "traced_top5": [
+          "mon",
+          "bears",
+          "monot",
+          "monastery",
+          "monic"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "traced_top5": [
+          "rot",
+          "rots",
+          "rotated",
+          "rotate",
+          "rotations"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chicken+grain",
+        "traced_top5": [
+          "icken",
+          "ain",
+          "ains",
+          "aining",
+          "aina"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+mailman",
+        "traced_top5": [
+          "man",
+          "dogs",
+          "mann",
+          "manifold",
+          "ман"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "monkey+banana",
+        "traced_top5": [
+          "monkeys",
+          "bananas",
+          "猴子",
+          "香蕉",
+          "โบรา"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bat+night",
+        "traced_top5": [
+          "nighttime",
+          "nightly",
+          "夜晚",
+          "bats",
+          "夜间"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "shark+blood",
+        "traced_top5": [
+          "ark",
+          "血液",
+          "arks",
+          "bloodstream",
+          "arked"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "worm+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "worms",
+          "irty",
+          "irl"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "demand+supply",
+        "traced_top5": [
+          "upply",
+          "供应",
+          "供给",
+          "supplying",
+          "supplies"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "crime+police",
+        "traced_top5": [
+          "ice",
+          "crimes",
+          "ices",
+          "犯罪",
+          "criminal"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "ice"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "traced_top5": [
+          "studying",
+          "exams",
+          "examination",
+          "studied",
+          "考试"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "disease+medicine",
+        "traced_top5": [
+          "isease",
+          "medicines",
+          "edicine",
+          "medication",
+          "enfermed"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "money+bank",
+        "traced_top5": [
+          "银行",
+          "banking",
+          "銀行",
+          "banks",
+          "bankers"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "car+gasoline",
+        "traced_top5": [
+          "oline",
+          "cars",
+          "汽车",
+          "carro",
+          "汽車"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "knife+bread",
+        "traced_top5": [
+          "面包",
+          "knives",
+          "כלכ",
+          "鸟成长记",
+          "נפגע"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "hammer+nail",
+        "traced_top5": [
+          "ail",
+          "ails",
+          "ailer",
+          "hammered",
+          "ailing"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pen+paper",
+        "traced_top5": [
+          "papers",
+          "论文",
+          "penalty",
+          "pens",
+          "бумаг"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lock+key",
+        "traced_top5": [
+          "locking",
+          "locks",
+          "locked",
+          "keys",
+          "キー"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "flour+yeast",
+        "traced_top5": [
+          "our",
+          "ast",
+          "我们的",
+          "asts",
+          "ours"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "traced_top5": [
+          "ugar",
+          "咖啡",
+          "コーヒー",
+          "offee",
+          "caffeine"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "match+candle",
+        "traced_top5": [
+          "andle",
+          "matches",
+          "匹配",
+          "matched",
+          "andles"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "needle+thread",
+        "traced_top5": [
+          "threads",
+          "threading",
+          "needles",
+          "threaded",
+          "hread"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "soap+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "irty",
+          "مفه",
+          "עיתונ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sponge+water",
+        "traced_top5": [
+          "ponge",
+          "watermark",
+          "水中",
+          "água",
+          "воды"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "brush+paint",
+        "traced_top5": [
+          "painting",
+          "brushes",
+          "paints",
+          "painter",
+          "paintings"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "guitar+pick",
+        "traced_top5": [
+          "uitar",
+          "picks",
+          "picking",
+          "picked",
+          "pickup"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "book+reader",
+        "traced_top5": [
+          "读者",
+          "readers",
+          "书中",
+          "books",
+          "这本书"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "readers"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "traced_top5": [
+          "judges",
+          "法官",
+          "judging",
+          "judged",
+          "laws"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "vote+election",
+        "traced_top5": [
+          "voting",
+          "votes",
+          "voter",
+          "elections",
+          "投票"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "fire+alarm",
+        "traced_top5": [
+          "alarms",
+          "firewall",
+          "fires",
+          "火灾",
+          "fired"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "camera+light",
+        "traced_top5": [
+          "cameras",
+          "カメラ",
+          "相机",
+          "lightbox",
+          "摄像头"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wheel+axle",
+        "traced_top5": [
+          "le",
+          "wheels",
+          "lek",
+          "lea",
+          "lep"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "le"
+        ]
+      },
+      {
+        "pair": "battery+clock",
+        "traced_top5": [
+          "clocks",
+          "电池",
+          "batteries",
+          "动力电池",
+          "蓄电池"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+farmer",
+        "traced_top5": [
+          "mer",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "meat+fire",
+        "traced_top5": [
+          "at",
+          "fires",
+          "防火",
+          "消防",
+          "火灾"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "at"
+        ]
+      },
+      {
+        "pair": "wheat+mill",
+        "traced_top5": [
+          "heat",
+          "mills",
+          "heats",
+          "heatmap",
+          "милли"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wool+knitting",
+        "traced_top5": [
+          "itting",
+          "ol",
+          "ols",
+          "olg",
+          "oling"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "clay+kiln",
+        "traced_top5": [
+          "ay",
+          "ays",
+          "nthe",
+          "aying",
+          "ayed"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+forge",
+        "traced_top5": [
+          "forging",
+          "forged",
+          "irony",
+          "ironic",
+          "钢铁"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "traced_top5": [
+          "apes",
+          "rel",
+          "rels",
+          "relay",
+          "ape"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+cane",
+        "traced_top5": [
+          "ugar",
+          "ane",
+          "anes",
+          "aned",
+          "anel"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ink+stamp",
+        "traced_top5": [
+          "stamps",
+          "inks",
+          "inking",
+          "timestamp",
+          "stamped"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "debt+interest",
+        "traced_top5": [
+          "bt",
+          "interests",
+          "兴趣",
+          "interés",
+          "interes"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      }
+    ]
+  },
+  "1.0": {
+    "hit_count": 7,
+    "escape_count": 89,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "traced_top5": [
+          "fires",
+          "木材",
+          "火灾",
+          "防火",
+          "木质"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+ice",
+        "traced_top5": [
+          "太阳",
+          "sunlight",
+          "ices",
+          "iced",
+          "sunshine"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cloud+cold",
+        "traced_top5": [
+          "clouds",
+          "colder",
+          "cloudy",
+          "chilly",
+          "云端"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "traced_top5": [
+          "quake",
+          "cean",
+          "ceans",
+          "géni",
+          "традиционн"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+sand",
+        "traced_top5": [
+          "winds",
+          "sands",
+          "sandbox",
+          "windy",
+          "sandwich"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lightning+forest",
+        "traced_top5": [
+          "ning",
+          "ningen",
+          "forests",
+          "森林",
+          "ningar"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "heat+water",
+        "traced_top5": [
+          "watermark",
+          "水质",
+          "heatmap",
+          "waters",
+          "água"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+soil",
+        "traced_top5": [
+          "il",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rain+earth",
+        "traced_top5": [
+          "地球",
+          "rainfall",
+          "rains",
+          "earthquake",
+          "地震"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "gravity+apple",
+        "traced_top5": [
+          "苹果",
+          "apples",
+          "gravitational",
+          "cider",
+          "引力"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "magnet+iron",
+        "traced_top5": [
+          "agnet",
+          "irony",
+          "agnetic",
+          "желез",
+          "中铁"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "acid+base",
+        "traced_top5": [
+          "баз",
+          "bases",
+          "ベース",
+          "acids",
+          "基地"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "friction+motion",
+        "traced_top5": [
+          "iction",
+          "motions",
+          "ictions",
+          "icted",
+          "otion"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cold+water",
+        "traced_top5": [
+          "watermark",
+          "воды",
+          "colder",
+          "água",
+          "холод"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "light+prism",
+        "traced_top5": [
+          "ism",
+          "isms",
+          "isme",
+          "主义",
+          "ismo"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "traced_top5": [
+          "pressures",
+          "壓力",
+          "压力",
+          "的压力",
+          "pressured"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lava+water",
+        "traced_top5": [
+          "ava",
+          "watermark",
+          "水中",
+          "воды",
+          "水资源"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+flower",
+        "traced_top5": [
+          "flowers",
+          "太阳",
+          "sunlight",
+          "sunshine",
+          "floral"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "storm+ship",
+        "traced_top5": [
+          "ships",
+          "storms",
+          "shipping",
+          "船舶",
+          "hips"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "electricity+wire",
+        "traced_top5": [
+          "ity",
+          "wires",
+          "wired",
+          "wireless",
+          "wiring"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "traced_top5": [
+          "xygen",
+          "钢铁",
+          "irony",
+          "ironic",
+          "氧气"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "spark+gasoline",
+        "traced_top5": [
+          "oline",
+          "sparks",
+          "火花",
+          "sparking",
+          "sparkle"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "winter+bear",
+        "traced_top5": [
+          "bears",
+          "冬季",
+          "冬天",
+          "winters",
+          "חורף"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "river+rock",
+        "traced_top5": [
+          "rocks",
+          "岩石",
+          "摇滚",
+          "rivers",
+          "rocking"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "moon+ocean",
+        "traced_top5": [
+          "cean",
+          "ceans",
+          "月亮",
+          "moons",
+          "lunar"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "drought+crops",
+        "traced_top5": [
+          "rought",
+          "rops",
+          "rop",
+          "ropped",
+          "ropping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frost+leaf",
+        "traced_top5": [
+          "rost",
+          "叶子",
+          "leafs",
+          "leaflet",
+          "叶片"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sound+wall",
+        "traced_top5": [
+          "walls",
+          "sounds",
+          "wallpaper",
+          "墙壁",
+          "墙体"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "smoke+air",
+        "traced_top5": [
+          "oke",
+          "空气",
+          "airs",
+          "aired",
+          "воздух"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+skin",
+        "traced_top5": [
+          "skins",
+          "皮肤",
+          "太阳",
+          "sunlight",
+          "sunscreen"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ice+salt",
+        "traced_top5": [
+          "salts",
+          "salty",
+          "ices",
+          "iced",
+          "saline"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "volcano+ash",
+        "traced_top5": [
+          "cano",
+          "ashed",
+          "ashes",
+          "asher",
+          "ashing"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+windmill",
+        "traced_top5": [
+          "mill",
+          "mills",
+          "winds",
+          "windy",
+          "millis"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "mill",
+          "mills",
+          "millis",
+          "millennium",
+          "milling"
+        ]
+      },
+      {
+        "pair": "seed+water",
+        "traced_top5": [
+          "种子",
+          "seeds",
+          "seeding",
+          "watermark",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "oil+water",
+        "traced_top5": [
+          "watermark",
+          "воды",
+          "水资源",
+          "água",
+          "waters"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cat+fish",
+        "traced_top5": [
+          "fishes",
+          "cats",
+          "鱼类",
+          "fisheries",
+          "fishermen"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bee+flower",
+        "traced_top5": [
+          "flowers",
+          "floral",
+          "花朵",
+          "花卉",
+          "bees"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bird+egg",
+        "traced_top5": [
+          "eggs",
+          "birds",
+          "鸟类",
+          "chicken",
+          "trứng"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "chicken"
+        ]
+      },
+      {
+        "pair": "spider+fly",
+        "traced_top5": [
+          "ider",
+          "iders",
+          "flies",
+          "flying",
+          "flew"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "traced_top5": [
+          "ep",
+          "eps",
+          "wolves",
+          "ép",
+          "eping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lion+zebra",
+        "traced_top5": [
+          "bra",
+          "狮子",
+          "lia",
+          "bral",
+          "ebra"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "traced_top5": [
+          "oon",
+          "pillar",
+          "oons",
+          "pillars",
+          "أوضاع"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cow+grass",
+        "traced_top5": [
+          "grassroots",
+          "cows",
+          "草地",
+          "התנגד",
+          "תחוש"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "pasture"
+        ]
+      },
+      {
+        "pair": "dog+bone",
+        "traced_top5": [
+          "bones",
+          "dogs",
+          "canine",
+          "骨头",
+          "狗狗"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "traced_top5": [
+          "quito",
+          "血液",
+          "крови",
+          "bloodstream",
+          "献血"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "traced_top5": [
+          "light",
+          "plants",
+          "植物",
+          "lighter",
+          "lights"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "traced_top5": [
+          "ound",
+          "acteria",
+          "ounds",
+          "ounder",
+          "ounded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "virus+cell",
+        "traced_top5": [
+          "irus",
+          "细胞",
+          "cells",
+          "セル",
+          "getcell"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "owl+mouse",
+        "traced_top5": [
+          "鼠标",
+          "mice",
+          "mouseclicked",
+          "mousey",
+          "老鼠"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frog+fly",
+        "traced_top5": [
+          "flies",
+          "flying",
+          "flew",
+          "flyer",
+          "frogs"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "horse+cart",
+        "traced_top5": [
+          "carts",
+          "cartitem",
+          "carta",
+          "carte",
+          "kart"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "snake+poison",
+        "traced_top5": [
+          "ison",
+          "isons",
+          "snakes",
+          "isoner",
+          "isión"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "whale+plankton",
+        "traced_top5": [
+          "ale",
+          "ton",
+          "ales",
+          "tone",
+          "aled"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ant+sugar",
+        "traced_top5": [
+          "ugar",
+          "ants",
+          "anten",
+          "anta",
+          "antenna"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "baby+milk",
+        "traced_top5": [
+          "ilk",
+          "婴儿",
+          "babies",
+          "宝宝",
+          "infant"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "traced_top5": [
+          "ameleon",
+          "叶子",
+          "leafs",
+          "leaflet",
+          "叶片"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "beaver+tree",
+        "traced_top5": [
+          "aver",
+          "trees",
+          "дерев",
+          "avers",
+          "treeview"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bear+salmon",
+        "traced_top5": [
+          "mon",
+          "bears",
+          "monastery",
+          "monic",
+          "monot"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "traced_top5": [
+          "rot",
+          "rots",
+          "rotations",
+          "rotated",
+          "rotation"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chicken+grain",
+        "traced_top5": [
+          "ain",
+          "icken",
+          "ains",
+          "aina",
+          "aining"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+mailman",
+        "traced_top5": [
+          "man",
+          "manifold",
+          "mann",
+          "dogs",
+          "mani"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "monkey+banana",
+        "traced_top5": [
+          "monkeys",
+          "bananas",
+          "猴子",
+          "香蕉",
+          "โบรา"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bat+night",
+        "traced_top5": [
+          "nighttime",
+          "nightly",
+          "夜晚",
+          "bats",
+          "夜间"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "shark+blood",
+        "traced_top5": [
+          "ark",
+          "血液",
+          "arks",
+          "arking",
+          "bloodstream"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "worm+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "worms",
+          "irty",
+          "irs"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "demand+supply",
+        "traced_top5": [
+          "upply",
+          "供应",
+          "供给",
+          "supplies",
+          "supplying"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "crime+police",
+        "traced_top5": [
+          "ice",
+          "crimes",
+          "ices",
+          "犯罪",
+          "criminal"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "ice"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "traced_top5": [
+          "studying",
+          "exams",
+          "studied",
+          "考试",
+          "examination"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "disease+medicine",
+        "traced_top5": [
+          "isease",
+          "medicines",
+          "edicine",
+          "enfermed",
+          "醫療"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "money+bank",
+        "traced_top5": [
+          "银行",
+          "banking",
+          "銀行",
+          "banks",
+          "banker"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "car+gasoline",
+        "traced_top5": [
+          "oline",
+          "cars",
+          "汽车",
+          "carro",
+          "汽車"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "knife+bread",
+        "traced_top5": [
+          "鸟成长记",
+          "面包",
+          "כלכ",
+          "โบรา",
+          "מוזיא"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "hammer+nail",
+        "traced_top5": [
+          "ail",
+          "ails",
+          "hammered",
+          "ailer",
+          "ailing"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pen+paper",
+        "traced_top5": [
+          "papers",
+          "论文",
+          "бумаг",
+          "penalty",
+          "造纸"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lock+key",
+        "traced_top5": [
+          "locked",
+          "locking",
+          "locks",
+          "keys",
+          "キー"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "flour+yeast",
+        "traced_top5": [
+          "our",
+          "ast",
+          "我们的",
+          "asts",
+          "nosso"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "traced_top5": [
+          "ugar",
+          "咖啡",
+          "コーヒー",
+          "offee",
+          "コーヒ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "match+candle",
+        "traced_top5": [
+          "andle",
+          "matches",
+          "匹配",
+          "matched",
+          "andles"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "needle+thread",
+        "traced_top5": [
+          "threading",
+          "threads",
+          "pthread",
+          "threaded",
+          "needles"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "soap+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "irty",
+          "detergent",
+          "đứ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sponge+water",
+        "traced_top5": [
+          "ponge",
+          "watermark",
+          "воды",
+          "água",
+          "水中"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "brush+paint",
+        "traced_top5": [
+          "painting",
+          "brushes",
+          "paints",
+          "paintings",
+          "painter"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "guitar+pick",
+        "traced_top5": [
+          "uitar",
+          "picking",
+          "picks",
+          "picked",
+          "pickup"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "book+reader",
+        "traced_top5": [
+          "读者",
+          "readers",
+          "书中",
+          "books",
+          "这本书"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "readers"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "traced_top5": [
+          "judges",
+          "法官",
+          "judging",
+          "judged",
+          "judgment"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "vote+election",
+        "traced_top5": [
+          "voting",
+          "voter",
+          "votes",
+          "elections",
+          "投票"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "fire+alarm",
+        "traced_top5": [
+          "alarms",
+          "firewall",
+          "fires",
+          "火灾",
+          "fired"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "camera+light",
+        "traced_top5": [
+          "cameras",
+          "カメラ",
+          "lightbox",
+          "相机",
+          "lighter"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wheel+axle",
+        "traced_top5": [
+          "le",
+          "wheels",
+          "lek",
+          "lea",
+          "lep"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "le"
+        ]
+      },
+      {
+        "pair": "battery+clock",
+        "traced_top5": [
+          "clocks",
+          "电池",
+          "batteries",
+          "动力电池",
+          "蓄电池"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+farmer",
+        "traced_top5": [
+          "mer",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "meat+fire",
+        "traced_top5": [
+          "at",
+          "fires",
+          "防火",
+          "消防",
+          "firefighters"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "at"
+        ]
+      },
+      {
+        "pair": "wheat+mill",
+        "traced_top5": [
+          "heat",
+          "mills",
+          "милли",
+          "heats",
+          "heatmap"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wool+knitting",
+        "traced_top5": [
+          "itting",
+          "ol",
+          "ols",
+          "olan",
+          "olg"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "clay+kiln",
+        "traced_top5": [
+          "ay",
+          "ays",
+          "nthe",
+          "aying",
+          "na"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+forge",
+        "traced_top5": [
+          "forging",
+          "forged",
+          "irony",
+          "ironic",
+          "钢铁"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "traced_top5": [
+          "apes",
+          "rel",
+          "rels",
+          "relay",
+          "relativ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+cane",
+        "traced_top5": [
+          "ugar",
+          "ane",
+          "anes",
+          "aned",
+          "anel"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ink+stamp",
+        "traced_top5": [
+          "stamps",
+          "inks",
+          "inking",
+          "timestamp",
+          "inky"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "debt+interest",
+        "traced_top5": [
+          "bt",
+          "interests",
+          "兴趣",
+          "interes",
+          "interés"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      }
+    ]
+  },
+  "1.5": {
+    "hit_count": 7,
+    "escape_count": 91,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "traced_top5": [
+          "木材",
+          "fires",
+          "木质",
+          "防火",
+          "火灾"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+ice",
+        "traced_top5": [
+          "太阳",
+          "sunlight",
+          "iced",
+          "icer",
+          "ices"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cloud+cold",
+        "traced_top5": [
+          "clouds",
+          "colder",
+          "cloudy",
+          "chilly",
+          "云端"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "traced_top5": [
+          "cean",
+          "quake",
+          "ceans",
+          "géni",
+          "أوضاع"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+sand",
+        "traced_top5": [
+          "winds",
+          "sands",
+          "sandbox",
+          "sandwich",
+          "windy"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lightning+forest",
+        "traced_top5": [
+          "ning",
+          "ningen",
+          "forests",
+          "ningar",
+          "森林"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "heat+water",
+        "traced_top5": [
+          "水质",
+          "watermark",
+          "waters",
+          "heatmap",
+          "água"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+soil",
+        "traced_top5": [
+          "il",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rain+earth",
+        "traced_top5": [
+          "地球",
+          "rainfall",
+          "地震",
+          "earthquake",
+          "rainy"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "gravity+apple",
+        "traced_top5": [
+          "苹果",
+          "apples",
+          "gravitational",
+          "cider",
+          "iphone"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "magnet+iron",
+        "traced_top5": [
+          "agnet",
+          "irony",
+          "желез",
+          "中铁",
+          "distribut"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "acid+base",
+        "traced_top5": [
+          "баз",
+          "bases",
+          "ベース",
+          "acids",
+          "baseurl"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "friction+motion",
+        "traced_top5": [
+          "iction",
+          "ictions",
+          "motions",
+          "icted",
+          "otion"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cold+water",
+        "traced_top5": [
+          "воды",
+          "watermark",
+          "colder",
+          "冰冷",
+          "холод"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "light+prism",
+        "traced_top5": [
+          "ism",
+          "isms",
+          "主义",
+          "ismo",
+          "isme"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "traced_top5": [
+          "pressures",
+          "壓力",
+          "的压力",
+          "压力",
+          "pressured"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lava+water",
+        "traced_top5": [
+          "ava",
+          "watermark",
+          "воды",
+          "水资源",
+          "水中"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+flower",
+        "traced_top5": [
+          "flowers",
+          "太阳",
+          "floral",
+          "sunlight",
+          "sunshine"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "storm+ship",
+        "traced_top5": [
+          "ships",
+          "hips",
+          "船舶",
+          "shipping",
+          "hip"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "electricity+wire",
+        "traced_top5": [
+          "ity",
+          "wires",
+          "wired",
+          "wireless",
+          "wiring"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "traced_top5": [
+          "xygen",
+          "氧气",
+          "钢铁",
+          "nitrogen",
+          "oxide"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "oxide"
+        ]
+      },
+      {
+        "pair": "spark+gasoline",
+        "traced_top5": [
+          "oline",
+          "sparks",
+          "火花",
+          "sparking",
+          "olin"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "winter+bear",
+        "traced_top5": [
+          "bears",
+          "冬季",
+          "冬天",
+          "winters",
+          "ביצוע"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "river+rock",
+        "traced_top5": [
+          "rocks",
+          "岩石",
+          "摇滚",
+          "rivers",
+          "rocking"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "moon+ocean",
+        "traced_top5": [
+          "cean",
+          "ceans",
+          "月亮",
+          "moons",
+          "海洋"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "drought+crops",
+        "traced_top5": [
+          "rought",
+          "rops",
+          "rop",
+          "ropped",
+          "ropdown"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frost+leaf",
+        "traced_top5": [
+          "rost",
+          "叶子",
+          "leafs",
+          "leaflet",
+          "foliage"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sound+wall",
+        "traced_top5": [
+          "walls",
+          "wallpaper",
+          "sounds",
+          "墙壁",
+          "墙上"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "smoke+air",
+        "traced_top5": [
+          "oke",
+          "空气",
+          "aired",
+          "воздух",
+          "airst"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+skin",
+        "traced_top5": [
+          "skins",
+          "皮肤",
+          "太阳",
+          "sunlight",
+          "кожи"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ice+salt",
+        "traced_top5": [
+          "salts",
+          "salty",
+          "ices",
+          "sodium",
+          "iced"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "volcano+ash",
+        "traced_top5": [
+          "cano",
+          "ashed",
+          "asher",
+          "ashing",
+          "ashes"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+windmill",
+        "traced_top5": [
+          "mill",
+          "winds",
+          "mills",
+          "windy",
+          "millis"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "mill",
+          "mills",
+          "millis",
+          "millennium",
+          "milling"
+        ]
+      },
+      {
+        "pair": "seed+water",
+        "traced_top5": [
+          "种子",
+          "水资源",
+          "watermark",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "oil+water",
+        "traced_top5": [
+          "воды",
+          "水资源",
+          "watermark",
+          "水质",
+          "água"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cat+fish",
+        "traced_top5": [
+          "fishes",
+          "鱼类",
+          "cats",
+          "fisheries",
+          "fishermen"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bee+flower",
+        "traced_top5": [
+          "flowers",
+          "花卉",
+          "floral",
+          "花朵",
+          "bees"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bird+egg",
+        "traced_top5": [
+          "eggs",
+          "birds",
+          "鸟类",
+          "chicken",
+          "trứng"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "chicken",
+          "chick"
+        ]
+      },
+      {
+        "pair": "spider+fly",
+        "traced_top5": [
+          "ider",
+          "iders",
+          "flying",
+          "flew",
+          "flies"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "traced_top5": [
+          "ep",
+          "eps",
+          "wolves",
+          "ép",
+          "eping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lion+zebra",
+        "traced_top5": [
+          "bra",
+          "狮子",
+          "lia",
+          "bral",
+          "brains"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "traced_top5": [
+          "oon",
+          "pillar",
+          "oons",
+          "pillars",
+          "مناط"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cow+grass",
+        "traced_top5": [
+          "grassroots",
+          "草地",
+          "התנגד",
+          "cows",
+          "תחוש"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+bone",
+        "traced_top5": [
+          "bones",
+          "骨头",
+          "canine",
+          "marrow",
+          "dogs"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "traced_top5": [
+          "quito",
+          "血液",
+          "крови",
+          "献血",
+          "bloodstream"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "traced_top5": [
+          "light",
+          "plants",
+          "植物",
+          "lighter",
+          "planta"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "traced_top5": [
+          "ound",
+          "acteria",
+          "ounds",
+          "ounded",
+          "ounder"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "virus+cell",
+        "traced_top5": [
+          "irus",
+          "细胞",
+          "cells",
+          "セル",
+          "getcell"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "owl+mouse",
+        "traced_top5": [
+          "鼠标",
+          "mice",
+          "mouseclicked",
+          "mousey",
+          "老鼠"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frog+fly",
+        "traced_top5": [
+          "flies",
+          "flying",
+          "flyer",
+          "flew",
+          "飞翔"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "horse+cart",
+        "traced_top5": [
+          "carts",
+          "cartitem",
+          "carta",
+          "carte",
+          "shoppingcart"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "snake+poison",
+        "traced_top5": [
+          "ison",
+          "isons",
+          "snakes",
+          "isoner",
+          "isión"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "whale+plankton",
+        "traced_top5": [
+          "ale",
+          "ton",
+          "ales",
+          "tone",
+          "aled"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ant+sugar",
+        "traced_top5": [
+          "ugar",
+          "ants",
+          "anten",
+          "anta",
+          "ант"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "baby+milk",
+        "traced_top5": [
+          "ilk",
+          "婴儿",
+          "牛奶",
+          "babies",
+          "宝宝"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "traced_top5": [
+          "ameleon",
+          "leafs",
+          "leaflet",
+          "叶子",
+          "叶片"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "beaver+tree",
+        "traced_top5": [
+          "aver",
+          "trees",
+          "дерев",
+          "treeview",
+          "avers"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bear+salmon",
+        "traced_top5": [
+          "mon",
+          "bears",
+          "monastery",
+          "monic",
+          "mono"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "traced_top5": [
+          "rot",
+          "rots",
+          "rotations",
+          "rotated",
+          "rotation"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chicken+grain",
+        "traced_top5": [
+          "ain",
+          "icken",
+          "ains",
+          "aine",
+          "aina"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+mailman",
+        "traced_top5": [
+          "man",
+          "manifold",
+          "mann",
+          "dogs",
+          "mani"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "monkey+banana",
+        "traced_top5": [
+          "monkeys",
+          "bananas",
+          "香蕉",
+          "猴子",
+          "מצליח"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bat+night",
+        "traced_top5": [
+          "nighttime",
+          "夜晚",
+          "nightly",
+          "noct",
+          "bats"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "shark+blood",
+        "traced_top5": [
+          "ark",
+          "血液",
+          "arks",
+          "arking",
+          "крови"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "worm+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "worms",
+          "העיר",
+          "irs"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "demand+supply",
+        "traced_top5": [
+          "upply",
+          "供应",
+          "supplies",
+          "供给",
+          "supplying"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "crime+police",
+        "traced_top5": [
+          "ice",
+          "crimes",
+          "ices",
+          "criminal",
+          "犯罪"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "ice"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "traced_top5": [
+          "exams",
+          "studying",
+          "考试",
+          "studied",
+          "examination"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "disease+medicine",
+        "traced_top5": [
+          "isease",
+          "medicines",
+          "edicine",
+          "enfermed",
+          "médec"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "money+bank",
+        "traced_top5": [
+          "银行",
+          "banking",
+          "銀行",
+          "banks",
+          "banker"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "car+gasoline",
+        "traced_top5": [
+          "oline",
+          "cars",
+          "汽车",
+          "carro",
+          "汽車"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "knife+bread",
+        "traced_top5": [
+          "鸟成长记",
+          "breadcrumb",
+          "כלכ",
+          "müslü",
+          "โบรา"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "hammer+nail",
+        "traced_top5": [
+          "ail",
+          "ails",
+          "hammered",
+          "ailer",
+          "ailing"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pen+paper",
+        "traced_top5": [
+          "papers",
+          "论文",
+          "бумаг",
+          "penalty",
+          "造纸"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lock+key",
+        "traced_top5": [
+          "locked",
+          "keys",
+          "locking",
+          "locks",
+          "キー"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "flour+yeast",
+        "traced_top5": [
+          "our",
+          "ast",
+          "我们的",
+          "asts",
+          "notre"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "traced_top5": [
+          "ugar",
+          "咖啡",
+          "コーヒー",
+          "offee",
+          "コーヒ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "match+candle",
+        "traced_top5": [
+          "andle",
+          "matches",
+          "匹配",
+          "matching",
+          "andles"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "needle+thread",
+        "traced_top5": [
+          "threading",
+          "threads",
+          "pthread",
+          "hread",
+          "threaded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "soap+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "irty",
+          "detergent",
+          "đứ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sponge+water",
+        "traced_top5": [
+          "ponge",
+          "watermark",
+          "воды",
+          "água",
+          "水资源"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "brush+paint",
+        "traced_top5": [
+          "brushes",
+          "painting",
+          "paints",
+          "paintings",
+          "painter"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "guitar+pick",
+        "traced_top5": [
+          "uitar",
+          "picking",
+          "picks",
+          "picked",
+          "pickup"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "book+reader",
+        "traced_top5": [
+          "读者",
+          "readers",
+          "书中",
+          "这本书",
+          "books"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "readers",
+          "reading"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "traced_top5": [
+          "judges",
+          "法官",
+          "judged",
+          "judgment",
+          "judging"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "vote+election",
+        "traced_top5": [
+          "voter",
+          "voting",
+          "elections",
+          "votes",
+          "投票"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "fire+alarm",
+        "traced_top5": [
+          "alarms",
+          "firewall",
+          "火灾",
+          "fires",
+          "fired"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "camera+light",
+        "traced_top5": [
+          "cameras",
+          "カメラ",
+          "lightbox",
+          "lighter",
+          "相机"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wheel+axle",
+        "traced_top5": [
+          "le",
+          "wheels",
+          "lek",
+          "lea",
+          "lep"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "le"
+        ]
+      },
+      {
+        "pair": "battery+clock",
+        "traced_top5": [
+          "clocks",
+          "电池",
+          "batteries",
+          "动力电池",
+          "充电"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+farmer",
+        "traced_top5": [
+          "mer",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "meat+fire",
+        "traced_top5": [
+          "at",
+          "fires",
+          "防火",
+          "消防",
+          "firefight"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "at"
+        ]
+      },
+      {
+        "pair": "wheat+mill",
+        "traced_top5": [
+          "heat",
+          "милли",
+          "heatmap",
+          "mills",
+          "heats"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wool+knitting",
+        "traced_top5": [
+          "itting",
+          "ol",
+          "ols",
+          "olan",
+          "oling"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "clay+kiln",
+        "traced_top5": [
+          "ay",
+          "ays",
+          "nthe",
+          "na",
+          "aying"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+forge",
+        "traced_top5": [
+          "forged",
+          "forging",
+          "irony",
+          "ironic",
+          "锻造"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "traced_top5": [
+          "apes",
+          "rel",
+          "rels",
+          "relay",
+          "relativ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+cane",
+        "traced_top5": [
+          "ugar",
+          "ane",
+          "anes",
+          "aned",
+          "anel"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ink+stamp",
+        "traced_top5": [
+          "stamps",
+          "inks",
+          "inking",
+          "timestamp",
+          "inky"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "debt+interest",
+        "traced_top5": [
+          "bt",
+          "interests",
+          "interes",
+          "interested",
+          "兴趣"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      }
+    ]
+  },
+  "2.0": {
+    "hit_count": 7,
+    "escape_count": 93,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "traced_top5": [
+          "木材",
+          "木质",
+          "fires",
+          "woodworking",
+          "防火"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+ice",
+        "traced_top5": [
+          "太阳",
+          "icer",
+          "sunlight",
+          "iced",
+          "iceberg"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cloud+cold",
+        "traced_top5": [
+          "clouds",
+          "colder",
+          "cloudy",
+          "chilly",
+          "冷水"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "traced_top5": [
+          "quake",
+          "cean",
+          "ceans",
+          "أوضاع",
+          "مستشف"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+sand",
+        "traced_top5": [
+          "sands",
+          "winds",
+          "sandbox",
+          "sandwiches",
+          "sandwich"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lightning+forest",
+        "traced_top5": [
+          "ning",
+          "ningen",
+          "ningar",
+          "forests",
+          "森林"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "heat+water",
+        "traced_top5": [
+          "水质",
+          "watermark",
+          "waters",
+          "水资源",
+          "água"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+soil",
+        "traced_top5": [
+          "il",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rain+earth",
+        "traced_top5": [
+          "地震",
+          "khả",
+          "地球",
+          "rainfall",
+          "несколь"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "gravity+apple",
+        "traced_top5": [
+          "apples",
+          "苹果",
+          "cider",
+          "iphone",
+          "iphones"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "magnet+iron",
+        "traced_top5": [
+          "agnet",
+          "желез",
+          "distribut",
+          "irony",
+          "выгод"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "acid+base",
+        "traced_top5": [
+          "баз",
+          "bases",
+          "ベース",
+          "acids",
+          "mybase"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "friction+motion",
+        "traced_top5": [
+          "iction",
+          "ictions",
+          "motions",
+          "dự",
+          "lựa"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cold+water",
+        "traced_top5": [
+          "воды",
+          "watermark",
+          "冰冷",
+          "水资源",
+          "холод"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "light+prism",
+        "traced_top5": [
+          "ism",
+          "isms",
+          "主义",
+          "ismo",
+          "isme"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "traced_top5": [
+          "pressures",
+          "壓力",
+          "的压力",
+          "压力",
+          "二氧化碳"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lava+water",
+        "traced_top5": [
+          "ava",
+          "watermark",
+          "воды",
+          "水资源",
+          "水中"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+flower",
+        "traced_top5": [
+          "flowers",
+          "floral",
+          "太阳",
+          "花卉",
+          "sunlight"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "storm+ship",
+        "traced_top5": [
+          "ships",
+          "hips",
+          "船舶",
+          "hip",
+          "shipping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "electricity+wire",
+        "traced_top5": [
+          "ity",
+          "wires",
+          "wired",
+          "wireless",
+          "wiring"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "traced_top5": [
+          "xygen",
+          "氧气",
+          "jąc",
+          "oxide",
+          "nitrogen"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "oxide",
+          "dioxide"
+        ]
+      },
+      {
+        "pair": "spark+gasoline",
+        "traced_top5": [
+          "oline",
+          "sparks",
+          "火花",
+          "sparking",
+          "spike"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "winter+bear",
+        "traced_top5": [
+          "bears",
+          "冬季",
+          "冬天",
+          "ביצוע",
+          "winters"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "river+rock",
+        "traced_top5": [
+          "岩石",
+          "rocks",
+          "摇滚",
+          "rivers",
+          "rocking"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "moon+ocean",
+        "traced_top5": [
+          "cean",
+          "ceans",
+          "月亮",
+          "moons",
+          "海洋"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "drought+crops",
+        "traced_top5": [
+          "rought",
+          "rops",
+          "rop",
+          "ropdown",
+          "ropped"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frost+leaf",
+        "traced_top5": [
+          "rost",
+          "leafs",
+          "leaflet",
+          "叶子",
+          "distribut"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sound+wall",
+        "traced_top5": [
+          "walls",
+          "wallpaper",
+          "墙壁",
+          "sounds",
+          "墙上"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "smoke+air",
+        "traced_top5": [
+          "oke",
+          "空气",
+          "airst",
+          "aired",
+          "воздух"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sun+skin",
+        "traced_top5": [
+          "皮肤",
+          "skins",
+          "太阳",
+          "кожи",
+          "sunlight"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ice+salt",
+        "traced_top5": [
+          "salts",
+          "salty",
+          "sodium",
+          "ices",
+          "saline"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "volcano+ash",
+        "traced_top5": [
+          "cano",
+          "ashed",
+          "asher",
+          "ashing",
+          "аш"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wind+windmill",
+        "traced_top5": [
+          "mill",
+          "winds",
+          "mills",
+          "millis",
+          "windy"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "mill",
+          "mills",
+          "millis",
+          "millennium"
+        ]
+      },
+      {
+        "pair": "seed+water",
+        "traced_top5": [
+          "水资源",
+          "水质",
+          "watermark",
+          "种子",
+          "seeding"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "oil+water",
+        "traced_top5": [
+          "水资源",
+          "воды",
+          "水质",
+          "watermark",
+          "水流"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cat+fish",
+        "traced_top5": [
+          "fishes",
+          "鱼类",
+          "fishermen",
+          "fisheries",
+          "fishing"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bee+flower",
+        "traced_top5": [
+          "flowers",
+          "花卉",
+          "floral",
+          "花朵",
+          "blooms"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bird+egg",
+        "traced_top5": [
+          "eggs",
+          "birds",
+          "鸟类",
+          "chicken",
+          "trứng"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "chicken"
+        ]
+      },
+      {
+        "pair": "spider+fly",
+        "traced_top5": [
+          "ider",
+          "iders",
+          "flying",
+          "flew",
+          "flies"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "traced_top5": [
+          "ep",
+          "eps",
+          "wolves",
+          "ép",
+          "eping"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lion+zebra",
+        "traced_top5": [
+          "bra",
+          "狮子",
+          "brains",
+          "lia",
+          "ebra"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "traced_top5": [
+          "oon",
+          "pillar",
+          "oons",
+          "pillars",
+          "تفاص"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "cow+grass",
+        "traced_top5": [
+          "grassroots",
+          "התנגד",
+          "草地",
+          "תחוש",
+          "במסגר"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+bone",
+        "traced_top5": [
+          "bones",
+          "marrow",
+          "骨头",
+          "骨骼",
+          "canine"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "traced_top5": [
+          "quito",
+          "血液",
+          "крови",
+          "献血",
+          "sẵ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "traced_top5": [
+          "light",
+          "plants",
+          "植物",
+          "lighter",
+          "planta"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "traced_top5": [
+          "ound",
+          "acteria",
+          "ounds",
+          "wounds",
+          "ounded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "virus+cell",
+        "traced_top5": [
+          "irus",
+          "细胞",
+          "セル",
+          "cells",
+          "uitableviewcell"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "owl+mouse",
+        "traced_top5": [
+          "mouseclicked",
+          "鼠标",
+          "mice",
+          "mousey",
+          "老鼠"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "frog+fly",
+        "traced_top5": [
+          "הט",
+          "flies",
+          "несколь",
+          "путешеств",
+          "flying"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "horse+cart",
+        "traced_top5": [
+          "carts",
+          "cartitem",
+          "carta",
+          "shoppingcart",
+          "carte"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "snake+poison",
+        "traced_top5": [
+          "ison",
+          "isons",
+          "snakes",
+          "isión",
+          "isoner"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "whale+plankton",
+        "traced_top5": [
+          "ale",
+          "ton",
+          "ales",
+          "ally",
+          "tone"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ant+sugar",
+        "traced_top5": [
+          "ugar",
+          "ants",
+          "anten",
+          "anta",
+          "ант"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "baby+milk",
+        "traced_top5": [
+          "ilk",
+          "牛奶",
+          "婴儿",
+          "宝宝",
+          "babies"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "traced_top5": [
+          "ameleon",
+          "leafs",
+          "leaflet",
+          "叶子",
+          "несколь"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "beaver+tree",
+        "traced_top5": [
+          "aver",
+          "trees",
+          "дерев",
+          "treeview",
+          "树木"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bear+salmon",
+        "traced_top5": [
+          "mon",
+          "bears",
+          "monastery",
+          "monic",
+          "mono"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "traced_top5": [
+          "rot",
+          "rots",
+          "rotations",
+          "rotated",
+          "rotation"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "chicken+grain",
+        "traced_top5": [
+          "ain",
+          "icken",
+          "ains",
+          "aine",
+          "aina"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "dog+mailman",
+        "traced_top5": [
+          "man",
+          "manifold",
+          "mann",
+          "mani",
+          "dogs"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "monkey+banana",
+        "traced_top5": [
+          "bananas",
+          "monkeys",
+          "香蕉",
+          "猴子",
+          "الكمبي"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "bat+night",
+        "traced_top5": [
+          "nighttime",
+          "noct",
+          "夜晚",
+          "nightly",
+          "bats"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "shark+blood",
+        "traced_top5": [
+          "ark",
+          "血液",
+          "крови",
+          "arking",
+          "arks"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "worm+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "worms",
+          "העיר",
+          "markt"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "demand+supply",
+        "traced_top5": [
+          "upply",
+          "supplies",
+          "供应",
+          "supplying",
+          "供给"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "crime+police",
+        "traced_top5": [
+          "ice",
+          "crimes",
+          "ices",
+          "criminal",
+          "犯罪"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "ice"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "traced_top5": [
+          "exams",
+          "studying",
+          "考试",
+          "studied",
+          "examination"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "disease+medicine",
+        "traced_top5": [
+          "isease",
+          "enfermed",
+          "medicines",
+          "edicine",
+          "médec"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "money+bank",
+        "traced_top5": [
+          "银行",
+          "banking",
+          "銀行",
+          "banks",
+          "banker"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "car+gasoline",
+        "traced_top5": [
+          "oline",
+          "cars",
+          "汽车",
+          "carro",
+          "汽車"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "knife+bread",
+        "traced_top5": [
+          "breadcrumb",
+          "鸟成长记",
+          "המשיב",
+          "müslü",
+          "続きを読"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "hammer+nail",
+        "traced_top5": [
+          "ail",
+          "ails",
+          "hammered",
+          "ailer",
+          "nails"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "pen+paper",
+        "traced_top5": [
+          "papers",
+          "бумаг",
+          "论文",
+          "造纸",
+          "penalty"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "lock+key",
+        "traced_top5": [
+          "locked",
+          "keys",
+          "locking",
+          "keyup",
+          "globalkey"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "flour+yeast",
+        "traced_top5": [
+          "our",
+          "ast",
+          "我们的",
+          "asts",
+          "notre"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "traced_top5": [
+          "ugar",
+          "咖啡",
+          "コーヒー",
+          "offee",
+          "コーヒ"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "match+candle",
+        "traced_top5": [
+          "andle",
+          "matches",
+          "匹配",
+          "matching",
+          "andles"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "needle+thread",
+        "traced_top5": [
+          "threading",
+          "threads",
+          "pthread",
+          "hread",
+          "threaded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "soap+dirt",
+        "traced_top5": [
+          "irt",
+          "irts",
+          "detergent",
+          "đứ",
+          "soils"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sponge+water",
+        "traced_top5": [
+          "ponge",
+          "watermark",
+          "воды",
+          "תחוש",
+          "어렵"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "brush+paint",
+        "traced_top5": [
+          "paintings",
+          "brushes",
+          "paints",
+          "painting",
+          "painter"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "guitar+pick",
+        "traced_top5": [
+          "uitar",
+          "picking",
+          "picked",
+          "picks",
+          "picker"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "book+reader",
+        "traced_top5": [
+          "读者",
+          "readers",
+          "书中",
+          "这本书",
+          "books"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "readers",
+          "reading"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "traced_top5": [
+          "judges",
+          "法官",
+          "judgment",
+          "judgement",
+          "judged"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "vote+election",
+        "traced_top5": [
+          "voter",
+          "elections",
+          "voting",
+          "votes",
+          "投票"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "fire+alarm",
+        "traced_top5": [
+          "alarms",
+          "firewall",
+          "火灾",
+          "fires",
+          "fired"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "camera+light",
+        "traced_top5": [
+          "cameras",
+          "lightbox",
+          "カメラ",
+          "lighter",
+          "elight"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wheel+axle",
+        "traced_top5": [
+          "le",
+          "wheels",
+          "lek",
+          "lea",
+          "lep"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "le"
+        ]
+      },
+      {
+        "pair": "battery+clock",
+        "traced_top5": [
+          "clocks",
+          "电池",
+          "batteries",
+          "phản",
+          "khả"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "seed+farmer",
+        "traced_top5": [
+          "mer",
+          "seeds",
+          "种子",
+          "seeding",
+          "seeded"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "meat+fire",
+        "traced_top5": [
+          "at",
+          "防火",
+          "消防",
+          "firefight",
+          "fires"
+        ],
+        "is_hit": true,
+        "hit_words": [
+          "at"
+        ]
+      },
+      {
+        "pair": "wheat+mill",
+        "traced_top5": [
+          "heat",
+          "милли",
+          "heatmap",
+          "heats",
+          "mills"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "wool+knitting",
+        "traced_top5": [
+          "itting",
+          "ol",
+          "ols",
+          "olan",
+          "olving"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "clay+kiln",
+        "traced_top5": [
+          "ay",
+          "ays",
+          "nthe",
+          "na",
+          "ni"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "iron+forge",
+        "traced_top5": [
+          "forged",
+          "forging",
+          "irony",
+          "fseek",
+          "znale"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "traced_top5": [
+          "apes",
+          "rels",
+          "rel",
+          "relay",
+          "aped"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "sugar+cane",
+        "traced_top5": [
+          "ugar",
+          "ane",
+          "anes",
+          "aned",
+          "ultural"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "ink+stamp",
+        "traced_top5": [
+          "stamps",
+          "inks",
+          "inky",
+          "inking",
+          "timestamp"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      },
+      {
+        "pair": "debt+interest",
+        "traced_top5": [
+          "bt",
+          "interests",
+          "interested",
+          "interes",
+          "兴趣"
+        ],
+        "is_hit": false,
+        "hit_words": []
+      }
+    ]
+  }
+}

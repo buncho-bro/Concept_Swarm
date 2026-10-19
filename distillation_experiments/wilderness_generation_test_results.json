@@ -1,0 +1,37 @@
+[
+  {
+    "start": "sun",
+    "wilderness": "sun den current print squeeze flower egg",
+    "llm": "The sun is a star that produces light and"
+  },
+  {
+    "start": "fire",
+    "wilderness": "fire force market clock open echo pick",
+    "llm": "The fire department is planning to build a new"
+  },
+  {
+    "start": "rain",
+    "wilderness": "rain crawl coal fruit neutral egg soap",
+    "llm": "Heavy rain and flooding have hit parts of the"
+  },
+  {
+    "start": "crime",
+    "wilderness": "crime money sun float print squeeze flower",
+    "llm": "The crime of robbery is a serious criminal offense"
+  },
+  {
+    "start": "cow",
+    "wilderness": "cow warm lock bear egg neutral flower",
+    "llm": "A cow produces 10 liters of milk"
+  },
+  {
+    "start": "earthquake",
+    "wilderness": "earthquake savanna pollution melt chew sew poison",
+    "llm": "An earthquake occurs at a depth of 1"
+  },
+  {
+    "start": "cold",
+    "wilderness": "cold match age solid carry soap egg",
+    "llm": "Extreme cold can cause frostbite, which is"
+  }
+]

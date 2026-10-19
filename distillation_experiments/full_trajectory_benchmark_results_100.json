@@ -1,0 +1,8498 @@
+{
+  "0.6": {
+    "hit_count": 12,
+    "escape_count": 57,
+    "hit_rate": 0.12,
+    "escape_rate": 0.57,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "category": "physics_nature",
+        "expected": [
+          "burn",
+          "smoke",
+          "ash",
+          "charcoal",
+          "heat",
+          "flame"
+        ],
+        "top5": [
+          "tooth",
+          "plastic",
+          "gum",
+          "laura",
+          "and"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+ice",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "water",
+          "liquid",
+          "warmth",
+          "thaw",
+          "heat"
+        ],
+        "top5": [
+          "ice",
+          "and",
+          "cake",
+          "the",
+          "code"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cloud+cold",
+        "category": "physics_nature",
+        "expected": [
+          "rain",
+          "snow",
+          "frost",
+          "winter",
+          "ice",
+          "hail"
+        ],
+        "top5": [
+          "body",
+          "ice",
+          "freezing",
+          "melt",
+          "clothes"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "ice"
+        ]
+      },
+      {
+        "pair": "earthquake+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tsunami",
+          "wave",
+          "disaster",
+          "flood",
+          "tide"
+        ],
+        "top5": [
+          "acid",
+          "temperature",
+          "biodiversity",
+          "ecosystems",
+          "ocean"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+sand",
+        "category": "physics_nature",
+        "expected": [
+          "storm",
+          "dune",
+          "erosion",
+          "desert",
+          "dust"
+        ],
+        "top5": [
+          "sant",
+          "sand",
+          "sponge",
+          "sah",
+          "sid"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lightning+forest",
+        "category": "physics_nature",
+        "expected": [
+          "fire",
+          "wildfire",
+          "burn",
+          "smoke",
+          "damage"
+        ],
+        "top5": [
+          "and",
+          "that",
+          "the",
+          "forest",
+          "food"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "heat+water",
+        "category": "physics_nature",
+        "expected": [
+          "steam",
+          "boil",
+          "vapor",
+          "gas",
+          "evaporate"
+        ],
+        "top5": [
+          "aquatic",
+          "wildlife",
+          "water",
+          "jill",
+          "aqu"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+soil",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "plant",
+          "grow",
+          "root",
+          "flower"
+        ],
+        "top5": [
+          "moisture",
+          "fertility",
+          "temperature",
+          "water",
+          "conservation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rain+earth",
+        "category": "physics_nature",
+        "expected": [
+          "mud",
+          "wet",
+          "grass",
+          "growth",
+          "soil"
+        ],
+        "top5": [
+          "earth",
+          "creatures",
+          "base",
+          "beast",
+          "universe"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "gravity+apple",
+        "category": "physics_nature",
+        "expected": [
+          "fall",
+          "drop",
+          "ground",
+          "motion",
+          "weight"
+        ],
+        "top5": [
+          "tree",
+          "book",
+          "apples",
+          "apple",
+          "food"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "magnet+iron",
+        "category": "physics_nature",
+        "expected": [
+          "attract",
+          "pull",
+          "metal",
+          "force",
+          "stick"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "that",
+          "style",
+          "import"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "acid+base",
+        "category": "physics_nature",
+        "expected": [
+          "salt",
+          "water",
+          "neutral",
+          "reaction",
+          "chemical"
+        ],
+        "top5": [
+          "christine",
+          "brian",
+          "bud",
+          "base",
+          "laura"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "friction+motion",
+        "category": "physics_nature",
+        "expected": [
+          "heat",
+          "slow",
+          "resistance",
+          "stop",
+          "wear"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "that",
+          "use",
+          "have"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cold+water",
+        "category": "physics_nature",
+        "expected": [
+          "ice",
+          "freeze",
+          "frost",
+          "solid",
+          "crystal"
+        ],
+        "top5": [
+          "aquatic",
+          "aqu",
+          "wheel",
+          "water",
+          "underwater"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "light+prism",
+        "category": "physics_nature",
+        "expected": [
+          "rainbow",
+          "spectrum",
+          "color",
+          "refraction"
+        ],
+        "top5": [
+          "for",
+          "logo",
+          "light",
+          "and",
+          "delight"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "category": "physics_nature",
+        "expected": [
+          "diamond",
+          "crystal",
+          "mineral",
+          "coal"
+        ],
+        "top5": [
+          "dioxide",
+          "carbon",
+          "sugar",
+          "carter",
+          "ceramic"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lava+water",
+        "category": "physics_nature",
+        "expected": [
+          "rock",
+          "steam",
+          "obsidian",
+          "stone",
+          "cool"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "use",
+          "used",
+          "oil"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+flower",
+        "category": "physics_nature",
+        "expected": [
+          "bloom",
+          "grow",
+          "photosynthesis",
+          "yellow",
+          "petal"
+        ],
+        "top5": [
+          "flower",
+          "flowers",
+          "floral",
+          "plants",
+          "plant"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "storm+ship",
+        "category": "physics_nature",
+        "expected": [
+          "sink",
+          "wreck",
+          "danger",
+          "wave",
+          "sail"
+        ],
+        "top5": [
+          "ship",
+          "uni",
+          "work",
+          "bid",
+          "journey"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "electricity+wire",
+        "category": "physics_nature",
+        "expected": [
+          "current",
+          "power",
+          "shock",
+          "energy",
+          "flow"
+        ],
+        "top5": [
+          "the",
+          "work",
+          "and",
+          "that",
+          "have"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "category": "physics_nature",
+        "expected": [
+          "rust",
+          "corrosion",
+          "oxide",
+          "red"
+        ],
+        "top5": [
+          "oxygen",
+          "deficiency",
+          "dioxide",
+          "gas",
+          "molecule"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "dioxide"
+        ]
+      },
+      {
+        "pair": "spark+gasoline",
+        "category": "physics_nature",
+        "expected": [
+          "explosion",
+          "fire",
+          "blast",
+          "burn",
+          "boom"
+        ],
+        "top5": [
+          "gasoline",
+          "price",
+          "tank",
+          "cost",
+          "and"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "winter+bear",
+        "category": "physics_nature",
+        "expected": [
+          "hibernate",
+          "sleep",
+          "cave",
+          "den",
+          "snow"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "bear",
+          "that",
+          "bab"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "river+rock",
+        "category": "physics_nature",
+        "expected": [
+          "erosion",
+          "smooth",
+          "pebble",
+          "canyon",
+          "flow"
+        ],
+        "top5": [
+          "lace",
+          "rock",
+          "leather",
+          "metal",
+          "steel"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "moon+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tide",
+          "wave",
+          "gravity",
+          "water",
+          "high"
+        ],
+        "top5": [
+          "acid",
+          "temperature",
+          "water",
+          "currents",
+          "plastic"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "water"
+        ]
+      },
+      {
+        "pair": "drought+crops",
+        "category": "physics_nature",
+        "expected": [
+          "famine",
+          "wilt",
+          "die",
+          "dry",
+          "hunger"
+        ],
+        "top5": [
+          "are",
+          "planted",
+          "needed",
+          "sold",
+          "grown"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frost+leaf",
+        "category": "physics_nature",
+        "expected": [
+          "freeze",
+          "die",
+          "wilt",
+          "crystal",
+          "ice"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "that",
+          "use",
+          "book"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sound+wall",
+        "category": "physics_nature",
+        "expected": [
+          "echo",
+          "bounce",
+          "reflect",
+          "barrier",
+          "block"
+        ],
+        "top5": [
+          "wall",
+          "and",
+          "walls",
+          "the",
+          "worm"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "smoke+air",
+        "category": "physics_nature",
+        "expected": [
+          "pollution",
+          "smog",
+          "cloud",
+          "diffuse",
+          "haze"
+        ],
+        "top5": [
+          "the",
+          "seaw",
+          "and",
+          "work",
+          "oil"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+skin",
+        "category": "physics_nature",
+        "expected": [
+          "tan",
+          "sunburn",
+          "burn",
+          "dark",
+          "warm"
+        ],
+        "top5": [
+          "skin",
+          "texture",
+          "bleed",
+          "rash",
+          "white"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ice+salt",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "cold",
+          "liquid",
+          "dissolve",
+          "brine"
+        ],
+        "top5": [
+          "salt",
+          "salty",
+          "sodium",
+          "salts",
+          "sac"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "volcano+ash",
+        "category": "physics_nature",
+        "expected": [
+          "eruption",
+          "sky",
+          "dark",
+          "cloud",
+          "rock"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "work",
+          "use",
+          "oil"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+windmill",
+        "category": "physics_nature",
+        "expected": [
+          "turn",
+          "power",
+          "energy",
+          "grind",
+          "mill"
+        ],
+        "top5": [
+          "and",
+          "shaft",
+          "energy",
+          "project",
+          "wheel"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "energy"
+        ]
+      },
+      {
+        "pair": "seed+water",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "germinate",
+          "grow",
+          "root",
+          "plant"
+        ],
+        "top5": [
+          "water",
+          "wastewater",
+          "underwater",
+          "aquatic",
+          "水电"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "oil+water",
+        "category": "physics_nature",
+        "expected": [
+          "separate",
+          "layer",
+          "float",
+          "repel",
+          "mix"
+        ],
+        "top5": [
+          "aquatic",
+          "water",
+          "aqu",
+          "clark",
+          "dive"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cat+fish",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "hunt",
+          "prey",
+          "catch",
+          "food",
+          "claw"
+        ],
+        "top5": [
+          "fish",
+          "渔民",
+          "seaw",
+          "fishes",
+          "aquatic"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bee+flower",
+        "category": "biology_action",
+        "expected": [
+          "honey",
+          "pollen",
+          "nectar",
+          "pollinate",
+          "sweet"
+        ],
+        "top5": [
+          "flower",
+          "flowers",
+          "plants",
+          "plant",
+          "floral"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bird+egg",
+        "category": "biology_action",
+        "expected": [
+          "hatch",
+          "nest",
+          "baby",
+          "chick",
+          "born"
+        ],
+        "top5": [
+          "egg",
+          "test",
+          "and",
+          "from",
+          "the"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spider+fly",
+        "category": "biology_action",
+        "expected": [
+          "web",
+          "catch",
+          "trap",
+          "eat",
+          "prey"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "from",
+          "that",
+          "with"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "prey",
+          "predator",
+          "fleece"
+        ],
+        "top5": [
+          "size",
+          "are",
+          "sizes",
+          "flock",
+          "sheep"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lion+zebra",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "chase",
+          "safari",
+          "savanna"
+        ],
+        "top5": [
+          "crossing",
+          "pattern",
+          "是一种",
+          "and",
+          "fin"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "category": "biology_action",
+        "expected": [
+          "butterfly",
+          "moth",
+          "transform",
+          "emerge"
+        ],
+        "top5": [
+          "mailing",
+          "coc",
+          "dev",
+          "logo",
+          "from"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cow+grass",
+        "category": "biology_action",
+        "expected": [
+          "graze",
+          "eat",
+          "milk",
+          "pasture",
+          "chew"
+        ],
+        "top5": [
+          "grav",
+          "fruit",
+          "tree",
+          "flower",
+          "trees"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+bone",
+        "category": "biology_action",
+        "expected": [
+          "chew",
+          "bury",
+          "bite",
+          "gnaw",
+          "play"
+        ],
+        "top5": [
+          "brian",
+          "block",
+          "bod",
+          "bon",
+          "bryce"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "category": "biology_action",
+        "expected": [
+          "bite",
+          "itch",
+          "sting",
+          "feed",
+          "suck"
+        ],
+        "top5": [
+          "and",
+          "the",
+          "work",
+          "that",
+          "tissue"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "category": "biology_action",
+        "expected": [
+          "photosynthesis",
+          "grow",
+          "green",
+          "oxygen"
+        ],
+        "top5": [
+          "and",
+          "through",
+          "provides",
+          "can",
+          "energy"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "category": "biology_action",
+        "expected": [
+          "infection",
+          "pus",
+          "fever",
+          "disease",
+          "inflame"
+        ],
+        "top5": [
+          "healing",
+          "dressing",
+          "heal",
+          "healer",
+          "wound"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "virus+cell",
+        "category": "biology_action",
+        "expected": [
+          "infect",
+          "reproduce",
+          "destroy",
+          "disease",
+          "host"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "value",
+          "tissue",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "owl+mouse",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "night",
+          "prey",
+          "catch",
+          "talon"
+        ],
+        "top5": [
+          "mouse",
+          "mice",
+          "tooth",
+          "die",
+          "location"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frog+fly",
+        "category": "biology_action",
+        "expected": [
+          "tongue",
+          "catch",
+          "eat",
+          "pond",
+          "jump"
+        ],
+        "top5": [
+          "aircraft",
+          "base",
+          "danny",
+          "dive",
+          "die"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "horse+cart",
+        "category": "biology_action",
+        "expected": [
+          "pull",
+          "carry",
+          "transport",
+          "ride",
+          "wagon"
+        ],
+        "top5": [
+          "cart",
+          "mart",
+          "deter",
+          "the",
+          "book"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "snake+poison",
+        "category": "biology_action",
+        "expected": [
+          "venom",
+          "bite",
+          "kill",
+          "toxic",
+          "fang"
+        ],
+        "top5": [
+          "the",
+          "poisoning",
+          "中毒",
+          "poison",
+          "pill"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "whale+plankton",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "filter",
+          "feed",
+          "ocean",
+          "swim"
+        ],
+        "top5": [
+          "blooms",
+          "are",
+          "bacteria",
+          "microbial",
+          "organisms"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ant+sugar",
+        "category": "biology_action",
+        "expected": [
+          "gather",
+          "carry",
+          "colony",
+          "eat",
+          "sweet"
+        ],
+        "top5": [
+          "and",
+          "candy",
+          "needed",
+          "sugar",
+          "coating"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "baby+milk",
+        "category": "biology_action",
+        "expected": [
+          "drink",
+          "grow",
+          "feed",
+          "bottle",
+          "mother"
+        ],
+        "top5": [
+          "and",
+          "milk",
+          "powder",
+          "cows",
+          "production"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "category": "biology_action",
+        "expected": [
+          "camouflage",
+          "color",
+          "hide",
+          "green",
+          "blend"
+        ],
+        "top5": [
+          "and",
+          "that",
+          "the",
+          "from",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "beaver+tree",
+        "category": "biology_action",
+        "expected": [
+          "dam",
+          "chew",
+          "wood",
+          "river",
+          "log"
+        ],
+        "top5": [
+          "the",
+          "that",
+          "and",
+          "tree",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bear+salmon",
+        "category": "biology_action",
+        "expected": [
+          "catch",
+          "river",
+          "eat",
+          "fish",
+          "claw"
+        ],
+        "top5": [
+          "salmon",
+          "trout",
+          "swimming",
+          "idaho",
+          "meat"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "meat"
+        ]
+      },
+      {
+        "pair": "rabbit+carrot",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "chew",
+          "crunch",
+          "vegetable",
+          "hop"
+        ],
+        "top5": [
+          "juice",
+          "orange",
+          "farming",
+          "calories",
+          "salad"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chicken+grain",
+        "category": "biology_action",
+        "expected": [
+          "peck",
+          "eat",
+          "feed",
+          "farm",
+          "scratch"
+        ],
+        "top5": [
+          "milling",
+          "crusher",
+          "harvesting",
+          "harvested",
+          "storage"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+mailman",
+        "category": "biology_action",
+        "expected": [
+          "bark",
+          "bite",
+          "chase",
+          "growl",
+          "guard"
+        ],
+        "top5": [
+          "list",
+          "mailing",
+          "lists",
+          "and",
+          "installation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "monkey+banana",
+        "category": "biology_action",
+        "expected": [
+          "peel",
+          "eat",
+          "fruit",
+          "tree",
+          "jungle"
+        ],
+        "top5": [
+          "fruit",
+          "bread",
+          "flower",
+          "pizza",
+          "banana"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "fruit"
+        ]
+      },
+      {
+        "pair": "bat+night",
+        "category": "biology_action",
+        "expected": [
+          "fly",
+          "echo",
+          "dark",
+          "hunt",
+          "cave"
+        ],
+        "top5": [
+          "night",
+          "dining",
+          "christine",
+          "fear",
+          "gle"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "shark+blood",
+        "category": "biology_action",
+        "expected": [
+          "frenzy",
+          "attack",
+          "hunt",
+          "ocean",
+          "smell"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "work",
+          "that",
+          "from"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "worm+dirt",
+        "category": "biology_action",
+        "expected": [
+          "burrow",
+          "soil",
+          "crawl",
+          "dig",
+          "earth"
+        ],
+        "top5": [
+          "and",
+          "cleaning",
+          "pile",
+          "road",
+          "dirt"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "demand+supply",
+        "category": "human_society",
+        "expected": [
+          "price",
+          "market",
+          "equilibrium",
+          "economy",
+          "trade"
+        ],
+        "top5": [
+          "spp",
+          "spoon",
+          "onions",
+          "coating",
+          "potatoes"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "crime+police",
+        "category": "human_society",
+        "expected": [
+          "arrest",
+          "investigate",
+          "jail",
+          "justice",
+          "law"
+        ],
+        "top5": [
+          "officer",
+          "officers",
+          "have",
+          "brutality",
+          "officials"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "study+exam",
+        "category": "human_society",
+        "expected": [
+          "pass",
+          "score",
+          "grade",
+          "knowledge",
+          "fail"
+        ],
+        "top5": [
+          "exams",
+          "exam",
+          "the",
+          "สอบ",
+          "and"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "disease+medicine",
+        "category": "human_society",
+        "expected": [
+          "cure",
+          "heal",
+          "recovery",
+          "treatment",
+          "doctor"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "use",
+          "work",
+          "for"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "money+bank",
+        "category": "human_society",
+        "expected": [
+          "interest",
+          "save",
+          "loan",
+          "deposit",
+          "finance"
+        ],
+        "top5": [
+          "bid",
+          "beng",
+          "bank",
+          "banking",
+          "building"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "car+gasoline",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "run",
+          "engine",
+          "travel",
+          "fuel"
+        ],
+        "top5": [
+          "price",
+          "gasoline",
+          "cost",
+          "tank",
+          "and"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "knife+bread",
+        "category": "human_society",
+        "expected": [
+          "slice",
+          "cut",
+          "piece",
+          "sandwich",
+          "toast"
+        ],
+        "top5": [
+          "bread",
+          "and",
+          "from",
+          "with",
+          "the"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "and"
+        ]
+      },
+      {
+        "pair": "hammer+nail",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "hit",
+          "build",
+          "fasten",
+          "strike"
+        ],
+        "top5": [
+          "nail",
+          "salon",
+          "manic",
+          "care",
+          "repair"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pen+paper",
+        "category": "human_society",
+        "expected": [
+          "write",
+          "draw",
+          "letter",
+          "note",
+          "ink"
+        ],
+        "top5": [
+          "cardboard",
+          "piece",
+          "paper",
+          "tissue",
+          "book"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lock+key",
+        "category": "human_society",
+        "expected": [
+          "open",
+          "unlock",
+          "security",
+          "door",
+          "access"
+        ],
+        "top5": [
+          "important",
+          "tooth",
+          "value",
+          "bob",
+          "words"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "flour+yeast",
+        "category": "human_society",
+        "expected": [
+          "bread",
+          "dough",
+          "rise",
+          "bake",
+          "oven"
+        ],
+        "top5": [
+          "cell",
+          "cells",
+          "genome",
+          "细胞",
+          "fermentation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "category": "human_society",
+        "expected": [
+          "sweet",
+          "drink",
+          "taste",
+          "stir",
+          "cup"
+        ],
+        "top5": [
+          "coffee",
+          "the",
+          "and",
+          "with",
+          "that"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "match+candle",
+        "category": "human_society",
+        "expected": [
+          "light",
+          "flame",
+          "burn",
+          "wax",
+          "glow"
+        ],
+        "top5": [
+          "candles",
+          "stick",
+          "candle",
+          "sticks",
+          "wax"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "wax"
+        ]
+      },
+      {
+        "pair": "needle+thread",
+        "category": "human_society",
+        "expected": [
+          "sew",
+          "stitch",
+          "repair",
+          "cloth",
+          "tailor"
+        ],
+        "top5": [
+          "pthread",
+          "thread",
+          "mutex",
+          "tag",
+          "ver"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "soap+dirt",
+        "category": "human_society",
+        "expected": [
+          "clean",
+          "wash",
+          "rinse",
+          "bubble",
+          "remove"
+        ],
+        "top5": [
+          "pile",
+          "cleaning",
+          "and",
+          "path",
+          "surface"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "cleaning"
+        ]
+      },
+      {
+        "pair": "sponge+water",
+        "category": "human_society",
+        "expected": [
+          "absorb",
+          "soak",
+          "wet",
+          "squeeze",
+          "wipe"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "seaw",
+          "that",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "brush+paint",
+        "category": "human_society",
+        "expected": [
+          "canvas",
+          "picture",
+          "art",
+          "draw",
+          "color"
+        ],
+        "top5": [
+          "christine",
+          "painter",
+          "spatial",
+          "polly",
+          "machine"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "guitar+pick",
+        "category": "human_society",
+        "expected": [
+          "music",
+          "sound",
+          "strum",
+          "play",
+          "chord"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "work",
+          "book",
+          "that"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "book+reader",
+        "category": "human_society",
+        "expected": [
+          "knowledge",
+          "learn",
+          "story",
+          "read",
+          "understand"
+        ],
+        "top5": [
+          "rdr",
+          "reader",
+          "writer",
+          "std",
+          "rtl"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "reader"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "category": "human_society",
+        "expected": [
+          "verdict",
+          "court",
+          "sentence",
+          "justice",
+          "trial"
+        ],
+        "top5": [
+          "choose",
+          "result",
+          "base",
+          "whether",
+          "work"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "vote+election",
+        "category": "human_society",
+        "expected": [
+          "win",
+          "democracy",
+          "president",
+          "result",
+          "candidate"
+        ],
+        "top5": [
+          "election",
+          "results",
+          "elections",
+          "and",
+          "objects"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "results",
+          "and"
+        ]
+      },
+      {
+        "pair": "fire+alarm",
+        "category": "human_society",
+        "expected": [
+          "siren",
+          "evacuate",
+          "warn",
+          "emergency",
+          "escape"
+        ],
+        "top5": [
+          "alarm",
+          "and",
+          "machine",
+          "the",
+          "alison"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "camera+light",
+        "category": "human_society",
+        "expected": [
+          "photo",
+          "flash",
+          "picture",
+          "exposure",
+          "image"
+        ],
+        "top5": [
+          "light",
+          "shining",
+          "dark",
+          "illumin",
+          "lamp"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheel+axle",
+        "category": "human_society",
+        "expected": [
+          "rotate",
+          "spin",
+          "vehicle",
+          "turn",
+          "drive"
+        ],
+        "top5": [
+          "shaft",
+          "axle",
+          "load",
+          "diameter",
+          "torque"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "battery+clock",
+        "category": "human_society",
+        "expected": [
+          "time",
+          "tick",
+          "run",
+          "second",
+          "hour"
+        ],
+        "top5": [
+          "christine",
+          "coast",
+          "universe",
+          "always",
+          "near"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+farmer",
+        "category": "human_society",
+        "expected": [
+          "plant",
+          "harvest",
+          "crop",
+          "field",
+          "grow"
+        ],
+        "top5": [
+          "has",
+          "farmer",
+          "joe",
+          "wants",
+          "bought"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "meat+fire",
+        "category": "human_society",
+        "expected": [
+          "cook",
+          "roast",
+          "barbecue",
+          "steak",
+          "eat"
+        ],
+        "top5": [
+          "the",
+          "work",
+          "and",
+          "seaw",
+          "ocean"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheat+mill",
+        "category": "human_society",
+        "expected": [
+          "flour",
+          "grind",
+          "grain",
+          "bread",
+          "powder"
+        ],
+        "top5": [
+          "the",
+          "ocean",
+          "work",
+          "mold",
+          "mill"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wool+knitting",
+        "category": "human_society",
+        "expected": [
+          "sweater",
+          "scarf",
+          "yarn",
+          "warmth",
+          "cloth"
+        ],
+        "top5": [
+          "techniques",
+          "needles",
+          "patterns",
+          "technique",
+          "tutorials"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "clay+kiln",
+        "category": "human_society",
+        "expected": [
+          "pottery",
+          "ceramic",
+          "bake",
+          "harden",
+          "vase"
+        ],
+        "top5": [
+          "temperatures",
+          "operator",
+          "temperature",
+          "heater",
+          "heating"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+forge",
+        "category": "human_society",
+        "expected": [
+          "sword",
+          "shape",
+          "blacksmith",
+          "heat",
+          "metal"
+        ],
+        "top5": [
+          "forge",
+          "christine",
+          "village",
+          "grove",
+          "tag"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "category": "human_society",
+        "expected": [
+          "wine",
+          "ferment",
+          "age",
+          "alcohol",
+          "vintage"
+        ],
+        "top5": [
+          "barrel",
+          "oil",
+          "diameter",
+          "pressure",
+          "neck"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+cane",
+        "category": "human_society",
+        "expected": [
+          "syrup",
+          "sweet",
+          "refine",
+          "harvest",
+          "crop"
+        ],
+        "top5": [
+          "the",
+          "cattle",
+          "arb",
+          "maze",
+          "village"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ink+stamp",
+        "category": "human_society",
+        "expected": [
+          "print",
+          "mark",
+          "letter",
+          "seal",
+          "impress"
+        ],
+        "top5": [
+          "stamp",
+          "timestamp",
+          "value",
+          "int",
+          "use"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "int"
+        ]
+      },
+      {
+        "pair": "debt+interest",
+        "category": "human_society",
+        "expected": [
+          "bankruptcy",
+          "payment",
+          "bank",
+          "financial",
+          "owe"
+        ],
+        "top5": [
+          "and",
+          "use",
+          "the",
+          "work",
+          "that"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      }
+    ]
+  },
+  "1.0": {
+    "hit_count": 9,
+    "escape_count": 63,
+    "hit_rate": 0.09,
+    "escape_rate": 0.63,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "category": "physics_nature",
+        "expected": [
+          "burn",
+          "smoke",
+          "ash",
+          "charcoal",
+          "heat",
+          "flame"
+        ],
+        "top5": [
+          "gum",
+          "plywood",
+          "molded",
+          "wes",
+          "wil"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+ice",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "water",
+          "liquid",
+          "warmth",
+          "thaw",
+          "heat"
+        ],
+        "top5": [
+          "ice",
+          "cocaine",
+          "code",
+          "iceberg",
+          "cake"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cloud+cold",
+        "category": "physics_nature",
+        "expected": [
+          "rain",
+          "snow",
+          "frost",
+          "winter",
+          "ice",
+          "hail"
+        ],
+        "top5": [
+          "body",
+          "melted",
+          "melt",
+          "temperature",
+          "freezing"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tsunami",
+          "wave",
+          "disaster",
+          "flood",
+          "tide"
+        ],
+        "top5": [
+          "biodiversity",
+          "acid",
+          "ecosystems",
+          "temperature",
+          "ecosystem"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+sand",
+        "category": "physics_nature",
+        "expected": [
+          "storm",
+          "dune",
+          "erosion",
+          "desert",
+          "dust"
+        ],
+        "top5": [
+          "sant",
+          "sah",
+          "sanchez",
+          "sand",
+          "sponge"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lightning+forest",
+        "category": "physics_nature",
+        "expected": [
+          "fire",
+          "wildfire",
+          "burn",
+          "smoke",
+          "damage"
+        ],
+        "top5": [
+          "food",
+          "orwell",
+          "mold",
+          "that",
+          "seaw"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "heat+water",
+        "category": "physics_nature",
+        "expected": [
+          "steam",
+          "boil",
+          "vapor",
+          "gas",
+          "evaporate"
+        ],
+        "top5": [
+          "aquatic",
+          "wildlife",
+          "水务",
+          "水质",
+          "groundwater"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+soil",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "plant",
+          "grow",
+          "root",
+          "flower"
+        ],
+        "top5": [
+          "moisture",
+          "erosion",
+          "fertility",
+          "湿度",
+          "excavation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rain+earth",
+        "category": "physics_nature",
+        "expected": [
+          "mud",
+          "wet",
+          "grass",
+          "growth",
+          "soil"
+        ],
+        "top5": [
+          "earth",
+          "creatures",
+          "beast",
+          "organism",
+          "universe"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "gravity+apple",
+        "category": "physics_nature",
+        "expected": [
+          "fall",
+          "drop",
+          "ground",
+          "motion",
+          "weight"
+        ],
+        "top5": [
+          "apples",
+          "iphone",
+          "tree",
+          "apple",
+          "beverages"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "magnet+iron",
+        "category": "physics_nature",
+        "expected": [
+          "attract",
+          "pull",
+          "metal",
+          "force",
+          "stick"
+        ],
+        "top5": [
+          "import",
+          "dirt",
+          "and",
+          "style",
+          "the"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "acid+base",
+        "category": "physics_nature",
+        "expected": [
+          "salt",
+          "water",
+          "neutral",
+          "reaction",
+          "chemical"
+        ],
+        "top5": [
+          "christine",
+          "brian",
+          "bud",
+          "bai",
+          "bod"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "friction+motion",
+        "category": "physics_nature",
+        "expected": [
+          "heat",
+          "slow",
+          "resistance",
+          "stop",
+          "wear"
+        ],
+        "top5": [
+          "the",
+          "use",
+          "thin",
+          "and",
+          "ver"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cold+water",
+        "category": "physics_nature",
+        "expected": [
+          "ice",
+          "freeze",
+          "frost",
+          "solid",
+          "crystal"
+        ],
+        "top5": [
+          "aquatic",
+          "水质",
+          "aqu",
+          "underwater",
+          "wastewater"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "light+prism",
+        "category": "physics_nature",
+        "expected": [
+          "rainbow",
+          "spectrum",
+          "color",
+          "refraction"
+        ],
+        "top5": [
+          "ák",
+          "是一款",
+          "adalah",
+          "是一种",
+          "át"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "category": "physics_nature",
+        "expected": [
+          "diamond",
+          "crystal",
+          "mineral",
+          "coal"
+        ],
+        "top5": [
+          "carbon",
+          "sugar",
+          "carter",
+          "dioxide",
+          "coco"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lava+water",
+        "category": "physics_nature",
+        "expected": [
+          "rock",
+          "steam",
+          "obsidian",
+          "stone",
+          "cool"
+        ],
+        "top5": [
+          "sunlight",
+          "use",
+          "seaw",
+          "used",
+          "cou"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+flower",
+        "category": "physics_nature",
+        "expected": [
+          "bloom",
+          "grow",
+          "photosynthesis",
+          "yellow",
+          "petal"
+        ],
+        "top5": [
+          "flowers",
+          "flower",
+          "floral",
+          "花卉",
+          "plants"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "storm+ship",
+        "category": "physics_nature",
+        "expected": [
+          "sink",
+          "wreck",
+          "danger",
+          "wave",
+          "sail"
+        ],
+        "top5": [
+          "ship",
+          "uni",
+          "bid",
+          "をして",
+          "voyage"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "electricity+wire",
+        "category": "physics_nature",
+        "expected": [
+          "current",
+          "power",
+          "shock",
+          "energy",
+          "flow"
+        ],
+        "top5": [
+          "the",
+          "cry",
+          "seaw",
+          "thin",
+          "lace"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "category": "physics_nature",
+        "expected": [
+          "rust",
+          "corrosion",
+          "oxide",
+          "red"
+        ],
+        "top5": [
+          "deficiency",
+          "oxygen",
+          "gas",
+          "molecule",
+          "dioxide"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "dioxide"
+        ]
+      },
+      {
+        "pair": "spark+gasoline",
+        "category": "physics_nature",
+        "expected": [
+          "explosion",
+          "fire",
+          "blast",
+          "burn",
+          "boom"
+        ],
+        "top5": [
+          "gasoline",
+          "price",
+          "tank",
+          "prices",
+          "gallon"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "winter+bear",
+        "category": "physics_nature",
+        "expected": [
+          "hibernate",
+          "sleep",
+          "cave",
+          "den",
+          "snow"
+        ],
+        "top5": [
+          "the",
+          "bab",
+          "bear",
+          "babe",
+          "barton"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "river+rock",
+        "category": "physics_nature",
+        "expected": [
+          "erosion",
+          "smooth",
+          "pebble",
+          "canyon",
+          "flow"
+        ],
+        "top5": [
+          "lace",
+          "rock",
+          "leather",
+          "mortar",
+          "metal"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "moon+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tide",
+          "wave",
+          "gravity",
+          "water",
+          "high"
+        ],
+        "top5": [
+          "acid",
+          "currents",
+          "ecosystems",
+          "scientists",
+          "waters"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "waters"
+        ]
+      },
+      {
+        "pair": "drought+crops",
+        "category": "physics_nature",
+        "expected": [
+          "famine",
+          "wilt",
+          "die",
+          "dry",
+          "hunger"
+        ],
+        "top5": [
+          "sold",
+          "are",
+          "planted",
+          "种植",
+          "needed"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frost+leaf",
+        "category": "physics_nature",
+        "expected": [
+          "freeze",
+          "die",
+          "wilt",
+          "crystal",
+          "ice"
+        ],
+        "top5": [
+          "吃饭",
+          "use",
+          "book",
+          "that",
+          "the"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sound+wall",
+        "category": "physics_nature",
+        "expected": [
+          "echo",
+          "bounce",
+          "reflect",
+          "barrier",
+          "block"
+        ],
+        "top5": [
+          "wall",
+          "walls",
+          "wid",
+          "fence",
+          "wal"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "smoke+air",
+        "category": "physics_nature",
+        "expected": [
+          "pollution",
+          "smog",
+          "cloud",
+          "diffuse",
+          "haze"
+        ],
+        "top5": [
+          "seaw",
+          "vowels",
+          "吃饭",
+          "work",
+          "ocean"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+skin",
+        "category": "physics_nature",
+        "expected": [
+          "tan",
+          "sunburn",
+          "burn",
+          "dark",
+          "warm"
+        ],
+        "top5": [
+          "texture",
+          "skin",
+          "bleed",
+          "皮肤",
+          "rash"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ice+salt",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "cold",
+          "liquid",
+          "dissolve",
+          "brine"
+        ],
+        "top5": [
+          "salt",
+          "salts",
+          "sulfur",
+          "salty",
+          "sodium"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "volcano+ash",
+        "category": "physics_nature",
+        "expected": [
+          "eruption",
+          "sky",
+          "dark",
+          "cloud",
+          "rock"
+        ],
+        "top5": [
+          "работ",
+          "吃饭",
+          "use",
+          "cod",
+          "cout"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+windmill",
+        "category": "physics_nature",
+        "expected": [
+          "turn",
+          "power",
+          "energy",
+          "grind",
+          "mill"
+        ],
+        "top5": [
+          "shaft",
+          "是一个",
+          "project",
+          "是一款",
+          "是一种"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+water",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "germinate",
+          "grow",
+          "root",
+          "plant"
+        ],
+        "top5": [
+          "water",
+          "wastewater",
+          "水电",
+          "underwater",
+          "水质"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "oil+water",
+        "category": "physics_nature",
+        "expected": [
+          "separate",
+          "layer",
+          "float",
+          "repel",
+          "mix"
+        ],
+        "top5": [
+          "aquatic",
+          "clark",
+          "aqu",
+          "groundwater",
+          "水质"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cat+fish",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "hunt",
+          "prey",
+          "catch",
+          "food",
+          "claw"
+        ],
+        "top5": [
+          "渔民",
+          "fish",
+          "seaw",
+          "渔船",
+          "fishermen"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bee+flower",
+        "category": "biology_action",
+        "expected": [
+          "honey",
+          "pollen",
+          "nectar",
+          "pollinate",
+          "sweet"
+        ],
+        "top5": [
+          "flower",
+          "flowers",
+          "花卉",
+          "plants",
+          "floral"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bird+egg",
+        "category": "biology_action",
+        "expected": [
+          "hatch",
+          "nest",
+          "baby",
+          "chick",
+          "born"
+        ],
+        "top5": [
+          "egg",
+          "test",
+          "鸡蛋",
+          "eggs",
+          "result"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spider+fly",
+        "category": "biology_action",
+        "expected": [
+          "web",
+          "catch",
+          "trap",
+          "eat",
+          "prey"
+        ],
+        "top5": [
+          "the",
+          "fret",
+          "reynolds",
+          "blue",
+          "seaw"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "prey",
+          "predator",
+          "fleece"
+        ],
+        "top5": [
+          "sizes",
+          "herd",
+          "size",
+          "flock",
+          "数量"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lion+zebra",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "chase",
+          "safari",
+          "savanna"
+        ],
+        "top5": [
+          "crossing",
+          "是一种",
+          "patterns",
+          "pattern",
+          "striped"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "category": "biology_action",
+        "expected": [
+          "butterfly",
+          "moth",
+          "transform",
+          "emerge"
+        ],
+        "top5": [
+          "mailing",
+          "coc",
+          "dev",
+          "cvs",
+          "logo"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cow+grass",
+        "category": "biology_action",
+        "expected": [
+          "graze",
+          "eat",
+          "milk",
+          "pasture",
+          "chew"
+        ],
+        "top5": [
+          "grav",
+          "gsm",
+          "gravel",
+          "grd",
+          "grill"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+bone",
+        "category": "biology_action",
+        "expected": [
+          "chew",
+          "bury",
+          "bite",
+          "gnaw",
+          "play"
+        ],
+        "top5": [
+          "brian",
+          "bryce",
+          "vene",
+          "bce",
+          "bon"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "category": "biology_action",
+        "expected": [
+          "bite",
+          "itch",
+          "sting",
+          "feed",
+          "suck"
+        ],
+        "top5": [
+          "value",
+          "seaw",
+          "work",
+          "unit",
+          "cod"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "category": "biology_action",
+        "expected": [
+          "photosynthesis",
+          "grow",
+          "green",
+          "oxygen"
+        ],
+        "top5": [
+          "through",
+          "provides",
+          "照射",
+          "hitting",
+          "shining"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "category": "biology_action",
+        "expected": [
+          "infection",
+          "pus",
+          "fever",
+          "disease",
+          "inflame"
+        ],
+        "top5": [
+          "healing",
+          "dressing",
+          "heal",
+          "healer",
+          "wounds"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "virus+cell",
+        "category": "biology_action",
+        "expected": [
+          "infect",
+          "reproduce",
+          "destroy",
+          "disease",
+          "host"
+        ],
+        "top5": [
+          "value",
+          "unit",
+          "tissue",
+          "style",
+          "work"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "owl+mouse",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "night",
+          "prey",
+          "catch",
+          "talon"
+        ],
+        "top5": [
+          "mouse",
+          "mice",
+          "mmp",
+          "mover",
+          "mousey"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frog+fly",
+        "category": "biology_action",
+        "expected": [
+          "tongue",
+          "catch",
+          "eat",
+          "pond",
+          "jump"
+        ],
+        "top5": [
+          "danny",
+          "aircraft",
+          "aly",
+          "carly",
+          "malay"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "horse+cart",
+        "category": "biology_action",
+        "expected": [
+          "pull",
+          "carry",
+          "transport",
+          "ride",
+          "wagon"
+        ],
+        "top5": [
+          "cart",
+          "mart",
+          "cartel",
+          "blob",
+          "plast"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "snake+poison",
+        "category": "biology_action",
+        "expected": [
+          "venom",
+          "bite",
+          "kill",
+          "toxic",
+          "fang"
+        ],
+        "top5": [
+          "poisoning",
+          "中毒",
+          "poison",
+          "pill",
+          "toxicity"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "toxicity"
+        ]
+      },
+      {
+        "pair": "whale+plankton",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "filter",
+          "feed",
+          "ocean",
+          "swim"
+        ],
+        "top5": [
+          "blooms",
+          "microbial",
+          "bacteria",
+          "微生物",
+          "microbes"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ant+sugar",
+        "category": "biology_action",
+        "expected": [
+          "gather",
+          "carry",
+          "colony",
+          "eat",
+          "sweet"
+        ],
+        "top5": [
+          "syrup",
+          "cane",
+          "sugar",
+          "needed",
+          "candy"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "baby+milk",
+        "category": "biology_action",
+        "expected": [
+          "drink",
+          "grow",
+          "feed",
+          "bottle",
+          "mother"
+        ],
+        "top5": [
+          "milk",
+          "powder",
+          "and",
+          "cows",
+          "consumption"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "category": "biology_action",
+        "expected": [
+          "camouflage",
+          "color",
+          "hide",
+          "green",
+          "blend"
+        ],
+        "top5": [
+          "and",
+          "that",
+          "seaw",
+          "contain",
+          "container"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "beaver+tree",
+        "category": "biology_action",
+        "expected": [
+          "dam",
+          "chew",
+          "wood",
+          "river",
+          "log"
+        ],
+        "top5": [
+          "that",
+          "the",
+          "use",
+          "thin",
+          "dirt"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bear+salmon",
+        "category": "biology_action",
+        "expected": [
+          "catch",
+          "river",
+          "eat",
+          "fish",
+          "claw"
+        ],
+        "top5": [
+          "trout",
+          "salmon",
+          "idaho",
+          "swimming",
+          "sushi"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "chew",
+          "crunch",
+          "vegetable",
+          "hop"
+        ],
+        "top5": [
+          "juice",
+          "calories",
+          "的数量",
+          "price",
+          "orange"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chicken+grain",
+        "category": "biology_action",
+        "expected": [
+          "peck",
+          "eat",
+          "feed",
+          "farm",
+          "scratch"
+        ],
+        "top5": [
+          "milling",
+          "crusher",
+          "glean",
+          "作物",
+          "harvested"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+mailman",
+        "category": "biology_action",
+        "expected": [
+          "bark",
+          "bite",
+          "chase",
+          "growl",
+          "guard"
+        ],
+        "top5": [
+          "mailing",
+          "list",
+          "lists",
+          "邮件",
+          "列表"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "monkey+banana",
+        "category": "biology_action",
+        "expected": [
+          "peel",
+          "eat",
+          "fruit",
+          "tree",
+          "jungle"
+        ],
+        "top5": [
+          "biscuits",
+          "flower",
+          "bread",
+          "bottles",
+          "bananas"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bat+night",
+        "category": "biology_action",
+        "expected": [
+          "fly",
+          "echo",
+          "dark",
+          "hunt",
+          "cave"
+        ],
+        "top5": [
+          "night",
+          "darkness",
+          "nightmare",
+          "gle",
+          "fear"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "darkness"
+        ]
+      },
+      {
+        "pair": "shark+blood",
+        "category": "biology_action",
+        "expected": [
+          "frenzy",
+          "attack",
+          "hunt",
+          "ocean",
+          "smell"
+        ],
+        "top5": [
+          "the",
+          "work",
+          "book",
+          "block",
+          "that"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "worm+dirt",
+        "category": "biology_action",
+        "expected": [
+          "burrow",
+          "soil",
+          "crawl",
+          "dig",
+          "earth"
+        ],
+        "top5": [
+          "cleaning",
+          "cleanup",
+          "pile",
+          "cleaner",
+          "removal"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "demand+supply",
+        "category": "human_society",
+        "expected": [
+          "price",
+          "market",
+          "equilibrium",
+          "economy",
+          "trade"
+        ],
+        "top5": [
+          "spp",
+          "potatoes",
+          "spoon",
+          "sulfur",
+          "onions"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "crime+police",
+        "category": "human_society",
+        "expected": [
+          "arrest",
+          "investigate",
+          "jail",
+          "justice",
+          "law"
+        ],
+        "top5": [
+          "officers",
+          "officer",
+          "brutality",
+          "officials",
+          "arrest"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "arrest"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "category": "human_society",
+        "expected": [
+          "pass",
+          "score",
+          "grade",
+          "knowledge",
+          "fail"
+        ],
+        "top5": [
+          "exams",
+          "exam",
+          "考试",
+          "สอบ",
+          "adidas"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "disease+medicine",
+        "category": "human_society",
+        "expected": [
+          "cure",
+          "heal",
+          "recovery",
+          "treatment",
+          "doctor"
+        ],
+        "top5": [
+          "use",
+          "work",
+          "style",
+          "работ",
+          "吃饭"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "money+bank",
+        "category": "human_society",
+        "expected": [
+          "interest",
+          "save",
+          "loan",
+          "deposit",
+          "finance"
+        ],
+        "top5": [
+          "beng",
+          "bsp",
+          "bau",
+          "bid",
+          "unb"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "car+gasoline",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "run",
+          "engine",
+          "travel",
+          "fuel"
+        ],
+        "top5": [
+          "gasoline",
+          "tank",
+          "price",
+          "prices",
+          "consumption"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "knife+bread",
+        "category": "human_society",
+        "expected": [
+          "slice",
+          "cut",
+          "piece",
+          "sandwich",
+          "toast"
+        ],
+        "top5": [
+          "bread",
+          "bab",
+          "boston",
+          "from",
+          "bib"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "hammer+nail",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "hit",
+          "build",
+          "fasten",
+          "strike"
+        ],
+        "top5": [
+          "salon",
+          "manic",
+          "technician",
+          "repair",
+          "nail"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pen+paper",
+        "category": "human_society",
+        "expected": [
+          "write",
+          "draw",
+          "letter",
+          "note",
+          "ink"
+        ],
+        "top5": [
+          "cardboard",
+          "paper",
+          "newspapers",
+          "piece",
+          "papers"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lock+key",
+        "category": "human_society",
+        "expected": [
+          "open",
+          "unlock",
+          "security",
+          "door",
+          "access"
+        ],
+        "top5": [
+          "important",
+          "色泽",
+          "bob",
+          "ter",
+          "words"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "flour+yeast",
+        "category": "human_society",
+        "expected": [
+          "bread",
+          "dough",
+          "rise",
+          "bake",
+          "oven"
+        ],
+        "top5": [
+          "cell",
+          "cells",
+          "genome",
+          "细胞",
+          "lineage"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "category": "human_society",
+        "expected": [
+          "sweet",
+          "drink",
+          "taste",
+          "stir",
+          "cup"
+        ],
+        "top5": [
+          "coffee",
+          "the",
+          "style",
+          "work",
+          "with"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "match+candle",
+        "category": "human_society",
+        "expected": [
+          "light",
+          "flame",
+          "burn",
+          "wax",
+          "glow"
+        ],
+        "top5": [
+          "candles",
+          "stick",
+          "sticks",
+          "candle",
+          "wax"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "wax"
+        ]
+      },
+      {
+        "pair": "needle+thread",
+        "category": "human_society",
+        "expected": [
+          "sew",
+          "stitch",
+          "repair",
+          "cloth",
+          "tailor"
+        ],
+        "top5": [
+          "pthread",
+          "thread",
+          "mutex",
+          "athens",
+          "procession"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "soap+dirt",
+        "category": "human_society",
+        "expected": [
+          "clean",
+          "wash",
+          "rinse",
+          "bubble",
+          "remove"
+        ],
+        "top5": [
+          "cleaning",
+          "pile",
+          "cleanup",
+          "pond",
+          "removal"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "cleaning",
+          "cleanup"
+        ]
+      },
+      {
+        "pair": "sponge+water",
+        "category": "human_society",
+        "expected": [
+          "absorb",
+          "soak",
+          "wet",
+          "squeeze",
+          "wipe"
+        ],
+        "top5": [
+          "sử",
+          "işlet",
+          "嘿嘿",
+          "吃饭",
+          "thin"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "brush+paint",
+        "category": "human_society",
+        "expected": [
+          "canvas",
+          "picture",
+          "art",
+          "draw",
+          "color"
+        ],
+        "top5": [
+          "pian",
+          "prt",
+          "小龙虾",
+          "piet",
+          "pont"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "guitar+pick",
+        "category": "human_society",
+        "expected": [
+          "music",
+          "sound",
+          "strum",
+          "play",
+          "chord"
+        ],
+        "top5": [
+          "the",
+          "and",
+          "work",
+          "book",
+          "place"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "book+reader",
+        "category": "human_society",
+        "expected": [
+          "knowledge",
+          "learn",
+          "story",
+          "read",
+          "understand"
+        ],
+        "top5": [
+          "rdr",
+          "reader",
+          "std",
+          "rte",
+          "rtl"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "reader"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "category": "human_society",
+        "expected": [
+          "verdict",
+          "court",
+          "sentence",
+          "justice",
+          "trial"
+        ],
+        "top5": [
+          "choose",
+          "rating",
+          "result",
+          "evaluate",
+          "judy"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "vote+election",
+        "category": "human_society",
+        "expected": [
+          "win",
+          "democracy",
+          "president",
+          "result",
+          "candidate"
+        ],
+        "top5": [
+          "elections",
+          "results",
+          "objects",
+          "election",
+          "representation"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "results"
+        ]
+      },
+      {
+        "pair": "fire+alarm",
+        "category": "human_society",
+        "expected": [
+          "siren",
+          "evacuate",
+          "warn",
+          "emergency",
+          "escape"
+        ],
+        "top5": [
+          "alarm",
+          "algeria",
+          "alison",
+          "alm",
+          "alarms"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "camera+light",
+        "category": "human_society",
+        "expected": [
+          "photo",
+          "flash",
+          "picture",
+          "exposure",
+          "image"
+        ],
+        "top5": [
+          "light",
+          "illumin",
+          "shining",
+          "点亮",
+          "illuminated"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheel+axle",
+        "category": "human_society",
+        "expected": [
+          "rotate",
+          "spin",
+          "vehicle",
+          "turn",
+          "drive"
+        ],
+        "top5": [
+          "shaft",
+          "axle",
+          "diameter",
+          "stiffness",
+          "length"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "battery+clock",
+        "category": "human_society",
+        "expected": [
+          "time",
+          "tick",
+          "run",
+          "second",
+          "hour"
+        ],
+        "top5": [
+          "christine",
+          "universe",
+          "coast",
+          "cruc",
+          "吃惊"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+farmer",
+        "category": "human_society",
+        "expected": [
+          "plant",
+          "harvest",
+          "crop",
+          "field",
+          "grow"
+        ],
+        "top5": [
+          "wants",
+          "farmer",
+          "joe",
+          "has",
+          "bought"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "meat+fire",
+        "category": "human_society",
+        "expected": [
+          "cook",
+          "roast",
+          "barbecue",
+          "steak",
+          "eat"
+        ],
+        "top5": [
+          "seaw",
+          "work",
+          "ocean",
+          "metal",
+          "обыти"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheat+mill",
+        "category": "human_society",
+        "expected": [
+          "flour",
+          "grind",
+          "grain",
+          "bread",
+          "powder"
+        ],
+        "top5": [
+          "ocean",
+          "stainless",
+          "work",
+          "place",
+          "dive"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wool+knitting",
+        "category": "human_society",
+        "expected": [
+          "sweater",
+          "scarf",
+          "yarn",
+          "warmth",
+          "cloth"
+        ],
+        "top5": [
+          "techniques",
+          "needles",
+          "技巧",
+          "instructions",
+          "technique"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "clay+kiln",
+        "category": "human_society",
+        "expected": [
+          "pottery",
+          "ceramic",
+          "bake",
+          "harden",
+          "vase"
+        ],
+        "top5": [
+          "temperatures",
+          "operator",
+          "废气",
+          "heater",
+          "温度"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+forge",
+        "category": "human_society",
+        "expected": [
+          "sword",
+          "shape",
+          "blacksmith",
+          "heat",
+          "metal"
+        ],
+        "top5": [
+          "forge",
+          "gef",
+          "grove",
+          "village",
+          "gateway"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "category": "human_society",
+        "expected": [
+          "wine",
+          "ferment",
+          "age",
+          "alcohol",
+          "vintage"
+        ],
+        "top5": [
+          "barrel",
+          "pressure",
+          "oil",
+          "diameter",
+          "leak"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+cane",
+        "category": "human_society",
+        "expected": [
+          "syrup",
+          "sweet",
+          "refine",
+          "harvest",
+          "crop"
+        ],
+        "top5": [
+          "erect",
+          "arb",
+          "также",
+          "vert",
+          "绿化"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ink+stamp",
+        "category": "human_society",
+        "expected": [
+          "print",
+          "mark",
+          "letter",
+          "seal",
+          "impress"
+        ],
+        "top5": [
+          "stamp",
+          "timestamp",
+          "date",
+          "stamps",
+          "value"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "debt+interest",
+        "category": "human_society",
+        "expected": [
+          "bankruptcy",
+          "payment",
+          "bank",
+          "financial",
+          "owe"
+        ],
+        "top5": [
+          "use",
+          "work",
+          "seaw",
+          "import",
+          "and"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      }
+    ]
+  },
+  "1.4": {
+    "hit_count": 6,
+    "escape_count": 69,
+    "hit_rate": 0.06,
+    "escape_rate": 0.69,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "category": "physics_nature",
+        "expected": [
+          "burn",
+          "smoke",
+          "ash",
+          "charcoal",
+          "heat",
+          "flame"
+        ],
+        "top5": [
+          "新西兰",
+          "plywood",
+          "gum",
+          "liu",
+          "造纸"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+ice",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "water",
+          "liquid",
+          "warmth",
+          "thaw",
+          "heat"
+        ],
+        "top5": [
+          "cocaine",
+          "ice",
+          "idata",
+          "ricky",
+          "iceberg"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cloud+cold",
+        "category": "physics_nature",
+        "expected": [
+          "rain",
+          "snow",
+          "frost",
+          "winter",
+          "ice",
+          "hail"
+        ],
+        "top5": [
+          "body",
+          "melted",
+          "melt",
+          "体温",
+          "melts"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tsunami",
+          "wave",
+          "disaster",
+          "flood",
+          "tide"
+        ],
+        "top5": [
+          "biodiversity",
+          "acid",
+          "ecosystems",
+          "生态系统",
+          "breeze"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+sand",
+        "category": "physics_nature",
+        "expected": [
+          "storm",
+          "dune",
+          "erosion",
+          "desert",
+          "dust"
+        ],
+        "top5": [
+          "sant",
+          "sah",
+          "sanchez",
+          "sasha",
+          "sis"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lightning+forest",
+        "category": "physics_nature",
+        "expected": [
+          "fire",
+          "wildfire",
+          "burn",
+          "smoke",
+          "damage"
+        ],
+        "top5": [
+          "orwell",
+          "tổ",
+          "food",
+          "rept",
+          "muff"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "heat+water",
+        "category": "physics_nature",
+        "expected": [
+          "steam",
+          "boil",
+          "vapor",
+          "gas",
+          "evaporate"
+        ],
+        "top5": [
+          "aquatic",
+          "wildlife",
+          "水务",
+          "水质",
+          "水资源"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+soil",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "plant",
+          "grow",
+          "root",
+          "flower"
+        ],
+        "top5": [
+          "moisture",
+          "erosion",
+          "湿度",
+          "excavation",
+          "degradation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rain+earth",
+        "category": "physics_nature",
+        "expected": [
+          "mud",
+          "wet",
+          "grass",
+          "growth",
+          "soil"
+        ],
+        "top5": [
+          "earth",
+          "creatures",
+          "知名企业",
+          "西域",
+          "organism"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "gravity+apple",
+        "category": "physics_nature",
+        "expected": [
+          "fall",
+          "drop",
+          "ground",
+          "motion",
+          "weight"
+        ],
+        "top5": [
+          "apples",
+          "iphone",
+          "apple",
+          "beverages",
+          "苹果"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "magnet+iron",
+        "category": "physics_nature",
+        "expected": [
+          "attract",
+          "pull",
+          "metal",
+          "force",
+          "stick"
+        ],
+        "top5": [
+          "玩笑",
+          "饭菜",
+          "embark",
+          "dirt",
+          "tỷ"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "acid+base",
+        "category": "physics_nature",
+        "expected": [
+          "salt",
+          "water",
+          "neutral",
+          "reaction",
+          "chemical"
+        ],
+        "top5": [
+          "christine",
+          "brian",
+          "bunny",
+          "bud",
+          "bai"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "friction+motion",
+        "category": "physics_nature",
+        "expected": [
+          "heat",
+          "slow",
+          "resistance",
+          "stop",
+          "wear"
+        ],
+        "top5": [
+          "ganze",
+          "lựa",
+          "thin",
+          "regelm",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cold+water",
+        "category": "physics_nature",
+        "expected": [
+          "ice",
+          "freeze",
+          "frost",
+          "solid",
+          "crystal"
+        ],
+        "top5": [
+          "aquatic",
+          "水质",
+          "aqu",
+          "水资源",
+          "水电"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "light+prism",
+        "category": "physics_nature",
+        "expected": [
+          "rainbow",
+          "spectrum",
+          "color",
+          "refraction"
+        ],
+        "top5": [
+          "ák",
+          "是一款",
+          "adalah",
+          "核心",
+          "是一种"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "category": "physics_nature",
+        "expected": [
+          "diamond",
+          "crystal",
+          "mineral",
+          "coal"
+        ],
+        "top5": [
+          "carbon",
+          "sugar",
+          "carter",
+          "coco",
+          "dioxide"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lava+water",
+        "category": "physics_nature",
+        "expected": [
+          "rock",
+          "steam",
+          "obsidian",
+          "stone",
+          "cool"
+        ],
+        "top5": [
+          "sunlight",
+          "食欲",
+          "seaw",
+          "畏惧",
+          "ganze"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+flower",
+        "category": "physics_nature",
+        "expected": [
+          "bloom",
+          "grow",
+          "photosynthesis",
+          "yellow",
+          "petal"
+        ],
+        "top5": [
+          "flowers",
+          "floral",
+          "flower",
+          "花卉",
+          "鲜花"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "storm+ship",
+        "category": "physics_nature",
+        "expected": [
+          "sink",
+          "wreck",
+          "danger",
+          "wave",
+          "sail"
+        ],
+        "top5": [
+          "をして",
+          "ship",
+          "bid",
+          "aboriginal",
+          "uni"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "electricity+wire",
+        "category": "physics_nature",
+        "expected": [
+          "current",
+          "power",
+          "shock",
+          "energy",
+          "flow"
+        ],
+        "top5": [
+          "seaw",
+          "cry",
+          "lace",
+          "吃饭",
+          "pthread"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "category": "physics_nature",
+        "expected": [
+          "rust",
+          "corrosion",
+          "oxide",
+          "red"
+        ],
+        "top5": [
+          "deficiency",
+          "molecule",
+          "oxygen",
+          "gas",
+          "molecules"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spark+gasoline",
+        "category": "physics_nature",
+        "expected": [
+          "explosion",
+          "fire",
+          "blast",
+          "burn",
+          "boom"
+        ],
+        "top5": [
+          "price",
+          "gasoline",
+          "prices",
+          "gallon",
+          "tank"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "winter+bear",
+        "category": "physics_nature",
+        "expected": [
+          "hibernate",
+          "sleep",
+          "cave",
+          "den",
+          "snow"
+        ],
+        "top5": [
+          "beb",
+          "becker",
+          "barton",
+          "babe",
+          "bab"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "river+rock",
+        "category": "physics_nature",
+        "expected": [
+          "erosion",
+          "smooth",
+          "pebble",
+          "canyon",
+          "flow"
+        ],
+        "top5": [
+          "lace",
+          "rock",
+          "摇滚",
+          "mortar",
+          "rocky"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "moon+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tide",
+          "wave",
+          "gravity",
+          "water",
+          "high"
+        ],
+        "top5": [
+          "currents",
+          "acid",
+          "ecosystems",
+          "shoreline",
+          "scientists"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "drought+crops",
+        "category": "physics_nature",
+        "expected": [
+          "famine",
+          "wilt",
+          "die",
+          "dry",
+          "hunger"
+        ],
+        "top5": [
+          "sold",
+          "种植",
+          "生产基地",
+          "栽培",
+          "planted"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frost+leaf",
+        "category": "physics_nature",
+        "expected": [
+          "freeze",
+          "die",
+          "wilt",
+          "crystal",
+          "ice"
+        ],
+        "top5": [
+          "吃饭",
+          "use",
+          "pages",
+          "sử",
+          "book"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sound+wall",
+        "category": "physics_nature",
+        "expected": [
+          "echo",
+          "bounce",
+          "reflect",
+          "barrier",
+          "block"
+        ],
+        "top5": [
+          "walls",
+          "wall",
+          "wid",
+          "wiki",
+          "wrapper"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "smoke+air",
+        "category": "physics_nature",
+        "expected": [
+          "pollution",
+          "smog",
+          "cloud",
+          "diffuse",
+          "haze"
+        ],
+        "top5": [
+          "seaw",
+          "vowels",
+          "porówn",
+          "needy",
+          "吃饭"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+skin",
+        "category": "physics_nature",
+        "expected": [
+          "tan",
+          "sunburn",
+          "burn",
+          "dark",
+          "warm"
+        ],
+        "top5": [
+          "texture",
+          "styles",
+          "stripes",
+          "skin",
+          "皮肤"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ice+salt",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "cold",
+          "liquid",
+          "dissolve",
+          "brine"
+        ],
+        "top5": [
+          "salt",
+          "salts",
+          "sulfur",
+          "sac",
+          "sodium"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "volcano+ash",
+        "category": "physics_nature",
+        "expected": [
+          "eruption",
+          "sky",
+          "dark",
+          "cloud",
+          "rock"
+        ],
+        "top5": [
+          "把持",
+          "работ",
+          "işlet",
+          "玩意",
+          "吃饭"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+windmill",
+        "category": "physics_nature",
+        "expected": [
+          "turn",
+          "power",
+          "energy",
+          "grind",
+          "mill"
+        ],
+        "top5": [
+          "shaft",
+          "是一个",
+          "是一款",
+          "是一种",
+          "project"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+water",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "germinate",
+          "grow",
+          "root",
+          "plant"
+        ],
+        "top5": [
+          "水电",
+          "wastewater",
+          "水质",
+          "water",
+          "underwater"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "oil+water",
+        "category": "physics_nature",
+        "expected": [
+          "separate",
+          "layer",
+          "float",
+          "repel",
+          "mix"
+        ],
+        "top5": [
+          "aquatic",
+          "groundwater",
+          "clark",
+          "水质",
+          "节水"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cat+fish",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "hunt",
+          "prey",
+          "catch",
+          "food",
+          "claw"
+        ],
+        "top5": [
+          "渔民",
+          "渔船",
+          "fishermen",
+          "fish",
+          "seaw"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bee+flower",
+        "category": "biology_action",
+        "expected": [
+          "honey",
+          "pollen",
+          "nectar",
+          "pollinate",
+          "sweet"
+        ],
+        "top5": [
+          "flowers",
+          "flower",
+          "花卉",
+          "鲜花",
+          "plants"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bird+egg",
+        "category": "biology_action",
+        "expected": [
+          "hatch",
+          "nest",
+          "baby",
+          "chick",
+          "born"
+        ],
+        "top5": [
+          "egg",
+          "鸡蛋",
+          "test",
+          "eggs",
+          "agg"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spider+fly",
+        "category": "biology_action",
+        "expected": [
+          "web",
+          "catch",
+          "trap",
+          "eat",
+          "prey"
+        ],
+        "top5": [
+          "reynolds",
+          "fret",
+          "ganze",
+          "玩笑",
+          "嘿嘿"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "prey",
+          "predator",
+          "fleece"
+        ],
+        "top5": [
+          "sizes",
+          "herd",
+          "数量",
+          "flock",
+          "size"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lion+zebra",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "chase",
+          "safari",
+          "savanna"
+        ],
+        "top5": [
+          "crossing",
+          "是一种",
+          "神经系统",
+          "patterns",
+          "分期"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "category": "biology_action",
+        "expected": [
+          "butterfly",
+          "moth",
+          "transform",
+          "emerge"
+        ],
+        "top5": [
+          "mailing",
+          "coc",
+          "cvs",
+          "dev",
+          "бл"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cow+grass",
+        "category": "biology_action",
+        "expected": [
+          "graze",
+          "eat",
+          "milk",
+          "pasture",
+          "chew"
+        ],
+        "top5": [
+          "grav",
+          "gsm",
+          "grill",
+          "gis",
+          "griff"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+bone",
+        "category": "biology_action",
+        "expected": [
+          "chew",
+          "bury",
+          "bite",
+          "gnaw",
+          "play"
+        ],
+        "top5": [
+          "bryce",
+          "bce",
+          "vene",
+          "brian",
+          "bapt"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "category": "biology_action",
+        "expected": [
+          "bite",
+          "itch",
+          "sting",
+          "feed",
+          "suck"
+        ],
+        "top5": [
+          "seaw",
+          "needy",
+          "value",
+          "unit",
+          "work"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "category": "biology_action",
+        "expected": [
+          "photosynthesis",
+          "grow",
+          "green",
+          "oxygen"
+        ],
+        "top5": [
+          "through",
+          "照射",
+          "通过",
+          "provides",
+          "hitting"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "category": "biology_action",
+        "expected": [
+          "infection",
+          "pus",
+          "fever",
+          "disease",
+          "inflame"
+        ],
+        "top5": [
+          "healing",
+          "dressing",
+          "heal",
+          "healer",
+          "wounds"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "virus+cell",
+        "category": "biology_action",
+        "expected": [
+          "infect",
+          "reproduce",
+          "destroy",
+          "disease",
+          "host"
+        ],
+        "top5": [
+          "value",
+          "style",
+          "seaw",
+          "unit",
+          "tissue"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "owl+mouse",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "night",
+          "prey",
+          "catch",
+          "talon"
+        ],
+        "top5": [
+          "mmp",
+          "mouse",
+          "mousey",
+          "mover",
+          "운동"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frog+fly",
+        "category": "biology_action",
+        "expected": [
+          "tongue",
+          "catch",
+          "eat",
+          "pond",
+          "jump"
+        ],
+        "top5": [
+          "danny",
+          "aircraft",
+          "aly",
+          "malay",
+          "carly"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "horse+cart",
+        "category": "biology_action",
+        "expected": [
+          "pull",
+          "carry",
+          "transport",
+          "ride",
+          "wagon"
+        ],
+        "top5": [
+          "cart",
+          "mart",
+          "cartel",
+          "blob",
+          "plast"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "snake+poison",
+        "category": "biology_action",
+        "expected": [
+          "venom",
+          "bite",
+          "kill",
+          "toxic",
+          "fang"
+        ],
+        "top5": [
+          "poisoning",
+          "toxicity",
+          "poison",
+          "pill",
+          "中毒"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "toxicity"
+        ]
+      },
+      {
+        "pair": "whale+plankton",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "filter",
+          "feed",
+          "ocean",
+          "swim"
+        ],
+        "top5": [
+          "microbial",
+          "blooms",
+          "微生物",
+          "bacteria",
+          "microbes"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ant+sugar",
+        "category": "biology_action",
+        "expected": [
+          "gather",
+          "carry",
+          "colony",
+          "eat",
+          "sweet"
+        ],
+        "top5": [
+          "syrup",
+          "cane",
+          "含量",
+          "sugar",
+          "needed"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "baby+milk",
+        "category": "biology_action",
+        "expected": [
+          "drink",
+          "grow",
+          "feed",
+          "bottle",
+          "mother"
+        ],
+        "top5": [
+          "milk",
+          "powder",
+          "供应商",
+          "consumption",
+          "tank"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "category": "biology_action",
+        "expected": [
+          "camouflage",
+          "color",
+          "hide",
+          "green",
+          "blend"
+        ],
+        "top5": [
+          "işlet",
+          "that",
+          "seaw",
+          "несколь",
+          "contain"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "beaver+tree",
+        "category": "biology_action",
+        "expected": [
+          "dam",
+          "chew",
+          "wood",
+          "river",
+          "log"
+        ],
+        "top5": [
+          "集装",
+          "thin",
+          "that",
+          "dirt",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bear+salmon",
+        "category": "biology_action",
+        "expected": [
+          "catch",
+          "river",
+          "eat",
+          "fish",
+          "claw"
+        ],
+        "top5": [
+          "trout",
+          "salmon",
+          "idaho",
+          "poisoning",
+          "是一种"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "chew",
+          "crunch",
+          "vegetable",
+          "hop"
+        ],
+        "top5": [
+          "juice",
+          "的数量",
+          "sweetness",
+          "calories",
+          "growth"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chicken+grain",
+        "category": "biology_action",
+        "expected": [
+          "peck",
+          "eat",
+          "feed",
+          "farm",
+          "scratch"
+        ],
+        "top5": [
+          "glean",
+          "milling",
+          "作物",
+          "crusher",
+          "harvested"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+mailman",
+        "category": "biology_action",
+        "expected": [
+          "bark",
+          "bite",
+          "chase",
+          "growl",
+          "guard"
+        ],
+        "top5": [
+          "mailing",
+          "lists",
+          "邮件",
+          "list",
+          "列表"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "monkey+banana",
+        "category": "biology_action",
+        "expected": [
+          "peel",
+          "eat",
+          "fruit",
+          "tree",
+          "jungle"
+        ],
+        "top5": [
+          "花瓣",
+          "breweries",
+          "biscuits",
+          "flavours",
+          "petals"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bat+night",
+        "category": "biology_action",
+        "expected": [
+          "fly",
+          "echo",
+          "dark",
+          "hunt",
+          "cave"
+        ],
+        "top5": [
+          "darkness",
+          "nightmare",
+          "night",
+          "gle",
+          "olivia"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "darkness"
+        ]
+      },
+      {
+        "pair": "shark+blood",
+        "category": "biology_action",
+        "expected": [
+          "frenzy",
+          "attack",
+          "hunt",
+          "ocean",
+          "smell"
+        ],
+        "top5": [
+          "work",
+          "mcdon",
+          "дел",
+          "обыти",
+          "the"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "worm+dirt",
+        "category": "biology_action",
+        "expected": [
+          "burrow",
+          "soil",
+          "crawl",
+          "dig",
+          "earth"
+        ],
+        "top5": [
+          "cleaning",
+          "driveway",
+          "cleaner",
+          "cleanup",
+          "removal"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "demand+supply",
+        "category": "human_society",
+        "expected": [
+          "price",
+          "market",
+          "equilibrium",
+          "economy",
+          "trade"
+        ],
+        "top5": [
+          "spp",
+          "potatoes",
+          "sulfur",
+          "spoon",
+          "onions"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "crime+police",
+        "category": "human_society",
+        "expected": [
+          "arrest",
+          "investigate",
+          "jail",
+          "justice",
+          "law"
+        ],
+        "top5": [
+          "officers",
+          "officer",
+          "brutality",
+          "officials",
+          "arrest"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "arrest"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "category": "human_society",
+        "expected": [
+          "pass",
+          "score",
+          "grade",
+          "knowledge",
+          "fail"
+        ],
+        "top5": [
+          "exams",
+          "exam",
+          "考试",
+          "สอบ",
+          "adidas"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "disease+medicine",
+        "category": "human_society",
+        "expected": [
+          "cure",
+          "heal",
+          "recovery",
+          "treatment",
+          "doctor"
+        ],
+        "top5": [
+          "работ",
+          "дин",
+          "吃饭",
+          "use",
+          "style"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "money+bank",
+        "category": "human_society",
+        "expected": [
+          "interest",
+          "save",
+          "loan",
+          "deposit",
+          "finance"
+        ],
+        "top5": [
+          "bsp",
+          "beng",
+          "bau",
+          "bds",
+          "unb"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "car+gasoline",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "run",
+          "engine",
+          "travel",
+          "fuel"
+        ],
+        "top5": [
+          "tank",
+          "gallon",
+          "gasoline",
+          "prices",
+          "price"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "knife+bread",
+        "category": "human_society",
+        "expected": [
+          "slice",
+          "cut",
+          "piece",
+          "sandwich",
+          "toast"
+        ],
+        "top5": [
+          "bread",
+          "bab",
+          "boston",
+          "bib",
+          "bead"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "hammer+nail",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "hit",
+          "build",
+          "fasten",
+          "strike"
+        ],
+        "top5": [
+          "technician",
+          "salon",
+          "manic",
+          "repair",
+          "cavity"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pen+paper",
+        "category": "human_society",
+        "expected": [
+          "write",
+          "draw",
+          "letter",
+          "note",
+          "ink"
+        ],
+        "top5": [
+          "cardboard",
+          "newspapers",
+          "الصفحة",
+          "papers",
+          "新零售"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lock+key",
+        "category": "human_society",
+        "expected": [
+          "open",
+          "unlock",
+          "security",
+          "door",
+          "access"
+        ],
+        "top5": [
+          "important",
+          "色泽",
+          "ter",
+          "simples",
+          "importante"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "flour+yeast",
+        "category": "human_society",
+        "expected": [
+          "bread",
+          "dough",
+          "rise",
+          "bake",
+          "oven"
+        ],
+        "top5": [
+          "cell",
+          "genome",
+          "cells",
+          "lineage",
+          "细胞"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "category": "human_society",
+        "expected": [
+          "sweet",
+          "drink",
+          "taste",
+          "stir",
+          "cup"
+        ],
+        "top5": [
+          "style",
+          "work",
+          "cob",
+          "吃饭",
+          "stainless"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "match+candle",
+        "category": "human_society",
+        "expected": [
+          "light",
+          "flame",
+          "burn",
+          "wax",
+          "glow"
+        ],
+        "top5": [
+          "candles",
+          "sticks",
+          "stick",
+          "是一种",
+          "candle"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "needle+thread",
+        "category": "human_society",
+        "expected": [
+          "sew",
+          "stitch",
+          "repair",
+          "cloth",
+          "tailor"
+        ],
+        "top5": [
+          "pthread",
+          "thread",
+          "mutex",
+          "athen",
+          "athens"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "soap+dirt",
+        "category": "human_society",
+        "expected": [
+          "clean",
+          "wash",
+          "rinse",
+          "bubble",
+          "remove"
+        ],
+        "top5": [
+          "cleaning",
+          "driveway",
+          "courtyard",
+          "removal",
+          "pond"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "cleaning"
+        ]
+      },
+      {
+        "pair": "sponge+water",
+        "category": "human_society",
+        "expected": [
+          "absorb",
+          "soak",
+          "wet",
+          "squeeze",
+          "wipe"
+        ],
+        "top5": [
+          "işlet",
+          "sử",
+          "đảm",
+          "嘿嘿",
+          "vaugh"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "brush+paint",
+        "category": "human_society",
+        "expected": [
+          "canvas",
+          "picture",
+          "art",
+          "draw",
+          "color"
+        ],
+        "top5": [
+          "pian",
+          "prt",
+          "piet",
+          "小龙虾",
+          "pont"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "guitar+pick",
+        "category": "human_society",
+        "expected": [
+          "music",
+          "sound",
+          "strum",
+          "play",
+          "chord"
+        ],
+        "top5": [
+          "the",
+          "seaw",
+          "container",
+          "athen",
+          "jill"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "book+reader",
+        "category": "human_society",
+        "expected": [
+          "knowledge",
+          "learn",
+          "story",
+          "read",
+          "understand"
+        ],
+        "top5": [
+          "rdr",
+          "reader",
+          "rte",
+          "streamreader",
+          "std"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "reader",
+          "streamreader"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "category": "human_society",
+        "expected": [
+          "verdict",
+          "court",
+          "sentence",
+          "justice",
+          "trial"
+        ],
+        "top5": [
+          "evaluate",
+          "rating",
+          "judy",
+          "choose",
+          "interviewer"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "vote+election",
+        "category": "human_society",
+        "expected": [
+          "win",
+          "democracy",
+          "president",
+          "result",
+          "candidate"
+        ],
+        "top5": [
+          "elections",
+          "representation",
+          "evaluation",
+          "objects",
+          "results"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "results"
+        ]
+      },
+      {
+        "pair": "fire+alarm",
+        "category": "human_society",
+        "expected": [
+          "siren",
+          "evacuate",
+          "warn",
+          "emergency",
+          "escape"
+        ],
+        "top5": [
+          "alarm",
+          "algeria",
+          "alist",
+          "alison",
+          "alm"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "camera+light",
+        "category": "human_society",
+        "expected": [
+          "photo",
+          "flash",
+          "picture",
+          "exposure",
+          "image"
+        ],
+        "top5": [
+          "illumin",
+          "light",
+          "illuminate",
+          "shining",
+          "点亮"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheel+axle",
+        "category": "human_society",
+        "expected": [
+          "rotate",
+          "spin",
+          "vehicle",
+          "turn",
+          "drive"
+        ],
+        "top5": [
+          "shaft",
+          "axle",
+          "stiffness",
+          "diameter",
+          "传动"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "battery+clock",
+        "category": "human_society",
+        "expected": [
+          "time",
+          "tick",
+          "run",
+          "second",
+          "hour"
+        ],
+        "top5": [
+          "christine",
+          "universe",
+          "cep",
+          "玩笑",
+          "吃惊"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+farmer",
+        "category": "human_society",
+        "expected": [
+          "plant",
+          "harvest",
+          "crop",
+          "field",
+          "grow"
+        ],
+        "top5": [
+          "wants",
+          "supplies",
+          "farmer",
+          "joe",
+          "purchases"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "meat+fire",
+        "category": "human_society",
+        "expected": [
+          "cook",
+          "roast",
+          "barbecue",
+          "steak",
+          "eat"
+        ],
+        "top5": [
+          "seaw",
+          "обыти",
+          "füh",
+          "ocean",
+          "work"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheat+mill",
+        "category": "human_society",
+        "expected": [
+          "flour",
+          "grind",
+          "grain",
+          "bread",
+          "powder"
+        ],
+        "top5": [
+          "stainless",
+          "ocean",
+          "rept",
+          "place",
+          "dive"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wool+knitting",
+        "category": "human_society",
+        "expected": [
+          "sweater",
+          "scarf",
+          "yarn",
+          "warmth",
+          "cloth"
+        ],
+        "top5": [
+          "techniques",
+          "技巧",
+          "needles",
+          "instructions",
+          "tutorials"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "clay+kiln",
+        "category": "human_society",
+        "expected": [
+          "pottery",
+          "ceramic",
+          "bake",
+          "harden",
+          "vase"
+        ],
+        "top5": [
+          "temperatures",
+          "废气",
+          "operator",
+          "温度",
+          "heater"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+forge",
+        "category": "human_society",
+        "expected": [
+          "sword",
+          "shape",
+          "blacksmith",
+          "heat",
+          "metal"
+        ],
+        "top5": [
+          "forge",
+          "gef",
+          "gateway",
+          "grove",
+          "village"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "category": "human_society",
+        "expected": [
+          "wine",
+          "ferment",
+          "age",
+          "alcohol",
+          "vintage"
+        ],
+        "top5": [
+          "barrel",
+          "pressure",
+          "leak",
+          "pressures",
+          "diameter"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+cane",
+        "category": "human_society",
+        "expected": [
+          "syrup",
+          "sweet",
+          "refine",
+          "harvest",
+          "crop"
+        ],
+        "top5": [
+          "erect",
+          "arb",
+          "绿化",
+          "vert",
+          "также"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ink+stamp",
+        "category": "human_society",
+        "expected": [
+          "print",
+          "mark",
+          "letter",
+          "seal",
+          "impress"
+        ],
+        "top5": [
+          "stamp",
+          "timestamp",
+          "date",
+          "stamps",
+          "year"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "debt+interest",
+        "category": "human_society",
+        "expected": [
+          "bankruptcy",
+          "payment",
+          "bank",
+          "financial",
+          "owe"
+        ],
+        "top5": [
+          "use",
+          "seaw",
+          "rafael",
+          "деятельности",
+          "обыти"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      }
+    ]
+  },
+  "1.8": {
+    "hit_count": 5,
+    "escape_count": 80,
+    "hit_rate": 0.05,
+    "escape_rate": 0.8,
+    "details": [
+      {
+        "pair": "fire+wood",
+        "category": "physics_nature",
+        "expected": [
+          "burn",
+          "smoke",
+          "ash",
+          "charcoal",
+          "heat",
+          "flame"
+        ],
+        "top5": [
+          "新西兰",
+          "造纸",
+          "plywood",
+          "衣柜",
+          "liu"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+ice",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "water",
+          "liquid",
+          "warmth",
+          "thaw",
+          "heat"
+        ],
+        "top5": [
+          "cocaine",
+          "idata",
+          "ice",
+          "ricky",
+          "יסה"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cloud+cold",
+        "category": "physics_nature",
+        "expected": [
+          "rain",
+          "snow",
+          "frost",
+          "winter",
+          "ice",
+          "hail"
+        ],
+        "top5": [
+          "body",
+          "melted",
+          "体温",
+          "melt",
+          "melts"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "earthquake+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tsunami",
+          "wave",
+          "disaster",
+          "flood",
+          "tide"
+        ],
+        "top5": [
+          "biodiversity",
+          "acid",
+          "ecosystems",
+          "生态系统",
+          "breeze"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+sand",
+        "category": "physics_nature",
+        "expected": [
+          "storm",
+          "dune",
+          "erosion",
+          "desert",
+          "dust"
+        ],
+        "top5": [
+          "sant",
+          "sanchez",
+          "sah",
+          "sasha",
+          "sis"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lightning+forest",
+        "category": "physics_nature",
+        "expected": [
+          "fire",
+          "wildfire",
+          "burn",
+          "smoke",
+          "damage"
+        ],
+        "top5": [
+          "orwell",
+          "rept",
+          "tổ",
+          "muff",
+          "sở"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "heat+water",
+        "category": "physics_nature",
+        "expected": [
+          "steam",
+          "boil",
+          "vapor",
+          "gas",
+          "evaporate"
+        ],
+        "top5": [
+          "wildlife",
+          "aquatic",
+          "水务",
+          "水质",
+          "水资源"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+soil",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "plant",
+          "grow",
+          "root",
+          "flower"
+        ],
+        "top5": [
+          "moisture",
+          "erosion",
+          "湿度",
+          "excavation",
+          "degradation"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rain+earth",
+        "category": "physics_nature",
+        "expected": [
+          "mud",
+          "wet",
+          "grass",
+          "growth",
+          "soil"
+        ],
+        "top5": [
+          "earth",
+          "知名企业",
+          "creatures",
+          "西域",
+          "europ"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "gravity+apple",
+        "category": "physics_nature",
+        "expected": [
+          "fall",
+          "drop",
+          "ground",
+          "motion",
+          "weight"
+        ],
+        "top5": [
+          "iphone",
+          "apples",
+          "beverages",
+          "苹果",
+          "apple"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "magnet+iron",
+        "category": "physics_nature",
+        "expected": [
+          "attract",
+          "pull",
+          "metal",
+          "force",
+          "stick"
+        ],
+        "top5": [
+          "玩笑",
+          "embark",
+          "إلي",
+          "tỷ",
+          "饭菜"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "acid+base",
+        "category": "physics_nature",
+        "expected": [
+          "salt",
+          "water",
+          "neutral",
+          "reaction",
+          "chemical"
+        ],
+        "top5": [
+          "christine",
+          "brian",
+          "bunny",
+          "bai",
+          "bry"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "friction+motion",
+        "category": "physics_nature",
+        "expected": [
+          "heat",
+          "slow",
+          "resistance",
+          "stop",
+          "wear"
+        ],
+        "top5": [
+          "ganze",
+          "lựa",
+          "regelm",
+          "ihrem",
+          "unfold"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cold+water",
+        "category": "physics_nature",
+        "expected": [
+          "ice",
+          "freeze",
+          "frost",
+          "solid",
+          "crystal"
+        ],
+        "top5": [
+          "水质",
+          "aquatic",
+          "水资源",
+          "aqu",
+          "水电"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "light+prism",
+        "category": "physics_nature",
+        "expected": [
+          "rainbow",
+          "spectrum",
+          "color",
+          "refraction"
+        ],
+        "top5": [
+          "ák",
+          "核心",
+          "是一款",
+          "át",
+          "並不"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pressure+carbon",
+        "category": "physics_nature",
+        "expected": [
+          "diamond",
+          "crystal",
+          "mineral",
+          "coal"
+        ],
+        "top5": [
+          "carbon",
+          "coco",
+          "sugar",
+          "carter",
+          "sparkling"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lava+water",
+        "category": "physics_nature",
+        "expected": [
+          "rock",
+          "steam",
+          "obsidian",
+          "stone",
+          "cool"
+        ],
+        "top5": [
+          "食欲",
+          "sunlight",
+          "ganze",
+          "畏惧",
+          "işlet"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+flower",
+        "category": "physics_nature",
+        "expected": [
+          "bloom",
+          "grow",
+          "photosynthesis",
+          "yellow",
+          "petal"
+        ],
+        "top5": [
+          "flowers",
+          "floral",
+          "花卉",
+          "flower",
+          "鲜花"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "storm+ship",
+        "category": "physics_nature",
+        "expected": [
+          "sink",
+          "wreck",
+          "danger",
+          "wave",
+          "sail"
+        ],
+        "top5": [
+          "をして",
+          "aboriginal",
+          "bid",
+          "getvalue",
+          "bil"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "electricity+wire",
+        "category": "physics_nature",
+        "expected": [
+          "current",
+          "power",
+          "shock",
+          "energy",
+          "flow"
+        ],
+        "top5": [
+          "seaw",
+          "cry",
+          "ноп",
+          "ображ",
+          "kleinen"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+oxygen",
+        "category": "physics_nature",
+        "expected": [
+          "rust",
+          "corrosion",
+          "oxide",
+          "red"
+        ],
+        "top5": [
+          "deficiency",
+          "含量",
+          "molecule",
+          "吸入",
+          "toxicity"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spark+gasoline",
+        "category": "physics_nature",
+        "expected": [
+          "explosion",
+          "fire",
+          "blast",
+          "burn",
+          "boom"
+        ],
+        "top5": [
+          "gallon",
+          "prices",
+          "price",
+          "gasoline",
+          "tank"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "winter+bear",
+        "category": "physics_nature",
+        "expected": [
+          "hibernate",
+          "sleep",
+          "cave",
+          "den",
+          "snow"
+        ],
+        "top5": [
+          "beb",
+          "becker",
+          "barton",
+          "beard",
+          "babe"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "river+rock",
+        "category": "physics_nature",
+        "expected": [
+          "erosion",
+          "smooth",
+          "pebble",
+          "canyon",
+          "flow"
+        ],
+        "top5": [
+          "lace",
+          "rock",
+          "摇滚",
+          "mortar",
+          "rocky"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "moon+ocean",
+        "category": "physics_nature",
+        "expected": [
+          "tide",
+          "wave",
+          "gravity",
+          "water",
+          "high"
+        ],
+        "top5": [
+          "shoreline",
+          "currents",
+          "ecosystems",
+          "vast",
+          "scientists"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "drought+crops",
+        "category": "physics_nature",
+        "expected": [
+          "famine",
+          "wilt",
+          "die",
+          "dry",
+          "hunger"
+        ],
+        "top5": [
+          "生产基地",
+          "种植",
+          "sold",
+          "栽培",
+          "planted"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frost+leaf",
+        "category": "physics_nature",
+        "expected": [
+          "freeze",
+          "die",
+          "wilt",
+          "crystal",
+          "ice"
+        ],
+        "top5": [
+          "吃饭",
+          "pages",
+          "sử",
+          "use",
+          "tờ"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sound+wall",
+        "category": "physics_nature",
+        "expected": [
+          "echo",
+          "bounce",
+          "reflect",
+          "barrier",
+          "block"
+        ],
+        "top5": [
+          "walls",
+          "wiki",
+          "wid",
+          "wall",
+          "wounded"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "smoke+air",
+        "category": "physics_nature",
+        "expected": [
+          "pollution",
+          "smog",
+          "cloud",
+          "diffuse",
+          "haze"
+        ],
+        "top5": [
+          "seaw",
+          "vowels",
+          "porówn",
+          "needy",
+          "вод"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sun+skin",
+        "category": "physics_nature",
+        "expected": [
+          "tan",
+          "sunburn",
+          "burn",
+          "dark",
+          "warm"
+        ],
+        "top5": [
+          "texture",
+          "stripes",
+          "styles",
+          "morphology",
+          "肿瘤"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ice+salt",
+        "category": "physics_nature",
+        "expected": [
+          "melt",
+          "cold",
+          "liquid",
+          "dissolve",
+          "brine"
+        ],
+        "top5": [
+          "salt",
+          "salts",
+          "sulfur",
+          "sac",
+          "sodium"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "volcano+ash",
+        "category": "physics_nature",
+        "expected": [
+          "eruption",
+          "sky",
+          "dark",
+          "cloud",
+          "rock"
+        ],
+        "top5": [
+          "把持",
+          "işlet",
+          "玩意",
+          "работ",
+          "吃饭"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wind+windmill",
+        "category": "physics_nature",
+        "expected": [
+          "turn",
+          "power",
+          "energy",
+          "grind",
+          "mill"
+        ],
+        "top5": [
+          "是一款",
+          "是一个",
+          "shaft",
+          "是一种",
+          "可以"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+water",
+        "category": "physics_nature",
+        "expected": [
+          "sprout",
+          "germinate",
+          "grow",
+          "root",
+          "plant"
+        ],
+        "top5": [
+          "水电",
+          "wastewater",
+          "水质",
+          "岳阳",
+          "湿地"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "oil+water",
+        "category": "physics_nature",
+        "expected": [
+          "separate",
+          "layer",
+          "float",
+          "repel",
+          "mix"
+        ],
+        "top5": [
+          "groundwater",
+          "节水",
+          "水质",
+          "hawkins",
+          "clark"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cat+fish",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "hunt",
+          "prey",
+          "catch",
+          "food",
+          "claw"
+        ],
+        "top5": [
+          "渔民",
+          "渔船",
+          "fishermen",
+          "submerged",
+          "seaw"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bee+flower",
+        "category": "biology_action",
+        "expected": [
+          "honey",
+          "pollen",
+          "nectar",
+          "pollinate",
+          "sweet"
+        ],
+        "top5": [
+          "flowers",
+          "花卉",
+          "flower",
+          "鲜花",
+          "花朵"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bird+egg",
+        "category": "biology_action",
+        "expected": [
+          "hatch",
+          "nest",
+          "baby",
+          "chick",
+          "born"
+        ],
+        "top5": [
+          "egg",
+          "鸡蛋",
+          "ccc",
+          "agg",
+          "ego"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "spider+fly",
+        "category": "biology_action",
+        "expected": [
+          "web",
+          "catch",
+          "trap",
+          "eat",
+          "prey"
+        ],
+        "top5": [
+          "reynolds",
+          "ganze",
+          "fret",
+          "玩笑",
+          "photoc"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wolf+sheep",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "prey",
+          "predator",
+          "fleece"
+        ],
+        "top5": [
+          "sizes",
+          "数量",
+          "herd",
+          "数目",
+          "flock"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lion+zebra",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "kill",
+          "chase",
+          "safari",
+          "savanna"
+        ],
+        "top5": [
+          "是一种",
+          "crossing",
+          "神经系统",
+          "分期",
+          "patterns"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "caterpillar+cocoon",
+        "category": "biology_action",
+        "expected": [
+          "butterfly",
+          "moth",
+          "transform",
+          "emerge"
+        ],
+        "top5": [
+          "mailing",
+          "cvs",
+          "бл",
+          "邮件",
+          "dev"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "cow+grass",
+        "category": "biology_action",
+        "expected": [
+          "graze",
+          "eat",
+          "milk",
+          "pasture",
+          "chew"
+        ],
+        "top5": [
+          "gsm",
+          "grav",
+          "griff",
+          "grill",
+          "gis"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+bone",
+        "category": "biology_action",
+        "expected": [
+          "chew",
+          "bury",
+          "bite",
+          "gnaw",
+          "play"
+        ],
+        "top5": [
+          "bce",
+          "bryce",
+          "vene",
+          "brian",
+          "bapt"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "mosquito+blood",
+        "category": "biology_action",
+        "expected": [
+          "bite",
+          "itch",
+          "sting",
+          "feed",
+          "suck"
+        ],
+        "top5": [
+          "needy",
+          "seaw",
+          "дел",
+          "value",
+          "rece"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "plant+sunlight",
+        "category": "biology_action",
+        "expected": [
+          "photosynthesis",
+          "grow",
+          "green",
+          "oxygen"
+        ],
+        "top5": [
+          "through",
+          "通过",
+          "照射",
+          "shines",
+          "hitting"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bacteria+wound",
+        "category": "biology_action",
+        "expected": [
+          "infection",
+          "pus",
+          "fever",
+          "disease",
+          "inflame"
+        ],
+        "top5": [
+          "healing",
+          "dressing",
+          "heal",
+          "healer",
+          "疤痕"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "virus+cell",
+        "category": "biology_action",
+        "expected": [
+          "infect",
+          "reproduce",
+          "destroy",
+          "disease",
+          "host"
+        ],
+        "top5": [
+          "玩意",
+          "value",
+          "seaw",
+          "style",
+          "cray"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "owl+mouse",
+        "category": "biology_action",
+        "expected": [
+          "hunt",
+          "night",
+          "prey",
+          "catch",
+          "talon"
+        ],
+        "top5": [
+          "mmp",
+          "mousey",
+          "mouse",
+          "mover",
+          "운동"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "frog+fly",
+        "category": "biology_action",
+        "expected": [
+          "tongue",
+          "catch",
+          "eat",
+          "pond",
+          "jump"
+        ],
+        "top5": [
+          "danny",
+          "malay",
+          "aly",
+          "carly",
+          "aircraft"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "horse+cart",
+        "category": "biology_action",
+        "expected": [
+          "pull",
+          "carry",
+          "transport",
+          "ride",
+          "wagon"
+        ],
+        "top5": [
+          "cart",
+          "cartel",
+          "mart",
+          "商场",
+          "shoppingcart"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "snake+poison",
+        "category": "biology_action",
+        "expected": [
+          "venom",
+          "bite",
+          "kill",
+          "toxic",
+          "fang"
+        ],
+        "top5": [
+          "poisoning",
+          "toxicity",
+          "pill",
+          "poison",
+          "toxin"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "toxicity"
+        ]
+      },
+      {
+        "pair": "whale+plankton",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "filter",
+          "feed",
+          "ocean",
+          "swim"
+        ],
+        "top5": [
+          "microbial",
+          "微生物",
+          "blooms",
+          "bacteria",
+          "microbes"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ant+sugar",
+        "category": "biology_action",
+        "expected": [
+          "gather",
+          "carry",
+          "colony",
+          "eat",
+          "sweet"
+        ],
+        "top5": [
+          "syrup",
+          "cane",
+          "含量",
+          "溶液",
+          "addiction"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "baby+milk",
+        "category": "biology_action",
+        "expected": [
+          "drink",
+          "grow",
+          "feed",
+          "bottle",
+          "mother"
+        ],
+        "top5": [
+          "供应商",
+          "milk",
+          "powder",
+          "是一种",
+          "consumption"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chameleon+leaf",
+        "category": "biology_action",
+        "expected": [
+          "camouflage",
+          "color",
+          "hide",
+          "green",
+          "blend"
+        ],
+        "top5": [
+          "işlet",
+          "несколь",
+          "ganze",
+          "slot",
+          "seaw"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "beaver+tree",
+        "category": "biology_action",
+        "expected": [
+          "dam",
+          "chew",
+          "wood",
+          "river",
+          "log"
+        ],
+        "top5": [
+          "集装",
+          "ganze",
+          "cread",
+          "thin",
+          "vowels"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bear+salmon",
+        "category": "biology_action",
+        "expected": [
+          "catch",
+          "river",
+          "eat",
+          "fish",
+          "claw"
+        ],
+        "top5": [
+          "trout",
+          "poisoning",
+          "salmon",
+          "idaho",
+          "chloride"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "rabbit+carrot",
+        "category": "biology_action",
+        "expected": [
+          "eat",
+          "chew",
+          "crunch",
+          "vegetable",
+          "hop"
+        ],
+        "top5": [
+          "juice",
+          "的数量",
+          "sweetness",
+          "数量",
+          "aficion"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "chicken+grain",
+        "category": "biology_action",
+        "expected": [
+          "peck",
+          "eat",
+          "feed",
+          "farm",
+          "scratch"
+        ],
+        "top5": [
+          "glean",
+          "作物",
+          "milling",
+          "crusher",
+          "خفض"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "dog+mailman",
+        "category": "biology_action",
+        "expected": [
+          "bark",
+          "bite",
+          "chase",
+          "growl",
+          "guard"
+        ],
+        "top5": [
+          "mailing",
+          "邮件",
+          "lists",
+          "列表",
+          "list"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "monkey+banana",
+        "category": "biology_action",
+        "expected": [
+          "peel",
+          "eat",
+          "fruit",
+          "tree",
+          "jungle"
+        ],
+        "top5": [
+          "花瓣",
+          "breweries",
+          "flavours",
+          "biscuits",
+          "petals"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "bat+night",
+        "category": "biology_action",
+        "expected": [
+          "fly",
+          "echo",
+          "dark",
+          "hunt",
+          "cave"
+        ],
+        "top5": [
+          "darkness",
+          "nightmare",
+          "紧缺",
+          "苏宁",
+          "night"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "darkness"
+        ]
+      },
+      {
+        "pair": "shark+blood",
+        "category": "biology_action",
+        "expected": [
+          "frenzy",
+          "attack",
+          "hunt",
+          "ocean",
+          "smell"
+        ],
+        "top5": [
+          "дел",
+          "mcdon",
+          "обыти",
+          "万事",
+          "work"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "worm+dirt",
+        "category": "biology_action",
+        "expected": [
+          "burrow",
+          "soil",
+          "crawl",
+          "dig",
+          "earth"
+        ],
+        "top5": [
+          "driveway",
+          "cleaning",
+          "cleaner",
+          "cleanup",
+          "removal"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "demand+supply",
+        "category": "human_society",
+        "expected": [
+          "price",
+          "market",
+          "equilibrium",
+          "economy",
+          "trade"
+        ],
+        "top5": [
+          "spp",
+          "sulfur",
+          "potatoes",
+          "ssp",
+          "ssc"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "crime+police",
+        "category": "human_society",
+        "expected": [
+          "arrest",
+          "investigate",
+          "jail",
+          "justice",
+          "law"
+        ],
+        "top5": [
+          "officers",
+          "officer",
+          "brutality",
+          "officials",
+          "arrest"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "arrest"
+        ]
+      },
+      {
+        "pair": "study+exam",
+        "category": "human_society",
+        "expected": [
+          "pass",
+          "score",
+          "grade",
+          "knowledge",
+          "fail"
+        ],
+        "top5": [
+          "exams",
+          "exam",
+          "考试",
+          "สอบ",
+          "adidas"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "disease+medicine",
+        "category": "human_society",
+        "expected": [
+          "cure",
+          "heal",
+          "recovery",
+          "treatment",
+          "doctor"
+        ],
+        "top5": [
+          "дин",
+          "работ",
+          "吃饭",
+          "吃饱",
+          "sandwiches"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "money+bank",
+        "category": "human_society",
+        "expected": [
+          "interest",
+          "save",
+          "loan",
+          "deposit",
+          "finance"
+        ],
+        "top5": [
+          "bsp",
+          "bds",
+          "bau",
+          "beng",
+          "bos"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "car+gasoline",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "run",
+          "engine",
+          "travel",
+          "fuel"
+        ],
+        "top5": [
+          "tank",
+          "gallon",
+          "prices",
+          "gasoline",
+          "price"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "knife+bread",
+        "category": "human_society",
+        "expected": [
+          "slice",
+          "cut",
+          "piece",
+          "sandwich",
+          "toast"
+        ],
+        "top5": [
+          "bread",
+          "bab",
+          "boston",
+          "bib",
+          "bead"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "hammer+nail",
+        "category": "human_society",
+        "expected": [
+          "drive",
+          "hit",
+          "build",
+          "fasten",
+          "strike"
+        ],
+        "top5": [
+          "technician",
+          "salon",
+          "manic",
+          "repair",
+          "technicians"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "pen+paper",
+        "category": "human_society",
+        "expected": [
+          "write",
+          "draw",
+          "letter",
+          "note",
+          "ink"
+        ],
+        "top5": [
+          "cardboard",
+          "newspapers",
+          "新零售",
+          "الصفحة",
+          "browserrouter"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "lock+key",
+        "category": "human_society",
+        "expected": [
+          "open",
+          "unlock",
+          "security",
+          "door",
+          "access"
+        ],
+        "top5": [
+          "保健品",
+          "important",
+          "色泽",
+          "yağ",
+          "كبر"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "flour+yeast",
+        "category": "human_society",
+        "expected": [
+          "bread",
+          "dough",
+          "rise",
+          "bake",
+          "oven"
+        ],
+        "top5": [
+          "cell",
+          "genome",
+          "cells",
+          "lineage",
+          "nucleus"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+coffee",
+        "category": "human_society",
+        "expected": [
+          "sweet",
+          "drink",
+          "taste",
+          "stir",
+          "cup"
+        ],
+        "top5": [
+          "kleinen",
+          "个工作",
+          "style",
+          "зан",
+          "青山"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "match+candle",
+        "category": "human_society",
+        "expected": [
+          "light",
+          "flame",
+          "burn",
+          "wax",
+          "glow"
+        ],
+        "top5": [
+          "candles",
+          "sticks",
+          "stick",
+          "是一种",
+          "fragrance"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "needle+thread",
+        "category": "human_society",
+        "expected": [
+          "sew",
+          "stitch",
+          "repair",
+          "cloth",
+          "tailor"
+        ],
+        "top5": [
+          "pthread",
+          "thread",
+          "mutex",
+          "athen",
+          "athens"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "soap+dirt",
+        "category": "human_society",
+        "expected": [
+          "clean",
+          "wash",
+          "rinse",
+          "bubble",
+          "remove"
+        ],
+        "top5": [
+          "driveway",
+          "courtyard",
+          "cleaning",
+          "enthusiasts",
+          "散发着"
+        ],
+        "is_escaped": true,
+        "is_hit": true,
+        "hits": [
+          "cleaning"
+        ]
+      },
+      {
+        "pair": "sponge+water",
+        "category": "human_society",
+        "expected": [
+          "absorb",
+          "soak",
+          "wet",
+          "squeeze",
+          "wipe"
+        ],
+        "top5": [
+          "đảm",
+          "işlet",
+          "vaugh",
+          "дел",
+          "农业生产"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "brush+paint",
+        "category": "human_society",
+        "expected": [
+          "canvas",
+          "picture",
+          "art",
+          "draw",
+          "color"
+        ],
+        "top5": [
+          "pian",
+          "prt",
+          "pont",
+          "piet",
+          "pist"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "guitar+pick",
+        "category": "human_society",
+        "expected": [
+          "music",
+          "sound",
+          "strum",
+          "play",
+          "chord"
+        ],
+        "top5": [
+          "the",
+          "athen",
+          "seaw",
+          "vận",
+          "обыти"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "book+reader",
+        "category": "human_society",
+        "expected": [
+          "knowledge",
+          "learn",
+          "story",
+          "read",
+          "understand"
+        ],
+        "top5": [
+          "rdr",
+          "reader",
+          "streamreader",
+          "getter",
+          "rte"
+        ],
+        "is_escaped": false,
+        "is_hit": true,
+        "hits": [
+          "reader",
+          "streamreader"
+        ]
+      },
+      {
+        "pair": "law+judge",
+        "category": "human_society",
+        "expected": [
+          "verdict",
+          "court",
+          "sentence",
+          "justice",
+          "trial"
+        ],
+        "top5": [
+          "evaluate",
+          "interviewer",
+          "rating",
+          "ประเม",
+          "judy"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "vote+election",
+        "category": "human_society",
+        "expected": [
+          "win",
+          "democracy",
+          "president",
+          "result",
+          "candidate"
+        ],
+        "top5": [
+          "representation",
+          "elections",
+          "evaluation",
+          "representations",
+          "objects"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "fire+alarm",
+        "category": "human_society",
+        "expected": [
+          "siren",
+          "evacuate",
+          "warn",
+          "emergency",
+          "escape"
+        ],
+        "top5": [
+          "algeria",
+          "alarm",
+          "alist",
+          "阿尔",
+          "alm"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "camera+light",
+        "category": "human_society",
+        "expected": [
+          "photo",
+          "flash",
+          "picture",
+          "exposure",
+          "image"
+        ],
+        "top5": [
+          "illumin",
+          "illuminate",
+          "ltc",
+          "点亮",
+          "light"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheel+axle",
+        "category": "human_society",
+        "expected": [
+          "rotate",
+          "spin",
+          "vehicle",
+          "turn",
+          "drive"
+        ],
+        "top5": [
+          "shaft",
+          "axle",
+          "stiffness",
+          "传动",
+          "长度"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "battery+clock",
+        "category": "human_society",
+        "expected": [
+          "time",
+          "tick",
+          "run",
+          "second",
+          "hour"
+        ],
+        "top5": [
+          "cep",
+          "玩笑",
+          "开会",
+          "christine",
+          "universe"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "seed+farmer",
+        "category": "human_society",
+        "expected": [
+          "plant",
+          "harvest",
+          "crop",
+          "field",
+          "grow"
+        ],
+        "top5": [
+          "wants",
+          "supplies",
+          "에게",
+          "farmer",
+          "purchases"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "meat+fire",
+        "category": "human_society",
+        "expected": [
+          "cook",
+          "roast",
+          "barbecue",
+          "steak",
+          "eat"
+        ],
+        "top5": [
+          "seaw",
+          "обыти",
+          "füh",
+          "ocean",
+          "воль"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wheat+mill",
+        "category": "human_society",
+        "expected": [
+          "flour",
+          "grind",
+          "grain",
+          "bread",
+          "powder"
+        ],
+        "top5": [
+          "stainless",
+          "ocean",
+          "rept",
+          "kleinen",
+          "claud"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "wool+knitting",
+        "category": "human_society",
+        "expected": [
+          "sweater",
+          "scarf",
+          "yarn",
+          "warmth",
+          "cloth"
+        ],
+        "top5": [
+          "techniques",
+          "技巧",
+          "needles",
+          "instructions",
+          "tutorials"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "clay+kiln",
+        "category": "human_society",
+        "expected": [
+          "pottery",
+          "ceramic",
+          "bake",
+          "harden",
+          "vase"
+        ],
+        "top5": [
+          "废气",
+          "temperatures",
+          "能耗",
+          "operator",
+          "温度"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "iron+forge",
+        "category": "human_society",
+        "expected": [
+          "sword",
+          "shape",
+          "blacksmith",
+          "heat",
+          "metal"
+        ],
+        "top5": [
+          "forge",
+          "gef",
+          "gateway",
+          "吉利",
+          "frankie"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "grapes+barrel",
+        "category": "human_society",
+        "expected": [
+          "wine",
+          "ferment",
+          "age",
+          "alcohol",
+          "vintage"
+        ],
+        "top5": [
+          "barrel",
+          "pressure",
+          "leak",
+          "pressures",
+          "排污"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "sugar+cane",
+        "category": "human_society",
+        "expected": [
+          "syrup",
+          "sweet",
+          "refine",
+          "harvest",
+          "crop"
+        ],
+        "top5": [
+          "erect",
+          "绿化",
+          "arb",
+          "vert",
+          "также"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "ink+stamp",
+        "category": "human_society",
+        "expected": [
+          "print",
+          "mark",
+          "letter",
+          "seal",
+          "impress"
+        ],
+        "top5": [
+          "stamp",
+          "timestamp",
+          "date",
+          "stamps",
+          "日期"
+        ],
+        "is_escaped": false,
+        "is_hit": false,
+        "hits": []
+      },
+      {
+        "pair": "debt+interest",
+        "category": "human_society",
+        "expected": [
+          "bankruptcy",
+          "payment",
+          "bank",
+          "financial",
+          "owe"
+        ],
+        "top5": [
+          "seaw",
+          "обыти",
+          "rafael",
+          "деятельности",
+          "use"
+        ],
+        "is_escaped": true,
+        "is_hit": false,
+        "hits": []
+      }
+    ]
+  }
+}

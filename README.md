@@ -45,15 +45,21 @@ Google Antigravityによる開発 本プロジェクトのコアアルゴリズ�
 *量子化重みを用いた高速化実験や、KNNグラフによるトポロジー蒸留、さらにフラクタル構造を用いた再帰的なExpertルーティングなどの基礎実験群 (step1〜step8)。*
 - `step1_quantized_distillation.py` 〜 `step8_hierarchical_decoding.py`
 
-### 8. `distillation_experiments/` (概念フォージ・スライストポロジー蒸留・純粋軌跡移転)
-*0VRAM全語彙大円干渉、スライストポロジー蒸留（`slice_topological_distiller.py`）、および人間定義ラベルを全廃して「画像概念核での重力軌跡を文章概念核へ移して直接発話させる」粗視化被覆・再細分化エンジン（`coarse_gravity_joint_terrain_engine.py`, `universal_vision_inspector_webui.py` v5.1）を含む中核実験群。*
-- `coarse_gravity_joint_terrain_engine.py` / `universal_vision_inspector_webui.py` / `universal_idea_core_engine.py` / `slice_topological_distiller.py` / `zero_vram_great_circle_genesis.py` / `concept_forge_webui.py` / etc.
+### 8. `distillation_experiments/` (概念フォージ・スライストポロジー蒸留・思考原野)
+*0VRAM全語彙大円干渉、スライストポロジー蒸留、および単語の全層軌跡の類似度から自己組織化する「思考原野（Thought Wilderness）」実験群。*
+- **Thought Wilderness (思考原野):**
+  - `thought_wilderness_builder.py` : 線の類似度から面のマップを展開し、円形引力とパウリ斥力で自己組織化・安定化する思考原野エンジン。
+  - `massive_full_trajectory_benchmark.py` : 各単語が止まるまでの全33層軌跡の直交力線を積分する100組大規模因果ベンチマーク。
+  - `full_vocab_collapse_stress_test.py` : 全語彙（7.4万語）規模での重力崩壊（底なし沼化）検証と体積排除安定化シミュレータ。
+  - `math_theory_wilderness_v2.py` : Qwen2.5-7Bを用いた数学的理論構築（群+可換➔環、行列+固有値➔分解、多様体+曲率➔テンソル）検証。
+  - `model_comparison_wilderness.py` : Qwen-Coder（双極構造） vs Mistral-7B（品詞群島構造） vs 汎用Qwen（渦巻銀河）の比較可視化。
 
 ### 9. `ephemeral_coder/` (逆算型目標樹形図エンジン / GDTE v3.4)
 *目標ツリーを「すでに言語上で定義されている組み込み関数・演算子に行きつくまで再帰分解する不変の概念核」と定義し、使い捨てWorker AIスウォームが構文的補間のみを行って厳格受入テストを突破する自律開発エンジン。*
 - `server.py` / `engine/tree_architect.py` / `engine/rule_formulator.py` / `docs/goal_tree_engine_specification.md`
 
 ### 10. `docs/` (全体年代記・アーキテクチャ仕様書)
+- `THOUGHT_WILDERNESS_CHRONICLE.md` (**思考原野の創出史・完全年代記**：単一トークンの固有揺らぎから、軌跡の直交合成、重力崩壊ストレステスト、双極・群島トポロジー解析、数学理論構築への昇華までを時系列順に完全記録)
 - `PROJECT_CHRONICLE.md` (全開発史・総括年代記 第1章〜第6章)
 - `goal_tree_engine_specification.md` (GDTE v3.4 概念核言語プリミティブ分解仕様書)
 - `universal_trajectory_transfer_specification.md` (v5.1 粗視化被覆・再細分化重力地形 ＆ 純粋軌跡移転仕様書)

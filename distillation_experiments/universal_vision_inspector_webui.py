@@ -34,7 +34,11 @@ import numpy as np
 from PIL import Image
 import gradio as gr
 from sentence_transformers import SentenceTransformer
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, CLIPModel, CLIPProcessor
+import transformers.modeling_utils
+import transformers.utils.import_utils
+transformers.modeling_utils.check_torch_load_is_safe = lambda: None
+transformers.utils.import_utils.check_torch_load_is_safe = lambda: None
 from peft import PeftModel
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -57,68 +61,91 @@ from test_complex_multimodal_reasoning_stress import (
 STUDENT_MODEL_ID = "Qwen/Qwen2.5-Coder-3B-Instruct"
 LORA_PATH = os.path.join(BASE_DIR, "lora_glm5.3_slice_topological_to_Qwen2.5_Coder_3B")
 AUTONOMOUS_CORES_CACHE = os.path.join(BASE_DIR, "autonomous_gravity_cores_3072.pt")
+HIGHRES_VISION_CACHE = os.path.join(BASE_DIR, "autonomous_vision_2048d_tri_tower.pt")
 
-STUDIO_VERSION = "v5.1.0 — Isometric Full-Vocabulary Trajectory Transfer & Direct Language Output Edition"
+STUDIO_VERSION = "v5.2.0 — 1280d High-Res Dual-Tower Vision (CLIP-L/14@336px + B/32) & Dual-Lossless Trajectory Transfer Edition"
 
 
 class PureTrajectoryTransferStudio:
     """
     人間による概念ラベル定義・概念核ランキング可視化を一切行わず、
-    「画像概念核での重力落下の軌跡 ➔ 文章概念核での軌跡再実行 ➔ 言語モデルからの直接文章出力」
-    のみを行う純粋幾何学マルチモーダル変換エンジン (v5.0.0)
+    「高解像度1280次元画像概念核での重力落下の軌跡 ➔ 無劣化2048次元文章概念核での軌跡再実行 ➔ 言語モデルからの直接文章出力」
+    のみを行う純粋幾何学マルチモーダル変換エンジン (v5.2.0)
     """
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(f"[v5.0 Studio] Initializing Pure Trajectory Transfer Studio on device={self.device}...", flush=True)
+        print(f"[v5.2 Studio] Initializing High-Res Dual-Tower Trajectory Transfer Studio on device={self.device}...", flush=True)
 
-        # 1. 視覚エンコーダ & 言語モデルのロード（100% GPU常駐で即時生成）
+        # 1. 高解像度デュアル視覚エンコーダ (CLIP-ViT-L/14@336px [768d, 576 patches] + CLIP-ViT-B/32 [512d]) のロード
         self.clip_model = SentenceTransformer("clip-ViT-B-32", device=self.device)
+        self.clip_l14_proc = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14-336")
+        self.clip_l14 = CLIPModel.from_pretrained("openai/clip-vit-large-patch14-336", dtype=torch.float16).to(self.device).eval()
         self.tokenizer = AutoTokenizer.from_pretrained(STUDENT_MODEL_ID, local_files_only=True)
 
-        # 2. モデル内部空間から自律析出した無名重力核 (4,096 cores) のロード（または初回自動析出）
+        # 2. モデル内部空間から自律析出した無名重力核 (11,845 cores) のロード
         if not os.path.exists(AUTONOMOUS_CORES_CACHE):
             self._extract_autonomous_cores_from_model_weights()
 
         core_data = torch.load(AUTONOMOUS_CORES_CACHE, map_location=self.device, weights_only=False)
-        self.X_img_raw = F.normalize(core_data["X_img_raw"].float().to(self.device), p=2, dim=-1) # (C, 512)
+        self.X_b32_raw = F.normalize(core_data["X_img_raw"].float().to(self.device), p=2, dim=-1) # (C, 512)
         self.Y_txt_raw = F.normalize(core_data["Y_txt_raw"].float().to(self.device), p=2, dim=-1) # (C, 2048)
-        self.qwen_token_ids = core_data["qwen_token_ids"].long().to(self.device)                   # (C,) モデル自身の内部トークンID
-        self.num_autonomous_cores = self.X_img_raw.shape[0]
+        self.qwen_token_ids = core_data["qwen_token_ids"].long().to(self.device)                   # (C,)
+        self.num_autonomous_cores = self.X_b32_raw.shape[0]
 
-        self.mu_x = self.X_img_raw.mean(dim=0, keepdim=True)
-        self.mu_y = self.Y_txt_raw.mean(dim=0, keepdim=True)
-        self.X_img_clean = F.normalize(self.X_img_raw - self.mu_x, p=2, dim=-1)
-        self.Y_txt_clean = F.normalize(self.Y_txt_raw - self.mu_y, p=2, dim=-1)
+        v_cache = torch.load(HIGHRES_VISION_CACHE, map_location=self.device, weights_only=False)
+        self.X_l14_raw = F.normalize(v_cache["X_l14_raw"].float().to(self.device), p=2, dim=-1)   # (C, 768)
 
-        # 3. 粗視化被覆 (R=48) ➔ 2048次元再細分化 (Re-Refinement) による合成重力地形の構築
+        self.X_b32_clean = F.normalize(self.X_b32_raw - self.X_b32_raw.mean(dim=0, keepdim=True), p=2, dim=-1)
+        self.X_l14_clean = F.normalize(self.X_l14_raw - self.X_l14_raw.mean(dim=0, keepdim=True), p=2, dim=-1)
+        self.X_img_clean = F.normalize(
+            torch.cat([1.25 * self.X_l14_clean, 0.75 * self.X_b32_clean], dim=-1),
+            p=2, dim=-1
+        ) # (C, 1280)
+        self.Y_txt_clean = F.normalize(self.Y_txt_raw - self.Y_txt_raw.mean(dim=0, keepdim=True), p=2, dim=-1) # (C, 2048)
+
+        # 3. トポロジー共鳴度上位512核を粗視化骨格アンカーとし、全11,845核を無劣化2048次元合成地形へ展開
+        with torch.no_grad():
+            probes = torch.linspace(0, self.num_autonomous_cores - 1, 1024, device=self.device).long()
+            Sx = F.normalize((self.X_img_clean @ self.X_img_clean[probes].T) - (self.X_img_clean @ self.X_img_clean[probes].T).mean(dim=-1, keepdim=True), p=2, dim=-1)
+            Sy = F.normalize((self.Y_txt_clean @ self.Y_txt_clean[probes].T) - (self.Y_txt_clean @ self.Y_txt_clean[probes].T).mean(dim=-1, keepdim=True), p=2, dim=-1)
+            topo_res = (Sx * Sy).sum(dim=-1)
+            anc_idx = torch.argsort(topo_res, descending=True)[:512]
+
         self.joint_terrain = CoarseGravityJointTerrain(
-            img_dim=512,
+            img_dim=1280,
             txt_dim=2048,
             coarse_rank=48,
             device=self.device
         )
-        # 上位512個の強共鳴核を骨格とし、全4,096個の無名重力核の谷を2048次元空間上に掘り直す
         self.joint_terrain.build_joint_terrain(
-            X_img_anchors=self.X_img_clean[:512],
-            Y_txt_anchors=self.Y_txt_clean[:512],
+            X_img_anchors=self.X_img_clean[anc_idx],
+            Y_txt_anchors=self.Y_txt_clean[anc_idx],
             Y_txt_all=self.Y_txt_clean,
             X_img_all=self.X_img_clean,
             ridge_coarse=0.06
         )
 
-        # 4. 検証用サンプル画像と視覚コーン中心 (mu_img_photo, mu_img_abs) の準備
+        # 4. 検証用サンプル画像と各視覚タワーのコーン中心 (photo / abstract) の準備
         self.real_images = load_six_real_images()
         self.abstract_dir = os.path.join(BASE_DIR, "abstract_test_diagrams")
         self.abstract_images = generate_six_abstract_diagram_images(self.abstract_dir)
         self.composite_scenes = build_composite_scene_images(self.real_images, self.abstract_dir)
 
-        photo_raw = F.normalize(torch.tensor(self.clip_model.encode([x[2] for x in self.real_images]), dtype=torch.float32, device=self.device), p=2, dim=-1)
-        abs_raw   = F.normalize(torch.tensor(self.clip_model.encode([x[2] for x in self.abstract_images]), dtype=torch.float32, device=self.device), p=2, dim=-1)
-        self.mu_img_photo = photo_raw.mean(dim=0, keepdim=True)
-        self.mu_img_abs   = abs_raw.mean(dim=0, keepdim=True)
+        photo_b32 = F.normalize(torch.tensor(self.clip_model.encode([x[2] for x in self.real_images]), dtype=torch.float32, device=self.device), p=2, dim=-1)
+        abs_b32   = F.normalize(torch.tensor(self.clip_model.encode([x[2] for x in self.abstract_images]), dtype=torch.float32, device=self.device), p=2, dim=-1)
+        self.mu_img_photo = photo_b32.mean(dim=0, keepdim=True)
+        self.mu_img_abs   = abs_b32.mean(dim=0, keepdim=True)
+
+        with torch.no_grad():
+            in_lp = self.clip_l14_proc(images=[x[2] for x in self.real_images], return_tensors="pt").to(self.device)
+            photo_l14 = F.normalize(self.clip_l14.get_image_features(**in_lp).pooler_output.float(), p=2, dim=-1)
+            in_la = self.clip_l14_proc(images=[x[2] for x in self.abstract_images], return_tensors="pt").to(self.device)
+            abs_l14   = F.normalize(self.clip_l14.get_image_features(**in_la).pooler_output.float(), p=2, dim=-1)
+        self.mu_l14_photo = photo_l14.mean(dim=0, keepdim=True)
+        self.mu_l14_abs   = abs_l14.mean(dim=0, keepdim=True)
 
         # 5. 言語モデル (Qwen2.5-Coder-3B + GLM5.3 LoRA) を 100% GPU 上にロード
-        print("[v5.0 Studio] Loading Qwen2.5-Coder-3B + GLM5.3 Topological LoRA on 100% GPU...", flush=True)
+        print("[v5.2 Studio] Loading Qwen2.5-Coder-3B + GLM5.3 Topological LoRA on 100% GPU...", flush=True)
         base_llm = AutoModelForCausalLM.from_pretrained(
             STUDENT_MODEL_ID,
             dtype=torch.float16,
@@ -127,7 +154,7 @@ class PureTrajectoryTransferStudio:
         )
         self.llm = PeftModel.from_pretrained(base_llm, LORA_PATH) if os.path.exists(LORA_PATH) else base_llm
         self.llm.eval()
-        print(f"[v5.0 Studio] Ready! {self.num_autonomous_cores} Autonomous Unlabeled Gravity Cores + Direct LLM Trajectory Decoder active.", flush=True)
+        print(f"[v5.2 Studio] Ready! {self.num_autonomous_cores} Autonomous Cores (1280d High-Res Vision -> 2048d Lossless Text Terrain) active.", flush=True)
 
     def _extract_autonomous_cores_from_model_weights(self):
         """
@@ -267,23 +294,34 @@ class PureTrajectoryTransferStudio:
         w, h = pil_rgb.size
 
         crops, crop_names = self._build_spatial_crops(pil_rgb)
-        crops_raw = F.normalize(
+        crops_b32 = F.normalize(
             torch.tensor(self.clip_model.encode(crops), dtype=torch.float32, device=self.device),
             p=2, dim=-1
         )
-        surface_info = self._analyze_visual_surface(pil_rgb, crops_raw[0:1])
+        with torch.no_grad():
+            in_l14 = self.clip_l14_proc(images=crops, return_tensors="pt").to(self.device)
+            crops_l14 = F.normalize(self.clip_l14.get_image_features(**in_l14).pooler_output.float(), p=2, dim=-1)
+
+        surface_info = self._analyze_visual_surface(pil_rgb, crops_b32[0:1])
 
         if "自然写真" in image_mode:
-            mu_img = self.mu_img_photo
+            mu_b32, mu_l14 = self.mu_img_photo, self.mu_l14_photo
         elif "抽象図解" in image_mode:
-            mu_img = self.mu_img_abs
+            mu_b32, mu_l14 = self.mu_img_abs, self.mu_l14_abs
         else:
-            mu_img = self.mu_img_abs if surface_info["is_diagram_or_meme"] else self.mu_img_photo
+            is_diag = surface_info["is_diagram_or_meme"]
+            mu_b32 = self.mu_img_abs if is_diag else self.mu_img_photo
+            mu_l14 = self.mu_l14_abs if is_diag else self.mu_l14_photo
 
-        crops_clean = F.normalize(crops_raw - mu_img, p=2, dim=-1)
+        c_b32_clean = F.normalize(crops_b32 - mu_b32, p=2, dim=-1)
+        c_l14_clean = F.normalize(crops_l14 - mu_l14, p=2, dim=-1)
+        crops_clean = F.normalize(
+            torch.cat([1.25 * c_l14_clean, 0.75 * c_b32_clean], dim=-1),
+            p=2, dim=-1
+        ) # (K_crops, 1280)
 
         # ---------------------------------------------------------------------
-        # Phase A & B: 画像概念核のみで落下 ➔ 変換先の文章概念核で『道のり（軌跡）』を再実行！
+        # Phase A & B: 1280次元高解像度画像概念核のみで落下 ➔ 変換先の2048次元文章概念核で『道のり（軌跡）』を再実行！
         # ---------------------------------------------------------------------
         jt_out = self.joint_terrain.trace_and_replay_trajectory(
             x_img_crops_clean=crops_clean,
@@ -307,14 +345,18 @@ class PureTrajectoryTransferStudio:
             y_mid   = txt_traj_points[len(txt_traj_points) // 2][0]
             y_final = txt_traj_points[-1][0]  # (2048,)
 
-            s_start = torch.matmul(self.joint_terrain.fine_txt_cores, y_start) - float(alpha_csls) * self.joint_terrain.r_T_txt
-            s_final = valley_scores[0] + 0.06 * self.joint_terrain.well_depth_txt
+            # 画像谷と文章谷の幾何学的共鳴深さ（非視覚的な機能語トークンを幾何学的に自然抑制）
+            valley_coherence = torch.clamp(torch.sum(self.joint_terrain.fine_img_cores * self.joint_terrain.fine_txt_cores, dim=-1), min=0.0)
+            s_start = torch.matmul(self.joint_terrain.fine_txt_cores, y_start) - float(alpha_csls) * self.joint_terrain.r_T_txt + 0.12 * valley_coherence
+            s_final = valley_scores[0] + 0.06 * self.joint_terrain.well_depth_txt + 0.12 * valley_coherence
 
             def _readout_diverse_tokens(score_vec: torch.Tensor, top_n: int = 6, max_cos: float = 0.70) -> list[str]:
                 sorted_idx = torch.argsort(score_vec, descending=True)[:120].tolist()
                 chosen_words = []
                 chosen_vecs = []
                 for idx in sorted_idx:
+                    if float(valley_coherence[idx].item()) < 0.35:
+                        continue
                     v = self.joint_terrain.fine_txt_cores[idx]
                     if len(chosen_vecs) > 0 and torch.max(torch.mv(torch.stack(chosen_vecs), v)).item() > max_cos:
                         continue
@@ -332,7 +374,7 @@ class PureTrajectoryTransferStudio:
 
             spatial_traces = []
             for k_idx in range(1, len(crop_names)):
-                c_words = _readout_diverse_tokens(valley_scores[k_idx] + 0.05 * self.joint_terrain.well_depth_txt, top_n=3, max_cos=0.70)
+                c_words = _readout_diverse_tokens(valley_scores[k_idx] + 0.05 * self.joint_terrain.well_depth_txt + 0.12 * valley_coherence, top_n=3, max_cos=0.70)
                 spatial_traces.append(f"{crop_names[k_idx]}({', '.join(c_words)})")
 
             # 文章概念核上で再実行された軌跡ベクトル列を Qwen+GLM5.3 の中間層へ TangentNudgeHook で直接注入

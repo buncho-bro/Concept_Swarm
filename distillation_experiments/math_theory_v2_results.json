@@ -1,0 +1,217 @@
+[
+  {
+    "field": "Abstract Algebra (抽象代数)",
+    "pair": [
+      "group",
+      "commutative"
+    ],
+    "derived": [
+      "algebra",
+      "ring",
+      "rings",
+      "property",
+      "prostitu",
+      "mon"
+    ],
+    "expected": [
+      "abelian",
+      "ring",
+      "field",
+      "homomorphism",
+      "symmetric",
+      "algebra",
+      "subgroup"
+    ],
+    "hits": [
+      "algebra",
+      "ring",
+      "rings"
+    ],
+    "is_hit": true
+  },
+  {
+    "field": "Linear Algebra (線形代数)",
+    "pair": [
+      "matrix",
+      "eigenvalue"
+    ],
+    "derived": [
+      "eig",
+      "problem",
+      "decomposition",
+      "problems",
+      "question",
+      "distribution"
+    ],
+    "expected": [
+      "diagonalization",
+      "spectrum",
+      "eigenvector",
+      "determinant",
+      "orthogonal",
+      "spectral",
+      "operator"
+    ],
+    "hits": [
+      "eig"
+    ],
+    "is_hit": true
+  },
+  {
+    "field": "Calculus & Analysis (解析学)",
+    "pair": [
+      "derivative",
+      "integral"
+    ],
+    "derived": [
+      "lear",
+      "numberwith",
+      "pre",
+      "com",
+      "enthus",
+      "notsupportedexception"
+    ],
+    "expected": [
+      "fundamental",
+      "calculus",
+      "continuous",
+      "leibniz",
+      "riemann",
+      "newton",
+      "differential"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Topology (位相幾何学)",
+    "pair": [
+      "compact",
+      "hausdorff"
+    ],
+    "derived": [
+      "dimension",
+      "distance",
+      "measure",
+      "haus",
+      "metric",
+      "dimensions"
+    ],
+    "expected": [
+      "normal",
+      "closed",
+      "regular",
+      "paracompact",
+      "tietze",
+      "urysohn",
+      "space",
+      "manifold"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Differential Geometry (微分幾何)",
+    "pair": [
+      "manifold",
+      "curvature"
+    ],
+    "derived": [
+      "radius",
+      "tensor",
+      "coefficient",
+      "notimplemented",
+      "formula",
+      "anomaly"
+    ],
+    "expected": [
+      "riemannian",
+      "geodesic",
+      "metric",
+      "tensor",
+      "ricci",
+      "einstein",
+      "flat"
+    ],
+    "hits": [
+      "tensor"
+    ],
+    "is_hit": true
+  },
+  {
+    "field": "Number Theory (数論)",
+    "pair": [
+      "prime",
+      "zeta"
+    ],
+    "derived": [
+      "datagridviewcellstyle",
+      "szczeg",
+      "pracy",
+      "wysoko",
+      "zwyk",
+      "prostitu"
+    ],
+    "expected": [
+      "riemann",
+      "zeros",
+      "euler",
+      "dirichlet",
+      "distribution",
+      "hypothesis",
+      "function"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Probability Theory (確率論)",
+    "pair": [
+      "random",
+      "variable"
+    ],
+    "derived": [
+      "tatto",
+      "petite",
+      "definition",
+      "resultat",
+      "usermanager",
+      "calend"
+    ],
+    "expected": [
+      "distribution",
+      "variance",
+      "expectation",
+      "probability",
+      "density",
+      "sample"
+    ],
+    "hits": [],
+    "is_hit": false
+  },
+  {
+    "field": "Complex Analysis (複素解析)",
+    "pair": [
+      "holomorphic",
+      "integral"
+    ],
+    "derived": [
+      "using",
+      "over",
+      "lear",
+      "sum",
+      "before",
+      "den"
+    ],
+    "expected": [
+      "cauchy",
+      "residue",
+      "contour",
+      "analytic",
+      "singularities",
+      "differential"
+    ],
+    "hits": [],
+    "is_hit": false
+  }
+]
