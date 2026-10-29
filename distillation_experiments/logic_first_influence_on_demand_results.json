@@ -1,0 +1,227 @@
+{
+  "accuracy": 72.72727272727273,
+  "correct_count": 8,
+  "total_cases": 11,
+  "domain_stats": {
+    "Pure Formal Logic": {
+      "total": 4,
+      "correct": 4
+    },
+    "Real-World Common Sense": {
+      "total": 4,
+      "correct": 1
+    },
+    "Mixed (Enthymeme)": {
+      "total": 3,
+      "correct": 3
+    }
+  },
+  "cases": [
+    {
+      "id": "Logic_ProntoQA_Q0",
+      "name": "ProntoQA Q0: Max is sour",
+      "domain": "Pure Formal Logic",
+      "expected": false,
+      "decision": false,
+      "is_correct": true,
+      "engine_used": "Pure Logic Engine (Closed World Non-Entailment)",
+      "gap_detected": false,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Max is a yumpus']",
+        "Extracted Rules: 8 universal implications",
+        "Target Query: Subject='Max', Predicate='sour', Negated=False",
+        "Deduction Root: Max is a yumpus",
+        "CLOSED SYSTEM DEDUCTION: 'sour' exists in rules, but is formally unreachable from Max (yumpus).",
+        "Reachable concepts: ['dumpus', 'red', 'yumpus', 'wooden', 'aggressive', 'wumpus']",
+        "Target 'sour' is NOT entailed by premises -> Disproven/False under closed world.",
+        "No common-sense bias applied."
+      ]
+    },
+    {
+      "id": "Logic_ProntoQA_Q1",
+      "name": "ProntoQA Q1: Stella is bright",
+      "domain": "Pure Formal Logic",
+      "expected": false,
+      "decision": false,
+      "is_correct": true,
+      "engine_used": "Pure Logic Engine (Closed World Non-Entailment)",
+      "gap_detected": false,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Stella is a yumpus']",
+        "Extracted Rules: 7 universal implications",
+        "Target Query: Subject='Stella', Predicate='bright', Negated=False",
+        "Deduction Root: Stella is a yumpus",
+        "CLOSED SYSTEM DEDUCTION: 'bright' exists in rules, but is formally unreachable from Stella (yumpus).",
+        "Reachable concepts: ['zumpus', 'impus', 'yumpus', 'dumpus']",
+        "Target 'bright' is NOT entailed by premises -> Disproven/False under closed world.",
+        "No common-sense bias applied."
+      ]
+    },
+    {
+      "id": "Logic_ProntoQA_Q2_Pos",
+      "name": "ProntoQA Q2: Max is red (Positive Proof)",
+      "domain": "Pure Formal Logic",
+      "expected": true,
+      "decision": true,
+      "is_correct": true,
+      "engine_used": "Pure Logic Engine (Formal Proof)",
+      "gap_detected": false,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Max is a yumpus']",
+        "Extracted Rules: 7 universal implications",
+        "Target Query: Subject='Max', Predicate='red', Negated=False",
+        "Deduction Root: Max is a yumpus",
+        "FORMAL DEDUCTION COMPLETE: Reached 'red'.",
+        "Proof Chain: Max is a yumpus -> Each yumpus is a dumpus -> Dumpuses are wumpuses -> Wumpuses are red",
+        "Deductive Result: True (No common sense needed)"
+      ]
+    },
+    {
+      "id": "Logic_Counterfactual",
+      "name": "Counterfactual Rule: Cats are cold-blooded",
+      "domain": "Pure Formal Logic",
+      "expected": true,
+      "decision": true,
+      "is_correct": true,
+      "engine_used": "Influence-On-Demand (Enthymeme Gap Filled)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Whiskers is a cat']",
+        "Extracted Rules: 2 universal implications",
+        "Target Query: Subject='Whiskers', Predicate='cold', Negated=False",
+        "Deduction Root: Whiskers is a cat",
+        "LOGICAL GAP DETECTED: Target predicate 'cold' is absent from premises.",
+        "Calling ON-DEMAND SEMANTIC INFLUENCE for (cat, cold)...",
+        "Semantic Influence Result: Compatibility(cat, cold) = +0.637 -> Decision: True"
+      ]
+    },
+    {
+      "id": "CommonSense_Gum_Myth",
+      "name": "Gum Myth: 7 Years in Stomach",
+      "domain": "Real-World Common Sense",
+      "expected": false,
+      "decision": false,
+      "is_correct": true,
+      "engine_used": "Influence-On-Demand (Open Claim)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "No context premises provided -> Deductive engine cannot operate.",
+        "Triggering ON-DEMAND SEMANTIC INFLUENCE for claim verification...",
+        "Semantic Influence Result: False (Critical Pair ('stomach', 'years') Compatibility: -4.070)"
+      ]
+    },
+    {
+      "id": "CommonSense_Gum_Fact",
+      "name": "Gum Fact: Passes within days",
+      "domain": "Real-World Common Sense",
+      "expected": true,
+      "decision": false,
+      "is_correct": false,
+      "engine_used": "Influence-On-Demand (Open Claim)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "No context premises provided -> Deductive engine cannot operate.",
+        "Triggering ON-DEMAND SEMANTIC INFLUENCE for claim verification...",
+        "Semantic Influence Result: False (Critical Pair ('chewing', 'passes') Compatibility: -2.930)"
+      ]
+    },
+    {
+      "id": "CommonSense_Bowling_Float",
+      "name": "Bowling Ball: Floats on Shallow Water",
+      "domain": "Real-World Common Sense",
+      "expected": false,
+      "decision": true,
+      "is_correct": false,
+      "engine_used": "Influence-On-Demand (Open Claim)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "No context premises provided -> Deductive engine cannot operate.",
+        "Triggering ON-DEMAND SEMANTIC INFLUENCE for claim verification...",
+        "Semantic Influence Result: True (Critical Pair ('bowling', 'float') Compatibility: -0.820)"
+      ]
+    },
+    {
+      "id": "CommonSense_Bowling_Sink",
+      "name": "Bowling Ball: Sinks to Deep Floor",
+      "domain": "Real-World Common Sense",
+      "expected": true,
+      "decision": false,
+      "is_correct": false,
+      "engine_used": "Influence-On-Demand (Open Claim)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "No context premises provided -> Deductive engine cannot operate.",
+        "Triggering ON-DEMAND SEMANTIC INFLUENCE for claim verification...",
+        "Semantic Influence Result: False (Critical Pair ('sink', 'quickly') Compatibility: -1.996)"
+      ]
+    },
+    {
+      "id": "Enthymeme_Penguin_Fly",
+      "name": "Penguin Flight (Tweety)",
+      "domain": "Mixed (Enthymeme)",
+      "expected": false,
+      "decision": false,
+      "is_correct": true,
+      "engine_used": "Influence-On-Demand (Enthymeme Gap Filled)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Tweety is a penguin']",
+        "Extracted Rules: 0 universal implications",
+        "Target Query: Subject='Tweety', Predicate='fly', Negated=False",
+        "Deduction Root: Tweety is a penguin",
+        "LOGICAL GAP DETECTED: Target predicate 'fly' is absent from premises.",
+        "Calling ON-DEMAND SEMANTIC INFLUENCE for (penguin, fly)...",
+        "Semantic Influence Result: Compatibility(penguin, fly) = -1.193 -> Decision: False"
+      ]
+    },
+    {
+      "id": "Enthymeme_Penguin_Swim",
+      "name": "Penguin Swim (Tweety)",
+      "domain": "Mixed (Enthymeme)",
+      "expected": true,
+      "decision": true,
+      "is_correct": true,
+      "engine_used": "Influence-On-Demand (Enthymeme Gap Filled)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Tweety is a penguin']",
+        "Extracted Rules: 0 universal implications",
+        "Target Query: Subject='Tweety', Predicate='swim', Negated=False",
+        "Deduction Root: Tweety is a penguin",
+        "LOGICAL GAP DETECTED: Target predicate 'swim' is absent from premises.",
+        "Calling ON-DEMAND SEMANTIC INFLUENCE for (penguin, swim)...",
+        "Semantic Influence Result: Compatibility(penguin, swim) = -0.201 -> Decision: True"
+      ]
+    },
+    {
+      "id": "Enthymeme_Astronaut_Space",
+      "name": "Astronaut Spaceflight (Luna)",
+      "domain": "Mixed (Enthymeme)",
+      "expected": true,
+      "decision": true,
+      "is_correct": true,
+      "engine_used": "Influence-On-Demand (Enthymeme Gap Filled)",
+      "gap_detected": true,
+      "reasoning_steps": [
+        "=== LOGIC-FIRST DEDUCTION PHASE ===",
+        "Extracted Facts: ['Luna is an astronaut']",
+        "Extracted Rules: 0 universal implications",
+        "Target Query: Subject='Luna', Predicate='spaceflight', Negated=False",
+        "Deduction Root: Luna is a astronaut",
+        "LOGICAL GAP DETECTED: Target predicate 'spaceflight' is absent from premises.",
+        "Calling ON-DEMAND SEMANTIC INFLUENCE for (astronaut, spaceflight)...",
+        "Semantic Influence Result: Compatibility(astronaut, spaceflight) = +4.629 -> Decision: True"
+      ]
+    }
+  ]
+}

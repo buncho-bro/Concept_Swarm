@@ -1,0 +1,39 @@
+{
+  "paradigm_comparison": {
+    "Cat_A1_ProntoQA_Complete_N500": {
+      "Raw_LLM": 90.0,
+      "Pure_Vanilla_Tree_Search": 51.6,
+      "Pure_Symbolic_Abductive_Search": 51.6,
+      "Existing_5Step_Cognitive": 51.6,
+      "IdeaMapping_Completed_5Step": 51.6
+    },
+    "Cat_A2_Incomplete_Observation_N60": {
+      "Raw_LLM": 71.67,
+      "Pure_Vanilla_Tree_Search": 48.333333333333336,
+      "Pure_Symbolic_Abductive_Search": 86.66666666666667,
+      "Existing_5Step_Cognitive": 48.333333333333336,
+      "IdeaMapping_Completed_5Step": 86.66666666666667
+    },
+    "Cat_A3_4Way_Epistemic_Diagnosis_N60": {
+      "Raw_LLM": 16.67,
+      "Pure_Vanilla_Tree_Search": 16.666666666666664,
+      "Pure_Symbolic_Abductive_Search": 100.0,
+      "Existing_5Step_Cognitive": 6.67,
+      "IdeaMapping_Completed_5Step": 100.0
+    },
+    "Cat_B_TruthfulQA_OpenWorld_N50": {
+      "Raw_LLM": 52.0,
+      "Pure_Vanilla_Tree_Search": 100.0,
+      "Pure_Symbolic_Abductive_Search": 100.0,
+      "Existing_5Step_Cognitive": 56.00000000000001,
+      "IdeaMapping_Completed_5Step": 36.0
+    },
+    "Cat_C_Semantic_Resonance_N30": {
+      "Raw_LLM": 56.67,
+      "Pure_Vanilla_Tree_Search": 50.0,
+      "Pure_Symbolic_Abductive_Search": 50.0,
+      "Existing_5Step_Cognitive": 96.66666666666667,
+      "IdeaMapping_Completed_5Step": 96.66666666666667
+    }
+  }
+}

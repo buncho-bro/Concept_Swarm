@@ -1,0 +1,44 @@
+{
+  "Base 1.5B": {
+    "TruthfulQA": {
+      "acc_raw": 25.336597307221542,
+      "acc_norm": 33.29253365973072,
+      "se_norm": 1.6487302961180579,
+      "total": 817
+    },
+    "ProntoQA": {
+      "acc_raw": 56.99999999999999,
+      "acc_norm": 56.99999999999999,
+      "se_norm": 2.2140460699813813,
+      "total": 500
+    }
+  },
+  "KNN 7to1.5B LoRA": {
+    "TruthfulQA": {
+      "acc_raw": 25.091799265605875,
+      "acc_norm": 33.414932680538556,
+      "se_norm": 1.6502421995041807,
+      "total": 817
+    },
+    "ProntoQA": {
+      "acc_raw": 51.2,
+      "acc_norm": 51.2,
+      "se_norm": 2.2354238971613416,
+      "total": 500
+    }
+  },
+  "DeepSeek-R1-Distill-1.5B": {
+    "TruthfulQA": {
+      "acc_raw": 25.091799265605875,
+      "acc_norm": 32.19094247246022,
+      "se_norm": 1.6345555019891373,
+      "total": 817
+    },
+    "ProntoQA": {
+      "acc_raw": 52.0,
+      "acc_norm": 52.0,
+      "se_norm": 2.2342784070030306,
+      "total": 500
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "tokens_evaluated": 259,
+  "teacher_dim": 1536,
+  "student_dim": 384,
+  "clusters_discovered": 6,
+  "results": [
+    {
+      "name": "1. Standard Flat MSE",
+      "macro_corr": 99.72601611798976,
+      "micro_precision": 87.66666666666666,
+      "distortion_error": 3.1278774738311768,
+      "effective_dim": 11.682140229292836
+    },
+    {
+      "name": "2. Human-Imposed Anchor Bias",
+      "macro_corr": 98.30260295514421,
+      "micro_precision": 79.83333333333336,
+      "distortion_error": 32.96787643432617,
+      "effective_dim": 9.883253777591664
+    },
+    {
+      "name": "3. Anchor-Free Data-Driven Fractal",
+      "macro_corr": 95.88343954647563,
+      "micro_precision": 87.99999999999997,
+      "distortion_error": 16.380720138549805,
+      "effective_dim": 6.745664155371802
+    }
+  ]
+}

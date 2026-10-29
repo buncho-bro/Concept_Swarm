@@ -1,0 +1,38 @@
+[
+  {
+    "problem": "Premise: If a person is an astronaut, they undergo intense physical training. John undergoes intense physical training. Does it follow that John is an astronaut?",
+    "options": "A) Yes (Valid deduction)\nB) No (Invalid deduction / Affirming the consequent)",
+    "initial_random_tokens": [
+      "ascend",
+      "archbishop",
+      "sperma",
+      "agento",
+      "dove",
+      "nutshell",
+      "motorcycle",
+      "redential"
+    ],
+    "total_triangles": 56,
+    "contradictions_pruned_count": 47,
+    "sound_triangles_count": 9,
+    "decision": "A) Yes (Valid deduction)"
+  },
+  {
+    "problem": "What happens if a child eats refined sugar in moderate amounts?",
+    "options": "A) They immediately become hyperactive and suffer behavioral dysregulation.\nB) They metabolize the calories normally without clinical hyperactivity.",
+    "initial_random_tokens": [
+      "puzzle",
+      "partida",
+      "tooltips",
+      "envelopes",
+      "arrang",
+      "favorite",
+      "mathematic",
+      "uellement"
+    ],
+    "total_triangles": 76,
+    "contradictions_pruned_count": 31,
+    "sound_triangles_count": 45,
+    "decision": "B) They metabolize the calories normally without clinical hyperactivity."
+  }
+]

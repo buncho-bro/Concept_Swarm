@@ -1,0 +1,42 @@
+{
+  "benchmarks": {
+    "category_a": 4,
+    "category_b": 6,
+    "category_c": 3,
+    "category_d": "Full Manifold Dense Evaluation"
+  },
+  "results": [
+    {
+      "system": "1. Raw Qwen2.5-1.5B (Un-distilled Base)",
+      "cat_a_formal": 100.0,
+      "cat_b_truthful": 83.33333333333334,
+      "cat_c_resonance": 50.0,
+      "cat_d_effective_dim": 536.28,
+      "distortion_error": 8.23
+    },
+    {
+      "system": "2. Legacy 82-Anchor Distill (Historical LoRA)",
+      "cat_a_formal": 100.0,
+      "cat_b_truthful": 83.33333333333334,
+      "cat_c_resonance": 33.3,
+      "cat_d_effective_dim": 28.4,
+      "distortion_error": 26.8
+    },
+    {
+      "system": "3. DeepSeek-R1-Distill-1.5B (Industry Baseline)",
+      "cat_a_formal": 50.0,
+      "cat_b_truthful": 0.0,
+      "cat_c_resonance": 66.7,
+      "cat_d_effective_dim": 512.0,
+      "distortion_error": 9.15
+    },
+    {
+      "system": "4. New Full-Manifold Cognitive System (Present)",
+      "cat_a_formal": 100.0,
+      "cat_b_truthful": 100.0,
+      "cat_c_resonance": 100.0,
+      "cat_d_effective_dim": 474.72,
+      "distortion_error": 1.91
+    }
+  ]
+}

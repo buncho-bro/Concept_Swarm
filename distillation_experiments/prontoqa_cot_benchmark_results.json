@@ -1,0 +1,2429 @@
+{
+  "Base 1.5B": {
+    "model_name": "Base 1.5B",
+    "accuracy": 24.0,
+    "se": 4.2708313008125245,
+    "avg_tokens": 383.01,
+    "valid_format_rate": 32.0,
+    "details": [
+      {
+        "idx": 0,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are not shy.\n   - Jompuses are yumpuses.\n   - Each yumpus is aggressive.\n   -..."
+      },
+      {
+        "idx": 1,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is bright\" is true or false, we need to follow the given logical rules and deduce information about Stella's characteristics based on the provided statements.\n\n1. **Every tumpus is not angry.**\n   - This means th..."
+      },
+      {
+        "idx": 2,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 361,
+        "sample_reasoning": "To determine if the statement \"Wren is not metallic\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are floral.\n   - Vumpuses are tumpuses.\n   - Tumpuses are brown.\n   ..."
+      },
+      {
+        "idx": 3,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is not small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are zumpuses**: This means that every impus (which includes all rompuses) is also a zumpus.\n2. **Z..."
+      },
+      {
+        "idx": 4,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are mean.\n   - Rompuses are zumpuses.\n   - Each zumpus is not happy.\n   ..."
+      },
+      {
+        "idx": 5,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Tumpus**: Every tumpus is large.\n   - This means all tumpuses have at least one property (being large).\n\n2. **W..."
+      },
+      {
+        "idx": 6,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is happy\" is true or false, we need to follow the given logical rules and deduce Stella's happiness status based on the information provided.\n\n1. **Rompus**: Every rompus is orange.\n2. **Impus**: Every rompus is ..."
+      },
+      {
+        "idx": 7,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 338,
+        "sample_reasoning": "To determine if the statement \"Alex is hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every jompus is sour.\n   - Each jompus is a rompus.\n   - Rompuses are not kind.\n   - E..."
+      },
+      {
+        "idx": 8,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is wooden\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every dumpus is not shy**.\n   - This means no dumpus can be described as shy.\n\n2. **Each dumpus is a tumpus**..."
+      },
+      {
+        "idx": 9,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is sweet\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Impus**: Every impus is earthy.\n   - This means every impus has an e..."
+      },
+      {
+        "idx": 10,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every jompus is not amenable.**\n   - This means that Sam cannot be a jompus because it states that every j..."
+      },
+      {
+        "idx": 11,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not floral\" is true or false, we need to follow the logical steps provided in the context and analyze each part of the statement:\n\n1. **Tumpus**: Each tumpus is orange.\n   - This means all tumpuses have an orange..."
+      },
+      {
+        "idx": 12,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is dull\" is true or false, we need to follow each rule and deduce the properties of Max based on the given information:\n\n1. **Each yumpus is opaque.**\n   - This does not provide any direct information about Max's co..."
+      },
+      {
+        "idx": 13,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is opaque\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are large.\n   - Every jompus is a zumpus.\n   - Each zumpus is sweet.\n   - Z..."
+      },
+      {
+        "idx": 14,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 380,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are not small.\n   - Jompuses are tumpuses.\n   - Tumpuses are not kind.\n  ..."
+      },
+      {
+        "idx": 15,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 391,
+        "sample_reasoning": "To determine if the statement \"Sally is small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Yumpuses are hot.\n   - Each yumpus is a rompus.\n   - Rompuses are happy.\n   - Rompu..."
+      },
+      {
+        "idx": 16,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not opaque\" is true or false, we need to follow the logical steps provided in the context and reasoning process:\n\n1. **Identify the relevant information:**\n   - From the context, we know that each numpus is not n..."
+      },
+      {
+        "idx": 17,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 390,
+        "sample_reasoning": "To determine if the statement \"Sam is fruity\" is true or false, let's break down the information given and apply it step-by-step:\n\n1. **Given Information:**\n   - Each dumpus is bright.\n   - Each dumpus is a rompus.\n   - Every rompus is aggressive.\n  ..."
+      },
+      {
+        "idx": 18,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 307,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each numpus is not opaque.\n   - Each numpus is a wumpus.\n   - Each wumpus is feist..."
+      },
+      {
+        "idx": 19,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each yumpus is not small.\n   - Each yumpus is a dumpus.\n   - Each dumpus is opaque...."
+      },
+      {
+        "idx": 20,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 306,
+        "sample_reasoning": "To determine if the statement \"Max is orange\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are earthy.\n   - Vumpuses are dumpuses.\n   - Dumpuses are not wooden.\n   - ..."
+      },
+      {
+        "idx": 21,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 385,
+        "sample_reasoning": "To determine if the statement \"Wren is not feisty\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every wumpus is sour.\n   - Wumpuses are yumpuses.\n   - Each yumpus is aggressiv..."
+      },
+      {
+        "idx": 22,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is bitter\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every zumpus is not opaque**: This means that no zumpus can be opaque.\n2. **Each zumpus is a numpus**: There..."
+      },
+      {
+        "idx": 23,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is amenable\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every numpus is floral**: This means that any animal named \"numpus\" has flowers.\n2. **Numpuses are jompuses..."
+      },
+      {
+        "idx": 24,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 312,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Zumpuses are dull.\n   - Every vumpus is not transparent.\n   - Vumpuses are numpuse..."
+      },
+      {
+        "idx": 25,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is large\" is true or false, we need to follow the given logical rules and deduce information about Rex's characteristics based on the provided statements.\n\n1. **Every numpus is fruity.**\n   - This means Rex could be..."
+      },
+      {
+        "idx": 26,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 365,
+        "sample_reasoning": "To determine if the statement \"Fae is not aggressive\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Wumpuses are not sour.\n   - Each wumpus is a rompus.\n   - Rompuses are dull...."
+      },
+      {
+        "idx": 27,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is small\" is true or false, we need to follow the given logical rules and deduce information about Alex based on the provided statements.\n\n1. **Impus**: Each impus is small.\n   - This means that every impus is smal..."
+      },
+      {
+        "idx": 28,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is bright\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jompus**: Every jompus is liquid.\n2. **Rompuses**: Every rompuse is mean.\n3. **Zumpuses**: Every zumpus is tra..."
+      },
+      {
+        "idx": 29,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is temperate\" is true or false, we need to follow the logical rules provided in the context and see how they connect to the given information about Fae.\n\n1. **Impulses are bright**: This means that Impulses have bri..."
+      },
+      {
+        "idx": 30,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not angry\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jompus**: Each jompus is not small.\n   - This means Jompus cannot be considered as being small in size.\n\n2..."
+      },
+      {
+        "idx": 31,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is not wooden\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Numpuses are earthy.\n   - Numpuses are vumpuses.\n   - Vumpuses are transparent..."
+      },
+      {
+        "idx": 32,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 296,
+        "sample_reasoning": "To determine if the statement \"Stella is not bright\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Yumpuses are not temperate**: This means that Stella cannot be a yumpus because it's stated that every ..."
+      },
+      {
+        "idx": 33,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 324,
+        "sample_reasoning": "To determine if the statement \"Sam is shy\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Impulses are bright**: This means that every impulse (including Sam) h..."
+      },
+      {
+        "idx": 34,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is orange\" is true or false, we need to follow each of the given statements and their implications step-by-step:\n\n1. **Wumpuses are impuses**: This means that every wumpus is an impulse.\n2. **Impulses are dull**: Th..."
+      },
+      {
+        "idx": 35,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is shy\" is true or false, we need to follow the given logical rules and deduce information about Sally based on her relationship to other creatures mentioned in the context.\n\n1. **Every jompus is bright.**\n   - Th..."
+      },
+      {
+        "idx": 36,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is sweet\" is true or false, we need to follow the given logical rules and deduce information about Wren's characteristics based on the provided statements.\n\n1. **Impuses are not fruity.**\n   - This means that Wren ..."
+      },
+      {
+        "idx": 37,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is not happy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are wooden.\n   - Every vumpus is a jompus.\n   - Jompuses are earthy.\n ..."
+      },
+      {
+        "idx": 38,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 398,
+        "sample_reasoning": "To determine if the statement \"Stella is not hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are happy**: This rule does not directly relate to Stella's temperature.\n2. **Every impus is a wum..."
+      },
+      {
+        "idx": 39,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 371,
+        "sample_reasoning": "To determine if the statement \"Sally is amenable\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Yumpuses are small.\n   - Yumpuses are vumpuses.\n   - Vumpuses are red.\n   - Vump..."
+      },
+      {
+        "idx": 40,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 281,
+        "sample_reasoning": "To determine if the statement \"Max is not hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are transparent.\n   - Every rompus is a yumpus.\n   - Yumpuses are earthy.\n..."
+      },
+      {
+        "idx": 41,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 316,
+        "sample_reasoning": "To determine if the statement \"Wren is not orange\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are dull.\n   - Tumpuses are jompuses.\n   - Jompuses are not sour.\n   -..."
+      },
+      {
+        "idx": 42,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is angry\" is true or false, we need to follow the given logical rules and deduce Polly's characteristics based on the information provided about other creatures.\n\n1. **Impus**: Each impus is luminous.\n   - This me..."
+      },
+      {
+        "idx": 43,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Yumpuses are floral.\n   - Each yumpus is a vumpus.\n   - Vumpuses are not temperat..."
+      },
+      {
+        "idx": 44,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is wooden\" is true or false, we need to follow the given logical rules and deduce information about Fae based on these rules.\n\n1. **Fae is a dumpus**: This means that Fae fits into the category of being a dumpus.\n2...."
+      },
+      {
+        "idx": 45,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is not metallic\" is true or false, we need to follow the chain of logical implications provided in the context and see how it applies to Sally.\n\n1. **Rompus is nervous**: This means that every rompus is nervous.\n2..."
+      },
+      {
+        "idx": 46,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 366,
+        "sample_reasoning": "To determine if the statement \"Max is not cold\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus are tumpuses**: This means every impus (which includes Max) is also a tumpus.\n2. **Every tumpus is not..."
+      },
+      {
+        "idx": 47,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Tumpuses are fruity.**\n   - This means that any tumpus is fruity.\n   \n2. **Yumpuses are nervous.**\n   - Th..."
+      },
+      {
+        "idx": 48,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is liquid\" is true or false, we need to follow the given logical rules and deduce information about Wren's properties based on the provided statements.\n\n1. **Given Statements:**\n   - Wumpuses are dull.\n   - Wumpuse..."
+      },
+      {
+        "idx": 49,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not blue\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jompuses are not blue**: This means that any entity classified as a jompuse cannot be blue.\n2. **Each rompus..."
+      },
+      {
+        "idx": 50,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not cold\" is true or false, we need to follow the logical rules provided and analyze each part of the statement step-by-step:\n\n1. **Impus**: Every zumpus is an impus.\n   - This means every zumpus is also an impus..."
+      },
+      {
+        "idx": 51,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 367,
+        "sample_reasoning": "To determine if the statement \"Polly is blue\" is true or false, we need to follow the given logical rules and deduce Polly's color based on the information provided about other creatures.\n\n1. **Every jompus is spicy.**\n   - This means Polly could be ..."
+      },
+      {
+        "idx": 52,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Wumpuses are not wooden**: This means that Fae cannot be made of wood.\n2. **Every zumpus is not dull**: Zumpus r..."
+      },
+      {
+        "idx": 53,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is not red\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Tumpus**: Every tumpus is not transparent.\n   - This means that Stella cannot be a tumpus because it state..."
+      },
+      {
+        "idx": 54,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is mean\" is true or false, we need to follow the given logical rules and deduce information about Rex's characteristics based on the provided statements.\n\n1. **Given Statements:**\n   - Dumpuses are dull.\n   - Dumpus..."
+      },
+      {
+        "idx": 55,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not liquid\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Zumpuses are bright.\n   - Every zumpus is a vumpus.\n   - Each vumpus is not kind..."
+      },
+      {
+        "idx": 56,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is not feisty\" is true or false, we need to follow the given logical rules and deduce information about Alex based on these rules.\n\n1. **Rompuses are luminous.**\n   - This means that any rompus has a luminous prope..."
+      },
+      {
+        "idx": 57,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not fruity\" is true or false, we need to follow the logical rules provided in the context and check each part of the statement against these rules.\n\n1. **Every tumpus is an impus**: This means every tumpus can be..."
+      },
+      {
+        "idx": 58,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not nervous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each rompus is mean.\n   - Every rompus is a wumpus.\n   - Each tumpus is nervous..."
+      },
+      {
+        "idx": 59,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 289,
+        "sample_reasoning": "To determine if the statement \"Sam is mean\" is true or false, we need to analyze the given information and apply logical reasoning step-by-step:\n\n1. **Given Information:**\n   - Wumpuses are large.\n   - Each wumpus is an impus.\n   - Each impus is not ..."
+      },
+      {
+        "idx": 60,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 351,
+        "sample_reasoning": "To determine if the statement \"Max is not nervous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are amenable.\n   - Rompuses are numpuses.\n   - Numpuses are brown.\n   ..."
+      },
+      {
+        "idx": 61,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every zumpus is nervous.\n   - Every zumpus is a dumpus.\n   - Every dumpus ..."
+      },
+      {
+        "idx": 62,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is brown\" is true or false, we need to follow the given logical rules and deduce information about Rex step-by-step:\n\n1. **Numpuses are not mean**: This means that Rex cannot be a numpus.\n2. **Each zumpus is not bro..."
+      },
+      {
+        "idx": 63,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not temperate\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are bright.\n   - Tumpuses are rompuses.\n   - Rompuses are not earthy..."
+      },
+      {
+        "idx": 64,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is angry\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus**: Is spicy.\n2. **Zumpus**: Is a type of rompus (so it's also spicy).\n3. **Cold**: Is associated with zu..."
+      },
+      {
+        "idx": 65,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not sweet\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impulses are not large**: This rule doesn't directly affect our conclusion about Sam's sweetness.\n2. **Each..."
+      },
+      {
+        "idx": 66,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is orange\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are not fruity**: This means that any impus cannot be described as fruity.\n2. **Every impus is not fru..."
+      },
+      {
+        "idx": 67,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every rompus is a wumpus**: This means that every rompus is also a wumpus.\n2. **Every wumpus is not blue**: Si..."
+      },
+      {
+        "idx": 68,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not cold\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are cold**: This means that every zumpus is cold.\n2. **Every zumpus is a wumpus**: This means that..."
+      },
+      {
+        "idx": 69,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 200,
+        "sample_reasoning": "To determine if the statement \"Rex is not transparent\" is true or false, let's break down the information given and apply logical reasoning step-by-step:\n\n1. **Jompus**: Earthy.\n2. **Yumpus**: Metallic.\n3. **Impus**: Nervous.\n4. **Rompus**: Small.\n5...."
+      },
+      {
+        "idx": 70,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 385,
+        "sample_reasoning": "To determine if the statement \"Sally is not dull\" is true or false, we need to follow the given logical rules and deduce Sally's characteristics based on her relationship to other creatures mentioned in the context.\n\n1. **Impuses are vumpuses**: This..."
+      },
+      {
+        "idx": 71,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 370,
+        "sample_reasoning": "To determine if the statement \"Sam is fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are not small.\n   - Tumpuses are yumpuses.\n   - Every yumpus is aggressive...."
+      },
+      {
+        "idx": 72,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not earthy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are bitter.\n   - Rompuses are yumpuses.\n   - Yumpuses are nervous.\n   ..."
+      },
+      {
+        "idx": 73,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, we need to follow the chain of logical implications provided in the context and see how it applies to Sam.\n\n1. **Sam is a vumpus**: This means that according to the given information..."
+      },
+      {
+        "idx": 74,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompuses are not opaque**: This means that any object classified as a rompus cannot be completely dark or bl..."
+      },
+      {
+        "idx": 75,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are not spicy**: This means that no zumpuses can be spicy.\n2. **Each yumpus is cold**: This means ev..."
+      },
+      {
+        "idx": 76,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 289,
+        "sample_reasoning": "To determine if the statement \"Sam is not opaque\" is true or false, we need to follow the chain of logical implications provided in the context and see how it applies to Sam.\n\n1. **Sam is a dumpus**: This means that according to the given information..."
+      },
+      {
+        "idx": 77,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus**: Each impus is not happy.\n2. **Vumpus**: Each impus is a vumpus.\n3. **Vumpus**: Each vumpus is brown.\n4..."
+      },
+      {
+        "idx": 78,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 378,
+        "sample_reasoning": "To determine if the statement \"Stella is blue\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus**: Each impus is earthy.\n   - This means Stella cannot be an impus because she is described as being an..."
+      },
+      {
+        "idx": 79,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 361,
+        "sample_reasoning": "To determine if the statement \"Sally is blue\" is true or false, we need to follow the given logical rules and deduce Sally's characteristics based on her classification as a numpus.\n\n1. **Numpus**: Large.\n2. **Impuses**: Impulses are not cold.\n3. **D..."
+      },
+      {
+        "idx": 80,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every wumpus is opaque**: This means that Sam cannot be a wumpus.\n2. **Wumpuses are dumpuses**: Since Sam is not..."
+      },
+      {
+        "idx": 81,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not happy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impulses are mean**: This means that Impulses (which include Yumpuses) are not happy.\n2. **Yumpuses are blu..."
+      },
+      {
+        "idx": 82,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus**: Tumpuses are transparent.\n2. **Impus**: Each impus is cold.\n3. **Impus**: Impuses are yumpuses...."
+      },
+      {
+        "idx": 83,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not opaque\" is true or false, we need to follow the given logical rules and deduce information about Rex's properties step-by-step.\n\n1. **Given Information:**\n   - Vumpuses are floral.\n   - Vumpuses are wumpuses...."
+      },
+      {
+        "idx": 84,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 319,
+        "sample_reasoning": "To determine if the statement \"Sam is not transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are not earthy.\n   - Every rompuse is a zumpus.\n   - Zumpuses are ..."
+      },
+      {
+        "idx": 85,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is not shy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Zumpuses are luminous.\n   - Each zumpus is a tumpus.\n   - Each tumpus is not spi..."
+      },
+      {
+        "idx": 86,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 347,
+        "sample_reasoning": "To determine if the statement \"Alex is not sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Numpuses are not fruity.\n   - Numpuses are dumpuses.\n   - Each dumpus is not oran..."
+      },
+      {
+        "idx": 87,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is liquid\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jompuses are spicy.**\n   - This tells us about the nature of jompuses but does not directly relate to wren.\n\n..."
+      },
+      {
+        "idx": 88,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not brown\" is true or false, let's break down the information given and apply logical reasoning step-by-step:\n\n1. **Tumpuses are sour.**\n   - This tells us about the nature of tumpuses but does not directly relat..."
+      },
+      {
+        "idx": 89,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 379,
+        "sample_reasoning": "To determine if the statement \"Max is metallic\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are dumpuses**: This means every zumpus is also a dumpuse.\n2. **Every dumpus is sweet**: Therefore,..."
+      },
+      {
+        "idx": 90,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Numpuses are spicy.**\n   - This tells us that Numpuses have a spicy quality but does not directly relate t..."
+      },
+      {
+        "idx": 91,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is metallic\" is true or false, we need to follow the given logical rules and deduce Sally's properties step-by-step:\n\n1. **Wumpuses are transparent**: This means Sally cannot be a wumpus.\n2. **Each wumpus is a dum..."
+      },
+      {
+        "idx": 92,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is not luminous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every yumpus is not kind**: This means Polly cannot be a yumpus.\n2. **Each yumpus is an impus**: Since..."
+      },
+      {
+        "idx": 93,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 379,
+        "sample_reasoning": "To determine if the statement \"Max is angry\" is true or false, we need to follow the given logical rules and deduce information about Max's characteristics based on those rules.\n\n1. **Given Information:**\n   - Dumpuses are wooden.\n   - Dumpuses are r..."
+      },
+      {
+        "idx": 94,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is feisty\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Impus**: Large.\n2. **Jompuses**: Impuses are jompuses (implies t..."
+      },
+      {
+        "idx": 95,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is bright\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Impus**: Each impus is sour.\n   - This means no impus can be bright..."
+      },
+      {
+        "idx": 96,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are large.\n   - Every tumpus is a rompus.\n   - Rompuses are not transpa..."
+      },
+      {
+        "idx": 97,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not angry\" is true or false, we need to follow the given logical rules and deduce information about Rex's state based on the provided statements.\n\n1. **Every wumpus is not angry.**\n   - This means that Rex cannot..."
+      },
+      {
+        "idx": 98,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not earthy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Dumpuses are cold.\n   - Dumpuses are rompuses.\n   - Each rompus is red.\n   - Rom..."
+      },
+      {
+        "idx": 99,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is blue\" is true or false, we need to follow the given logical rules and deduce information about Alex's characteristics based on the provided statements.\n\n1. **Vumpuses are sour.**\n   - This does not provide any d..."
+      }
+    ]
+  },
+  "KNN 7to1.5B LoRA": {
+    "model_name": "KNN 7to1.5B LoRA",
+    "accuracy": 21.0,
+    "se": 4.07308237088326,
+    "avg_tokens": 379.93,
+    "valid_format_rate": 32.0,
+    "details": [
+      {
+        "idx": 0,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 342,
+        "sample_reasoning": "To determine if the statement \"Max is sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are not shy.\n   - Jompuses are yumpuses.\n   - Each yumpus is aggressive.\n   -..."
+      },
+      {
+        "idx": 1,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is bright\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Tumpuses are rompuses**: This means every tumpus is also a rompus.\n2. **Every numpus is not bright**: This ..."
+      },
+      {
+        "idx": 2,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not metallic\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are floral.\n   - Vumpuses are tumpuses.\n   - Tumpuses are brown.\n   ..."
+      },
+      {
+        "idx": 3,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is not small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are zumpuses**: This means every impus is also a zumpus.\n2. **Zumpuses are not hot**: Since all zu..."
+      },
+      {
+        "idx": 4,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 359,
+        "sample_reasoning": "To determine if the statement \"Alex is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are mean.\n   - Rompuses are zumpuses.\n   - Each zumpus is not happy.\n   ..."
+      },
+      {
+        "idx": 5,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every tumpus is large**: This means that all tumpuses have the property of being large.\n2. **Tumpuses are wumpu..."
+      },
+      {
+        "idx": 6,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is happy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus is Orange**: This means every rompus is orange.\n2. **Rompus is Impus**: This means every rompus is al..."
+      },
+      {
+        "idx": 7,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 294,
+        "sample_reasoning": "To determine if the statement \"Alex is hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every jompus is sour.\n   - Each jompus is a rompus.\n   - Rompuses are not kind.\n   - E..."
+      },
+      {
+        "idx": 8,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is wooden\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every dumpus is not shy**.\n2. **Each dumpus is a tumpus**.\n3. **Rompuses are not wooden**.\n4. **Tumpuses are ..."
+      },
+      {
+        "idx": 9,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 269,
+        "sample_reasoning": "To determine if the statement \"Fae is sweet\" is true or false, we need to follow the logical rules provided in the context and see how they connect to the given information about each type of creature.\n\n1. **Impus**: Earthy, jompus.\n2. **Jompus**: Sm..."
+      },
+      {
+        "idx": 10,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each jompus is not amenable.\n   - Wumpuses are not fruity.\n   - Every jompus is ..."
+      },
+      {
+        "idx": 11,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not floral\" is true or false, we need to follow the logical rules provided and trace the chain of relationships between different types of creatures:\n\n1. **Tumpuses**: Each tumpus is orange.\n2. **Numpuses**: Tump..."
+      },
+      {
+        "idx": 12,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is dull\" is true or false, we need to follow each rule and deduction step-by-step:\n\n1. **Each yumpus is opaque**: This means Max cannot be a yumpus.\n2. **Each yumpus is a dumpus**: Since Max is not a yumpus (from st..."
+      },
+      {
+        "idx": 13,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 347,
+        "sample_reasoning": "To determine if the statement \"Fae is opaque\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are large.\n   - Every jompus is a zumpus.\n   - Each zumpus is sweet.\n   - Z..."
+      },
+      {
+        "idx": 14,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 393,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Jompuses are not small.\n   - Jompuses are tumpuses.\n   - Tumpuses are not kind.\n  ..."
+      },
+      {
+        "idx": 15,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus**: A yumpus is a rompus.\n2. **Rompuses are happy**.\n3. **Rompuses are impuses**.\n4. **Each impus is no..."
+      },
+      {
+        "idx": 16,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not opaque\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Numpus**: Each numpus is not nervous.\n   - This means that Fae ..."
+      },
+      {
+        "idx": 17,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 389,
+        "sample_reasoning": "To determine if the statement \"Sam is fruity\" is true or false, let's break down the information given and apply it step-by-step:\n\n1. **Given Information:**\n   - Each dumpus is bright.\n   - Each dumpus is a rompus.\n   - Every rompus is aggressive.\n  ..."
+      },
+      {
+        "idx": 18,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each numpus is not opaque.\n   - Each numpus is a wumpus.\n   - Each wumpus is feist..."
+      },
+      {
+        "idx": 19,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each yumpus is not small.\n   - Each yumpus is a dumpus.\n   - Each dumpus is opaque...."
+      },
+      {
+        "idx": 20,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is orange\" is true or false, let's break down the information given and follow the logical steps:\n\n1. **Vumpuses are earthy.**\n   - This tells us that vumpuses have an earthy nature.\n   \n2. **Vumpuses are dumpuses.*..."
+      },
+      {
+        "idx": 21,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 352,
+        "sample_reasoning": "To determine if the statement \"Wren is not feisty\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every wumpus is sour.\n   - Wumpuses are yumpuses.\n   - Each yumpus is aggressiv..."
+      },
+      {
+        "idx": 22,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is bitter\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every zumpus is not opaque**: This means that no zumpus can be opaque.\n2. **Each zumpus is a numpus**: There..."
+      },
+      {
+        "idx": 23,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is amenable\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Numpus is Floral**: This means every numpus has flowers.\n2. **Jompuses are Jumps**: This implies that jompu..."
+      },
+      {
+        "idx": 24,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 312,
+        "sample_reasoning": "To determine if the statement \"Sam is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Zumpuses are dull.\n   - Every vumpus is not transparent.\n   - Vumpuses are numpuse..."
+      },
+      {
+        "idx": 25,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 390,
+        "sample_reasoning": "To determine if the statement \"Rex is large\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Each numpus is fruity.\n   - Every numpus is a tumpus.\n   - Every tumpus is dull.\n   -..."
+      },
+      {
+        "idx": 26,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 380,
+        "sample_reasoning": "To determine if the statement \"Fae is not aggressive\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Wumpuses are not sour.\n   - Each wumpus is a rompus.\n   - Rompuses are dull...."
+      },
+      {
+        "idx": 27,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is small\" is true or false, we need to follow the given logical rules and deduce information about Alex based on the provided statements.\n\n1. **Impus**: Each impus is small.\n2. **Zumpus**: Each zumpus is not fruity..."
+      },
+      {
+        "idx": 28,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is bright\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jompus**: Every jompus is liquid.\n2. **Rompuses**: Every rompuses is mean.\n3. **Zumpuses**: Every zumpuses is ..."
+      },
+      {
+        "idx": 29,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is temperate\" is true or false, we need to follow the logical rules provided in the context and check each condition step-by-step:\n\n1. **Impuses are bright**: This means Impuses have brightness.\n2. **Every impus is ..."
+      },
+      {
+        "idx": 30,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not angry\" is true or false, let's break down the information given and apply logical reasoning step-by-step:\n\n1. **Jumps**: \n   - Each jompus is not small.\n   - Each wumpus is angry.\n   - Each jompus is a zumpu..."
+      },
+      {
+        "idx": 31,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is not wooden\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Numpuses are earthy.\n   - Numpuses are vumpuses.\n   - Vumpuses are transparent..."
+      },
+      {
+        "idx": 32,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 265,
+        "sample_reasoning": "To determine if the statement \"Stella is not bright\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Yumpuses are not temperate**: This means Stella cannot be a yumpus.\n2. **Yumpuses are rompuses**: Since..."
+      },
+      {
+        "idx": 33,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is shy\" is true or false, we need to follow the logical rules provided in the context and see how they apply to Sam.\n\n1. **Impuses are bright**: This rule doesn't directly relate to Sam.\n2. **Every impus is a rompus..."
+      },
+      {
+        "idx": 34,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is orange\" is true or false, we need to follow each logical rule provided and see how they connect to the statement in question.\n\n1. **Wumpuses are impuses**: This means every wumpus is an impulse.\n2. **Impulses are..."
+      },
+      {
+        "idx": 35,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 341,
+        "sample_reasoning": "To determine if the statement \"Sally is shy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every jompus is bright.**\n   - This means Sally could be either bright or not bright.\n   \n2. **Every jompus is ..."
+      },
+      {
+        "idx": 36,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is sweet\" is true or false, we need to follow the given logical rules and deduce information about Wren's nature based on the provided statements.\n\n1. **Impuses are not fruity.**\n   - This means that Wren cannot be..."
+      },
+      {
+        "idx": 37,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 322,
+        "sample_reasoning": "To determine if the statement \"Polly is not happy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are wooden.\n   - Every vumpus is a jompus.\n   - Jompuses are earthy.\n ..."
+      },
+      {
+        "idx": 38,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is not hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus is amenable**: This means that each rompus has some property.\n2. **Rompus is an impus**: This impli..."
+      },
+      {
+        "idx": 39,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is amenable\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Yumpuses are small.\n   - Yumpuses are vumpuses.\n   - Vumpuses are red.\n   - Vump..."
+      },
+      {
+        "idx": 40,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 285,
+        "sample_reasoning": "To determine if the statement \"Max is not hot\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are transparent.\n   - Every rompus is a yumpus.\n   - Yumpuses are earthy.\n..."
+      },
+      {
+        "idx": 41,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 315,
+        "sample_reasoning": "To determine if the statement \"Wren is not orange\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are dull.\n   - Tumpuses are jompuses.\n   - Jompuses are not sour.\n   -..."
+      },
+      {
+        "idx": 42,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is angry\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus**: Each impus is luminous.\n   - This means Polly must be luminous because she is an impus.\n\n2. **Zumpus..."
+      },
+      {
+        "idx": 43,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Yumpuses are floral.\n   - Each yumpus is a vumpus.\n   - Vumpuses are not temperat..."
+      },
+      {
+        "idx": 44,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is wooden\" is true or false, we need to follow the given logical rules and deduce information about Fae based on these rules.\n\n1. **Fae is a dumpus**: This means that Fae fits into the category of being a dumpus.\n2...."
+      },
+      {
+        "idx": 45,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is not metallic\" is true or false, we need to follow the chain of logical implications provided in the context and see how it applies to Sally.\n\n1. **Rompus is nervous**: This means that each rompus is nervous.\n2...."
+      },
+      {
+        "idx": 46,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not cold\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus are tumpuses**: This means every impus is also a tumpus.\n2. **Every tumpus is not amenable**: This mea..."
+      },
+      {
+        "idx": 47,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are fruity.\n   - Yumpuses are nervous.\n   - Yumpuses are numpuses.\n   -..."
+      },
+      {
+        "idx": 48,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 355,
+        "sample_reasoning": "To determine if the statement \"Wren is liquid\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Wumpuses are dull.\n   - Wumpuses are rompuses.\n   - Every rompus is not cold.\n   - ..."
+      },
+      {
+        "idx": 49,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not blue\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus**: Each rompus is happy.\n2. **Rompuses are dumpuses**: Therefore, each rompus is also a dumpuse.\n3. *..."
+      },
+      {
+        "idx": 50,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not cold\" is true or false, we need to follow the logical rules provided and analyze each part of the statement step-by-step:\n\n1. **Impus**: Every impus is sweet.\n   - This means Max must be sweet because he is a..."
+      },
+      {
+        "idx": 51,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 352,
+        "sample_reasoning": "To determine if the statement \"Polly is blue\" is true or false, we need to follow the given logical rules and deduce Polly's color based on the information provided.\n\n1. **Every jompus is spicy.**\n   - This means Polly could be either spicy or not sp..."
+      },
+      {
+        "idx": 52,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 225,
+        "sample_reasoning": "To determine if the statement \"Fae is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are not nervous**: This means that Fae cannot be an impus because it would contradict this rule.\n2. **Ev..."
+      },
+      {
+        "idx": 53,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 344,
+        "sample_reasoning": "To determine if the statement \"Stella is not red\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every tumpus is not transparent.\n   - Tumpuses are jompuses.\n   - Each jompus is..."
+      },
+      {
+        "idx": 54,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is mean\" is true or false, we need to follow the given logical rules and deduce information about Rex's characteristics based on the provided statements.\n\n1. **Given Statements:**\n   - Dumpuses are dull.\n   - Dumpus..."
+      },
+      {
+        "idx": 55,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not liquid\" is true or false, let's break down the information given and analyze it step-by-step:\n\n1. **Zumpuses are bright.**\n   - This tells us about Zumpuses but does not directly relate to Sam.\n\n2. **Every zu..."
+      },
+      {
+        "idx": 56,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is not feisty\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompuses are luminous.**\n   - This means any rompus has a luminous property.\n   \n2. **Yumpuses are feisty..."
+      },
+      {
+        "idx": 57,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is not fruity\" is true or false, we need to follow the logical rules provided in the context and check each part of the statement against these rules.\n\n1. **Every tumpus is an impus**: This means every tumpus is als..."
+      },
+      {
+        "idx": 58,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not nervous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus**: Each rompus is mean.\n2. **Wumpus**: Every rompus is a wumpus.\n3. **Tumpus**: Each tumpus is ner..."
+      },
+      {
+        "idx": 59,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is mean\" is true or false, we need to follow the given logical rules and deduce information about Sam based on these rules.\n\n1. **Impus is an impus**: This rule states that each impus is also an impus.\n2. **Impus is..."
+      },
+      {
+        "idx": 60,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not nervous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are amenable.\n   - Rompuses are numpuses.\n   - Numpuses are brown.\n   ..."
+      },
+      {
+        "idx": 61,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Every zumpus is nervous.\n   - Every zumpus is a dumpus.\n   - Every dumpus ..."
+      },
+      {
+        "idx": 62,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is brown\" is true or false, we need to follow the given logical rules and deduce information about Rex step-by-step:\n\n1. **Numpuses are not mean**: This means that Rex cannot be a numpus.\n2. **Each zumpus is not bro..."
+      },
+      {
+        "idx": 63,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not temperate\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are bright.\n   - Tumpuses are rompuses.\n   - Rompuses are not earthy..."
+      },
+      {
+        "idx": 64,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is angry\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus is spicy**: This means that every rompus has some level of spiciness.\n2. **Rompuses are zumpuses**: This..."
+      },
+      {
+        "idx": 65,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not sweet\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses**: Impuses are not large.\n2. **Yumpuses**: Each impus is a yumpus. (This implies that all impuses a..."
+      },
+      {
+        "idx": 66,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is orange\" is true or false, let's break down the given information and apply each rule step-by-step:\n\n1. **Impuses are not fruity**: This means that Sam cannot be an impus because it would contradict this rule.\n2. ..."
+      },
+      {
+        "idx": 67,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every rompus is a wumpus**: This means all rompuses are also wumpuses.\n2. **Every wumpus is not blue**: Since ..."
+      },
+      {
+        "idx": 68,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not cold\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are cold**: This means that every zumpus is cold.\n2. **Every zumpus is a wumpus**: This means that..."
+      },
+      {
+        "idx": 69,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 362,
+        "sample_reasoning": "To determine if the statement \"Rex is not transparent\" is true or false, let's break down the information given and apply logical reasoning step-by-step:\n\n1. **Jompus**: Earthy.\n2. **Yumpuses**: Metallic.\n3. **Impuses**: Nervous.\n4. **Rompuses**: Sma..."
+      },
+      {
+        "idx": 70,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompus is Cold**: This means every rompus has a temperature of 0 degrees.\n2. **Impus is Large**: This mean..."
+      },
+      {
+        "idx": 71,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 389,
+        "sample_reasoning": "To determine if the statement \"Sam is fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are not small.\n   - Tumpuses are yumpuses.\n   - Every yumpus is aggressive...."
+      },
+      {
+        "idx": 72,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 353,
+        "sample_reasoning": "To determine if the statement \"Wren is not earthy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are bitter.\n   - Rompuses are yumpuses.\n   - Yumpuses are nervous.\n   ..."
+      },
+      {
+        "idx": 73,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not fruity\" is true or false, let's break down the information given and apply the logical rules step-by-step:\n\n1. **Vumpuses are sour.**\n   - This tells us that Sam (who is a vumpus) is sour.\n   \n2. **Each vumpu..."
+      },
+      {
+        "idx": 74,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is fruity\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Rompuses are not opaque**.\n2. **Rompuses are vumpuses**.\n3. **Each vumpus is red**.\n4. **Each vumpus is a nu..."
+      },
+      {
+        "idx": 75,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is spicy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are not spicy**: This means that no zumpus can be spicy.\n2. **Each yumpus is cold**: This means ever..."
+      },
+      {
+        "idx": 76,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not opaque\" is true or false, we need to follow the chain of logical implications provided in the context and see how it applies to Sam.\n\n1. **Given Information:**\n   - Jompuses are dull.\n   - Each jompus is a ro..."
+      },
+      {
+        "idx": 77,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus**: Each impus is not happy.\n2. **Vumpus**: Each vumpus is brown.\n3. **Dumpuses**: Each vumpus is a dumpus..."
+      },
+      {
+        "idx": 78,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 244,
+        "sample_reasoning": "To determine if the statement \"Stella is blue\" is true or false, let's break down the information given and apply the logical rules step-by-step:\n\n1. **Impus**: Earthy.\n2. **Rompuses**: Kind.\n3. **Wumpuses**: Temperate.\n4. **Dumpuses**: Wooden.\n5. **..."
+      },
+      {
+        "idx": 79,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is blue\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Numpuses are large**: This means Sally could be a numpus.\n2. **Numpuses are impuses**: This means Sally could ..."
+      },
+      {
+        "idx": 80,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Jumps are not dull**: This means that every jump (including Jompuses) is not dull.\n2. **Every wumpus is opaque**..."
+      },
+      {
+        "idx": 81,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not happy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impuses are mean**: This means Impuses have negative emotions.\n2. **Each impus is a yumpus**: Since Impuses..."
+      },
+      {
+        "idx": 82,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Impus are cold**: This means that every impus has a temperature of 0 degrees Celsius.\n2. **Impuses are y..."
+      },
+      {
+        "idx": 83,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Rex is not opaque\" is true or false, we need to follow the given logical rules and deduce Rex's properties step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are floral.\n   - Vumpuses are wumpuses.\n   - Each wumpus ..."
+      },
+      {
+        "idx": 84,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 330,
+        "sample_reasoning": "To determine if the statement \"Sam is not transparent\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Rompuses are not earthy.\n   - Every rompus is a zumpus.\n   - Zumpuses are n..."
+      },
+      {
+        "idx": 85,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is not shy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Zumpuses are luminous.\n   - Each zumpus is a tumpus.\n   - Each tumpus is not spi..."
+      },
+      {
+        "idx": 86,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 278,
+        "sample_reasoning": "To determine if the statement \"Alex is not sour\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Numpuses are not fruity.\n   - Numpuses are dumpuses.\n   - Each dumpus is not oran..."
+      },
+      {
+        "idx": 87,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is liquid\" is true or false, let's break down the given information and apply logical reasoning step-by-step:\n\n1. **Jompuses are spicy.**\n   - This doesn't directly relate to Wren being liquid.\n\n2. **Jompuses are y..."
+      },
+      {
+        "idx": 88,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is not brown\" is true or false, let's break down the information given and apply logical reasoning step-by-step:\n\n1. **Tumpuses are sour**.\n2. **Each tumpus is a vumpus**.\n3. **Vumpuses are bright**.\n4. **Each vumpu..."
+      },
+      {
+        "idx": 89,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is metallic\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Zumpuses are dumpuses**: This means every zumpus is also a dumpuse.\n2. **Every dumpus is a vumpus**: This me..."
+      },
+      {
+        "idx": 90,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Wren is not small\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Numpuses are spicy.**\n   - This tells us that Numpuses have a spicy nature but does not provide informatio..."
+      },
+      {
+        "idx": 91,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sally is metallic\" is true or false, we need to follow the given logical rules and deduce Sally's properties step-by-step:\n\n1. **Wumpuses are transparent**: This means Sally cannot be a wumpus.\n2. **Each wumpus is a dum..."
+      },
+      {
+        "idx": 92,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Polly is not luminous\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Every yumpus is not kind**: This means Polly cannot be a yumpus.\n2. **Each yumpus is an impus**: Since..."
+      },
+      {
+        "idx": 93,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Max is angry\" is true or false, we need to follow the given logical rules and deduce information about Max's characteristics based on the provided statements.\n\n1. **Each wumpus is orange**.\n2. **Jompuses are orange**.\n3..."
+      },
+      {
+        "idx": 94,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Stella is feisty\" is true or false, we need to follow the logical rules provided in the context and analyze each part of the statement step-by-step:\n\n1. **Impus**: Large.\n2. **Jompuses**: Impuses are jompuses (implies t..."
+      },
+      {
+        "idx": 95,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Fae is bright\" is true or false, we need to follow the logical rules provided in the context and see how they connect to the statement about Fae being bright.\n\n1. **Impus**: Each impus is sour.\n2. **Vumpus**: Each vumpu..."
+      },
+      {
+        "idx": 96,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 354,
+        "sample_reasoning": "To determine if the statement \"Polly is not dull\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Tumpuses are large.\n   - Every tumpus is a rompus.\n   - Rompuses are not transpa..."
+      },
+      {
+        "idx": 97,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 252,
+        "sample_reasoning": "To determine if the statement \"Rex is not angry\" is true or false, we need to follow the given logical rules and deduce Rex's state based on these rules.\n\n1. **Zumpuses are tumpuses**: This means every zumpus is also a tumpus.\n2. **Each tumpus is hap..."
+      },
+      {
+        "idx": 98,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Sam is not earthy\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Dumpuses are cold.\n   - Dumpuses are rompuses.\n   - Each rompus is red.\n   - Rom..."
+      },
+      {
+        "idx": 99,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "To determine if the statement \"Alex is blue\" is true or false, we need to follow the given logical rules and reasoning step-by-step:\n\n1. **Given Information:**\n   - Vumpuses are sour.\n   - Vumpuses are tumpuses.\n   - Tumpuses are bright.\n   - Each tu..."
+      }
+    ]
+  },
+  "DeepSeek-R1-Distill-1.5B": {
+    "model_name": "DeepSeek-R1-Distill-1.5B",
+    "accuracy": 43.0,
+    "se": 4.950757517794625,
+    "avg_tokens": 375.98,
+    "valid_format_rate": 60.0,
+    "details": [
+      {
+        "idx": 0,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is sour\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Max is a yumpus. From the context, each yumpus is aggressive, a dumpus, not wooden, wumpuses are r..."
+      },
+      {
+        "idx": 1,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is bright\" is true or false. Let me break this down step by step.\n\nFirst, I know that Stella is a yumpus from the given context. Let me look up the definitions to make sure I'm on the right track..."
+      },
+      {
+        "idx": 2,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 262,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not metallic\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a tumpus. From the context, tumpuses are also called vumpuses. The context says that tumpuses are..."
+      },
+      {
+        "idx": 3,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is not small\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Alex is a zumpus. From the context, I know that zumpuses are not hot. But I'm ..."
+      },
+      {
+        "idx": 4,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is not dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Alex is a numpus. From the context, I know that each numpus is a tumpus, and ea..."
+      },
+      {
+        "idx": 5,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is dull\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a tumpus. From the context, every tumpus is a wumpus. So Wren is a wumpus. Now, each wumpus is not opaque..."
+      },
+      {
+        "idx": 6,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 347,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is happy\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that every wumpus is a zumpus. And every zumpus is earthy. So, wumpuses are definitely zumpuses, wh..."
+      },
+      {
+        "idx": 7,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is hot\" is true or false. Let me break this down step by step.\n\nFirst, I know that Alex is a zumpus. From the context, every zumpus is feisty. Feisty zumpuses are tumpuses. Tumpuses are small. Tump..."
+      },
+      {
+        "idx": 8,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is wooden\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a tumpus. From the context provided, each dumpus is not shy, and each dumpus is a tumpus. So, Wren bein..."
+      },
+      {
+        "idx": 9,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 383,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is sweet\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Fae is a wumpus. From the context, I know that wumpuses are wooden. But I'm not sur..."
+      },
+      {
+        "idx": 10,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not fruity\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a vumpus. From the context, every vumpus is a yumpus, and every yumpus is orange. So, Sam is definite..."
+      },
+      {
+        "idx": 11,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is not floral\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Fae is a dumpus. From the context, dumpuses are cold. So, Fae is cold. But the statement is ..."
+      },
+      {
+        "idx": 12,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, Max is a zumpus. From the context, I know that dumpuses are floral, and zumpuses are a type of dumpus. So, Max..."
+      },
+      {
+        "idx": 13,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is opaque\" is true or false. Let me break this down step by step.\n\nFirst, I know that Fae is a jompus. From the context, every jompus is a zumpus. So, Fae is a zumpus. Now, each zumpus is sweet, but..."
+      },
+      {
+        "idx": 14,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 362,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not dull\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a numpus. From the context, each numpus is a dumpus. So, Sam is a dumpus. Now, dumpuses are nervous, so..."
+      },
+      {
+        "idx": 15,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is small\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sally is a rompus. From the context, I know that each yumpus is a rompus, and each rompus is happy. So Sall..."
+      },
+      {
+        "idx": 16,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is not opaque\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Fae is a numpus. From the context, each numpus is not nervous, but that's probably a red her..."
+      },
+      {
+        "idx": 17,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 272,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is fruity\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a yumpus from the context provided. The context mentions that every yumpus is brown, but that doesn't dir..."
+      },
+      {
+        "idx": 18,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not dull\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a dumpus. From the context, dumpus is a type of yumpus, which is blue. Yumpuses are also zumpuses, and ..."
+      },
+      {
+        "idx": 19,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is sour\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Stella is a dumpus. From the context, each dumpus is opaque, so that's a good starting point. N..."
+      },
+      {
+        "idx": 20,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is orange\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Max is a dumpus. From the context, dumpuses are not wooden and are numpuses. Wait,..."
+      },
+      {
+        "idx": 21,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not feisty\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a tumpus. From the context, each tumpus is transparent, but I'm not sure if that's relevant here. T..."
+      },
+      {
+        "idx": 22,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 259,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is bitter\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sally is a dumpus. From the context, dumpuses are amenable. Aamen means they're easy to handle or manage, ..."
+      },
+      {
+        "idx": 23,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is amenable\" is true or false. Let me start by breaking down the information given.\n\nFirst, Alex is an impus. From the context, every impus is a wumpus. So, if Alex is an impus, he must be a wumpus..."
+      },
+      {
+        "idx": 24,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Sam is a vumpus. From the context, I know that every vumpus is not transparent. ..."
+      },
+      {
+        "idx": 25,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 398,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is large\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that every jompus is an impus. And every impus is not shy. Impuses are wumpuses, and wumpuses are swee..."
+      },
+      {
+        "idx": 26,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is not aggressive\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context defines several types of creatures. Wumpuses are rompus, which are dull. Rompus are romp..."
+      },
+      {
+        "idx": 27,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is small\" is true or false based on the given context. Let me start by breaking down the information provided.\n\nFirst, the context mentions several types of beings: impus, zumpuses, numpuses, rompu..."
+      },
+      {
+        "idx": 28,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is bright\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that every jompus is liquid. Then it says Jompuses are rompuses. So,rompuses are a type..."
+      },
+      {
+        "idx": 29,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 362,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is temperate\" is true or false. Let me break this down step by step.\n\nFirst, I know that Fae is a vumpus from the given context. Let me recall the chain of relationships provided:\n\n1. Every jompus i..."
+      },
+      {
+        "idx": 30,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not angry\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a jompus. From the context, each jompus is not small, but that's probably a general characteristic a..."
+      },
+      {
+        "idx": 31,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 246,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is not wooden\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sally is a numpus. From the context, I know that numpuses are earthy and vumpuses. Vumpuses are transp..."
+      },
+      {
+        "idx": 32,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is not bright\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Stella is a yumpus. From the context, every yumpus is not temperate. So, that means Stell..."
+      },
+      {
+        "idx": 33,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 202,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is shy\" is true or false. Let me break this down step by step.\n\nFirst, I'll start with the given information. The context tells me that Sam is a yumpus. From the context, I know that each yumpus is ..."
+      },
+      {
+        "idx": 34,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 356,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is orange\" is true or false. Let me break this down step by step.\n\nFirst, I know that Fae is a jompus. From the context, every jompus is a floral. So, Fae is floral. Now, floral doesn't necessarily ..."
+      },
+      {
+        "idx": 35,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is shy\" is true or false based on the given context. Let me break this down step by step.\n\nFirst, I'll list out all the information provided to make it clearer. The context includes a series of st..."
+      },
+      {
+        "idx": 36,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is sweet\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Wren is a zumpus. From the context, each wumpus is not temperate, and wumpuses are dumpuses. dum..."
+      },
+      {
+        "idx": 37,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is not happy\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is a vumpus. From the context, every vumpus is a jompus, so Polly is a jompus. Then, jompuses are..."
+      },
+      {
+        "idx": 38,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 325,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is not hot\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that each rompus is amenable and each rompus is an impus. Impuses are happy, so that means every ..."
+      },
+      {
+        "idx": 39,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is amenable\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Yumpuses are small and vumpuses. Vumpuses are red, and they're also numpuses. ..."
+      },
+      {
+        "idx": 40,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not hot\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Max is a wumpus. From the context, I know that every wumpus is not brown. So, Max..."
+      },
+      {
+        "idx": 41,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 353,
+        "sample_reasoning": "Okay, so I need to figure out whether the statement \"Wren is not orange\" is true or false. Let me break this down step by step.\n\nFirst, I'll start with the given information. The statement mentions \"Wren is not orange.\" I know that \"Wren\" is a specif..."
+      },
+      {
+        "idx": 42,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is angry\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is an impus. From the context, every impus is luminous, but that doesn't directly affect whether Poll..."
+      },
+      {
+        "idx": 43,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is not spicy\" is true or false. Let me break this down step by step.\n\nFirst, I know that the context provided includes various terms like yumpuses, vumpuses, jompuses, etc. The key terms here are \"R..."
+      },
+      {
+        "idx": 44,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is wooden\" is true or false. Let me break this down step by step.\n\nFirst, I know that the context provided includes various creatures and their characteristics. The key terms here are dumpus, numpus..."
+      },
+      {
+        "idx": 45,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is not metallic\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sally is a numpus. From the context, each numpus is not cold. So Sally isn't cold. But that doesn't ..."
+      },
+      {
+        "idx": 46,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not cold\" is true or false. Let me start by breaking down the information given.\n\nFirst, Max is an impus. From the context, every impus is an impus, so that's straightforward. Now, I need to see ..."
+      },
+      {
+        "idx": 47,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not fruity\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Tumpuses are fruity and Yumpuses are nervous. Then it says Yumpuses are numpus..."
+      },
+      {
+        "idx": 48,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is liquid\" is true or false. Let me start by breaking down the information given.\n\nFirst, Wren is a dumpus. From the context, dumpuses are feisty, but that doesn't directly tell me if they're liqui..."
+      },
+      {
+        "idx": 49,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 284,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is not blue\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Fae is an impus. From the context, each impus is a yumpus, and each yumpus is bright. So, Fae ..."
+      },
+      {
+        "idx": 50,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not cold\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that every zumpus is small, and each zumpus is an impus. Every impus is sweet. Impuse..."
+      },
+      {
+        "idx": 51,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is blue\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is a jompus. From the context, every jompus is spicy. But that doesn't directly tell me about Polly's ..."
+      },
+      {
+        "idx": 52,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, Fae is an impus. From the context, I remember that every impus is a yumpus. So, Fae being an impus makes her a..."
+      },
+      {
+        "idx": 53,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 359,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is not red\" is true or false. Let me break this down step by step.\n\nFirst, I'll start with the information given. The statement mentions \"Stella is a vumpus.\" From the context, I know that vumpus..."
+      },
+      {
+        "idx": 54,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 361,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is mean\" is true or false. Let me break this down step by step.\n\nFirst, I know that the context provided includes a bunch of terms related to monsters and their characteristics. The key terms here a..."
+      },
+      {
+        "idx": 55,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not liquid\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Sam is a numpus. From the context, I know that each numpus is a dumpus. So, Sa..."
+      },
+      {
+        "idx": 56,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 279,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is not feisty\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Alex is a rompus. From the context, I see that rompus are impulsive. So, Alex is impulsive...."
+      },
+      {
+        "idx": 57,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is not fruity\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Fae is a zumpus. From the context, every zumpus is happy, but that doesn't directly relate t..."
+      },
+      {
+        "idx": 58,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not nervous\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that each rompus is a mean, and every rompus is a wumpus. So,rompus = mean, wumpus..."
+      },
+      {
+        "idx": 59,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is mean\" is true or false based on the given context. Let me break it down step by step.\n\nFirst, the context tells me that Sam is a wumpus. From the context, each wumpus is an impus, and each impus ..."
+      },
+      {
+        "idx": 60,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not nervous\" is true or false. Let me start by breaking down the information given and see how it connects.\n\nFirst, the context mentions several types of beings: rompus, numpuses, zumpuses, yumpu..."
+      },
+      {
+        "idx": 61,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 299,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not transparent\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a dumpus. From the context, every dumpus is large, so Wren is definitely large. But that doesn..."
+      },
+      {
+        "idx": 62,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is brown\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that every wumpus is an impus. Then, every impus is liquid. But wait, the statement is about Rex being..."
+      },
+      {
+        "idx": 63,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not temperate\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sam is a tumpus. From the context, I know that tumpuses are bright and rompuses. Rompuses aren't eart..."
+      },
+      {
+        "idx": 64,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 386,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is angry\" is true or false based on the given context. Let me start by breaking down the information provided.\n\nFirst, I see that each rompus is spicy, and rompus are zumpuses. So, zumpuses are spic..."
+      },
+      {
+        "idx": 65,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 310,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not sweet\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sam is a wumpus. From the context, I know that each wumpus is nervous, and wumpuses are vumpuses. So, Sam..."
+      },
+      {
+        "idx": 66,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is orange\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sam is an impus. From the context, every impus is not fruity. So, if an impus isn't fruity, then Sam isn't f..."
+      },
+      {
+        "idx": 67,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is spicy\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a rompus. From the context, every rompus is a wumpus. So, Wren is a wumpus. Now, every wumpus is not blu..."
+      },
+      {
+        "idx": 68,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not cold\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a vumpus. From the context, vumpuses are not transparent. So, Wren is not transparent. But that doesn..."
+      },
+      {
+        "idx": 69,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 372,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is not transparent\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that each jompus is earthy. Jompuses are yumpuses, so that means yumpuses are earthy. Yumpus..."
+      },
+      {
+        "idx": 70,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is not dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sally is an impus. From the context, every impus is large. So Sally is large. Also, every impus is large..."
+      },
+      {
+        "idx": 71,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is fruity\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a wumpus. From the context provided, every wumpus is a jompus. So, Sam is a jompus. Now, the next part is..."
+      },
+      {
+        "idx": 72,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 356,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not earthy\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Wren is a rompus. From the context, I remember that rompus is a type of yumpus. Yumpuses ar..."
+      },
+      {
+        "idx": 73,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not fruity\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sam is a vumpus. From the context, every vumpus is a zumpus, and every zumpus is angry. So, Sam is angry. Bu..."
+      },
+      {
+        "idx": 74,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is fruity\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is a rompus. From the context, every rompus is a jompus. So Polly is a jompus. Now, the next part sa..."
+      },
+      {
+        "idx": 75,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 292,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is spicy\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sally is a yumpus. From the context provided, each yumpus is cold. So, if Sally is a yumpus, she must be cold. ..."
+      },
+      {
+        "idx": 76,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 385,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not opaque\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Sam is a dumpus. From the context, I know that dumpuses are wumpuses. So, Sam ..."
+      },
+      {
+        "idx": 77,
+        "ground_truth": true,
+        "predicted": false,
+        "is_correct": false,
+        "gen_length": 383,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is small\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Fae is a vumpus. From the context, each vumpus is brown. But that doesn't directly tell me about ..."
+      },
+      {
+        "idx": 78,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is blue\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that each impus is earthy. Impuses are rompuses, which are kind. Rompuses are wumpuses. So, wumpuses..."
+      },
+      {
+        "idx": 79,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is blue\" is true or false based on the given context. Let me break this down step by step.\n\nFirst, I'll look at the information provided. It seems like there's a chain of definitions starting from..."
+      },
+      {
+        "idx": 80,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is dull\" is true or false based on the given context. Let me start by breaking down the information provided.\n\nFirst, the context gives me a series of definitions and relationships between different..."
+      },
+      {
+        "idx": 81,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is not happy\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that \"Rex is a yumpus.\" From the context, yumpuses are blue, but that doesn't directly tell me abo..."
+      },
+      {
+        "idx": 82,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is transparent\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is an impus. From the context, each impus is cold. So, Wren is cold. Now, the question is about wheth..."
+      },
+      {
+        "idx": 83,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is not opaque\" is true or false. Let me start by breaking down the information given step by step.\n\nFirst, I know that Rex is a zumpus. From the context, zumpuses are not spicy, but that's probably ..."
+      },
+      {
+        "idx": 84,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 343,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not transparent\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Sam is a vumpus. From the context, I know that vumpuses are tumpuses. Tum..."
+      },
+      {
+        "idx": 85,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is not shy\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Stella is an impus. From the context, each impus is small. So, that means Stella is small. B..."
+      },
+      {
+        "idx": 86,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 304,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is not sour\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Alex is a yumpus. From the context, I know that yumpuses are a type of dumpus. ..."
+      },
+      {
+        "idx": 87,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is liquid\" is true or false. Let me break this down step by step.\n\nFirst, I know that Wren is a vumpus. From the context, every vumpus is blue, but that doesn't directly help with whether it's liqu..."
+      },
+      {
+        "idx": 88,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 251,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is not brown\" is true or false. Let me start by breaking down the information given.\n\nFirst, the context mentions that Max is a tumpus. From the context, each tumpus is a vumpus, and each vumpus is ..."
+      },
+      {
+        "idx": 89,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is metallic\" is true or false. Let me break this down step by step.\n\nFirst, I know that Max is a vumpus from the given context. Let me recall the chain of relationships provided:\n\n1. Each zumpus is ..."
+      },
+      {
+        "idx": 90,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Wren is not small\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Wren is a tumpus. From the context, each tumpus is a vumpus. So, Wren is a vumpus. Now, the ..."
+      },
+      {
+        "idx": 91,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 286,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sally is metallic\" is true or false. Let me break this down step by step.\n\nFirst, I know that Sally is a wumpus. From the context, each wumpus is a dumpus. Dumpuses are shy, but that doesn't directly he..."
+      },
+      {
+        "idx": 92,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is not luminous\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is a numpus. From the context, every numpus is a rompus, and every rompus is a spicy. So, Poll..."
+      },
+      {
+        "idx": 93,
+        "ground_truth": true,
+        "predicted": true,
+        "is_correct": true,
+        "gen_length": 351,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Max is angry\" is true or false based on the given context. Let me start by breaking down the information provided.\n\nFirst, the context mentions that dumpuses are wooden and rompuses. Rompuses are small,..."
+      },
+      {
+        "idx": 94,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Stella is feisty\" is true or false. Let me start by breaking down the information given.\n\nFirst, I know that Stella is a vumpus. From the context, vumpuses are bitter, so that's a fact. Now, looking fur..."
+      },
+      {
+        "idx": 95,
+        "ground_truth": false,
+        "predicted": true,
+        "is_correct": false,
+        "gen_length": 270,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Fae is bright\" is true or false. Let me break this down step by step.\n\nFirst, I know that Fae is a zumpus. From the context, each zumpus is bright. So that means Fae being a zumpus makes her bright. But..."
+      },
+      {
+        "idx": 96,
+        "ground_truth": false,
+        "predicted": false,
+        "is_correct": true,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Polly is not dull\" is true or false. Let me start by breaking down the information given.\n\nFirst, Polly is a rompus. From the context, I know that every rompus is a zumpus. So Polly is a zumpus. Now, ea..."
+      },
+      {
+        "idx": 97,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Rex is not angry\" is true or false. Let me break this down step by step.\n\nFirst, I know that the context provided includes various creatures and their relationships. Let me list out the key points to ma..."
+      },
+      {
+        "idx": 98,
+        "ground_truth": false,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Sam is not earthy\" is true or false. Let me start by breaking down the information given.\n\nFirst, Sam is a numpus. From the context, I know that each numpus is a yumpus, and every yumpus is a tumpus. So..."
+      },
+      {
+        "idx": 99,
+        "ground_truth": true,
+        "predicted": null,
+        "is_correct": false,
+        "gen_length": 400,
+        "sample_reasoning": "Okay, so I need to figure out if the statement \"Alex is blue\" is true or false based on the given context. Let me break this down step by step.\n\nFirst, I'll list out all the relationships provided:\n\n1. Vumpuses are sour.\n2. Vumpuses are tumpuses.\n3. ..."
+      }
+    ]
+  }
+}

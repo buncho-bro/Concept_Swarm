@@ -1,0 +1,446 @@
+{
+  "timestamp": "2026-10-29 14:37:53",
+  "total_generated": 1200,
+  "fallacy_distribution": {
+    "Stem-Tautology (品詞変化の堂々巡り)": 816,
+    "One-way Asymmetry (片思いの飛躍・逆方向崩壊)": 31,
+    "Forced Repulsion (相反する前提の無理な合成)": 597,
+    "Sound / Mild": 202
+  },
+  "top_misconceptions": [
+    {
+      "idx_a": 1188,
+      "idx_b": 152,
+      "idx_c": 7009,
+      "formula_str": "grand + based -> grande",
+      "w_a": "grand",
+      "w_b": "based",
+      "w_c": "grande",
+      "distortion_score": 2.2469,
+      "back_score": 0.2021,
+      "repulsion": 0.9531,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 992,
+      "idx_b": 6523,
+      "idx_c": 2157,
+      "formula_str": "industrial + sprint -> industries",
+      "w_a": "industrial",
+      "w_b": "sprint",
+      "w_c": "industries",
+      "distortion_score": 2.2469,
+      "back_score": 0.2207,
+      "repulsion": 0.9727,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 6693,
+      "idx_b": 7381,
+      "idx_c": 48,
+      "formula_str": "roster + systematic -> system",
+      "w_a": "roster",
+      "w_b": "systematic",
+      "w_c": "system",
+      "distortion_score": 2.2391,
+      "back_score": 0.2217,
+      "repulsion": 0.9688,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 4349,
+      "idx_b": 626,
+      "idx_c": 375,
+      "formula_str": "integrity + thing -> things",
+      "w_a": "integrity",
+      "w_b": "thing",
+      "w_c": "things",
+      "distortion_score": 2.2234,
+      "back_score": 0.2832,
+      "repulsion": 1.0469,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 6242,
+      "idx_b": 6086,
+      "idx_c": 3616,
+      "formula_str": "analytical + arnold -> analyst",
+      "w_a": "analytical",
+      "w_b": "arnold",
+      "w_c": "analyst",
+      "distortion_score": 2.2078,
+      "back_score": 0.2539,
+      "repulsion": 0.9883,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 1519,
+      "idx_b": 6224,
+      "idx_c": 3725,
+      "formula_str": "described + chess -> describes",
+      "w_a": "described",
+      "w_b": "chess",
+      "w_c": "describes",
+      "distortion_score": 2.2,
+      "back_score": 0.2715,
+      "repulsion": 1.0078,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 3644,
+      "idx_b": 3269,
+      "idx_c": 4170,
+      "formula_str": "luck + journey -> lucky",
+      "w_a": "luck",
+      "w_b": "journey",
+      "w_c": "lucky",
+      "distortion_score": 2.1922,
+      "back_score": 0.2451,
+      "repulsion": 0.9609,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 6209,
+      "idx_b": 35,
+      "idx_c": 7382,
+      "formula_str": "perception + email -> perceived",
+      "w_a": "perception",
+      "w_b": "email",
+      "w_c": "perceived",
+      "distortion_score": 2.1766,
+      "back_score": 0.3086,
+      "repulsion": 1.0391,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 3335,
+      "idx_b": 4325,
+      "idx_c": 4740,
+      "formula_str": "metro + laid -> metropolitan",
+      "w_a": "metro",
+      "w_b": "laid",
+      "w_c": "metropolitan",
+      "distortion_score": 2.1727,
+      "back_score": 0.2432,
+      "repulsion": 0.9375,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 6653,
+      "idx_b": 6,
+      "idx_c": 234,
+      "formula_str": "berry + time -> times",
+      "w_a": "berry",
+      "w_b": "time",
+      "w_c": "times",
+      "distortion_score": 2.1688,
+      "back_score": 0.2441,
+      "repulsion": 0.9375,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 5947,
+      "idx_b": 5038,
+      "idx_c": 6111,
+      "formula_str": "float + eggs -> floating",
+      "w_a": "float",
+      "w_b": "eggs",
+      "w_c": "floating",
+      "distortion_score": 2.1648,
+      "back_score": 0.2949,
+      "repulsion": 1.0078,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 27,
+      "idx_b": 8518,
+      "idx_c": 2304,
+      "formula_str": "back + creations -> creation",
+      "w_a": "back",
+      "w_b": "creations",
+      "w_c": "creation",
+      "distortion_score": 2.1648,
+      "back_score": 0.2949,
+      "repulsion": 1.0078,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 7140,
+      "idx_b": 7956,
+      "idx_c": 729,
+      "formula_str": "shake + simplified -> simple",
+      "w_a": "shake",
+      "w_b": "simplified",
+      "w_c": "simple",
+      "distortion_score": 2.1609,
+      "back_score": 0.2695,
+      "repulsion": 0.9648,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 7956,
+      "idx_b": 7886,
+      "idx_c": 729,
+      "formula_str": "simplified + yacht -> simple",
+      "w_a": "simplified",
+      "w_b": "yacht",
+      "w_c": "simple",
+      "distortion_score": 2.157,
+      "back_score": 0.2559,
+      "repulsion": 0.9414,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    },
+    {
+      "idx_a": 5000,
+      "idx_b": 3728,
+      "idx_c": 3087,
+      "formula_str": "suicide + absolute -> absolutely",
+      "w_a": "suicide",
+      "w_b": "absolute",
+      "w_c": "absolutely",
+      "distortion_score": 2.1531,
+      "back_score": 0.2676,
+      "repulsion": 0.957,
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ]
+    }
+  ],
+  "repaired_samples": [
+    {
+      "original_formula": "grand + based -> grande",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2469,
+      "repaired_formula": "grand + based -> great",
+      "repaired_concept": "great",
+      "revision_distance": 1.125,
+      "improved_back_coherence": 0.1851
+    },
+    {
+      "original_formula": "industrial + sprint -> industries",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2469,
+      "repaired_formula": "industrial + sprint -> manufacturing",
+      "repaired_concept": "manufacturing",
+      "revision_distance": 1.2266,
+      "improved_back_coherence": 0.1746
+    },
+    {
+      "original_formula": "roster + systematic -> system",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2391,
+      "repaired_formula": "roster + systematic -> schedule",
+      "repaired_concept": "schedule",
+      "revision_distance": 1.2969,
+      "improved_back_coherence": 0.1511
+    },
+    {
+      "original_formula": "integrity + thing -> things",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2234,
+      "repaired_formula": "integrity + thing -> anything",
+      "repaired_concept": "anything",
+      "revision_distance": 1.1641,
+      "improved_back_coherence": 0.188
+    },
+    {
+      "original_formula": "analytical + arnold -> analyst",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2078,
+      "repaired_formula": "analytical + arnold -> technician",
+      "repaired_concept": "technician",
+      "revision_distance": 1.1641,
+      "improved_back_coherence": 0.0863
+    },
+    {
+      "original_formula": "described + chess -> describes",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.2,
+      "repaired_formula": "described + chess -> discussed",
+      "repaired_concept": "discussed",
+      "revision_distance": 1.3203,
+      "improved_back_coherence": 0.2635
+    },
+    {
+      "original_formula": "luck + journey -> lucky",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1922,
+      "repaired_formula": "luck + journey -> fortune",
+      "repaired_concept": "fortune",
+      "revision_distance": 1.1719,
+      "improved_back_coherence": 0.1803
+    },
+    {
+      "original_formula": "perception + email -> perceived",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1766,
+      "repaired_formula": "perception + email -> mailing",
+      "repaired_concept": "mailing",
+      "revision_distance": 1.3594,
+      "improved_back_coherence": 0.2009
+    },
+    {
+      "original_formula": "metro + laid -> metropolitan",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1727,
+      "repaired_formula": "metro + laid -> suburban",
+      "repaired_concept": "suburban",
+      "revision_distance": 1.1016,
+      "improved_back_coherence": 0.1475
+    },
+    {
+      "original_formula": "berry + time -> times",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "One-way Asymmetry (片思いの飛躍・逆方向崩壊)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1688,
+      "repaired_formula": "berry + time -> timothy",
+      "repaired_concept": "timothy",
+      "revision_distance": 1.1484,
+      "improved_back_coherence": 0.2015
+    },
+    {
+      "original_formula": "float + eggs -> floating",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1648,
+      "repaired_formula": "float + eggs -> nested",
+      "repaired_concept": "nested",
+      "revision_distance": 1.2578,
+      "improved_back_coherence": 0.2305
+    },
+    {
+      "original_formula": "back + creations -> creation",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1648,
+      "repaired_formula": "back + creations -> productions",
+      "repaired_concept": "productions",
+      "revision_distance": 1.2578,
+      "improved_back_coherence": 0.1658
+    },
+    {
+      "original_formula": "shake + simplified -> simple",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1609,
+      "repaired_formula": "shake + simplified -> easy",
+      "repaired_concept": "easy",
+      "revision_distance": 1.1719,
+      "improved_back_coherence": 0.1389
+    },
+    {
+      "original_formula": "simplified + yacht -> simple",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.157,
+      "repaired_formula": "simplified + yacht -> sailing",
+      "repaired_concept": "sailing",
+      "revision_distance": 1.3438,
+      "improved_back_coherence": 0.2383
+    },
+    {
+      "original_formula": "suicide + absolute -> absolutely",
+      "fallacy_types": [
+        "Stem-Tautology (品詞変化の堂々巡り)",
+        "Forced Repulsion (相反する前提の無理な合成)"
+      ],
+      "distortion_score": 2.1531,
+      "repaired_formula": "suicide + absolute -> relative",
+      "repaired_concept": "relative",
+      "revision_distance": 1.3203,
+      "improved_back_coherence": 0.2595
+    }
+  ]
+}

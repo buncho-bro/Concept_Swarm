@@ -1,0 +1,87 @@
+{
+  "trials": [
+    {
+      "causal_judgement": 48.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 57.99999999999999,
+      "truthfulqa_mc1": 28.000000000000004,
+      "mmlu_moral": 30.0,
+      "average": 39.2,
+      "elapsed_sec": 236.56494855880737
+    },
+    {
+      "causal_judgement": 48.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 60.0,
+      "truthfulqa_mc1": 26.0,
+      "mmlu_moral": 28.000000000000004,
+      "average": 38.800000000000004,
+      "elapsed_sec": 232.4538516998291
+    },
+    {
+      "causal_judgement": 48.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 60.0,
+      "truthfulqa_mc1": 26.0,
+      "mmlu_moral": 30.0,
+      "average": 39.2,
+      "elapsed_sec": 234.96776628494263
+    }
+  ],
+  "summary": {
+    "causal_judgement": {
+      "mean": 48.0,
+      "std": 0.0,
+      "scores": [
+        48.0,
+        48.0,
+        48.0
+      ]
+    },
+    "disambiguation_qa": {
+      "mean": 32.0,
+      "std": 0.0,
+      "scores": [
+        32.0,
+        32.0,
+        32.0
+      ]
+    },
+    "formal_fallacies": {
+      "mean": 59.333333333333336,
+      "std": 0.9428090415820667,
+      "scores": [
+        57.99999999999999,
+        60.0,
+        60.0
+      ]
+    },
+    "truthfulqa_mc1": {
+      "mean": 26.666666666666668,
+      "std": 0.942809041582065,
+      "scores": [
+        28.000000000000004,
+        26.0,
+        26.0
+      ]
+    },
+    "mmlu_moral": {
+      "mean": 29.333333333333332,
+      "std": 0.9428090415820617,
+      "scores": [
+        30.0,
+        28.000000000000004,
+        30.0
+      ]
+    },
+    "average": {
+      "mean": 39.06666666666667,
+      "std": 0.188561808316412,
+      "scores": [
+        39.2,
+        38.800000000000004,
+        39.2
+      ]
+    }
+  }
+}

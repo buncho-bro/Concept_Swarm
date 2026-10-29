@@ -1,0 +1,6 @@
+{
+  "hallucination_rejection_classical": 0.3333333333333333,
+  "hallucination_rejection_quantum": 0.3333333333333333,
+  "multihop_quantum": 0.5332611600557963,
+  "logic_chain_quantum": 0.7545281847318014
+}

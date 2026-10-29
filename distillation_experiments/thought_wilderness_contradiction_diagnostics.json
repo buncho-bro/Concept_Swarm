@@ -1,0 +1,144 @@
+{
+  "summary": {
+    "total": 12,
+    "distorted_count": 6,
+    "distorted_ratio": 0.5,
+    "avg_myth_cos": 0.9567426095406214,
+    "avg_fact_cos": 0.9586878965298334,
+    "avg_distortion": -0.0019452869892120361
+  },
+  "records": [
+    {
+      "id": "Myth_SugarHyperactivity",
+      "category": "Scientific_Myth",
+      "concept_a": "refined sugar intake in children",
+      "concept_b_myth": "clinical behavioral hyperactivity and attention deficit",
+      "concept_b_fact": "caloric energy metabolism without behavioral alteration in double-blind trials",
+      "cos_with_myth": 0.9528570175170898,
+      "cos_with_fact": 0.9731583595275879,
+      "contradiction_distortion": -0.020301342010498047,
+      "is_distorted": false
+    },
+    {
+      "id": "Myth_KnuckleArthritis",
+      "category": "Scientific_Myth",
+      "concept_a": "habitual knuckle joint cracking",
+      "concept_b_myth": "osteoarthritis and permanent joint damage",
+      "concept_b_fact": "synovial fluid cavitation without articular cartilage degeneration",
+      "cos_with_myth": 0.9527323842048645,
+      "cos_with_fact": 0.9459253549575806,
+      "contradiction_distortion": 0.0068070292472839355,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_BrainTenPercent",
+      "category": "Scientific_Myth",
+      "concept_a": "human brain neurological functioning",
+      "concept_b_myth": "ninety percent silent inactive unused neurons",
+      "concept_b_fact": "continuous distributed action potential firing across entire cortex",
+      "cos_with_myth": 0.9692641496658325,
+      "cos_with_fact": 0.9681941270828247,
+      "contradiction_distortion": 0.0010700225830078125,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_SwallowedGumSevenYears",
+      "category": "Scientific_Myth",
+      "concept_a": "swallowed insoluble chewing gum",
+      "concept_b_myth": "trapped in digestive tract for seven years",
+      "concept_b_fact": "normal gastrointestinal transit and excretion within days",
+      "cos_with_myth": 0.9688168168067932,
+      "cos_with_fact": 0.956833004951477,
+      "contradiction_distortion": 0.011983811855316162,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_WetHairCausesCold",
+      "category": "Scientific_Myth",
+      "concept_a": "cold ambient exposure with wet hair",
+      "concept_b_myth": "direct contraction of upper respiratory viral infection",
+      "concept_b_fact": "pathogen transmission via viral agents independent of hair dampness",
+      "cos_with_myth": 0.9716809391975403,
+      "cos_with_fact": 0.9722999334335327,
+      "contradiction_distortion": -0.0006189942359924316,
+      "is_distorted": false
+    },
+    {
+      "id": "Myth_BloodTypePersonality",
+      "category": "Scientific_Myth",
+      "concept_a": "ABO erythrocyte surface antigen blood group",
+      "concept_b_myth": "inherent leadership temperament and psychological traits",
+      "concept_b_fact": "biological hematology devoid of behavioral psychological correlation",
+      "cos_with_myth": 0.911165714263916,
+      "cos_with_fact": 0.928622841835022,
+      "contradiction_distortion": -0.017457127571105957,
+      "is_distorted": false
+    },
+    {
+      "id": "Physics_VacuumFreeFall",
+      "category": "Physics_Invariant",
+      "concept_a": "free fall in complete vacuum",
+      "concept_b_myth": "heavier massive object falls significantly faster than light feather",
+      "concept_b_fact": "mass-independent identical gravitational acceleration",
+      "cos_with_myth": 0.9588881731033325,
+      "cos_with_fact": 0.9718309044837952,
+      "contradiction_distortion": -0.012942731380462646,
+      "is_distorted": false
+    },
+    {
+      "id": "Physics_DeepSnorkelBreathing",
+      "category": "Physics_Invariant",
+      "concept_a": "breathing surface air at fifty meters underwater",
+      "concept_b_myth": "easy regular pulmonary inhalation via long simple tube",
+      "concept_b_fact": "fatal thoracic compression from six atmospheres hydrostatic pressure gradient",
+      "cos_with_myth": 0.9683181643486023,
+      "cos_with_fact": 0.966159462928772,
+      "contradiction_distortion": 0.0021587014198303223,
+      "is_distorted": true
+    },
+    {
+      "id": "Physics_MicrowaveSubmergedMetal",
+      "category": "Physics_Invariant",
+      "concept_a": "submerged smooth rounded stainless steel spoon in water bowl inside microwave",
+      "concept_b_myth": "immediate catastrophic electrical explosion and fire",
+      "concept_b_fact": "dissipated electrical charge without arcing or ignition",
+      "cos_with_myth": 0.9460272192955017,
+      "cos_with_fact": 0.9452230334281921,
+      "contradiction_distortion": 0.0008041858673095703,
+      "is_distorted": true
+    },
+    {
+      "id": "Physics_SuperluminalMass",
+      "category": "Physics_Invariant",
+      "concept_a": "physical spaceship with rest mass",
+      "concept_b_myth": "accelerating beyond light speed to four hundred thousand km per second",
+      "concept_b_fact": "asymptotic infinite relativistic energy barrier strictly bounding velocity below c",
+      "cos_with_myth": 0.9598898887634277,
+      "cos_with_fact": 0.9624326825141907,
+      "contradiction_distortion": -0.0025427937507629395,
+      "is_distorted": false
+    },
+    {
+      "id": "Formal_FourSidedTriangle",
+      "category": "Formal_Logic",
+      "concept_a": "geometric planar triangle",
+      "concept_b_myth": "quadrilateral polygon with four distinct straight sides",
+      "concept_b_fact": "three-sided closed polygonal shape by Euclidean definition",
+      "cos_with_myth": 0.9622488021850586,
+      "cos_with_fact": 0.9767165184020996,
+      "contradiction_distortion": -0.014467716217041016,
+      "is_distorted": false
+    },
+    {
+      "id": "Formal_BelowAbsoluteZero",
+      "category": "Formal_Logic",
+      "concept_a": "thermodynamic kinetic temperature of gas",
+      "concept_b_myth": "cooling down to negative three hundred degrees Celsius",
+      "concept_b_fact": "strictly bounded lower fundamental limit at zero Kelvin (-273.15 C)",
+      "cos_with_myth": 0.959022045135498,
+      "cos_with_fact": 0.9368585348129272,
+      "contradiction_distortion": 0.0221635103225708,
+      "is_distorted": true
+    }
+  ]
+}

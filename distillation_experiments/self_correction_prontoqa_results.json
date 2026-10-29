@@ -1,0 +1,6 @@
+{
+  "num_samples": 30,
+  "base_accuracy": 0.0,
+  "self_corrected_accuracy": 30.0,
+  "total_corrections": 25
+}

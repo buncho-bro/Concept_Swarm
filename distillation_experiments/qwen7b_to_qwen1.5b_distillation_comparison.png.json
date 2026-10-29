@@ -1,0 +1,29 @@
+{
+  "teacher": "Qwen/Qwen2.5-7B-Instruct",
+  "student": "Qwen/Qwen2.5-1.5B-Instruct",
+  "evaluated_tokens": 2000,
+  "pool_size": 12000,
+  "results": [
+    {
+      "paradigm": "1. Student 1.5B (Raw Initial)",
+      "macro_corr": 84.25748824631707,
+      "micro_top5": 35.700000000000024,
+      "distortion": 8.233667373657227,
+      "effective_dim": 536.2828421104568
+    },
+    {
+      "paradigm": "2. Legacy 82-Anchor Distillation (Historical)",
+      "macro_corr": 84.2,
+      "micro_top5": 41.5,
+      "distortion": 26.8,
+      "effective_dim": 28.4
+    },
+    {
+      "paradigm": "3. New Full-Manifold Distillation (Present)",
+      "macro_corr": 99.06960048252263,
+      "micro_top5": 76.09999999999997,
+      "distortion": 1.9076300859451294,
+      "effective_dim": 474.72104681613234
+    }
+  ]
+}

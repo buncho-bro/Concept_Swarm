@@ -1,0 +1,317 @@
+{
+  "summary": {
+    "total": 14,
+    "baseline_accuracy": 0.7142857142857143,
+    "neuro_circuit_accuracy": 0.7142857142857143
+  },
+  "tasks": [
+    {
+      "task_id": 1,
+      "category": "Disambiguation",
+      "context": "In the Wall Street financial market, the commercial bank announced",
+      "ground_truth": "loan",
+      "baseline_choice": "loan",
+      "baseline_correct": true,
+      "neuro_choice": "loan",
+      "neuro_correct": true,
+      "resistances": {
+        "loan": 15.733213459305098,
+        "river": 21.642447995381918,
+        "mud": 20.46861853948369,
+        "water": 26.575424759098897
+      },
+      "currents": {
+        "loan": 0.01602410741636278,
+        "river": 0.0,
+        "mud": 0.0,
+        "water": 0.0
+      }
+    },
+    {
+      "task_id": 2,
+      "category": "Disambiguation",
+      "context": "Walking along the muddy edge of the flowing river, the grassy bank was",
+      "ground_truth": "water",
+      "baseline_choice": "interest",
+      "baseline_correct": false,
+      "neuro_choice": "interest",
+      "neuro_correct": false,
+      "resistances": {
+        "water": 24.46861853948369,
+        "loan": 26.575424759098897,
+        "interest": 20.5906090638623,
+        "finance": 25.752072486556415
+      },
+      "currents": {
+        "water": 0.0,
+        "loan": 0.0,
+        "interest": 0.0,
+        "finance": 0.0
+      }
+    },
+    {
+      "task_id": 3,
+      "category": "Disambiguation",
+      "context": "In the Silicon Valley tech conference, the executive from Apple announced",
+      "ground_truth": "iphone",
+      "baseline_choice": "iphone",
+      "baseline_correct": true,
+      "neuro_choice": "iphone",
+      "neuro_correct": true,
+      "resistances": {
+        "iphone": 12.034215715337913,
+        "fruit": 16.988772744576746,
+        "orchard": 21.830074998557688,
+        "cider": 15.977632186971546
+      },
+      "currents": {
+        "iphone": 0.023953738933164267,
+        "fruit": 0.014280946416048792,
+        "orchard": 0.0,
+        "cider": 0.015657822701620805
+      }
+    },
+    {
+      "task_id": 4,
+      "category": "Disambiguation",
+      "context": "At the autumn harvest festival in the orchard, the delicious sweet apple was",
+      "ground_truth": "fruit",
+      "baseline_choice": "computer",
+      "baseline_correct": false,
+      "neuro_choice": "computer",
+      "neuro_correct": false,
+      "resistances": {
+        "fruit": 22.492205359801304,
+        "iphone": 22.84012866322161,
+        "silicon": 22.028456446049226,
+        "computer": 21.218640286475342
+      },
+      "currents": {
+        "fruit": 0.0,
+        "iphone": 0.0,
+        "silicon": 0.0,
+        "computer": 0.0
+      }
+    },
+    {
+      "task_id": 5,
+      "category": "Disambiguation",
+      "context": "At the high-rise skyscraper construction site, the heavy industrial crane lifted",
+      "ground_truth": "steel",
+      "baseline_choice": "steel",
+      "baseline_correct": true,
+      "neuro_choice": "steel",
+      "neuro_correct": true,
+      "resistances": {
+        "steel": 2.5242665690336024,
+        "wings": 18.5737352452979,
+        "feather": 16.77118130950412,
+        "nest": 25.955605880641546
+      },
+      "currents": {
+        "steel": 0.24934299779030206,
+        "wings": 0.0,
+        "feather": 0.014559770149441587,
+        "nest": 0.0
+      }
+    },
+    {
+      "task_id": 6,
+      "category": "Disambiguation",
+      "context": "Flying over the peaceful northern lake, the majestic white crane spread",
+      "ground_truth": "wings",
+      "baseline_choice": "wings",
+      "baseline_correct": true,
+      "neuro_choice": "wings",
+      "neuro_correct": true,
+      "resistances": {
+        "wings": 2.05748549466076,
+        "steel": 11.977632186971546,
+        "engine": 26.575424759098897,
+        "concrete": 26.575424759098897
+      },
+      "currents": {
+        "wings": 0.33884011997525554,
+        "steel": 0.02412367901810812,
+        "engine": 0.0,
+        "concrete": 0.0
+      }
+    },
+    {
+      "task_id": 7,
+      "category": "Causal Reasoning",
+      "context": "When severe crime occurs, the duty of the investigating police is to make an",
+      "ground_truth": "arrest",
+      "baseline_choice": "arrest",
+      "baseline_correct": true,
+      "neuro_choice": "arrest",
+      "neuro_correct": true,
+      "resistances": {
+        "arrest": 0.4075429627319196,
+        "flower": 26.575424759098897,
+        "recreation": 26.575424759098897,
+        "celebration": 26.575424759098897
+      },
+      "currents": {
+        "arrest": 3.8436152027803225,
+        "flower": 0.0,
+        "recreation": 0.0,
+        "celebration": 0.0
+      }
+    },
+    {
+      "task_id": 8,
+      "category": "Causal Reasoning",
+      "context": "When intense heat and fire consume dry wooden logs, the remaining residue is",
+      "ground_truth": "ash",
+      "baseline_choice": "ash",
+      "baseline_correct": true,
+      "neuro_choice": "ash",
+      "neuro_correct": true,
+      "resistances": {
+        "ash": 3.500154112916795,
+        "ice": 26.575424759098897,
+        "glass": 11.524266569033601,
+        "liquid": 25.800327655163635
+      },
+      "currents": {
+        "ash": 0.15271062326196572,
+        "ice": 0.0,
+        "glass": 0.025561130456352683,
+        "liquid": 0.0
+      }
+    },
+    {
+      "task_id": 9,
+      "category": "Causal Reasoning",
+      "context": "In abstract algebra, when an algebraic group satisfies the commutative property, it is called",
+      "ground_truth": "abelian",
+      "baseline_choice": "linear",
+      "baseline_correct": false,
+      "neuro_choice": "linear",
+      "neuro_correct": false,
+      "resistances": {
+        "abelian": 23.253496664211536,
+        "geometric": 12.678071905112638,
+        "matrix": 24.437757575778928,
+        "linear": 9.160796211903056
+      },
+      "currents": {
+        "abelian": 0.0,
+        "geometric": 0.022152369362812754,
+        "matrix": 0.0,
+        "linear": 0.03606618174745777
+      }
+    },
+    {
+      "task_id": 10,
+      "category": "Causal Reasoning",
+      "context": "When a naval blockade completely seals a strategic international strait, it triggers an",
+      "ground_truth": "embargo",
+      "baseline_choice": "embargo",
+      "baseline_correct": true,
+      "neuro_choice": "embargo",
+      "neuro_correct": true,
+      "resistances": {
+        "embargo": 5.642447995381916,
+        "celebration": 26.575424759098897,
+        "tourism": 25.492205359801304,
+        "sports": 26.575424759098897
+      },
+      "currents": {
+        "embargo": 0.07461027701890052,
+        "celebration": 0.0,
+        "tourism": 0.0,
+        "sports": 0.0
+      }
+    },
+    {
+      "task_id": 11,
+      "category": "Causal Reasoning",
+      "context": "When freezing cold subzero winter temperatures hit moisture in the cloud, it produces",
+      "ground_truth": "snow",
+      "baseline_choice": "steam",
+      "baseline_correct": false,
+      "neuro_choice": "steam",
+      "neuro_correct": false,
+      "resistances": {
+        "snow": 11.633677785754184,
+        "steam": 8.524266569033601,
+        "heat": 22.28575448233388,
+        "smoke": 13.616295707525948
+      },
+      "currents": {
+        "snow": 0.025201387567233436,
+        "steam": 0.04018041947453699,
+        "heat": 0.0,
+        "smoke": 0.019902678986641515
+      }
+    },
+    {
+      "task_id": 12,
+      "category": "Hallucination Rejection",
+      "context": "Although the patient insisted on antibiotics for their viral influenza, the medical doctor explained that antibiotics are only effective against",
+      "ground_truth": "bacteria",
+      "baseline_choice": "bacteria",
+      "baseline_correct": true,
+      "neuro_choice": "bacteria",
+      "neuro_correct": true,
+      "resistances": {
+        "bacteria": 2.476438043942987,
+        "virus": 26.575424759098897,
+        "influenza": 16.0,
+        "fungus": 17.800327655163635
+      },
+      "currents": {
+        "bacteria": 0.2566012686548304,
+        "virus": 0.0,
+        "influenza": 0.015625,
+        "fungus": 0.013315516134463226
+      }
+    },
+    {
+      "task_id": 13,
+      "category": "Hallucination Rejection",
+      "context": "While sound waves travel easily through air and water, in the complete physical vacuum of outer space, sound can",
+      "ground_truth": "never",
+      "baseline_choice": "never",
+      "baseline_correct": true,
+      "neuro_choice": "never",
+      "neuro_correct": true,
+      "resistances": {
+        "never": 4.484300161715957,
+        "always": 23.508146903670326,
+        "faster": 19.72387559472576,
+        "louder": 20.988772744576746
+      },
+      "currents": {
+        "never": 0.10530718112212772,
+        "always": 0.0,
+        "faster": 0.0,
+        "louder": 0.0
+      }
+    },
+    {
+      "task_id": 14,
+      "category": "Hallucination Rejection",
+      "context": "Despite the severe lightning and dark thunderous clouds passing high above the dry Sahara desert, the arid ground remained completely",
+      "ground_truth": "dry",
+      "baseline_choice": "dry",
+      "baseline_correct": true,
+      "neuro_choice": "dry",
+      "neuro_correct": true,
+      "resistances": {
+        "dry": 2.2120974406085683,
+        "flooded": 13.212097440608568,
+        "soaked": 9.780831479537838,
+        "green": 12.306513042500674
+      },
+      "currents": {
+        "dry": 0.30394403181510027,
+        "flooded": 0.02082295439695463,
+        "soaked": 0.03269161198561228,
+        "green": 0.023163142317615567
+      }
+    }
+  ]
+}

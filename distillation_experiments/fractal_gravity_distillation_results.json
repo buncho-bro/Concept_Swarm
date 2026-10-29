@@ -1,0 +1,28 @@
+{
+  "sample_size": 82,
+  "teacher_dim": 1536,
+  "student_dim": 384,
+  "results": [
+    {
+      "name": "1. Standard Flat MSE Distill",
+      "macro_correlation": 99.00297031550672,
+      "micro_precision": 89.83739837398372,
+      "transitive_integrity": 100.0,
+      "frobenius_error": 1.061268925666809
+    },
+    {
+      "name": "2. KNN Masked Distill (Phase 1)",
+      "macro_correlation": 97.67892059508854,
+      "micro_precision": 90.65040650406507,
+      "transitive_integrity": 100.0,
+      "frobenius_error": 2.4464457035064697
+    },
+    {
+      "name": "3. Proposed Fractal Residual Distill",
+      "macro_correlation": 98.51234574983837,
+      "micro_precision": 98.3739837398374,
+      "transitive_integrity": 100.0,
+      "frobenius_error": 1.238247036933899
+    }
+  ]
+}

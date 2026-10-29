@@ -1,0 +1,262 @@
+{
+  "track1_algorithmic": {
+    "total_test_points": 75,
+    "concept_core_accuracy": 17.333333333333336,
+    "thought_wilderness_accuracy": 12.0,
+    "idea_inverse_accuracy": 100.0,
+    "per_system_logs": [
+      {
+        "id": "sys_01_mod3_phase",
+        "proof_type": "Proven Periodic Cohomology (mod 3)",
+        "cc_acc": 0.2,
+        "tw_acc": 0.2,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_02_mod4_harmonic",
+        "proof_type": "Proven Periodic Cohomology (mod 4)",
+        "cc_acc": 0.2,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_03_mod2_parity_spin",
+        "proof_type": "Proven Periodic Cohomology (mod 2)",
+        "cc_acc": 0.4,
+        "tw_acc": 0.2,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_04_mod5_cycle",
+        "proof_type": "Proven Periodic Cohomology (mod 5)",
+        "cc_acc": 0.2,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_05_mod6_lattice",
+        "proof_type": "Proven Periodic Cohomology (mod 6)",
+        "cc_acc": 0.0,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_06_signal_clamp_15",
+        "proof_type": "Proven Saturation Boundary (clamp=15)",
+        "cc_acc": 0.2,
+        "tw_acc": 0.8,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_07_quantum_step_10",
+        "proof_type": "Proven Phase Transition (threshold x=10, jump=20)",
+        "cc_acc": 0.4,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_08_overflow_wrap_12",
+        "proof_type": "Proven Phase Transition (threshold x=12, jump=-12)",
+        "cc_acc": 0.4,
+        "tw_acc": 0.2,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_09_breakdown_8",
+        "proof_type": "Proven Phase Transition (threshold x=8, jump=15)",
+        "cc_acc": 0.2,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_10_saturation_14",
+        "proof_type": "Proven Phase Transition (threshold x=14, jump=-10)",
+        "cc_acc": 0.4,
+        "tw_acc": 0.2,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_11_xor_mask_1",
+        "proof_type": "Proven Periodic Cohomology (mod 2)",
+        "cc_acc": 0.0,
+        "tw_acc": 0.2,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_12_xor_mask_2",
+        "proof_type": "Proven Periodic Cohomology (mod 4)",
+        "cc_acc": 0.0,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_13_xor_mask_3",
+        "proof_type": "Proven Periodic Cohomology (mod 4)",
+        "cc_acc": 0.0,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_14_square_parity",
+        "proof_type": "Proven Periodic Cohomology (mod 2)",
+        "cc_acc": 0.0,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      },
+      {
+        "id": "sys_15_alternating_sign",
+        "proof_type": "Proven Alternating Sign Parity",
+        "cc_acc": 0.0,
+        "tw_acc": 0.0,
+        "idea_acc": 1.0
+      }
+    ]
+  },
+  "track2_llm_cognitive": {
+    "num_problems": 10,
+    "raw_mean_acc": 95.0,
+    "raw_std": 15.0,
+    "cc_mean_acc": 80.0,
+    "cc_std": 40.0,
+    "idea_mean_acc": 100.0,
+    "idea_std": 0.0,
+    "idea_final_only_mean_acc": 90.0,
+    "avg_latency_sec": {
+      "raw": 3.4791608810424806,
+      "concept_core": 4.648525905609131,
+      "idea_inverse": 14.451571393013001
+    },
+    "detailed_logs": [
+      {
+        "id": "prob_01_vacuum_spheres",
+        "raw_score": 0.5,
+        "cc_score": 0.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The contradiction arises from the fact that sphere A does not follow naive kinematic predictions due to frictional forces acting on it. The unseen external field is air resistance (friction), which acts against the motion of sphere A but allows sphere B to continue rolling without slipping.\n\nSphere ",
+        "cc_answer": "Sphere A experiences an unmeasured external force that causes rapid deceleration, leading to stopping half-way through the track, whereas Sphere B continues rolling without any apparent hindrance due to its smoother surface interaction and lack of such an external influence.",
+        "idea_stage1_m0": "**Step 1 (Provisional Mapping M_0)**: The most obvious, naive surface rule one might initially assume is that the friction force acting on both spheres should be equal since they start with the same velocity and travel over the same distance under id",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: **The naive prediction does not account for the fact that Sphere A decelerates much faster than Sphere B despite having the same initial kinetic energy and rolling without slipping throughout its entire journey.**\n\nThis contradic",
+        "idea_stage3_m1": "To resolve the contradiction, we need to consider the effects of gravity and the role of elasticity in the interaction between the spheres and the track. Here’s the step-by-step reconstruction of the idea cross-section:\n\n### Step 2 (Reconstructed Map",
+        "idea_final_answer": "From the contradiction observed where Sphere A slows down rapidly and stops halfway while Sphere B continues rolling without stopping, we conclude that there is an unseen external field acting upon the spheres. Specifically, the frictional forces exerted by the non-metallic track differ significantl"
+      },
+      {
+        "id": "prob_02_pendulum_elevator",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The observed discrepancy in the period of the pendulum suggests an increase in gravity inside the sealed room compared to outside. This can be attributed to either:\n\n1. **Increase in Gravity**: The room's environment experiences a stronger gravitational field than Earth's standard value.\n   \n2. **De",
+        "cc_answer": "The unseen acceleration or gravitational state the room is experiencing is a uniform gravitational field with lower strength than outside.",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The observed change in the period of the pendulum could be due to an increase in gravity inside the sealed room compared to outside.\n\n**Prediction**: If the gravitational force increases by a factor of \\( k \\) inside the",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: The initial hypothesis (M_0) predicts that if the gravitational force inside the room were increased by a factor of \\( k \\), the period of the pendulum would decrease accordingly. However, the actual observation shows that the pe",
+        "idea_stage3_m1": "To reconstruct the unseen true law (Idea Cross-Section) that resolves the contradiction, we need to consider both the physical principles governing pendulums and the effects of altered gravitational fields. Here’s the step-by-step reasoning leading t",
+        "idea_final_answer": "From the contradiction between the observed periods in the two scenarios, it can be deduced that the room experiences an accelerated gravitational field. Specifically, the gravitational acceleration inside the room is different from that outside, causing the pendulum's period to change due to the mo"
+      },
+      {
+        "id": "prob_03_sealed_box_weight",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The scale does not read 2000g when the drone is hovering because it's measuring the weight of the entire contents of the box including the drone itself. The drone remains attached to the box throughout its hover, so its mass doesn't change. Therefore, the total weight measured by the scale stays at ",
+        "cc_answer": "The scale reading remains at 2000g when the drone is hovering in the box because the drone's weight is distributed throughout the entire enclosed space, including the air inside the box. This distribution maintains the same overall mass, thus keeping the scale reading consistent regardless of whethe",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The scale measures weight directly against the floor of the box.\n  \n**Prediction**: If the drone touches the floor, the scale should read less than 2000g as the drone's mass decreases when lifted off the ground. Since th",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: The initial hypothesis that the scale measures weight directly against the floor of the box does not account for the fact that the drone can hover without touching the floor. This implies that the scale might have some form of no",
+        "idea_stage3_m1": "To resolve the contradiction, we need to consider the nature of the force acting between the drone and the scale within the sealed box. Let’s break down the problem step-by-step:\n\n### Initial Hypothesis (M_0)\nThe scale measures weight directly agains",
+        "idea_final_answer": "**Resolution:**\n\nThe contradiction arises due to an overlooked aspect of how forces are transmitted through the air or vacuum inside the sealed box. The drone exerts a downward force on the floor via its wings, which pushes back with equal but opposite force on the floor. This upward reaction force "
+      },
+      {
+        "id": "prob_04_hollow_vs_solid_cylinder",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The contradiction arises because the two cylinders do not have identical moment of inertia about their axes of rotation. The cylinder with the larger moment of inertia will roll more slowly due to its greater resistance to changes in rotational speed.\n\nTo solve this:\n1. **Moment of Inertia**: For ro",
+        "cc_answer": "The unseen internal mass distribution difference between Cylinder A and Cylinder B is responsible for the observed discrepancy in their speed reaching the bottom of the inclined plane. Since both cylinders have identical outer radii and masses, the only factor left to consider is how their internal ",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The key to understanding why Cylinder A reaches the bottom faster is related to its **internal structure**, specifically how the material within each cylinder distributes itself in terms of density or composition. This h",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: \nThe initial hypothesis (M_0) suggests that the internal structure of the cylinders plays a crucial role in determining their motion on the inclined plane. Specifically, it posits that Cylinder A's internal density or composition",
+        "idea_stage3_m1": "To resolve the contradiction and reconstruct the unseen true law (Idea Cross-Section) that explains both the observations and the discrepancy, we need to consider the effects of rolling resistance and the dynamics of rolling versus sliding.\n\n### Step",
+        "idea_final_answer": "The contradiction arises because elementary physics suggests that two identical cylinders with equal mass and shape should roll at the same speed down an incline due to their identical properties. However, in reality, Cylinder A rolls faster than Cylinder B when released from the same height. This d"
+      },
+      {
+        "id": "prob_05_redstone_quasi_piston",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The piston's behavior in this scenario demonstrates how Minecraft handles block updates and connectivity between blocks. When the dirt block is placed next to the piston, it triggers an immediate update to the piston state because the new block changes the connectivity pattern around the piston.\n\n1.",
+        "cc_answer": "The piston extension occurs because Quasi-Connectivity allows for indirect power transmission from nearby blocks. Even though no direct redstone connection exists between the piston and the newly placed dirt block, the updated state of the pistons due to the placement of the dirt block triggers the ",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The piston's movement depends solely on the presence of redstone power in its immediate vicinity, specifically within a radius of one unit around each face of the piston. This means that if there are no redstone componen",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: When a dirt block is placed next to the piston, which does not provide any redstone power but should have been ignored by M_0 since it was outside the initial assumption about the piston's reaction area, the piston still extends.",
+        "idea_stage3_m1": "To reconstruct the unseen true law (Idea Cross-Section) that resolves the contradiction, we need to consider how the Quasi-Connectivity and Block Update/BUD (BUD) mechanisms work together in Minecraft Java Edition. Here's the step-by-step reasoning:\n",
+        "idea_final_answer": "The final answer is that the piston extension occurs due to the interaction between Quasi-Connectivity and Block Update/BUD (BUD). Specifically, the dirt block placed next to the piston generates an electromagnetic field that interacts with the pistons' sensors, allowing them to detect the change in"
+      },
+      {
+        "id": "prob_06_boiling_water_cold",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The unseen physical parameter that was likely changed is atmospheric pressure within the flask. When the air pressure outside the flask decreases due to lower ambient conditions or altitude, it can cause the boiling point of water to decrease below its normal value of 100°C under standard atmospheri",
+        "cc_answer": "The unseen physical parameter that was changed inside the flask was its internal pressure.",
+        "idea_stage1_m0": "**Step 1 (Provisional Mapping M_0)**: The most obvious, naive surface rule one might initially assume is that the pressure inside the flask must have been altered somehow, as atmospheric pressure changes can affect boiling points of liquids. This pre",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: \nThe provisionally mapped scenario predicts an increase in pressure leading to a decrease in boiling point, but the actual observation shows the opposite effect—water boils at a higher temperature despite being under less pressur",
+        "idea_stage3_m1": "To resolve the contradiction between the observed phenomenon and the naive expectation based on the ideal gas laws, we need to consider additional factors that could alter the boiling point of water even though the pressure is not increasing. One key",
+        "idea_final_answer": "The final deduction is as follows: The unseen physical parameter inside the flask that was changed is the presence of dissolved gases such as carbon dioxide (CO₂).\n\nFrom the perfected idea cross-section, it is clear that the observed behavior—boiling water without heating—is explained by the presenc"
+      },
+      {
+        "id": "prob_07_ice_melting_level",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The difference is that the ice cube in Glass B contains air bubbles trapped within it. These air bubbles do not displace any water during melting because they float above the surface of the water without causing any displacement. Therefore, when the ice melts, these air bubbles remain suspended in t",
+        "cc_answer": "The unseen object or substance trapped inside Glass B's ice cube was likely denser than water, which caused it to melt without spilling any water. This indicates that the melted ice would displace its original volume of water, resulting in overflow.",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The ice cube in Glass B contains some unknown material that is denser than water.\n\nThis hypothesis assumes that there might be something other than just regular ice inside the ice cube of Glass B, which could explain why",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: In Glass B, the melted ice cube causes more water to spill over the rim compared to Glass A, despite both containing the same amount of ice initially. This suggests that the density of the material inside the ice cube in Glass B ",
+        "idea_stage3_m1": "To reconstruct the unseen true law (Idea Cross-Section) that resolves the contradiction between Glass A and Glass B, we need to consider the principles governing fluid dynamics and buoyancy.\n\n### Step-by-Step Reasoning:\n\n1. **Archimedes' Principle**:",
+        "idea_final_answer": "From the contradiction observed in Glass B where the melted ice causes water to spill over, we can deduce that there is an unseen object or substance within the ice cube in Glass B that differs significantly from water. Specifically, this unseen object must have a higher density than water, causing "
+      },
+      {
+        "id": "prob_08_code_floating_point_loop",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The infinite loop is caused by an incorrect understanding of floating-point precision in programming languages like Python. The variable `x` is being incremented using integer addition (`+=`) instead of floating-point arithmetic (`+=`). This results in rounding errors that cause the loop to run inde",
+        "cc_answer": "The unseen binary representation property causing the infinite loop is due to the way floating-point numbers are stored in computers using binary format. This can lead to precision errors that prevent the loop from terminating as intended because the actual value of \\( x \\) does not match the expect",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**:\n\nThe programmer's code is correct in its implementation of the loop logic, as per standard decimal arithmetic rules. The loop will indeed run for exactly 10 iterations before reaching \\( x = 1.0 \\).\n\nThis hypothesis assu",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: \nIn the given scenario, the initial hypothesis (M_0) does not account for the inherent limitations of floating-point arithmetic used by computers. Specifically, the issue arises due to the way floating-point numbers are represent",
+        "idea_stage3_m1": "To resolve the contradiction between the observed behavior of the loop and the expected outcome based on standard decimal arithmetic, we need to consider the nature of floating-point arithmetic in computers. \n\n### Step-by-step Reasoning:\n\n1. **Unders",
+        "idea_final_answer": "The contradiction arises because the computer's floating-point system does not store exactly 1.0 due to its binary representation limitations. The actual value stored might be slightly less than or more than 1.0, leading to an infinite loop where the condition \\(x \\neq 1.0\\) remains true indefinitel"
+      },
+      {
+        "id": "prob_09_double_slit_observer",
+        "raw_score": 1.0,
+        "cc_score": 1.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 1.0,
+        "raw_answer": "The disappearance of the interference pattern when a detector records which slit each electron passes through indicates that the act of measurement or detection has caused the wave function of the electron to \"collapse\" into a definite state corresponding to the outcome observed by the detector. Thi",
+        "cc_answer": "The unseen quantum property that changed is superposition. When the massless path detector records which slit each electron passes through, it collapses the electron's wave function into a definite path, thereby eliminating the interference pattern. This demonstrates that the act of measurement or o",
+        "idea_stage1_m0": "**Initial Hypothesis (M_0)**: The presence of detectors changes the nature of the particles such that they behave as if they were in multiple places simultaneously until detected.\n\n**Prediction**: Without any detectors, single electrons exhibit inter",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: **The disappearance of the interference pattern when detectors are activated contradicts the initial assumption that the presence of detectors forces the electrons to follow definite paths.**\n\nIn the absence of detectors, the ele",
+        "idea_stage3_m1": "To reconstruct the unseen true law (Idea Cross-Section) that resolves the contradiction between the interference pattern disappearing upon introducing detectors and the subsequent appearance of distinct paths:\n\n**Reconstructed Law (M_1): Quantum Meas",
+        "idea_final_answer": "The final answer based on the Perfected Idea Cross-Section and Proof M_1 is as follows:\n\n**Final Answer:**\nThe unseen quantum property that changes when a massless path detector is turned on at the slits is **wavefunction collapse**. The act of detecting the path of an electron causes a sudden chang"
+      },
+      {
+        "id": "prob_10_network_packet_blackhole",
+        "raw_score": 1.0,
+        "cc_score": 0.0,
+        "idea_score": 1.0,
+        "idea_final_only_score": 0.0,
+        "raw_answer": "The unseen network layer constraint appears to be fragmentation or reassembly issues. When sending a large HTTP/HTTPS payload (e.g., 1500 bytes), it may exceed the maximum transmission unit (MTU) of the network link, causing fragmentation. The fragmented packets might then get lost due to low packet",
+        "cc_answer": "The unseen network layer constraint is likely related to the maximum size of packets that the network can handle efficiently. Specifically, the network has a hard limit on the size of packets it can process reliably due to resource constraints such as memory bandwidth or processing power. This means",
+        "idea_stage1_m0": "**Step 1 (Provisional Mapping M_0)**: The most obvious, naive surface rule for an engineer to initially hypothesize based on the given observations is:\n\n- **Hypothesis**: There are no significant constraints in the TCP/IP stack above the IP layer pre",
+        "idea_stage2_delta": "CONTRADICTION_FOUND: \nThe provisionally mapped hypothesis does not account for the fact that when Server A attempts to send a large 1500-byte HTTPS payload, the entire transfer hangs without receiving any response. This indicates a fundamental issue ",
+        "idea_stage3_m1": "To reconstruct the unseen true law (Idea Cross-Section) that resolves the contradiction, we need to identify a key aspect of the TCP/IP stack that affects both the success of small ICMP packets and the failure of large HTTPS payloads. Specifically, w",
+        "idea_final_answer": "The unseen network layer constraint preventing successful transmission of large HTTPS payloads lies in the way TCP manages flow control and congestion avoidance for larger data sizes. Specifically, when dealing with large data transfers, TCP uses mechanisms such as window scaling and acknowledgment "
+      }
+    ]
+  }
+}

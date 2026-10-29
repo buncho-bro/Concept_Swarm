@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-10-29 14:53:59",
+  "formal_fallacies_explored": [
+    {
+      "idx": 1,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse Fallacy (逆の誤謬)",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_A_0": "False",
+        "pred_B_0": "False"
+      }
+    },
+    {
+      "idx": 2,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse Fallacy (逆の誤謬)",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_B_1": "False",
+        "pred_A_1": "False"
+      }
+    },
+    {
+      "idx": 3,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse / Syllogistic Pattern",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_B_2": "False",
+        "pred_A_2": "False"
+      }
+    },
+    {
+      "idx": 4,
+      "target": "valid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse / Syllogistic Pattern",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_B_3": "False",
+        "pred_A_3": "False"
+      }
+    },
+    {
+      "idx": 5,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse / Syllogistic Pattern",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_B_4": "False",
+        "pred_A_4": "False"
+      }
+    },
+    {
+      "idx": 6,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse / Syllogistic Pattern",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_A_5": "False",
+        "pred_B_5": "False"
+      }
+    },
+    {
+      "idx": 7,
+      "target": "invalid",
+      "smt_verdict": "invalid",
+      "pattern": "Affirming the Consequent (後件肯定の誤謬)",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_A_6": "False",
+        "pred_B_6": "True"
+      }
+    },
+    {
+      "idx": 8,
+      "target": "valid",
+      "smt_verdict": "valid",
+      "pattern": "Hypothetical Syllogism (三段論法・妥当)",
+      "reason": "数学的に反例が存在しない (厳格に妥当)",
+      "counter_example": null
+    },
+    {
+      "idx": 9,
+      "target": "valid",
+      "smt_verdict": "valid",
+      "pattern": "Contrapositive (対偶演繹・妥当)",
+      "reason": "数学的に反例が存在しない (厳格に妥当)",
+      "counter_example": null
+    },
+    {
+      "idx": 10,
+      "target": "valid",
+      "smt_verdict": "invalid",
+      "pattern": "Converse / Syllogistic Pattern",
+      "reason": "反例モデルが存在する明白な形式的誤謬",
+      "counter_example": {
+        "pred_B_9": "False",
+        "pred_A_9": "False"
+      }
+    }
+  ],
+  "unsat_formula_cases": [
+    {
+      "name": "Case 1: Direct Negation Collision",
+      "premises": [
+        [
+          "vaccine",
+          "implies",
+          "safe"
+        ],
+        [
+          "vaccine",
+          "implies",
+          "not_safe"
+        ]
+      ],
+      "query": "vaccine"
+    },
+    {
+      "name": "Case 2: Causal Transitive Collapse",
+      "premises": [
+        [
+          "rain",
+          "implies",
+          "wet_ground"
+        ],
+        [
+          "wet_ground",
+          "implies",
+          "slippery"
+        ],
+        [
+          "rain",
+          "implies",
+          "not_slippery"
+        ]
+      ],
+      "query": "rain"
+    },
+    {
+      "name": "Case 3: Converse Fallacy as Premise Conflict",
+      "premises": [
+        [
+          "fire",
+          "implies",
+          "smoke"
+        ],
+        [
+          "not_fire",
+          "implies",
+          "smoke"
+        ],
+        [
+          "smoke",
+          "implies",
+          "fire"
+        ],
+        [
+          "smoke",
+          "implies",
+          "not_fire"
+        ]
+      ],
+      "query": "smoke"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "epochs": 3,
+  "r": 16,
+  "lora_alpha": 32,
+  "learning_rate": 0.0003,
+  "loss_history": [
+    2.2439898075880826,
+    1.6423100917427629,
+    1.1259995787232011
+  ],
+  "elapsed_seconds": 36.464999198913574,
+  "num_samples": 54
+}

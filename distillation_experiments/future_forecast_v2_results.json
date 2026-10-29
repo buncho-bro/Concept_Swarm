@@ -1,0 +1,170 @@
+[
+  {
+    "initial_events": [
+      "data center power",
+      "grid blackout",
+      "cooling water shortage"
+    ],
+    "future_attractors": [
+      {
+        "concept": "insn",
+        "causal_potential": 0.0703
+      },
+      {
+        "concept": "journal",
+        "causal_potential": 0.0667
+      },
+      {
+        "concept": "quotas",
+        "causal_potential": 0.0646
+      },
+      {
+        "concept": "nunes",
+        "causal_potential": 0.0642
+      },
+      {
+        "concept": "sine",
+        "causal_potential": 0.0635
+      },
+      {
+        "concept": "enemy",
+        "causal_potential": 0.0633
+      },
+      {
+        "concept": "inders",
+        "causal_potential": 0.0626
+      },
+      {
+        "concept": "faculty",
+        "causal_potential": 0.0619
+      }
+    ],
+    "theme": "【シナリオ 1: エネルギー・AIインフラ危機】"
+  },
+  {
+    "initial_events": [
+      "strait blockade",
+      "freight shipping halt",
+      "crude oil embargo"
+    ],
+    "future_attractors": [
+      {
+        "concept": "quotas",
+        "causal_potential": 0.069
+      },
+      {
+        "concept": "inhal",
+        "causal_potential": 0.0684
+      },
+      {
+        "concept": "urger",
+        "causal_potential": 0.0637
+      },
+      {
+        "concept": "renewables",
+        "causal_potential": 0.0635
+      },
+      {
+        "concept": "rama",
+        "causal_potential": 0.0628
+      },
+      {
+        "concept": "holl",
+        "causal_potential": 0.0627
+      },
+      {
+        "concept": "insn",
+        "causal_potential": 0.0619
+      },
+      {
+        "concept": "welsh",
+        "causal_potential": 0.0616
+      }
+    ],
+    "theme": "【シナリオ 2: 地政学・海上交通寸断】"
+  },
+  {
+    "initial_events": [
+      "commercial real estate collapse",
+      "bank run",
+      "liquidity freeze"
+    ],
+    "future_attractors": [
+      {
+        "concept": "nunes",
+        "causal_potential": 0.0669
+      },
+      {
+        "concept": "avenous",
+        "causal_potential": 0.0642
+      },
+      {
+        "concept": "insn",
+        "causal_potential": 0.0642
+      },
+      {
+        "concept": "materialpageroute",
+        "causal_potential": 0.0626
+      },
+      {
+        "concept": "caliente",
+        "causal_potential": 0.0624
+      },
+      {
+        "concept": "uela",
+        "causal_potential": 0.0611
+      },
+      {
+        "concept": "statechanged",
+        "causal_potential": 0.061
+      },
+      {
+        "concept": "textchanged",
+        "causal_potential": 0.0605
+      }
+    ],
+    "theme": "【シナリオ 3: 次世代金融・信用ショック】"
+  },
+  {
+    "initial_events": [
+      "lunar base construction",
+      "solar flare radiation",
+      "autonomous rover drill"
+    ],
+    "future_attractors": [
+      {
+        "concept": "insn",
+        "causal_potential": 0.0754
+      },
+      {
+        "concept": "journal",
+        "causal_potential": 0.071
+      },
+      {
+        "concept": "density",
+        "causal_potential": 0.0703
+      },
+      {
+        "concept": "ersen",
+        "causal_potential": 0.0654
+      },
+      {
+        "concept": "enen",
+        "causal_potential": 0.0648
+      },
+      {
+        "concept": "unidad",
+        "causal_potential": 0.0641
+      },
+      {
+        "concept": "graphnode",
+        "causal_potential": 0.0633
+      },
+      {
+        "concept": "dual",
+        "causal_potential": 0.0619
+      }
+    ],
+    "theme": "【シナリオ 4: 宇宙開発・自律探査】"
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "modalities": [
+    "Modality 1: Raw Base 1.5B",
+    "Modality 2: Minecraft LoRA Alone",
+    "Modality 3: Grounding Alone (RAG)",
+    "Modality 4: Hybrid Sublimated System"
+  ],
+  "topic_accuracy": [
+    4.166666666666666,
+    11.666666666666666,
+    32.77777777777778,
+    20.0
+  ],
+  "logic_retention": [
+    60.0,
+    60.0,
+    60.0,
+    60.0
+  ],
+  "detailed_topic_scores": {
+    "raw": [
+      0.0,
+      0.0,
+      0.25,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lora": [
+      0.0,
+      0.0,
+      0.5,
+      0.2,
+      0.0,
+      0.0
+    ],
+    "rag": [
+      0.0,
+      0.25,
+      0.75,
+      0.8,
+      0.16666666666666666,
+      0.0
+    ],
+    "hybrid": [
+      0.2,
+      0.25,
+      0.75,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sample_answers": {
+    "q1_components": {
+      "question": "In Minecraft 1.21+, how do you give a player a diamond sword with sharpness level 5 and custom metadata spell_tier:3? Does the old NBT compound syntax still work?",
+      "raw": "To give a player a diamond sword in Minecraft 1.21+ with specific properties, including sharpness level 5 and custom metadata (spell tier:3), you can use the following command:\n\n```minecraft\n/give @p minecraft:diamond_sword {Sharpness:5, \"Custom Properties\":{spell_tier:3}}\n```\n\nThis command uses the `@p` selector to target the player who is current",
+      "lora": "Starting in 1.21.0, the standard set of command parameters was replaced by structured 'minecraft:set' commands.\nTo give a player a diamond sword with specific properties (sharpness level 5, custom metadata 'spell_tier':3) in 1.21+:\n/give @p sword[diamond=1,custommetadata={spell_tier:3},rarity=5]\n\nOld NBT compound syntax is no longer supported; use ",
+      "rag": "In Minecraft 1.21+, to give a player a diamond sword with a sharpness level of 5 and custom metadata including `spell_tier:3`, you would use the following command:\n\n```plaintext\n/give @p minecraft:diamond_sword{CustomData:{SpellTier:3}}\n```\n\nThis command uses the new `CustomData` tag within the `minecraft:diamond_sword` block entity to include the ",
+      "hybrid": "In Minecraft 1.21.0 and later, players can no longer set item properties directly through the deprecated NBT tagging system. Instead, they must utilize structured storage via the 'set_component' method.\n\nCorrect command to give a player a diamond sword with specific metadata:\n/give @p weapon_diamond_sword[custom_data~{spell_tier:3,element:\"fire\"}]\n"
+    },
+    "q5_redstone_qc": {
+      "question": "Explain Quasi-Connectivity (QC) in Java Edition redstone. What happens when a sticky piston receives a 1-redstone-tick pulse?",
+      "raw": "Quasi-Connectivity (QC) is a feature introduced in Minecraft's Java Edition that allows for more complex control of Redstone circuits by allowing them to be connected through multiple blocks without needing direct connections between each block.\n\nIn QC, you can create a circuit where signals can pass through several intermediary blocks before reach",
+      "lora": "Quasi-Connectivity (QC) is an event-driven redstone signal propagation mechanic introduced in Minecraft 1.20.5.\nWhen a redstone wire receives a 1-redstone-tick pulse, it checks for the presence of a solid block or a powered redstone dust within its immediate vicinity (up to 3 blocks in any direction). If such a block or dust is detected, the redsto",
+      "rag": "In Minecraft's Java Edition redstone system, quasi-connectivity (QC) refers to the way blocks interact with each other based on their proximity rather than strict distance measurement. This principle is particularly important for certain mechanisms like pistons, dispensers, and comparators.\n\nA sticky piston, which is a type of piston that can be ex",
+      "hybrid": "Quasi-Connectivity (QC) in Minecraft Java Edition governs how redstone signals interact with small mechanical components like pistons, droppers, and dispensers. When a piston receives a 1-redstone-tick pulse (or a microtick/0-tick pulse), it extends and retracts so quickly that it releases its attached block (spits the block) rather than fully retr"
+    }
+  }
+}

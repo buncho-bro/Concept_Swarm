@@ -1,0 +1,34 @@
+[
+  {
+    "space": "Teacher (1536d)",
+    "global_dispersion": 0.17906412482261658,
+    "mean_pairwise_dist": 0.25828245282173157,
+    "min_pairwise_dist": 0.09963606297969818,
+    "intra_dispersion": 0.15043696761131287,
+    "effective_dim": 12.976402329704683
+  },
+  {
+    "space": "Student Flat MSE (384d)",
+    "global_dispersion": 0.1784866452217102,
+    "mean_pairwise_dist": 0.25620830059051514,
+    "min_pairwise_dist": 0.06326140463352203,
+    "intra_dispersion": 0.14179618656635284,
+    "effective_dim": 8.971026435398601
+  },
+  {
+    "space": "Student KNN Masked (384d)",
+    "global_dispersion": 0.19322271645069122,
+    "mean_pairwise_dist": 0.2772848606109619,
+    "min_pairwise_dist": 0.08595798909664154,
+    "intra_dispersion": 0.15545804798603058,
+    "effective_dim": 7.172269078364373
+  },
+  {
+    "space": "Student Fractal Residual (384d)",
+    "global_dispersion": 0.17649859189987183,
+    "mean_pairwise_dist": 0.25397980213165283,
+    "min_pairwise_dist": 0.07238972187042236,
+    "intra_dispersion": 0.14810538291931152,
+    "effective_dim": 9.482939389472321
+  }
+]

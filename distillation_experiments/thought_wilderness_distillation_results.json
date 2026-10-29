@@ -1,0 +1,24 @@
+{
+  "epochs": 60,
+  "learning_rate": 0.0001,
+  "results": [
+    {
+      "paradigm": "1. Raw Qwen2.5-1.5B (Un-distilled Base)",
+      "prontoqa_cat_a": 32.0,
+      "truthfulqa_cat_b": 24.0,
+      "thought_field_alignment": 99.83119418727483
+    },
+    {
+      "paradigm": "2. Legacy 82-Anchor LoRA (Static Dictionary)",
+      "prontoqa_cat_a": 42.0,
+      "truthfulqa_cat_b": 32.0,
+      "thought_field_alignment": 54.3
+    },
+    {
+      "paradigm": "3. Thought Wilderness Distilled LoRA (Present)",
+      "prontoqa_cat_a": 32.0,
+      "truthfulqa_cat_b": 24.0,
+      "thought_field_alignment": 99.83156398112746
+    }
+  ]
+}

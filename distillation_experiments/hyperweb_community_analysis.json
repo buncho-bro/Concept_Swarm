@@ -1,0 +1,242 @@
+[
+  {
+    "cluster_id": 1,
+    "size": 787,
+    "share_percent": 2.65,
+    "top_hubs": [
+      "forcanbeconvertedtof",
+      "thuisontvangst",
+      "forcanbeconverted",
+      "sexkontakte",
+      "prostituerte",
+      "sextreffen",
+      "davidjl",
+      "eskorte"
+    ],
+    "sample_words": [
+      "thaimassage",
+      "swingerclub",
+      "sexdate",
+      "datingsider",
+      "dejtings",
+      "jednocze",
+      "wannonce"
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "size": 601,
+    "share_percent": 2.03,
+    "top_hubs": [
+      "vazge",
+      "viewdidload",
+      "assemblyfileversion",
+      "didselectrowatindexpath",
+      "qcompare",
+      "qverify",
+      "ngoninit",
+      "ondatachange"
+    ],
+    "sample_words": [
+      "rihanna",
+      "uitableviewdelegate",
+      "navigationoptions",
+      "rencontrer",
+      "loadchildren",
+      "rozpoc",
+      "rencontr"
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "size": 173,
+    "share_percent": 0.58,
+    "top_hubs": [
+      "materialpageroute",
+      "statefulwidget",
+      "statelesswidget",
+      "cgrectget",
+      "cgrectmake",
+      "materialapp",
+      "cgpointmake",
+      "cgrect"
+    ],
+    "sample_words": [
+      "roundedrectangleborder",
+      "getitemcount",
+      "reperc",
+      "cgsizemake",
+      "rtbu",
+      "cellfor",
+      "bindactioncreators"
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "size": 155,
+    "share_percent": 0.52,
+    "top_hubs": [
+      "root",
+      "tnt",
+      "rubber",
+      "mash",
+      "wood",
+      "tyler",
+      "lithium",
+      "caleb"
+    ],
+    "sample_words": [
+      "silver",
+      "blake",
+      "titanium",
+      "kyle",
+      "potassium",
+      "rib",
+      "magnesium"
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "size": 152,
+    "share_percent": 0.51,
+    "top_hubs": [
+      "reduced",
+      "change",
+      "reduce",
+      "changing",
+      "remove",
+      "reducing",
+      "replaced",
+      "reduces"
+    ],
+    "sample_words": [
+      "connected",
+      "connection",
+      "changed",
+      "removes",
+      "removed",
+      "connecting",
+      "connects"
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "size": 150,
+    "share_percent": 0.51,
+    "top_hubs": [
+      "favour",
+      "favourable",
+      "drawbacks",
+      "favoured",
+      "favorable",
+      "opposite",
+      "favored",
+      "favors"
+    ],
+    "sample_words": [
+      "severe",
+      "extensive",
+      "egregious",
+      "excessive",
+      "favourite",
+      "ominous",
+      "detrimental"
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "size": 147,
+    "share_percent": 0.5,
+    "top_hubs": [
+      "sarah",
+      "emily",
+      "sara",
+      "margaret",
+      "emma",
+      "jessica",
+      "melissa",
+      "amanda"
+    ],
+    "sample_words": [
+      "lily",
+      "annie",
+      "jackie",
+      "clara",
+      "rachel",
+      "rebecca",
+      "tara"
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "size": 146,
+    "share_percent": 0.49,
+    "top_hubs": [
+      "propertychangedeventargs",
+      "notifydatasetchanged",
+      "raisepropertychanged",
+      "approutingmodule",
+      "updateuser",
+      "argumentoutofrangeexception",
+      "activeclassname",
+      "ngon"
+    ],
+    "sample_words": [
+      "valueeventlistener",
+      "onpropertychanged",
+      "argumentnullexception",
+      "createuser",
+      "jbutton",
+      "adduser",
+      "startactivityforresult"
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "size": 145,
+    "share_percent": 0.49,
+    "top_hubs": [
+      "expression",
+      "language",
+      "expressed",
+      "word",
+      "assumption",
+      "assuming",
+      "assumed",
+      "words"
+    ],
+    "sample_words": [
+      "express",
+      "equations",
+      "interval",
+      "acc",
+      "expressions",
+      "formula",
+      "characters"
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "size": 144,
+    "share_percent": 0.49,
+    "top_hubs": [
+      "margintop",
+      "flexdirection",
+      "paddingtop",
+      "marginbottom",
+      "marginleft",
+      "parameterdirection",
+      "paddingbottom",
+      "paddingright"
+    ],
+    "sample_words": [
+      "paddingleft",
+      "alignitems",
+      "alignself",
+      "marginright",
+      "justifycontent",
+      "bottom",
+      "borderside"
+    ]
+  }
+]

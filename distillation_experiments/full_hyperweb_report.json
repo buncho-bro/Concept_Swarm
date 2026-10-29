@@ -1,0 +1,218 @@
+{
+  "total_nodes": 29646,
+  "total_edges": 177876,
+  "top_pagerank": [
+    {
+      "word": "forcanbeconverted",
+      "score": 0.003917461232775414,
+      "in_degree": 110
+    },
+    {
+      "word": "thuisontvangst",
+      "score": 0.0038854864894189143,
+      "in_degree": 99
+    },
+    {
+      "word": "forcanbeconvertedtof",
+      "score": 0.0038830652824749876,
+      "in_degree": 98
+    },
+    {
+      "word": "sexkontakte",
+      "score": 0.003735415976755477,
+      "in_degree": 114
+    },
+    {
+      "word": "prostituerte",
+      "score": 0.003720585897583027,
+      "in_degree": 90
+    },
+    {
+      "word": "sextreffen",
+      "score": 0.003054755037794754,
+      "in_degree": 39
+    },
+    {
+      "word": "davidjl",
+      "score": 0.002971807490497393,
+      "in_degree": 18
+    },
+    {
+      "word": "eskorte",
+      "score": 0.0009188839620916061,
+      "in_degree": 205
+    },
+    {
+      "word": "thaimassage",
+      "score": 0.00047372295092806344,
+      "in_degree": 134
+    },
+    {
+      "word": "swingerclub",
+      "score": 0.0004019495048317596,
+      "in_degree": 98
+    },
+    {
+      "word": "mujer",
+      "score": 0.00036790841460638033,
+      "in_degree": 33
+    },
+    {
+      "word": "sexdate",
+      "score": 0.00036630945390927187,
+      "in_degree": 46
+    },
+    {
+      "word": "system",
+      "score": 0.0003042976915063837,
+      "in_degree": 38
+    },
+    {
+      "word": "hombre",
+      "score": 0.00028813563668941925,
+      "in_degree": 22
+    },
+    {
+      "word": "probably",
+      "score": 0.00028617808870531875,
+      "in_degree": 29
+    },
+    {
+      "word": "datingsider",
+      "score": 0.00027537964691941877,
+      "in_degree": 83
+    },
+    {
+      "word": "suggests",
+      "score": 0.00026831264214245725,
+      "in_degree": 23
+    },
+    {
+      "word": "dejtings",
+      "score": 0.0002675662398799687,
+      "in_degree": 82
+    },
+    {
+      "word": "organisations",
+      "score": 0.0002558102832874696,
+      "in_degree": 27
+    },
+    {
+      "word": "slammed",
+      "score": 0.0002466421069381866,
+      "in_degree": 25
+    },
+    {
+      "word": "thomas",
+      "score": 0.0002456994964911171,
+      "in_degree": 21
+    },
+    {
+      "word": "improved",
+      "score": 0.0002446129439650618,
+      "in_degree": 21
+    },
+    {
+      "word": "book",
+      "score": 0.00024445369600960233,
+      "in_degree": 34
+    },
+    {
+      "word": "indicating",
+      "score": 0.00024205355742703782,
+      "in_degree": 25
+    },
+    {
+      "word": "hombres",
+      "score": 0.00024171709398703085,
+      "in_degree": 14
+    },
+    {
+      "word": "energy",
+      "score": 0.00024135662765309055,
+      "in_degree": 23
+    },
+    {
+      "word": "students",
+      "score": 0.00023827444047100945,
+      "in_degree": 25
+    },
+    {
+      "word": "russia",
+      "score": 0.00023738205300391087,
+      "in_degree": 25
+    },
+    {
+      "word": "william",
+      "score": 0.00023642637124921494,
+      "in_degree": 19
+    },
+    {
+      "word": "pressure",
+      "score": 0.0002345763958751761,
+      "in_degree": 25
+    }
+  ],
+  "surfing_paths": [
+    {
+      "from": "apple",
+      "to": "physics",
+      "hops": 7,
+      "path": [
+        "apple",
+        "video",
+        "game",
+        "games",
+        "entertainment",
+        "technology",
+        "mathematics",
+        "physics"
+      ]
+    },
+    {
+      "from": "music",
+      "to": "economy",
+      "hops": 6,
+      "path": [
+        "music",
+        "jazz",
+        "journalism",
+        "tourism",
+        "agriculture",
+        "industries",
+        "economy"
+      ]
+    },
+    {
+      "from": "love",
+      "to": "algorithm",
+      "hops": 8,
+      "path": [
+        "love",
+        "loved",
+        "liked",
+        "like",
+        "think",
+        "says",
+        "means",
+        "method",
+        "algorithm"
+      ]
+    },
+    {
+      "from": "rose",
+      "to": "satellite",
+      "hops": 7,
+      "path": [
+        "rose",
+        "roma",
+        "homo",
+        "thermo",
+        "volcano",
+        "crater",
+        "comet",
+        "satellite"
+      ]
+    }
+  ]
+}

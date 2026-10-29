@@ -1,0 +1,6 @@
+{
+  "num_samples": 30,
+  "base_accuracy": 0.0,
+  "guided_accuracy": 50.0,
+  "gap": 50.0
+}

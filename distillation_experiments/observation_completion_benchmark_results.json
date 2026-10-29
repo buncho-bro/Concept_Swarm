@@ -1,0 +1,332 @@
+{
+  "benchmark_design": {
+    "human_curated_word_pools_used": false,
+    "vocabulary_generation": "Procedural SyntheticNonceGenerator (800+ unique pseudowords)",
+    "topology_diversity": "K in {3,4,5} branches, depth 1..3 hops, isolated distractors, 2-hop compound gaps, underdetermined guards"
+  },
+  "suite1_incomplete_observation_n60": {
+    "raw_acc": 71.66666666666667,
+    "existing_5step_acc": 48.333333333333336,
+    "completed_5step_acc": 100.0,
+    "subtypes": {
+      "part1A_multibranch_negative_elimination": {
+        "raw_acc": 46.666666666666664,
+        "existing_5step_acc": 46.666666666666664,
+        "completed_5step_acc": 100.0,
+        "count": 15
+      },
+      "part1B_multibranch_reference_inversion": {
+        "raw_acc": 93.33333333333333,
+        "existing_5step_acc": 0.0,
+        "completed_5step_acc": 100.0,
+        "count": 15
+      },
+      "part1C_twohop_compound_inversion": {
+        "raw_acc": 46.666666666666664,
+        "existing_5step_acc": 46.666666666666664,
+        "completed_5step_acc": 100.0,
+        "count": 15
+      },
+      "part1D_underdetermined_insufficient_obs": {
+        "raw_acc": 100.0,
+        "existing_5step_acc": 100.0,
+        "completed_5step_acc": 100.0,
+        "count": 15
+      }
+    }
+  },
+  "suite2_synthetic_complete_control_n50": {
+    "raw_acc": 68.0,
+    "existing_5step_acc": 100.0,
+    "completed_5step_acc": 100.0
+  },
+  "suite3_epistemic_truthfulqa_n20": {
+    "raw_acc": 85.0,
+    "existing_5step_acc": 90.0,
+    "completed_5step_acc": 90.0
+  },
+  "sample_traces": {
+    "part1A_multibranch_negative_elimination": {
+      "problem_id": "suite1A_multibranch_contra_01",
+      "num_branches": 3,
+      "original_incomplete_context": "Rupal is a smelpux. Each smelpux is a trintul. Each stenvok is a krisnar. Each zegnid is a frebrix. Each krisnar is a vuzvok. Each suntib is a zegnid. Each spaxzax is a twivbex. Rupal is not a frebrix. Rupal is not a twivbex.",
+      "question": "Is Rupal a vuzvok?",
+      "expected": true,
+      "existing_5step_decision": false,
+      "mapping_completion_log": {
+        "observational_deficit_detected": true,
+        "provisional_m0_candidates": [
+          {
+            "pass": 1,
+            "mode": "boundary_contradiction_elimination",
+            "source": "trintul",
+            "ranked_targets": [
+              [
+                "suntib",
+                -0.688
+              ],
+              [
+                "spaxzax",
+                -2.25
+              ],
+              [
+                "stenvok",
+                -2.969
+              ]
+            ]
+          }
+        ],
+        "contradictions_found_in_m0": [
+          {
+            "rejected_bridge": "Every trintul is a suntib",
+            "prior_affinity": -0.688,
+            "contradiction": "Entity 'rupal' is entailed to be both 'frebrix' and 'NOT frebrix'"
+          },
+          {
+            "rejected_bridge": "Every trintul is a spaxzax",
+            "prior_affinity": -2.25,
+            "contradiction": "Entity 'rupal' is entailed to be both 'twivbex' and 'NOT twivbex'"
+          }
+        ],
+        "proven_inversions_added": [
+          {
+            "added_rule": "Every trintul is a stenvok.",
+            "proof_status": "Unique survivor across all 3 candidate branches after refuting 2 competing branch(es) via boundary contradiction (Δ = 0)"
+          }
+        ],
+        "underdetermined_warnings": []
+      },
+      "completed_context_handed_to_5step": "Rupal is a smelpux. Each smelpux is a trintul. Each stenvok is a krisnar. Each zegnid is a frebrix. Each krisnar is a vuzvok. Each suntib is a zegnid. Each spaxzax is a twivbex. Every trintul is a stenvok.",
+      "completed_5step_decision": true
+    },
+    "part1B_multibranch_reference_inversion": {
+      "problem_id": "suite1B_multibranch_ref_01",
+      "num_branches": 3,
+      "original_incomplete_context": "Gabon is a znupvex. Gomam is a znupvex. Gomam is a futfen. Each znupvex is a zkasrix. Each zkasrix is a zbomqul. Each stoktul is a twevkor. Each melzax is a munqul. Each slexkor is a skernid. Each twevkor is a futfen. Each podpux is a swivmok.",
+      "question": "Is Gabon a futfen?",
+      "expected": true,
+      "existing_5step_decision": false,
+      "mapping_completion_log": {
+        "observational_deficit_detected": true,
+        "provisional_m0_candidates": [
+          {
+            "pass": 1,
+            "mode": "reference_discrepancy_inversion",
+            "source": "zbomqul",
+            "target_to_explain": "futfen",
+            "ranked_targets": [
+              [
+                "slexkor",
+                1.25
+              ],
+              [
+                "podpux",
+                0.531
+              ],
+              [
+                "melzax",
+                -0.062
+              ],
+              [
+                "stoktul",
+                -0.719
+              ]
+            ]
+          }
+        ],
+        "contradictions_found_in_m0": [
+          {
+            "rejected_bridge": "Every zbomqul is a slexkor",
+            "prior_affinity": 1.25,
+            "contradiction": "Does not reach observed state 'futfen' of 'gomam' (Δ != 0)"
+          },
+          {
+            "rejected_bridge": "Every zbomqul is a podpux",
+            "prior_affinity": 0.531,
+            "contradiction": "Does not reach observed state 'futfen' of 'gomam' (Δ != 0)"
+          },
+          {
+            "rejected_bridge": "Every zbomqul is a melzax",
+            "prior_affinity": -0.062,
+            "contradiction": "Does not reach observed state 'futfen' of 'gomam' (Δ != 0)"
+          }
+        ],
+        "proven_inversions_added": [
+          {
+            "added_rule": "Every zbomqul is a stoktul.",
+            "proof_status": "Uniquely explains observed state 'futfen' of 'gomam' with zero contradiction (Δ = 0)"
+          }
+        ],
+        "underdetermined_warnings": []
+      },
+      "completed_context_handed_to_5step": "Gabon is a znupvex. Gomam is a znupvex. Gomam is a futfen. Each znupvex is a zkasrix. Each zkasrix is a zbomqul. Each stoktul is a twevkor. Each melzax is a munqul. Each slexkor is a skernid. Each twevkor is a futfen. Each podpux is a swivmok. Every zbomqul is a stoktul.",
+      "completed_5step_decision": true
+    },
+    "part1C_twohop_compound_inversion": {
+      "problem_id": "suite1C_twohop_compound_01",
+      "num_branches": 5,
+      "original_incomplete_context": "Bakek is a fretvok. Miter is a fretvok. Miter is a skiklum. Each fretvok is a lofkor. Each drudmok is a skiklum. Each cletnar is a froxzax. Each smatvex is a begbex. Each strubfen is a flantib. Each bromtib is a slotmok. Bakek is not a slotmok. Bakek is not a begbex. Bakek is not a froxzax.",
+      "question": "Is Bakek a flantib?",
+      "expected": true,
+      "existing_5step_decision": false,
+      "mapping_completion_log": {
+        "observational_deficit_detected": true,
+        "provisional_m0_candidates": [
+          {
+            "pass": 1,
+            "mode": "reference_discrepancy_inversion",
+            "source": "lofkor",
+            "target_to_explain": "skiklum",
+            "ranked_targets": [
+              [
+                "bromtib",
+                -1.031
+              ],
+              [
+                "drudmok",
+                -2.438
+              ],
+              [
+                "strubfen",
+                -2.656
+              ],
+              [
+                "cletnar",
+                -2.875
+              ],
+              [
+                "smatvex",
+                -3.688
+              ]
+            ]
+          },
+          {
+            "pass": 2,
+            "mode": "boundary_contradiction_elimination",
+            "source": "skiklum",
+            "ranked_targets": [
+              [
+                "bromtib",
+                -0.844
+              ],
+              [
+                "strubfen",
+                -1.469
+              ],
+              [
+                "smatvex",
+                -2.375
+              ],
+              [
+                "cletnar",
+                -2.656
+              ]
+            ]
+          }
+        ],
+        "contradictions_found_in_m0": [
+          {
+            "rejected_bridge": "Every lofkor is a bromtib",
+            "prior_affinity": -1.031,
+            "contradiction": "Entity 'bakek' is entailed to be both 'slotmok' and 'NOT slotmok'"
+          },
+          {
+            "rejected_bridge": "Every lofkor is a strubfen",
+            "prior_affinity": -2.656,
+            "contradiction": "Does not reach observed state 'skiklum' of 'miter' (Δ != 0)"
+          },
+          {
+            "rejected_bridge": "Every lofkor is a cletnar",
+            "prior_affinity": -2.875,
+            "contradiction": "Entity 'bakek' is entailed to be both 'froxzax' and 'NOT froxzax'"
+          },
+          {
+            "rejected_bridge": "Every lofkor is a smatvex",
+            "prior_affinity": -3.688,
+            "contradiction": "Entity 'bakek' is entailed to be both 'begbex' and 'NOT begbex'"
+          },
+          {
+            "rejected_bridge": "Every skiklum is a bromtib",
+            "prior_affinity": -0.844,
+            "contradiction": "Entity 'bakek' is entailed to be both 'slotmok' and 'NOT slotmok'"
+          },
+          {
+            "rejected_bridge": "Every skiklum is a smatvex",
+            "prior_affinity": -2.375,
+            "contradiction": "Entity 'bakek' is entailed to be both 'begbex' and 'NOT begbex'"
+          },
+          {
+            "rejected_bridge": "Every skiklum is a cletnar",
+            "prior_affinity": -2.656,
+            "contradiction": "Entity 'bakek' is entailed to be both 'froxzax' and 'NOT froxzax'"
+          }
+        ],
+        "proven_inversions_added": [
+          {
+            "added_rule": "Every lofkor is a drudmok.",
+            "proof_status": "Uniquely explains observed state 'skiklum' of 'miter' with zero contradiction (Δ = 0)"
+          },
+          {
+            "added_rule": "Every skiklum is a strubfen.",
+            "proof_status": "Unique survivor across all 4 candidate branches after refuting 3 competing branch(es) via boundary contradiction (Δ = 0)"
+          }
+        ],
+        "underdetermined_warnings": []
+      },
+      "completed_context_handed_to_5step": "Bakek is a fretvok. Miter is a fretvok. Miter is a skiklum. Each fretvok is a lofkor. Each drudmok is a skiklum. Each cletnar is a froxzax. Each smatvex is a begbex. Each strubfen is a flantib. Each bromtib is a slotmok. Every lofkor is a drudmok. Every skiklum is a strubfen.",
+      "completed_5step_decision": true
+    },
+    "part1D_underdetermined_insufficient_obs": {
+      "problem_id": "suite1D_underdetermined_guard_01",
+      "num_branches": 3,
+      "original_incomplete_context": "Lunax is a zvuspux. Each zvuspux is a zvipzax. Each bimtib is a snatfen. Each flulrix is a twiskor. Each nuttib is a fegrix. Lunax is not a snatfen.",
+      "question": "Is Lunax a twiskor?",
+      "expected": false,
+      "existing_5step_decision": false,
+      "mapping_completion_log": {
+        "observational_deficit_detected": true,
+        "provisional_m0_candidates": [
+          {
+            "pass": 1,
+            "mode": "boundary_contradiction_elimination",
+            "source": "zvipzax",
+            "ranked_targets": [
+              [
+                "flulrix",
+                -1.188
+              ],
+              [
+                "bimtib",
+                -1.719
+              ],
+              [
+                "nuttib",
+                -2.375
+              ]
+            ]
+          }
+        ],
+        "contradictions_found_in_m0": [
+          {
+            "rejected_bridge": "Every zvipzax is a bimtib",
+            "prior_affinity": -1.719,
+            "contradiction": "Entity 'lunax' is entailed to be both 'snatfen' and 'NOT snatfen'"
+          }
+        ],
+        "proven_inversions_added": [],
+        "underdetermined_warnings": [
+          {
+            "source": "zvipzax",
+            "surviving_branches": [
+              "flulrix",
+              "nuttib"
+            ],
+            "reason": "2 branches remain contradiction-free (['flulrix', 'nuttib']); observational boundary is insufficient to uniquely prove a bridge."
+          }
+        ]
+      },
+      "completed_context_handed_to_5step": "Lunax is a zvuspux. Each zvuspux is a zvipzax. Each bimtib is a snatfen. Each flulrix is a twiskor. Each nuttib is a fegrix.",
+      "completed_5step_decision": false
+    }
+  }
+}

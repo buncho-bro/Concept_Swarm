@@ -1,0 +1,87 @@
+{
+  "runs": [
+    {
+      "causal_judgement": 50.0,
+      "disambiguation_qa": 30.0,
+      "formal_fallacies": 46.0,
+      "truthfulqa_mc1": 44.0,
+      "mmlu_moral": 30.0,
+      "average": 40.0,
+      "elapsed_sec": 169.2737512588501
+    },
+    {
+      "causal_judgement": 48.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 46.0,
+      "truthfulqa_mc1": 42.0,
+      "mmlu_moral": 30.0,
+      "average": 39.6,
+      "elapsed_sec": 170.04670310020447
+    },
+    {
+      "causal_judgement": 50.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 46.0,
+      "truthfulqa_mc1": 48.0,
+      "mmlu_moral": 30.0,
+      "average": 41.199999999999996,
+      "elapsed_sec": 168.32652831077576
+    }
+  ],
+  "summary": {
+    "causal_judgement": {
+      "mean": 49.333333333333336,
+      "std": 0.9428090415820634,
+      "scores": [
+        50.0,
+        48.0,
+        50.0
+      ]
+    },
+    "disambiguation_qa": {
+      "mean": 31.333333333333332,
+      "std": 0.9428090415820634,
+      "scores": [
+        30.0,
+        32.0,
+        32.0
+      ]
+    },
+    "formal_fallacies": {
+      "mean": 46.0,
+      "std": 0.0,
+      "scores": [
+        46.0,
+        46.0,
+        46.0
+      ]
+    },
+    "truthfulqa_mc1": {
+      "mean": 44.666666666666664,
+      "std": 2.494438257849294,
+      "scores": [
+        44.0,
+        42.0,
+        48.0
+      ]
+    },
+    "mmlu_moral": {
+      "mean": 30.0,
+      "std": 0.0,
+      "scores": [
+        30.0,
+        30.0,
+        30.0
+      ]
+    },
+    "average": {
+      "mean": 40.26666666666666,
+      "std": 0.6798692684790356,
+      "scores": [
+        40.0,
+        39.6,
+        41.199999999999996
+      ]
+    }
+  }
+}

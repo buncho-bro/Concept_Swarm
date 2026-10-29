@@ -1,0 +1,20 @@
+{
+  "base_15b": {
+    "min_potential": -48.14464856649433,
+    "mean_potential": -3.6436173978403574,
+    "ruggedness_std": 5.033953282410987,
+    "mean_particle_distance": 27.345809936523438
+  },
+  "distilled_15b": {
+    "min_potential": -57.0590721227896,
+    "mean_potential": -3.6106927503090125,
+    "ruggedness_std": 6.061808651539508,
+    "mean_particle_distance": 25.720197677612305
+  },
+  "mistral_7b": {
+    "min_potential": -165.28523756597147,
+    "mean_potential": -4.183866448374674,
+    "ruggedness_std": 13.263196144339478,
+    "mean_particle_distance": 22.044815063476562
+  }
+}

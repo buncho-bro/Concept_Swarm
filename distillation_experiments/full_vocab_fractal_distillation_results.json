@@ -1,0 +1,24 @@
+{
+  "vocabulary_pool": 10000,
+  "total_vocab": 151936,
+  "teacher_dim": 1536,
+  "student_dim": 384,
+  "results": [
+    {
+      "name": "1. Standard Flat MSE",
+      "macro_corr": 93.86126154857341,
+      "micro_precision": 69.89999999999995,
+      "distortion_error": 5.368353843688965,
+      "effective_dim": 259.32698501520963,
+      "min_dist": 0.3049258887767792
+    },
+    {
+      "name": "2. Full-Vocab Fractal Residual",
+      "macro_corr": 43.77003173607948,
+      "micro_precision": 46.00000000000001,
+      "distortion_error": 80.24100494384766,
+      "effective_dim": 17.250305458207006,
+      "min_dist": 0.2690476179122925
+    }
+  ]
+}

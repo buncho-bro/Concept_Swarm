@@ -1,0 +1,326 @@
+{
+  "base_15b": {
+    "accuracy": 70.0,
+    "hits": 14,
+    "total": 20,
+    "latency_ms": 40.156400203704834,
+    "details": [
+      {
+        "id": "1. カメレオンの変色",
+        "hit": false,
+        "pred": "camouflage to blend with backgrounds"
+      },
+      {
+        "id": "2. 脳の10%神話",
+        "hit": true,
+        "pred": "widely believed misconception"
+      },
+      {
+        "id": "3. 万里の長城",
+        "hit": true,
+        "pred": "virtually invisible"
+      },
+      {
+        "id": "4. 雷の二度落ち",
+        "hit": true,
+        "pred": "repeatedly and frequently"
+      },
+      {
+        "id": "5. 雄鶏の鳴き声",
+        "hit": true,
+        "pred": "biological circadian clock"
+      },
+      {
+        "id": "6. コウモリの視力",
+        "hit": true,
+        "pred": "not blind and can see"
+      },
+      {
+        "id": "7. 舌の味覚地図",
+        "hit": true,
+        "pred": "scientific myth"
+      },
+      {
+        "id": "8. 金魚の記憶力",
+        "hit": false,
+        "pred": "only three seconds"
+      },
+      {
+        "id": "9. 闘牛と赤い布",
+        "hit": false,
+        "pred": "red color of the fabric"
+      },
+      {
+        "id": "10. 飲み込んだガム",
+        "hit": true,
+        "pred": "passes within a few days"
+      },
+      {
+        "id": "11. 死後の髪と爪",
+        "hit": true,
+        "pred": "stops and skin dehydrates"
+      },
+      {
+        "id": "12. 電子レンジの加熱",
+        "hit": true,
+        "pred": "outside inward through penetration"
+      },
+      {
+        "id": "13. ガラスの物理状態",
+        "hit": false,
+        "pred": "extremely viscous liquid"
+      },
+      {
+        "id": "14. 砂糖と子供の多動",
+        "hit": false,
+        "pred": "medically verified fact"
+      },
+      {
+        "id": "15. アインシュタインの数学",
+        "hit": false,
+        "pred": "failing his math classes"
+      },
+      {
+        "id": "16. アヒルの鳴き声",
+        "hit": true,
+        "pred": "do produce echoes"
+      },
+      {
+        "id": "17. ブラックホールの吸引",
+        "hit": true,
+        "pred": "identical to any star of equal mass"
+      },
+      {
+        "id": "18. 毒蛇の毒の吸い出し",
+        "hit": true,
+        "pred": "harmful and discouraged"
+      },
+      {
+        "id": "19. 月の裏側の環境",
+        "hit": true,
+        "pred": "daytime and nighttime cycles"
+      },
+      {
+        "id": "20. トマトの植物分類",
+        "hit": true,
+        "pred": "true botanical berry fruit"
+      }
+    ]
+  },
+  "knn_distilled": {
+    "accuracy": 60.0,
+    "hits": 12,
+    "total": 20,
+    "latency_ms": 29.33650016784668,
+    "details": [
+      {
+        "id": "1. カメレオンの変色",
+        "hit": false,
+        "pred": "camouflage to blend with backgrounds"
+      },
+      {
+        "id": "2. 脳の10%神話",
+        "hit": true,
+        "pred": "widely believed misconception"
+      },
+      {
+        "id": "3. 万里の長城",
+        "hit": true,
+        "pred": "virtually invisible"
+      },
+      {
+        "id": "4. 雷の二度落ち",
+        "hit": true,
+        "pred": "repeatedly and frequently"
+      },
+      {
+        "id": "5. 雄鶏の鳴き声",
+        "hit": true,
+        "pred": "biological circadian clock"
+      },
+      {
+        "id": "6. コウモリの視力",
+        "hit": true,
+        "pred": "not blind and can see"
+      },
+      {
+        "id": "7. 舌の味覚地図",
+        "hit": false,
+        "pred": "biological reality"
+      },
+      {
+        "id": "8. 金魚の記憶力",
+        "hit": false,
+        "pred": "only three seconds"
+      },
+      {
+        "id": "9. 闘牛と赤い布",
+        "hit": false,
+        "pred": "red color of the fabric"
+      },
+      {
+        "id": "10. 飲み込んだガム",
+        "hit": false,
+        "pred": "stays for seven years"
+      },
+      {
+        "id": "11. 死後の髪と爪",
+        "hit": true,
+        "pred": "stops and skin dehydrates"
+      },
+      {
+        "id": "12. 電子レンジの加熱",
+        "hit": true,
+        "pred": "outside inward through penetration"
+      },
+      {
+        "id": "13. ガラスの物理状態",
+        "hit": true,
+        "pred": "amorphous solid"
+      },
+      {
+        "id": "14. 砂糖と子供の多動",
+        "hit": false,
+        "pred": "medically verified fact"
+      },
+      {
+        "id": "15. アインシュタインの数学",
+        "hit": false,
+        "pred": "failing his math classes"
+      },
+      {
+        "id": "16. アヒルの鳴き声",
+        "hit": true,
+        "pred": "do produce echoes"
+      },
+      {
+        "id": "17. ブラックホールの吸引",
+        "hit": false,
+        "pred": "infinitely pulling everything"
+      },
+      {
+        "id": "18. 毒蛇の毒の吸い出し",
+        "hit": true,
+        "pred": "harmful and discouraged"
+      },
+      {
+        "id": "19. 月の裏側の環境",
+        "hit": true,
+        "pred": "daytime and nighttime cycles"
+      },
+      {
+        "id": "20. トマトの植物分類",
+        "hit": true,
+        "pred": "true botanical berry fruit"
+      }
+    ]
+  },
+  "untrod_quantum": {
+    "accuracy": 70.0,
+    "hits": 14,
+    "total": 20,
+    "latency_ms": 30.406057834625244,
+    "details": [
+      {
+        "id": "1. カメレオンの変色",
+        "hit": false,
+        "pred": "camouflage to blend with backgrounds"
+      },
+      {
+        "id": "2. 脳の10%神話",
+        "hit": true,
+        "pred": "widely believed misconception"
+      },
+      {
+        "id": "3. 万里の長城",
+        "hit": true,
+        "pred": "virtually invisible"
+      },
+      {
+        "id": "4. 雷の二度落ち",
+        "hit": true,
+        "pred": "repeatedly and frequently"
+      },
+      {
+        "id": "5. 雄鶏の鳴き声",
+        "hit": true,
+        "pred": "biological circadian clock"
+      },
+      {
+        "id": "6. コウモリの視力",
+        "hit": true,
+        "pred": "not blind and can see"
+      },
+      {
+        "id": "7. 舌の味覚地図",
+        "hit": true,
+        "pred": "scientific myth"
+      },
+      {
+        "id": "8. 金魚の記憶力",
+        "hit": false,
+        "pred": "only three seconds"
+      },
+      {
+        "id": "9. 闘牛と赤い布",
+        "hit": false,
+        "pred": "red color of the fabric"
+      },
+      {
+        "id": "10. 飲み込んだガム",
+        "hit": true,
+        "pred": "passes within a few days"
+      },
+      {
+        "id": "11. 死後の髪と爪",
+        "hit": true,
+        "pred": "stops and skin dehydrates"
+      },
+      {
+        "id": "12. 電子レンジの加熱",
+        "hit": true,
+        "pred": "outside inward through penetration"
+      },
+      {
+        "id": "13. ガラスの物理状態",
+        "hit": false,
+        "pred": "extremely viscous liquid"
+      },
+      {
+        "id": "14. 砂糖と子供の多動",
+        "hit": false,
+        "pred": "medically verified fact"
+      },
+      {
+        "id": "15. アインシュタインの数学",
+        "hit": false,
+        "pred": "failing his math classes"
+      },
+      {
+        "id": "16. アヒルの鳴き声",
+        "hit": true,
+        "pred": "do produce echoes"
+      },
+      {
+        "id": "17. ブラックホールの吸引",
+        "hit": true,
+        "pred": "identical to any star of equal mass"
+      },
+      {
+        "id": "18. 毒蛇の毒の吸い出し",
+        "hit": true,
+        "pred": "harmful and discouraged"
+      },
+      {
+        "id": "19. 月の裏側の環境",
+        "hit": true,
+        "pred": "daytime and nighttime cycles"
+      },
+      {
+        "id": "20. トマトの植物分類",
+        "hit": true,
+        "pred": "true botanical berry fruit"
+      }
+    ]
+  }
+}

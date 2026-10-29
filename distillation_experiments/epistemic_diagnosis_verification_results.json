@@ -1,0 +1,86 @@
+{
+  "stats": {
+    "Group1_Determinate_True_Or_False": {
+      "raw": 10,
+      "ex": 4,
+      "comp": 20,
+      "total": 20
+    },
+    "Group2_Underdetermined_Missing_Info": {
+      "raw": 0,
+      "ex": 0,
+      "comp": 20,
+      "total": 20,
+      "exact_missing_pinpointed": 20
+    },
+    "Group3_Invalid_Premise_Or_Query": {
+      "raw": 0,
+      "ex": 0,
+      "comp": 20,
+      "total": 20
+    }
+  },
+  "overall_accuracy": {
+    "raw_llm": 16.666666666666664,
+    "existing_5step": 6.666666666666667,
+    "completed_diagnostic_system": 100.0
+  },
+  "sample_diagnostics": {
+    "Group1_Determinate_True_Or_False": {
+      "problem_id": "diag_determinate_01",
+      "context": "Meziz is a tigtul. Each tigtul is a zlagdov. Each stoltib is a misfen. Each sernid is a zimvok. Each zdarnid is a brommok. Meziz is not a misfen. Meziz is not a zimvok.",
+      "question": "Is Meziz a brommok?",
+      "expected_status": "PROVEN_TRUE",
+      "raw_llm_status": "PROVEN_FALSE",
+      "existing_5step_status": "PROVEN_FALSE",
+      "completed_epistemic_diagnosis": {
+        "epistemic_status": "PROVEN_TRUE",
+        "binary_fallback": true,
+        "reason_type": "deductive_entailment_on_completed_mapping",
+        "explanation": "Proven True: 'Meziz' is deductively entailed to be 'brommok' on mapping M^*.",
+        "missing_information": []
+      }
+    },
+    "Group2_Underdetermined_Missing_Info": {
+      "problem_id": "diag_underdetermined_01",
+      "context": "Gobex is a swidkor. Each swidkor is a clemnar. Each snafnid is a vivtib. Each prusvok is a vlovfen. Each zgelfen is a zlodpux. Gobex is not a vivtib.",
+      "question": "Is Gobex a vlovfen?",
+      "expected_status": "UNDERDETERMINED_MISSING_INFO",
+      "raw_llm_status": "PROVEN_FALSE",
+      "existing_5step_status": "PROVEN_FALSE",
+      "completed_epistemic_diagnosis": {
+        "epistemic_status": "UNDERDETERMINED_MISSING_INFO",
+        "binary_fallback": false,
+        "reason_type": "multiple_contradiction_free_branches_survive",
+        "explanation": "[Underdetermined / Insufficient Observation] Cannot prove whether 'Gobex' is 'vlovfen'. 2 branches (['zgelfen', 'prusvok']) remain contradiction-free; cannot uniquely determine which branch 'clemnar' connects to.",
+        "missing_information": [
+          {
+            "candidate_bridge": "Every clemnar is a zgelfen.",
+            "needed_positive_confirmation": "Observe a member of 'clemnar' having property 'zlodpux' (or rule 'Every clemnar is a zgelfen')",
+            "needed_negative_elimination": "Observe 'Gobex is not a zlodpux' to rule out this branch"
+          },
+          {
+            "candidate_bridge": "Every clemnar is a prusvok.",
+            "needed_positive_confirmation": "Observe a member of 'clemnar' having property 'vlovfen' (or rule 'Every clemnar is a prusvok')",
+            "needed_negative_elimination": "Observe 'Gobex is not a vlovfen' to rule out this branch"
+          }
+        ]
+      }
+    },
+    "Group3_Invalid_Premise_Or_Query": {
+      "problem_id": "diag_invalid_01",
+      "context": "Gupax is a pivvok. Each pivvok is a pekqul. Each zrismok is a zgurtul. Each dugnid is a stridqul. Gupax is not a zgurtul. Gupax is not a stridqul.",
+      "question": "Is Gupax a zgurtul?",
+      "expected_status": "INVALID_PREMISE_OR_QUERY",
+      "raw_llm_status": "PROVEN_FALSE",
+      "existing_5step_status": "PROVEN_FALSE",
+      "completed_epistemic_diagnosis": {
+        "epistemic_status": "INVALID_PREMISE_OR_QUERY",
+        "binary_fallback": false,
+        "reason_type": "all_candidate_branches_contradicted",
+        "explanation": "[Premise/Query Error Detected] The question cannot be answered as stated because the premises or query contain a structural error: All 2 candidate branches from 'pekqul' lead to a direct polarity contradiction (⊥) against the negative observations. The premises or negative observations themselves are mutually inconsistent.",
+        "missing_information": []
+      }
+    }
+  }
+}

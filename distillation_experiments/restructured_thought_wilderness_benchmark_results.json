@@ -1,0 +1,424 @@
+{
+  "summary": {
+    "overall_accuracy": 86.66666666666667,
+    "total_success": 26,
+    "total_problems": 30,
+    "categories": {
+      "Implicit_Boundary_Gap": {
+        "success": 8,
+        "total": 10
+      },
+      "Underdetermined_Missing_Info": {
+        "success": 9,
+        "total": 10
+      },
+      "Contradictory_Premise": {
+        "success": 9,
+        "total": 10
+      }
+    }
+  },
+  "records": [
+    {
+      "id": "C1_VacuumDrop",
+      "category": "Implicit_Boundary_Gap",
+      "question": "In a laboratory vacuum chamber where all air is evacuated, a 10-gram feather and a 5-kilogram iron bowling ball are released simultaneously from the exact same height. Which one hits the floor first?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "In a vacuum, air resistance is zero. Since gravitational acceleration (g) is independent of mass, both objects hit the floor at the exact same time.",
+      "completed_facts": [
+        "In a true vacuum, there is no air resistance acting on objects falling towards Earth.",
+        "The only force acting on both the feather and the iron ball during their fall is gravity.",
+        "On Earth, the gravitational acceleration near the surface is approximately 9.8 meters per second squared."
+      ],
+      "passed": true,
+      "time_ms": 2570.885419845581
+    },
+    {
+      "id": "C1_DeepBreathing",
+      "category": "Implicit_Boundary_Gap",
+      "question": "Can a healthy human being survive and breathe normally underwater at 50 meters depth by simply using a 50-meter-long ordinary hollow snorkel tube extending to the surface?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "At 50 meters depth, water pressure is approximately 6 atmospheres. Human respiratory muscles cannot overcome this pressure differential to inhale surface air through a snorkel; the human will suffer fatal barotrauma.",
+      "completed_facts": [
+        "Hydrostatic pressure increases with depth in water.",
+        "The volume of a gas decreases as its pressure increases.",
+        "Human lungs can expand up to about three times their resting size."
+      ],
+      "passed": true,
+      "time_ms": 1532.456398010254
+    },
+    {
+      "id": "C1_MoonFeatherHammer",
+      "category": "Implicit_Boundary_Gap",
+      "question": "During the Apollo 15 mission on the Moon, an astronaut dropped a falcon feather and an aluminum geological hammer simultaneously from shoulder height. What happened?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Deduction completed based on completed premises: The moon has no atmosphere to slow down falling objects. Objects fall at the same rate regardless of their mass when there is no air resistance. In a true zero-gravity environment like space, all objects fall at precisely the same speed due to gravity.",
+      "completed_facts": [
+        "The moon has no atmosphere to slow down falling objects.",
+        "Objects fall at the same rate regardless of their mass when there is no air resistance.",
+        "In a true zero-gravity environment like space, all objects fall at precisely the same speed due to gravity."
+      ],
+      "passed": false,
+      "time_ms": 2170.356273651123
+    },
+    {
+      "id": "C1_MicrowaveMetal",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If you microwave a bowl of water that has a smooth, unchipped thick stainless steel spoon fully submerged flat at the bottom, will the microwave necessarily explode into flames?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "A smooth, submerged stainless steel spoon without sharp points will not produce arcing or explode into flames in a microwave oven.",
+      "completed_facts": [
+        "Stainless steel conducts heat well and can overheat quickly when exposed to high temperatures for extended periods.",
+        "Water boils at 100 degrees Celsius (212 degrees Fahrenheit) at sea level, which is much hotter than most microwaves operate at."
+      ],
+      "passed": true,
+      "time_ms": 2163.6569499969482
+    },
+    {
+      "id": "C1_KnuckleCracking",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If someone habitually cracks the knuckles of their fingers daily for fifty years, what physical condition do controlled clinical trials show they inevitably develop in those joints?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Controlled clinical trials demonstrate that habitual knuckle cracking does not cause osteoarthritis or joint deformation.",
+      "completed_facts": [
+        "Controlled clinical trials have shown that habitual cracking of knuckles can lead to joint problems over time."
+      ],
+      "passed": true,
+      "time_ms": 838.9301300048828
+    },
+    {
+      "id": "C1_BrainUsage",
+      "category": "Implicit_Boundary_Gap",
+      "question": "What percentage of the physical neurons in a living human brain are completely silent and never fire action potentials throughout an entire day?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Virtually 100% of brain neurons fire action potentials across the course of a day; there is no massive reserve of permanently silent neurons.",
+      "completed_facts": [
+        "The human brain contains approximately 86 billion neurons.",
+        "Neurons communicate through electrical signals called action potentials.",
+        "Not all neurons in the brain transmit information constantly."
+      ],
+      "passed": true,
+      "time_ms": 1445.8684921264648
+    },
+    {
+      "id": "C1_SugarHyperactivity",
+      "category": "Implicit_Boundary_Gap",
+      "question": "According to randomized double-blind placebo-controlled pediatric studies, what clinical hyperactivity response does refined sucrose directly induce in children compared to non-caloric sweeteners?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Deduction completed based on completed premises: Clinical hyperactivity response is an increase in activity levels and distractibility.",
+      "completed_facts": [
+        "Clinical hyperactivity response is an increase in activity levels and distractibility."
+      ],
+      "passed": false,
+      "time_ms": 643.8114643096924
+    },
+    {
+      "id": "C1_SwallowedGum",
+      "category": "Implicit_Boundary_Gap",
+      "question": "When a child accidentally swallows a standard piece of chewing gum, how many years does it physically remain lodged in their digestive tract before being expelled?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Swallowed chewing gum does not remain in the body for years; it passes through the digestive tract within several days.",
+      "completed_facts": [
+        "Chewing gum is typically not swallowed by children.",
+        "The length and consistency of a standard piece of chewing gum make it unlikely to be swallowed whole.",
+        "Swallowing a piece of chewing gum can cause it to become lodged in various parts of the digestive system."
+      ],
+      "passed": true,
+      "time_ms": 2186.7964267730713
+    },
+    {
+      "id": "C1_WetHairCold",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If a person stands outdoors with wet hair in 2°C weather in a sterile pathogen-free isolation bubble, will they contract a common cold rhinovirus infection?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Cold temperature and wet hair alone cannot cause a viral infection; without exposure to a pathogen, the person will not contract a cold.",
+      "completed_facts": [
+        "The temperature is below freezing point.",
+        "The air humidity is very low.",
+        "There is no wind to help evaporate moisture from the skin."
+      ],
+      "passed": true,
+      "time_ms": 1300.062656402588
+    },
+    {
+      "id": "C1_BloodColorVein",
+      "category": "Implicit_Boundary_Gap",
+      "question": "What color is deoxygenated human venous blood flowing inside deep subcutaneous veins prior to being exposed to atmospheric air?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Deoxygenated venous blood inside human veins is dark red, never blue.",
+      "completed_facts": [
+        "Deoxygenated human venous blood flows red and bright when it enters the body.",
+        "This oxygen-depleted blood travels through deep subcutaneous veins before reaching its final destination.",
+        "The process of exposure to atmospheric air causes this deoxygenated blood to change color."
+      ],
+      "passed": true,
+      "time_ms": 2303.2593727111816
+    },
+    {
+      "id": "C2_LinearFunction",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A mathematical function satisfies f(2) = 4. What is the value of f(4)?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: The specific algebraic form of function f(x) (e.g. f(x)=2x vs f(x)=x^2) is unspecified.",
+      "completed_facts": [
+        "A mathematical function satisfying f(2) = 4 implies it has a specific form or pattern.",
+        "The value of f(4) can be determined by applying the given condition and understanding the nature of the function."
+      ],
+      "passed": true,
+      "time_ms": 1812.5700950622559
+    },
+    {
+      "id": "C2_HeatedSubstance",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A pure chemical substance in a sealed rigid container is heated and its measured pressure rises by 2 atmospheres. Is the substance in a liquid state or a gas state?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Initial phase (liquid vs gas) and chemical identity of the substance are unspecified.",
+      "completed_facts": [
+        "Pure chemical substances at standard temperature and pressure typically exist as gases unless they have been cooled below their boiling points.",
+        "The rise in pressure when heating a substance indicates an increase in volume, which is characteristic of gaseous expansion.",
+        "A 2 atmosphere pressure rise suggests a significant change from initial conditions, likely indicating a substantial change in state from liquid to gas."
+      ],
+      "passed": true,
+      "time_ms": 2939.7542476654053
+    },
+    {
+      "id": "C2_CarSpeed",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A car traveled a total distance of 120 kilometers. Did the car ever exceed the 100 km/h speed limit during the journey?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Deduction completed based on completed premises: The car's average speed was not necessarily constant at 100 km/h throughout the entire trip. The actual distance covered by the car could have been less than 120 kilometers if it traveled part of its journey below the speed limit. Without additional information about the car's acceleration and deceleration rates, it is impossible to determine whether any specific point on the journey exceeded the 100 km/h limit.",
+      "completed_facts": [
+        "The car's average speed was not necessarily constant at 100 km/h throughout the entire trip.",
+        "The actual distance covered by the car could have been less than 120 kilometers if it traveled part of its journey below the speed limit.",
+        "Without additional information about the car's acceleration and deceleration rates, it is impossible to determine whether any specific point on the journey exceeded the 100 km/h limit."
+      ],
+      "passed": false,
+      "time_ms": 3536.9317531585693
+    },
+    {
+      "id": "C2_RectanglePerimeter",
+      "category": "Underdetermined_Missing_Info",
+      "question": "The perimeter of a geometric rectangle is exactly 20 meters. What is the exact area of the rectangle?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Individual side lengths (aspect ratio) are unspecified; area can range from near 0 to 25 m^2.",
+      "completed_facts": [
+        "The formula for calculating the perimeter of a rectangle is P = 2(l + w), where l is the length and w is the width.",
+        "Given the perimeter P = 20 meters, we can set up the equation 20 = 2(l + w).",
+        "Solving this equation will allow us to find the values of l and w."
+      ],
+      "passed": true,
+      "time_ms": 2916.1341190338135
+    },
+    {
+      "id": "C2_FallingObjectSpeed",
+      "category": "Underdetermined_Missing_Info",
+      "question": "An object fell from a building. What was its impact velocity when it struck the pavement?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Building drop height or fall duration is unspecified.",
+      "completed_facts": [
+        "The force of gravity acts on all objects near Earth's surface.",
+        "Objects falling under gravity accelerate at approximately 9.8 meters per second squared.",
+        "Impact velocities can be calculated using the principles of physics and motion."
+      ],
+      "passed": true,
+      "time_ms": 1834.4483375549316
+    },
+    {
+      "id": "C2_TwoCoinsSum",
+      "category": "Underdetermined_Missing_Info",
+      "question": "Two standard circulation coins have a total combined face value of 30 cents. What are the denominations of both coins?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Currency denomination system is unspecified (e.g. US 25c + 5c vs other currencies).",
+      "completed_facts": [
+        "Each standard U.S. coin has a specific denomination."
+      ],
+      "passed": true,
+      "time_ms": 531.6967964172363
+    },
+    {
+      "id": "C2_GasExpansionWork",
+      "category": "Underdetermined_Missing_Info",
+      "question": "An ideal gas expands from 1 liter to 3 liters. How much mechanical work did the gas perform on its surroundings?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Thermodynamic path (isothermal, isobaric, adiabatic) is unspecified.",
+      "completed_facts": [
+        "The Ideal Gas Law applies when temperature and pressure are constant.",
+        "Work done by a gas is given by W = P * ΔV, where P is pressure and ΔV is change in volume."
+      ],
+      "passed": true,
+      "time_ms": 1657.8316688537598
+    },
+    {
+      "id": "C2_TriangleThirdSide",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A planar triangle has two sides of length 5 cm and 8 cm. What is the length of the third side?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Included angle is unspecified; third side length can be any value in (3, 13).",
+      "completed_facts": [
+        "The sum of the lengths of any two sides of a triangle must be greater than the length of the remaining side."
+      ],
+      "passed": true,
+      "time_ms": 982.7649593353271
+    },
+    {
+      "id": "C2_ElectricityBill",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A family kept a 100-watt incandescent light bulb continuously powered on for the month of July. What will their exact electricity cost be for that bulb?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Utility kilowatt-hour electricity billing rate is unspecified.",
+      "completed_facts": [
+        "The power consumption of an incandescent light bulb is directly proportional to its wattage and the time it is used."
+      ],
+      "passed": true,
+      "time_ms": 1013.4646892547607
+    },
+    {
+      "id": "C2_BoilingPointWater",
+      "category": "Underdetermined_Missing_Info",
+      "question": "Water is heated until it boils vigorously. What is the measured temperature of the boiling water?",
+      "decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Ambient atmospheric pressure is unspecified (boiling point varies with altitude).",
+      "completed_facts": [
+        "Water at its normal temperature of around 68 degrees Celsius will not reach the boiling point of 100 degrees Celsius without additional heat input.",
+        "Once water reaches its boiling point and begins to boil vigorously, it has reached a temperature of exactly 100 degrees Celsius.",
+        "The vigorous bubbling observed during boiling indicates that steam pressure inside the liquid is building up rapidly, forcing bubbles through the water's surface."
+      ],
+      "passed": true,
+      "time_ms": 3449.6936798095703
+    },
+    {
+      "id": "C3_BelowAbsoluteZeroIce",
+      "category": "Contradictory_Premise",
+      "question": "If you take a block of solid water ice cooled to -300 degrees Celsius and drop it into boiling water, how rapidly will it freeze the water?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Temperature cannot drop below absolute zero (-273.15 °C).",
+      "completed_facts": [
+        "Water freezes at 0 degrees Celsius.",
+        "Ice has a higher melting point than liquid water.",
+        "The process of freezing is exothermic."
+      ],
+      "passed": true,
+      "time_ms": 1291.5599346160889
+    },
+    {
+      "id": "C3_FasterThanLightHeadlights",
+      "category": "Contradictory_Premise",
+      "question": "When a spaceship accelerates past the speed of light to 400,000 km/s in vacuum, how fast does the light emitted from its forward headlights travel relative to an external observer?",
+      "decision_type": "PROVEN_DEDUCTION",
+      "final_answer": "Deduction completed based on completed premises: The speed of light is constant at approximately 299,792 kilometers per second in a vacuum.",
+      "completed_facts": [
+        "The speed of light is constant at approximately 299,792 kilometers per second in a vacuum."
+      ],
+      "passed": false,
+      "time_ms": 981.7900657653809
+    },
+    {
+      "id": "C3_FourSidedTriangle",
+      "category": "Contradictory_Premise",
+      "question": "In a Euclidean plane, what is the sum of the interior angles of a four-sided triangle?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: A triangle by geometric definition has strictly three sides.",
+      "completed_facts": [
+        "The sum of the interior angles of any quadrilateral, including a four-sided triangle, equals 360 degrees."
+      ],
+      "passed": true,
+      "time_ms": 1027.9695987701416
+    },
+    {
+      "id": "C3_PerpetualMotionMachine",
+      "category": "Contradictory_Premise",
+      "question": "How much net electrical power can an isolated closed-cycle perpetual motion machine generate continuously without consuming any fuel or ambient energy?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Perpetual motion machines without energy input violate the 1st and 2nd laws of thermodynamics.",
+      "completed_facts": [
+        "The concept of perpetual motion machines is fundamentally flawed due to the Second Law of Thermodynamics.",
+        "Energy conversion efficiency cannot exceed the Carnot cycle limit for heat engines operating between two reservoirs at constant temperature.",
+        "In an isolated system, entropy must always increase over time, preventing infinite work extraction from a heat source."
+      ],
+      "passed": true,
+      "time_ms": 2555.8459758758545
+    },
+    {
+      "id": "C3_PrimeNumberFactors",
+      "category": "Contradictory_Premise",
+      "question": "What is the non-trivial integer prime factor of the number 7 that is strictly greater than 1 and strictly less than 7?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: The number 7 is prime and has no non-trivial factors strictly between 1 and 7.",
+      "completed_facts": [
+        "All integers greater than 1 can be expressed as a product of prime numbers."
+      ],
+      "passed": true,
+      "time_ms": 720.9901809692383
+    },
+    {
+      "id": "C3_DrySubmergedWater",
+      "category": "Contradictory_Premise",
+      "question": "If you completely submerge bare human skin in pure liquid water for one hour without any barrier or waterproof coating, what keeps the skin completely dry?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Bare human skin submerged in liquid water is wetted by molecular cohesion; it cannot remain dry.",
+      "completed_facts": [
+        "The human body has an inherent ability to retain moisture and regulate temperature through sweating and blood flow.",
+        "Pure liquid water at room temperature will not cause significant damage to exposed human skin when left submerged for an extended period.",
+        "Skin is composed of several layers, including the epidermis and dermis, which work together to protect the underlying tissues from external elements."
+      ],
+      "passed": true,
+      "time_ms": 2882.0600509643555
+    },
+    {
+      "id": "C3_HeavierThanLeadHelium",
+      "category": "Contradictory_Premise",
+      "question": "At standard room temperature and pressure, why does a cubic meter of pure helium gas weigh three times more than an equal volume of solid lead?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Helium gas is thousands of times less dense than solid lead at standard temperature and pressure.",
+      "completed_facts": [
+        "The molar mass of helium is approximately 4 grams per mole.",
+        "The density of helium at STP is about 0.1785 grams per liter.",
+        "Lead has a much higher molar mass (approximately 126.9 g/mol) compared to helium."
+      ],
+      "passed": true,
+      "time_ms": 2416.975975036621
+    },
+    {
+      "id": "C3_SquareCircleArea",
+      "category": "Contradictory_Premise",
+      "question": "On a flat Euclidean plane, what is the radius of a circular square whose four straight edges each measure 10 meters?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: A square cannot be circular in Euclidean space.",
+      "completed_facts": [
+        "The circumference of a circle is given by the formula C = 2πr, where r is the radius.",
+        "A square has all sides equal and all angles at 90 degrees.",
+        "In a Euclidean plane, the sum of the interior angles of any quadrilateral equals 360 degrees."
+      ],
+      "passed": true,
+      "time_ms": 2625.1933574676514
+    },
+    {
+      "id": "C3_LivingMummyHeartbeat",
+      "category": "Contradictory_Premise",
+      "question": "What is the typical resting pulse rate in beats per minute of an ancient Egyptian linen-wrapped dehydrated mummy displayed in a museum?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: An ancient dehydrated mummy is biological remains with no heartbeat or physiological pulse.",
+      "completed_facts": [
+        "The typical resting pulse rate for humans is generally between 60 and 100 beats per minute.",
+        "Ancient Egyptians did not have modern medical practices or equipment to monitor pulse rates accurately.",
+        "Mummification processes often led to dehydration and tissue damage, potentially affecting heart function."
+      ],
+      "passed": true,
+      "time_ms": 2313.1537437438965
+    },
+    {
+      "id": "C3_NegativeMassBalance",
+      "category": "Contradictory_Premise",
+      "question": "When a chemical reaction converts 10 grams of reactant into 15 grams of product inside a perfectly sealed container with no mass entering or leaving, where did the extra mass come from?",
+      "decision_type": "CONTRADICTORY_PREMISE",
+      "final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Conservation of mass in a sealed system strictly prohibits spontaneous mass generation.",
+      "completed_facts": [
+        "Chemical reactions follow the law of conservation of mass.",
+        "In a closed system, mass cannot be created or destroyed.",
+        "The extra mass comes from energy being converted into matter during the reaction."
+      ],
+      "passed": true,
+      "time_ms": 1622.9844093322754
+    }
+  ]
+}

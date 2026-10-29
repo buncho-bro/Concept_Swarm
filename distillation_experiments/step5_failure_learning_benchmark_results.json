@@ -1,0 +1,19 @@
+{
+  "all_passed": true,
+  "learning_report": {
+    "conflict_core": [
+      "Impus",
+      "Sour"
+    ],
+    "nogood_added": true,
+    "contradiction_derived": "NOT_Impus",
+    "repulsive_penalty": -2.5,
+    "preserved_lemmas_count": 2
+  },
+  "is_blocked": true,
+  "adjusted_affinity": -1.7,
+  "preserved_lemmas": [
+    "('Max', 'Impus')",
+    "('Impus', 'Sour')"
+  ]
+}

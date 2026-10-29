@@ -1,0 +1,170 @@
+[
+  {
+    "initial_events": [
+      "data center power",
+      "grid blackout",
+      "cooling water shortage"
+    ],
+    "future_attractors": [
+      {
+        "concept": "dcc",
+        "attractor_gravity": 0.09076150506734848
+      },
+      {
+        "concept": "min",
+        "attractor_gravity": 0.069507896900177
+      },
+      {
+        "concept": "journal",
+        "attractor_gravity": 0.06806041300296783
+      },
+      {
+        "concept": "insn",
+        "attractor_gravity": 0.06599140912294388
+      },
+      {
+        "concept": "faculty",
+        "attractor_gravity": 0.0655198022723198
+      },
+      {
+        "concept": "mand",
+        "attractor_gravity": 0.06464827060699463
+      },
+      {
+        "concept": "inders",
+        "attractor_gravity": 0.06407219916582108
+      },
+      {
+        "concept": "quotas",
+        "attractor_gravity": 0.06312114000320435
+      }
+    ],
+    "theme": "【シナリオ 1: エネルギー・AIインフラ危機】"
+  },
+  {
+    "initial_events": [
+      "strait blockade",
+      "freight shipping halt",
+      "crude oil embargo"
+    ],
+    "future_attractors": [
+      {
+        "concept": "dcc",
+        "attractor_gravity": 0.09634904563426971
+      },
+      {
+        "concept": "quotas",
+        "attractor_gravity": 0.0666559562087059
+      },
+      {
+        "concept": "insn",
+        "attractor_gravity": 0.06638116389513016
+      },
+      {
+        "concept": "inhal",
+        "attractor_gravity": 0.06560911238193512
+      },
+      {
+        "concept": "enen",
+        "attractor_gravity": 0.06376730650663376
+      },
+      {
+        "concept": "tender",
+        "attractor_gravity": 0.06305066496133804
+      },
+      {
+        "concept": "rama",
+        "attractor_gravity": 0.06223614513874054
+      },
+      {
+        "concept": "renewables",
+        "attractor_gravity": 0.06176008656620979
+      }
+    ],
+    "theme": "【シナリオ 2: 地政学・海上交通寸断】"
+  },
+  {
+    "initial_events": [
+      "commercial real estate collapse",
+      "bank run",
+      "liquidity freeze"
+    ],
+    "future_attractors": [
+      {
+        "concept": "dcc",
+        "attractor_gravity": 0.0827464684844017
+      },
+      {
+        "concept": "insn",
+        "attractor_gravity": 0.06883154064416885
+      },
+      {
+        "concept": "nunes",
+        "attractor_gravity": 0.0686635822057724
+      },
+      {
+        "concept": "statechanged",
+        "attractor_gravity": 0.06544387340545654
+      },
+      {
+        "concept": "adverse",
+        "attractor_gravity": 0.06432531028985977
+      },
+      {
+        "concept": "textchanged",
+        "attractor_gravity": 0.06340553611516953
+      },
+      {
+        "concept": "inhal",
+        "attractor_gravity": 0.06273585557937622
+      },
+      {
+        "concept": "rama",
+        "attractor_gravity": 0.06269213557243347
+      }
+    ],
+    "theme": "【シナリオ 3: 次世代金融・信用ショック】"
+  },
+  {
+    "initial_events": [
+      "lunar base construction",
+      "solar flare radiation",
+      "autonomous rover drill"
+    ],
+    "future_attractors": [
+      {
+        "concept": "dcc",
+        "attractor_gravity": 0.09308971464633942
+      },
+      {
+        "concept": "insn",
+        "attractor_gravity": 0.07351189106702805
+      },
+      {
+        "concept": "journal",
+        "attractor_gravity": 0.07037647813558578
+      },
+      {
+        "concept": "min",
+        "attractor_gravity": 0.06971916556358337
+      },
+      {
+        "concept": "density",
+        "attractor_gravity": 0.06778299808502197
+      },
+      {
+        "concept": "sur",
+        "attractor_gravity": 0.06623785942792892
+      },
+      {
+        "concept": "ersen",
+        "attractor_gravity": 0.06365989148616791
+      },
+      {
+        "concept": "mineral",
+        "attractor_gravity": 0.0633477196097374
+      }
+    ],
+    "theme": "【シナリオ 4: 宇宙開発・自律探査】"
+  }
+]

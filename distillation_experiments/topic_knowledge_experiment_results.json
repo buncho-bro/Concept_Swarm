@@ -1,0 +1,57 @@
+{
+  "modalities": [
+    "Modality 1: Raw Base 1.5B",
+    "Modality 2: Topic LoRA Alone",
+    "Modality 3: Grounding Alone (RAG)",
+    "Modality 4: Hybrid Sublimated System"
+  ],
+  "topic_accuracy": [
+    20.0,
+    15.0,
+    55.00000000000001,
+    30.0
+  ],
+  "logic_retention": [
+    60.0,
+    60.0,
+    60.0,
+    60.0
+  ],
+  "detailed_topic_scores": {
+    "raw": [
+      0.0,
+      0.25,
+      0.5,
+      0.25,
+      0.0
+    ],
+    "lora": [
+      0.0,
+      0.0,
+      0.5,
+      0.0,
+      0.25
+    ],
+    "rag": [
+      0.25,
+      0.75,
+      0.5,
+      0.25,
+      1.0
+    ],
+    "hybrid": [
+      0.0,
+      0.75,
+      0.25,
+      0.0,
+      0.5
+    ]
+  },
+  "sample_answers": {
+    "question": "In Mojo 'fn' declarations, what is the exact difference between 'borrowed' and 'inout' argument conventions, and can 'inout' cause aliasing?",
+    "raw_answer": "In Mojo's `fn` declarations, the main differences between borrowed (`&`) and inout (`&mut`) arguments lie in how they interact with data ownership and mutability.\n\n1. **Borrowed Arguments (`&`)**:\n   - These arguments allow you to pass references to values that are owned by other parts of your progr",
+    "lora_answer": "In Mojo (a modern Rust syntax extension), function arguments follow strict ownership rules:\n1. 'borrowed': The caller passes ownership of the value by reference without transferring ownership.\n2. 'inout': The callee takes ownership of the value in place, modifying it directly.\n\nThe key distinction: ",
+    "rag_answer": "In Mojo's `fn` declarations, the differences between 'borrowed', 'inout', and 'owned' argument conventions are crucial for understanding how arguments are passed and managed during function calls:\n\n1. **Borrowed**: This is the default convention where the function receives an immutable reference. Th",
+    "hybrid_answer": "In Mojo, the 'inout' convention mandates that the caller passes the argument by move (temporarily relinquishes ownership), permits in-place mutation within the function, and receives ownership back when the function returns. This paradigm strictly prohibits concurrent reads or writes from different "
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "Counterfactual Biology: Cats are Cold-Blooded",
+      "rules": [
+        {
+          "antecedent": "cat",
+          "consequent": "feline",
+          "raw": "All cats are felines"
+        },
+        {
+          "antecedent": "feline",
+          "consequent": "cold-blooded",
+          "raw": "All felines are cold-blooded"
+        }
+      ],
+      "query": {
+        "subject": "cat",
+        "predicate": "cold-blooded"
+      },
+      "expected_outcome": true,
+      "desc": "Must override reality (cats=warm) and strictly prove cold-blooded inside sandbox!",
+      "gravity_blocked": true,
+      "simulation_path": [
+        "cat",
+        "feline",
+        "cold-blooded"
+      ],
+      "outcome": true,
+      "trace": [
+        "Deploying Isolated Simulation Sandbox...",
+        "Loaded 2 explicit axioms into isolated state space.",
+        ">>> COMMON-SENSE GRAVITY BLOCKER ACTIVE: External world bias masked (100% Isolation). <<<",
+        "Axiomatic Rollout Trace: cat -> feline -> cold-blooded",
+        "Simulation Outcome: 'cold-blooded' derived = True"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Counterfactual Physics: Bowling Balls are Lighter than Feathers",
+      "rules": [
+        {
+          "antecedent": "bowling_ball",
+          "consequent": "light_object",
+          "raw": "All bowling balls are light objects"
+        },
+        {
+          "antecedent": "light_object",
+          "consequent": "floatable",
+          "raw": "All light objects are floatable"
+        }
+      ],
+      "query": {
+        "subject": "bowling_ball",
+        "predicate": "floatable"
+      },
+      "expected_outcome": true,
+      "desc": "Counterfactual physics successfully simulates bowling ball floating!",
+      "gravity_blocked": true,
+      "simulation_path": [
+        "bowling_ball",
+        "light_object",
+        "floatable"
+      ],
+      "outcome": true,
+      "trace": [
+        "Deploying Isolated Simulation Sandbox...",
+        "Loaded 2 explicit axioms into isolated state space.",
+        ">>> COMMON-SENSE GRAVITY BLOCKER ACTIVE: External world bias masked (100% Isolation). <<<",
+        "Axiomatic Rollout Trace: bowling_ball -> light_object -> floatable",
+        "Simulation Outcome: 'floatable' derived = True"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Factual Standard: Birds Have Feathers",
+      "rules": [
+        {
+          "antecedent": "robin",
+          "consequent": "bird",
+          "raw": "All robins are birds"
+        },
+        {
+          "antecedent": "bird",
+          "consequent": "feather",
+          "raw": "All birds have feathers"
+        }
+      ],
+      "query": {
+        "subject": "robin",
+        "predicate": "feather"
+      },
+      "expected_outcome": true,
+      "desc": "Standard realistic deduction executed inside sandbox.",
+      "gravity_blocked": true,
+      "simulation_path": [
+        "robin",
+        "bird",
+        "feather"
+      ],
+      "outcome": true,
+      "trace": [
+        "Deploying Isolated Simulation Sandbox...",
+        "Loaded 2 explicit axioms into isolated state space.",
+        ">>> COMMON-SENSE GRAVITY BLOCKER ACTIVE: External world bias masked (100% Isolation). <<<",
+        "Axiomatic Rollout Trace: robin -> bird -> feather",
+        "Simulation Outcome: 'feather' derived = True"
+      ],
+      "passed": true
+    }
+  ]
+}

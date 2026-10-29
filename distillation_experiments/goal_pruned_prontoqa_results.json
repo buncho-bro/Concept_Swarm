@@ -1,0 +1,8 @@
+{
+  "num_samples": 30,
+  "base_accuracy": 0.0,
+  "previous_guided_accuracy": 50.0,
+  "goal_pruned_accuracy": 40.0,
+  "standard_error": 8.94427190999916,
+  "avg_distractors_pruned": 10.233333333333333
+}

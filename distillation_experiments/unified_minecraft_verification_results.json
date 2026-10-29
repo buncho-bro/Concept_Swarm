@@ -1,0 +1,38 @@
+[
+  {
+    "id": "q1_components_ja",
+    "query": "Minecraft 1.21において、鋭さ5のダイヤモンドの剣をプレイヤーに付与し、カスタムデータとして spell_tier:3 を埋め込む最新のコマンド構文を教えてください。従来のNBT compound記法は使えますか？",
+    "step1_premise": "Minecraft 1.21+ supports NBT update commands with specific structure.",
+    "step1_pitfall": "Misunderstanding the difference between direct item updates (e.g., items) vs. indirect modifications through tags (e.g., data_tag). Direct item updates bypass potential performance issues associated with tag manipulation.",
+    "retrieved_chunks": [
+      "wiki_9872_sec_12_c0",
+      "wiki_37008_sec_16_c0",
+      "wiki_8570_sec_5_c0"
+    ],
+    "final_answer": "以下に、指定された条件を満たす最適なコマンドを提供いたします：\n\nspell_item_components:\ncomponents:[{\"id\":\"diamond_sword\",\"slot\":0,\"quality\":{\"tier\":3}}]\n\nこのコマンドを使用することで、ダイヤモントの剣を受け継いだ後、スペルトーチの値を3にすることができます。ただし、この方法によってアイテムモデルが変更されないため、アイテムモデルの更新には別の手段が必要となる場合があります。また、この方法によりアイテムIDが変わることも考慮に入れると良いでしょう。"
+  },
+  {
+    "id": "q2_redstone_qc_spit_ja",
+    "query": "Java版における準接続（Quasi-Connectivity）の仕組みと、粘着ピストンに1レッドストーンティック（2ゲームティック）のパルスを入力したときに起きる現象（ブロック吐き出し/T-Flip-Flop）について説明してください。",
+    "step1_premise": "Java Edition (JE) blocks have specific properties that allow them to be connected through indirect paths.",
+    "step1_pitfall": "Some players may confuse the concept of quasi-connectivity with direct block placement due to visual similarity. Additionally, they might overlook how sticky pistons interact with redstone logic gates like t-flops.",
+    "retrieved_chunks": [
+      "wiki_9770_intro_c0",
+      "wiki_8570_sec_6_c0",
+      "wiki_9872_sec_9_c1"
+    ],
+    "final_answer": "Java Editionにおける準接連（英：Quasi-Connection）とは：\n\n粘着ピトニックス（英：Stick Pistons）を使用すると、ブロックを引き伸ばしたり、移動させたりすることはできないため、物理的に近い位置にある他のブロックから情報を受けても、または自身の存在を知らずにブロック状態を変更しようとしても問題なく動作させることができるようになる。\nただし、以下のような例外がある：\n1. 振り子式の回転ダイオード（英：Rotating Diodes）\n2. 静止しているブロックを通過させたい場合\n\n粘着ピツンによるブロックの取り付け方については以下の通りである：\n\n静止しているブlockを通過させたくなければ、そのブロック上の任意の面に粘着ピスンを設置すればよい。なお、壁面には通常、垂直方向に設置するのが適切であり、水平方向に設立せずにそのまま放置するのは避けた方が良いとのことだ。\nまた、壁面に設置されても問題ないのが、壁面の上に設置されることである。これは壁面の下側にも同様に適用されるので、壁面全体に設置しても問題ないということにつなげられるものと考えられている。\nさらに、壁面以外のどの面にも設置できることは決まっているわけではないとのことで、自由度が高いと言えそうだ。\nなお、壁面上に"
+  },
+  {
+    "id": "q3_execute_command_ja",
+    "query": "最新のexecuteコマンドを使って、半径10ブロック以内にいる最も近いゾンビの足元に雷を落とす正確なコマンド構文を教えてください。",
+    "step1_premise": "最新のexecuteコマンドは、引数が正しく指定されていない場合、解析不能となる可能性がある。",
+    "step1_pitfall": "モデルファイルやJSONフォーマットの問題により、entityのposition値が不正でなければならずともこの条件を",
+    "retrieved_chunks": [
+      "wiki_9872_sec_1_c1",
+      "wiki_9872_sec_2_c0",
+      "wiki_9878_sec_8_c0"
+    ],
+    "final_answer": "以下に最適化されたexecuteコマン드の例を示します：\n\njava.util.function.BiFunction<...> getClosestZombiePos = () -> {\n    return Minecraft.getInstance().getEntitiesByClass(Zombie.class).stream()\n        .min((a, b) -> Double.compare(a.posX(), b.posX()));\n};\nexecute as function(getClosestZombiePos);\nexecute if entity is zombie;\nexecute store result data block pos ~ ~ ~ to \"zombie_charge\";\nexecute spawnpoint player @s ~ ~ ~ with explosion charge 5; \nexecute unless score @p health > 64;\n\n上記のコードでは、最も近い Zombie を検出した後、その位置情報を取得するために関数を実行させます。その後、その位置に爆発チャージを設定することで、その場所に雷を放ちます。なお、この方法だと、charge の値が変更されるまでに一定時間かかるため、短い間隔での繰り返しそこなしても問題ありません。ただし、charge の最大値を超えた値を設定すると、結果的にゲーム内でのエラーとなり、システムが落ちてしまうことになりますのでご了承願います。"
+  }
+]

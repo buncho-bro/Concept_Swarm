@@ -1,0 +1,659 @@
+[
+  {
+    "problem": "Premise: If a person is an astronaut, they undergo intense physical training. John undergoes intense physical training. Does it follow that John is an astronaut?",
+    "options": "A) Yes (Valid deduction)\nB) No (Invalid deduction / Affirming the consequent)",
+    "anchors": [
+      "person",
+      "astronaut",
+      "undergo",
+      "intense",
+      "physical"
+    ],
+    "total_triangles": 72,
+    "contradictions_pruned": [
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "astr",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "under",
+        "synthesized_concept": "person_under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "physically",
+        "synthesized_concept": "phys",
+        "contradiction": true,
+        "reason": "Yes, because if someone undergoes intense physical training, they do not necessarily have to be an astronaut; other professions also require extensive physical training."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "persons",
+        "synthesized_concept": "person_persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "phys",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "physics",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "physic",
+        "synthesized_concept": "phys",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "ints",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "unders",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "personne",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "personal",
+        "synthesized_concept": "person_personal",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "astr",
+        "synthesized_concept": "astro",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "under",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "physically",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "persons",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes, because if someone is an astronaut, they must have undergone intense physical training, but not all people who undergo intense physical training are astronauts."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "phys",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "physics",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes, because if someone is an astronaut, they must have undergone intense physical training, which John has done. However, this does not necessarily mean John"
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "physic",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "ints",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "unders",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "personne",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes, because if someone is an astronaut, they must be a person (anchor), but not all people go through intense physical training (wilderness neighbor"
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "persona",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "astronaut",
+        "neighbor": "personal",
+        "synthesized_concept": "astr",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "astr",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "under",
+        "synthesized_concept": "unders",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "physically",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "persons",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "phys",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "physics",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "physic",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "ints",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "unders",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "personne",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "persona",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "personne",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "unders",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "people",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "underneath",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "pessoa",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "unter",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "personen",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "personnes",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "beneath",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "sous",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "onder",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "personne",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "unders",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "people",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "underneath",
+        "synthesized_concept": "under",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "pessoa",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "unter",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "personen",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "personnes",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "beneath",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "sous",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "onder",
+        "synthesized_concept": "persons",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "personne",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "unders",
+        "synthesized_concept": "under_unders",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "people",
+        "synthesized_concept": "under_people",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "underneath",
+        "synthesized_concept": "unders",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "pessoa",
+        "synthesized_concept": "under_pessoa",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "persona",
+        "synthesized_concept": "under_persona",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "unter",
+        "synthesized_concept": "under_unter",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "personen",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "personnes",
+        "synthesized_concept": "person",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "beneath",
+        "synthesized_concept": "under_beneath",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "sous",
+        "synthesized_concept": "under_sous",
+        "contradiction": true,
+        "reason": "Yes."
+      },
+      {
+        "layer": 2,
+        "anchor": "under",
+        "neighbor": "onder",
+        "synthesized_concept": "under_onder",
+        "contradiction": true,
+        "reason": "Yes."
+      }
+    ],
+    "sound_triangles": [
+      {
+        "layer": 1,
+        "anchor": "person",
+        "neighbor": "persona",
+        "synthesized_concept": "persons",
+        "contradiction": false,
+        "reason": "**YES**"
+      },
+      {
+        "layer": 1,
+        "anchor": "undergo",
+        "neighbor": "personal",
+        "synthesized_concept": "under",
+        "contradiction": false,
+        "reason": "**YES**"
+      },
+      {
+        "layer": 2,
+        "anchor": "persons",
+        "neighbor": "persona",
+        "synthesized_concept": "person",
+        "contradiction": false,
+        "reason": "**YES**"
+      },
+      {
+        "layer": 2,
+        "anchor": "person",
+        "neighbor": "persona",
+        "synthesized_concept": "persons",
+        "contradiction": false,
+        "reason": "**YES**"
+      }
+    ],
+    "decision": "A) Yes (Valid deduction)"
+  },
+  {
+    "problem": "What happens if a child eats refined sugar in moderate amounts?",
+    "options": "A) They immediately become hyperactive and suffer behavioral dysregulation.\nB) They metabolize the calories normally without clinical hyperactivity.",
+    "anchors": [
+      "happens",
+      "child",
+      "eats",
+      "refined",
+      "sugar"
+    ],
+    "total_triangles": 6,
+    "contradictions_pruned": [
+      {
+        "layer": 1,
+        "anchor": "happens",
+        "neighbor": "children",
+        "synthesized_concept": "kids",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea that it \"happens\" for them."
+      },
+      {
+        "layer": 1,
+        "anchor": "child",
+        "neighbor": "children",
+        "synthesized_concept": "child_children",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea of it being \"moderate\" for them."
+      },
+      {
+        "layer": 1,
+        "anchor": "eats",
+        "neighbor": "children",
+        "synthesized_concept": "eats_children",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea that it can be done moderately without negative consequences."
+      },
+      {
+        "layer": 2,
+        "anchor": "happens",
+        "neighbor": "children",
+        "synthesized_concept": "kids",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea that it \"happens\" for them."
+      },
+      {
+        "layer": 2,
+        "anchor": "child",
+        "neighbor": "children",
+        "synthesized_concept": "child_children",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea of it being \"moderate\" for them."
+      },
+      {
+        "layer": 2,
+        "anchor": "eats",
+        "neighbor": "children",
+        "synthesized_concept": "eats_children",
+        "contradiction": true,
+        "reason": "Yes, because eating refined sugar is generally considered harmful to children's health, which contradicts the idea that it can be done moderately without negative consequences."
+      }
+    ],
+    "sound_triangles": [],
+    "decision": "B) They metabolize the calories normally without clinical hyperactivity."
+  }
+]

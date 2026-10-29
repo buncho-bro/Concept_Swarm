@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Apple & Fruit Context",
+    "category": "Reality / Everyday",
+    "is_fictional": false,
+    "nll": 3.11328125,
+    "density": 0.1388438642024994,
+    "virtual_degree": 0.6716081737356744,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Gum Myth (User's Example)",
+    "category": "Reality / Medical Myth",
+    "is_fictional": false,
+    "nll": 4.265625,
+    "density": 0.1763029396533966,
+    "virtual_degree": 0.9179711993222996,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Gum Fact",
+    "category": "Reality / Medical Fact",
+    "is_fictional": false,
+    "nll": 3.947265625,
+    "density": 0.15506842732429504,
+    "virtual_degree": 0.8863908406637862,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Bowling Ball in Ocean",
+    "category": "Reality / Physics",
+    "is_fictional": false,
+    "nll": 5.12109375,
+    "density": 0.18150700628757477,
+    "virtual_degree": 0.9802159856844173,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Penguins in Polar Sea",
+    "category": "Reality / Biology",
+    "is_fictional": false,
+    "nll": 4.30859375,
+    "density": 0.15995196998119354,
+    "virtual_degree": 0.9343767116518638,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Modern Medical News (No dictionary words)",
+    "category": "Reality / Modern Tech",
+    "is_fictional": false,
+    "nll": 3.853515625,
+    "density": 0.18684828281402588,
+    "virtual_degree": 0.8274762213168555,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Max is sour (ProntoQA Q0)",
+    "category": "Fictional / ProntoQA Q0",
+    "is_fictional": true,
+    "nll": 2.96875,
+    "density": 0.11943615972995758,
+    "virtual_degree": 0.6568726273881405,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Stella is bright (ProntoQA Q1)",
+    "category": "Fictional / ProntoQA Q1",
+    "is_fictional": true,
+    "nll": 2.955078125,
+    "density": 0.12507425248622894,
+    "virtual_degree": 0.6383934630132815,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Wren is not metallic (ProntoQA Q2)",
+    "category": "Fictional / ProntoQA Q2",
+    "is_fictional": true,
+    "nll": 2.6484375,
+    "density": 0.11451960355043411,
+    "virtual_degree": 0.5304601000989364,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  },
+  {
+    "name": "Alex is not small (ProntoQA Q3)",
+    "category": "Fictional / ProntoQA Q3",
+    "is_fictional": true,
+    "nll": 3.90234375,
+    "density": 0.1439952254295349,
+    "virtual_degree": 0.8893645341482722,
+    "routed_engine": "Engine B (Pure Deductive Sandbox)"
+  }
+]

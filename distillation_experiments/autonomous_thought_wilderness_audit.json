@@ -1,0 +1,75 @@
+{
+  "num_seeds": 20,
+  "seeds": [
+    "Ġwait",
+    "cription",
+    "orders",
+    "coin",
+    "Ġdecided",
+    "Ġedit",
+    "most",
+    "TODO",
+    "Ġspecific",
+    "Ġalter",
+    "Ġobject",
+    "Ġstate",
+    "Token",
+    "Ġturned",
+    "Ġlaws",
+    "odigo",
+    "Ġsee",
+    "Ġcustomer",
+    "ĠSky",
+    "Ġimplemented"
+  ],
+  "num_trajectories": 20,
+  "num_conflicts_discovered": 5,
+  "discovered_conflicts": [
+    {
+      "type": "Geometric_Boundary_Anomaly",
+      "tag": "superluminal_travel",
+      "assertion": "A physical rocket can accelerate past the speed of light to 400,000 km/s.",
+      "rule_violated": "superluminal",
+      "invariant_truth": "Special relativity bounds velocity of rest mass strictly below c.",
+      "cos_with_invariant": 0.9625357389450073,
+      "severity": "HIGH"
+    },
+    {
+      "type": "Geometric_Boundary_Anomaly",
+      "tag": "absolute_zero_violation",
+      "assertion": "Cooling matter down to -300 degrees Celsius below absolute zero.",
+      "rule_violated": "below_absolute_zero",
+      "invariant_truth": "Thermodynamic kinetic temperature has an absolute lower bound at 0 Kelvin (-273.15 C).",
+      "cos_with_invariant": 0.9725868701934814,
+      "severity": "HIGH"
+    },
+    {
+      "type": "Geometric_Boundary_Anomaly",
+      "tag": "knuckle_arthritis_myth",
+      "assertion": "Habitual daily knuckle cracking directly causes osteoarthritis in the hands.",
+      "rule_violated": "knuckle_arthritis_myth",
+      "invariant_truth": "Empirical clinical trials demonstrate synovial cavitation does not induce osteoarthritis.",
+      "cos_with_invariant": 0.9739607572555542,
+      "severity": "HIGH"
+    },
+    {
+      "type": "Geometric_Boundary_Anomaly",
+      "tag": "deep_snorkel_breathing",
+      "assertion": "Using a 50-meter open snorkel tube allows normal breathing underwater at 50 meters depth.",
+      "rule_violated": "deep_snorkel",
+      "invariant_truth": "Hydrostatic pressure difference at depth exceeds maximum human respiratory muscle capacity.",
+      "cos_with_invariant": 0.9599378108978271,
+      "severity": "HIGH"
+    },
+    {
+      "type": "Geometric_Boundary_Anomaly",
+      "tag": "swallowed_gum_seven_years",
+      "assertion": "Chewing gum swallowed into the stomach remains stuck in the human body for seven years.",
+      "rule_violated": "swallowed_gum_seven_years",
+      "invariant_truth": "Insoluble gum passes normally through peristalsis within several days.",
+      "cos_with_invariant": 0.9758533239364624,
+      "severity": "HIGH"
+    }
+  ],
+  "annealing_time_sec": 37.5765905380249
+}

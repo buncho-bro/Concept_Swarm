@@ -1,0 +1,55 @@
+{
+  "sample_counts": {
+    "Cat_A_Full": 500,
+    "Cat_A_Subset": 50,
+    "Cat_B": 50,
+    "Cat_C": 30,
+    "Cat_D": 2000
+  },
+  "results": [
+    {
+      "system": "1. Raw Qwen2.5-1.5B",
+      "sample_a": 50,
+      "cat_a_score": 42.0,
+      "sample_b": 50,
+      "cat_b_score": 32.0,
+      "sample_c": 30,
+      "cat_c_score": 56.7,
+      "cat_d_eff_dim": 536.28,
+      "distortion": 8.23
+    },
+    {
+      "system": "2. Legacy 82-Anchor LoRA",
+      "sample_a": 50,
+      "cat_a_score": 42.0,
+      "sample_b": 50,
+      "cat_b_score": 32.0,
+      "sample_c": 30,
+      "cat_c_score": 43.3,
+      "cat_d_eff_dim": 28.4,
+      "distortion": 26.8
+    },
+    {
+      "system": "3. DeepSeek-R1-Distill-1.5B",
+      "sample_a": 50,
+      "cat_a_score": 100.0,
+      "sample_b": 50,
+      "cat_b_score": 100.0,
+      "sample_c": 30,
+      "cat_c_score": 63.3,
+      "cat_d_eff_dim": 512.0,
+      "distortion": 9.15
+    },
+    {
+      "system": "4. New Full-Manifold Cognitive System",
+      "sample_a": 500,
+      "cat_a_score": 47.599999999999994,
+      "sample_b": 50,
+      "cat_b_score": 66.0,
+      "sample_c": 30,
+      "cat_c_score": 73.33333333333333,
+      "cat_d_eff_dim": 474.72,
+      "distortion": 1.91
+    }
+  ]
+}

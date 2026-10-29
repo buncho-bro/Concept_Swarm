@@ -1,0 +1,91 @@
+{
+  "all_passed": true,
+  "deduction_results": [
+    {
+      "decision": true,
+      "proof_chain": [
+        "Max is a yumpus",
+        "Each yumpus is a dumpus",
+        "Dumpuses are wumpuses",
+        "Wumpuses are red"
+      ],
+      "status": "PROVEN",
+      "is_cached": false,
+      "reasoning_trace": [
+        "Root Fact: Max is a yumpus",
+        "Formal proof completed in 4 steps."
+      ]
+    },
+    {
+      "decision": true,
+      "proof_chain": [
+        "Max is a yumpus",
+        "Each yumpus is a dumpus"
+      ],
+      "is_cached": true,
+      "reasoning_trace": [
+        "[CACHE HIT] Lemma already proven: Max is dumpus"
+      ],
+      "status": "PROVEN_FROM_CACHE"
+    },
+    {
+      "decision": false,
+      "proof_chain": [],
+      "status": "CLOSED_WORLD_REFUTED",
+      "is_cached": false,
+      "reasoning_trace": [
+        "Root Fact: Max is a yumpus",
+        "Target 'sour' exists in rules, but is unreachable from yumpus."
+      ]
+    }
+  ],
+  "abduction_results": {
+    "observation": {
+      "subject": "Max",
+      "predicate": "red"
+    },
+    "hypotheses_count": 1,
+    "candidate_hypotheses": [
+      {
+        "root_hypothesis": "yumpus",
+        "causal_path": [
+          "yumpus",
+          "dumpus",
+          "wumpus",
+          "red"
+        ]
+      }
+    ]
+  },
+  "induction_results": [
+    {
+      "antecedent": "feather",
+      "consequent": "bird",
+      "support": 1.0,
+      "instances_count": 3,
+      "synthesized_rule": "All feathers are birds"
+    },
+    {
+      "antecedent": "bird",
+      "consequent": "feather",
+      "support": 1.0,
+      "instances_count": 3,
+      "synthesized_rule": "All birds are feathers"
+    },
+    {
+      "antecedent": "gill",
+      "consequent": "fish",
+      "support": 1.0,
+      "instances_count": 2,
+      "synthesized_rule": "All gills are fishs"
+    },
+    {
+      "antecedent": "fish",
+      "consequent": "gill",
+      "support": 1.0,
+      "instances_count": 2,
+      "synthesized_rule": "All fishs are gills"
+    }
+  ],
+  "cached_lemmas_count": 4
+}

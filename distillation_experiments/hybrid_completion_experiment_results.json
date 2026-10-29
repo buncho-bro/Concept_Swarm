@@ -1,0 +1,521 @@
+{
+  "stats": {
+    "Implicit_Boundary_Gap": {
+      "raw_success": 4,
+      "hybrid_success": 7,
+      "total": 10
+    },
+    "Underdetermined_Missing_Info": {
+      "raw_success": 2,
+      "hybrid_success": 9,
+      "total": 10
+    },
+    "Contradictory_Premise": {
+      "raw_success": 1,
+      "hybrid_success": 9,
+      "total": 10
+    }
+  },
+  "overall_accuracy": {
+    "raw_llm": 23.333333333333332,
+    "hybrid": 83.33333333333334
+  },
+  "records": [
+    {
+      "id": "C1_VacuumDrop",
+      "category": "Implicit_Boundary_Gap",
+      "question": "In a laboratory vacuum chamber where all air is evacuated, a 10-gram feather and a 5-kilogram iron bowling ball are released simultaneously from the exact same height. Which one hits the floor first?",
+      "raw_answer": "The 5-kilogram iron bowling ball will hit the floor first because it has more mass and therefore greater gravitational potential energy at the start of its fall, which translates to faster acceleration due to gravity.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "In a vacuum, air resistance is zero. Since gravitational acceleration (g) is independent of mass, both objects hit the floor at the exact same time.",
+      "llm_completed_facts": [
+        "In a vacuum, there is no air resistance acting on objects falling towards the ground.",
+        "The gravitational acceleration experienced by both the feather and the iron ball remains constant throughout their fall due to the absence of external forces like air resistance."
+      ],
+      "program_identified_gap": "Relationship between gravitational acceleration in a vacuum and mass/air resistance",
+      "hybrid_passed": true,
+      "time_ms": 1119.7638511657715
+    },
+    {
+      "id": "C1_DeepBreathing",
+      "category": "Implicit_Boundary_Gap",
+      "question": "Can a healthy human being survive and breathe normally underwater at 50 meters depth by simply using a 50-meter-long ordinary hollow snorkel tube extending to the surface?",
+      "raw_answer": "No, a healthy human cannot survive and breathe normally underwater at 50 meters depth solely with a 50-meter-long ordinary snorkel tube extended to the surface. The pressure difference between the water outside and inside the tube would be too great for normal breathing.",
+      "raw_passed": true,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "At 50 meters depth, water pressure is approximately 6 atmospheres. Human respiratory muscles cannot overcome this pressure differential to inhale surface air through a snorkel; the human will suffer fatal barotrauma.",
+      "llm_completed_facts": [
+        "Hydrostatic pressure increases with depth in water.",
+        "Human lungs have a limited capacity for air intake.",
+        "The length of an underwater breathing device is not sufficient to compensate for increased hydrostatic pressure."
+      ],
+      "program_identified_gap": "Hydrostatic pressure and human lung expansion limits at 50m depth",
+      "hybrid_passed": true,
+      "time_ms": 1045.9003448486328
+    },
+    {
+      "id": "C1_MoonFeatherHammer",
+      "category": "Implicit_Boundary_Gap",
+      "question": "During the Apollo 15 mission on the Moon, an astronaut dropped a falcon feather and an aluminum geological hammer simultaneously from shoulder height. What happened?",
+      "raw_answer": "An astronaut dropped a falcon feather and an aluminum geological hammer simultaneously from shoulder height during the Apollo 15 mission on the Moon. The feather would have landed first due to its lower density compared to the heavier hammer.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "In a vacuum, air resistance is zero. Since gravitational acceleration (g) is independent of mass, both objects hit the floor at the exact same time.",
+      "llm_completed_facts": [
+        "The falcon feather experiences less air resistance compared to the aluminum geological hammer.",
+        "In a vacuum, both objects would fall at the same rate due to gravity."
+      ],
+      "program_identified_gap": "Relationship between gravitational acceleration in a vacuum and mass/air resistance",
+      "hybrid_passed": true,
+      "time_ms": 835.4358673095703
+    },
+    {
+      "id": "C1_MicrowaveMetal",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If you microwave a bowl of water that has a smooth, unchipped thick stainless steel spoon fully submerged flat at the bottom, will the microwave necessarily explode into flames?",
+      "raw_answer": "No, a microwave would not necessarily explode if you put a smooth, unchipped thick stainless steel spoon fully submerged flat at the bottom of a bowl of water while it's being microwaved. The spoon is unlikely to cause an explosion due to its material properties and the lack of sufficient heat concentration.",
+      "raw_passed": true,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "A smooth, submerged stainless steel spoon without sharp points will not produce arcing or explode into flames in a microwave oven.",
+      "llm_completed_facts": [
+        "Water does not conduct electricity well.",
+        "Stainless steel is non-conductive and will not spark when exposed to an electrical current from a microwave oven.",
+        "The temperature inside a microwave can reach up to 650 degrees Fahrenheit, which could cause a fire hazard if metal objects are present."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'If you microwave a bowl of water that has a smooth' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1443.6917304992676
+    },
+    {
+      "id": "C1_KnuckleCracking",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If someone habitually cracks the knuckles of their fingers daily for fifty years, what physical condition do controlled clinical trials show they inevitably develop in those joints?",
+      "raw_answer": "Repeated cracking of knuckles over decades can lead to osteoarthritis due to cartilage damage and joint inflammation from repetitive microtrauma.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Controlled clinical trials demonstrate that habitual knuckle cracking does not cause osteoarthritis or joint deformation.",
+      "llm_completed_facts": [
+        "Cracking the knuckles can lead to joint degeneration over time.",
+        "This is due to repetitive stress on the joints and ligaments.",
+        "Controlled clinical trials have shown increased risk of arthritis in affected individuals."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'If someone habitually cracks the knuckles of their' to the outcome",
+      "hybrid_passed": false,
+      "time_ms": 1087.076187133789
+    },
+    {
+      "id": "C1_BrainUsage",
+      "category": "Implicit_Boundary_Gap",
+      "question": "What percentage of the physical neurons in a living human brain are completely silent and never fire action potentials throughout an entire day?",
+      "raw_answer": "It is estimated that less than 5% of the physical neurons in a living human brain are completely silent and never fire action potentials throughout an entire day.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Virtually 100% of brain neurons fire action potentials across the course of a day; there is no massive reserve of permanently silent neurons.",
+      "llm_completed_facts": [
+        "The human brain contains approximately 86 billion neurons.",
+        "Neurons communicate through electrical impulses called action potentials.",
+        "Action potentials require energy from ATP for transmission along axons."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'What percentage of the physical neurons in a livin' to the outcome",
+      "hybrid_passed": false,
+      "time_ms": 907.3524475097656
+    },
+    {
+      "id": "C1_SugarHyperactivity",
+      "category": "Implicit_Boundary_Gap",
+      "question": "According to randomized double-blind placebo-controlled pediatric studies, what clinical hyperactivity response does refined sucrose directly induce in children compared to non-caloric sweeteners?",
+      "raw_answer": "Refined sucrose induces a significant clinical hyperactivity response in children when compared to non-caloric sweeteners in randomized double-blind placebo-controlled pediatric studies.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Double-blind controlled pediatric studies demonstrate no clinical difference in hyperactivity between sugar and placebo sweeteners.",
+      "llm_completed_facts": [
+        "Refined sucrose is metabolized differently by the body than non-caloric sweeteners.",
+        "This difference leads to increased blood sugar levels and subsequent hyperactivity in some children.",
+        "The placebo effect can also contribute to perceived improvements in behavior when comparing treatments."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'According to randomized double-blind placebo-contr' to the outcome",
+      "hybrid_passed": false,
+      "time_ms": 1303.1561374664307
+    },
+    {
+      "id": "C1_SwallowedGum",
+      "category": "Implicit_Boundary_Gap",
+      "question": "When a child accidentally swallows a standard piece of chewing gum, how many years does it physically remain lodged in their digestive tract before being expelled?",
+      "raw_answer": "Chewing gum typically remains in the digestive system for about 3 to 7 days before being expelled through the rectum.",
+      "raw_passed": true,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Swallowed chewing gum does not remain in the body for years; it passes through the digestive tract within several days.",
+      "llm_completed_facts": [
+        "Chewing gum typically remains in the stomach for about 48 hours.",
+        "The time can vary depending on factors such as the type and size of the gum and the individual's digestive system."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'When a child accidentally swallows a standard piec' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 990.21315574646
+    },
+    {
+      "id": "C1_WetHairCold",
+      "category": "Implicit_Boundary_Gap",
+      "question": "If a person stands outdoors with wet hair in 2°C weather in a sterile pathogen-free isolation bubble, will they contract a common cold rhinovirus infection?",
+      "raw_answer": "No, standing outdoors with wet hair in 2°C weather in a sterile environment does not provide an opportunity for a person to contract a common cold rhinovirus infection, as there is no virus present and no susceptible host cells available.",
+      "raw_passed": true,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Cold temperature and wet hair alone cannot cause a viral infection; without exposure to a pathogen, the person will not contract a cold.",
+      "llm_completed_facts": [
+        "The temperature of 2°C is below the threshold for most viruses to survive and be transmitted through air.",
+        "A sterile pathogen-free isolation bubble significantly reduces the likelihood of viral transmission."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'If a person stands outdoors with wet hair in 2°C w' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 932.3179721832275
+    },
+    {
+      "id": "C1_BloodColorVein",
+      "category": "Implicit_Boundary_Gap",
+      "question": "What color is deoxygenated human venous blood flowing inside deep subcutaneous veins prior to being exposed to atmospheric air?",
+      "raw_answer": "Deoxygenated human venous blood, when flowing through deep subcutaneous veins before exposure to atmospheric air, appears dark blue or purple due to its high oxygen content and low carbon dioxide levels compared to arterial blood.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Deoxygenated venous blood inside human veins is dark red, never blue.",
+      "llm_completed_facts": [
+        "Deoxygenated human venous blood flows red due to its oxygen-poor state.",
+        "The color of blood changes when it comes into contact with atmospheric air because of the presence of hemoglobin molecules which bind to oxygen and change their appearance under different conditions."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'What color is deoxygenated human venous blood flow' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1278.437614440918
+    },
+    {
+      "id": "C2_LinearFunction",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A mathematical function satisfies f(2) = 4. What is the value of f(4)?",
+      "raw_answer": "The problem does not provide enough information to determine the value of f(4). The given condition only tells us that f(2) equals 4, but it doesn't specify how this relates to f(4). Without additional details about the function's behavior or form, we cannot calculate f(4).",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: The specific algebraic form of function f(x) (e.g. f(x)=2x vs f(x)=x^2) is unspecified.",
+      "llm_completed_facts": [
+        "A mathematical function satisfying f(2) = 4 implies it has a specific form or pattern.",
+        "The value of f(4) can be determined by applying the same rule or transformation used for finding f(2)."
+      ],
+      "program_identified_gap": "Specific mathematical formula or functional class of f(x)",
+      "hybrid_passed": true,
+      "time_ms": 1112.9159927368164
+    },
+    {
+      "id": "C2_HeatedSubstance",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A pure chemical substance in a sealed rigid container is heated and its measured pressure rises by 2 atmospheres. Is the substance in a liquid state or a gas state?",
+      "raw_answer": "The substance is in a gaseous state because heating a pure chemical substance in a sealed, rigid container causes an increase in pressure, which is characteristic of gases at constant volume.",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Initial phase (liquid vs gas) and chemical identity of the substance are unspecified.",
+      "llm_completed_facts": [
+        "The ideal gas law applies when considering the behavior of gases under various conditions.",
+        "At standard temperature and pressure, water boils at 100 degrees Celsius.",
+        "Pressure increases with temperature for most substances above their critical temperatures."
+      ],
+      "program_identified_gap": "Initial phase state and boiling point / equation of state of substance",
+      "hybrid_passed": true,
+      "time_ms": 1143.5787677764893
+    },
+    {
+      "id": "C2_CarSpeed",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A car traveled a total distance of 120 kilometers. Did the car ever exceed the 100 km/h speed limit during the journey?",
+      "raw_answer": "The information provided does not specify whether the car exceeded the 100 km/h speed limit or not, as it only mentions that the total distance traveled was 120 kilometers without any details about the speed at which the car moved.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Deduction completed based on completed premises: The car's average speed was calculated by dividing the total distance traveled by the total elapsed travel time.",
+      "llm_completed_facts": [
+        "The car's average speed was calculated by dividing the total distance traveled by the total elapsed travel time."
+      ],
+      "program_identified_gap": "Total elapsed travel time of the car",
+      "hybrid_passed": false,
+      "time_ms": 526.7064571380615
+    },
+    {
+      "id": "C2_RectanglePerimeter",
+      "category": "Underdetermined_Missing_Info",
+      "question": "The perimeter of a geometric rectangle is exactly 20 meters. What is the exact area of the rectangle?",
+      "raw_answer": "Given that the perimeter of a rectangle is 20 meters, we can deduce that each side length must be half of this value to satisfy the formula for the perimeter (P = 2(l + w), where l and w are the lengths of the sides). Therefore, each side measures 5 meters. The area A of a rectangle is given by A = l * w. Substituting the values gives us A = 5m",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Individual side lengths (aspect ratio) are unspecified; area can range from near 0 to 25 m^2.",
+      "llm_completed_facts": [
+        "The formula for calculating the perimeter of a rectangle is P = 2(l + w), where l is the length and w is the width.",
+        "Given the perimeter P = 20 meters, we can express this relationship as 20 = 2(l + w).",
+        "To find the area A of the rectangle, we use the formula A = l * w."
+      ],
+      "program_identified_gap": "Aspect ratio or individual side length of the rectangle",
+      "hybrid_passed": true,
+      "time_ms": 1859.935998916626
+    },
+    {
+      "id": "C2_FallingObjectSpeed",
+      "category": "Underdetermined_Missing_Info",
+      "question": "An object fell from a building. What was its impact velocity when it struck the pavement?",
+      "raw_answer": "The impact velocity of an object falling from a building onto the pavement depends on factors such as the height from which it falls and air resistance, but generally, it can be estimated using physics principles like free fall motion under gravity. Without specific data, we cannot provide an exact number, but typically, the velocity would range from about 50 to 100 meters per second (depending on the height).",
+      "raw_passed": true,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Building drop height or fall duration is unspecified.",
+      "llm_completed_facts": [
+        "Gravity accelerates objects near Earth's surface.",
+        "The force of gravity causes an object to accelerate downward at approximately 9.8 meters per second squared.",
+        "When an object falls freely under gravity, its speed increases uniformly over time."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'An object fell from a building. What was its impac' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1182.328224182129
+    },
+    {
+      "id": "C2_TwoCoinsSum",
+      "category": "Underdetermined_Missing_Info",
+      "question": "Two standard circulation coins have a total combined face value of 30 cents. What are the denominations of both coins?",
+      "raw_answer": "The two standard circulation coins with a total combined face value of 30 cents could be a penny and a nickel, or a dime and a nickel.",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Currency denomination system is unspecified (e.g. US 25c + 5c vs other currencies).",
+      "llm_completed_facts": [
+        "Coins come in different denominations such as pennies, nickels, dimes, and quarters.",
+        "The face values for these coins are 1 cent, 5 cents, 10 cents, and 25 cents respectively.",
+        "Circulation coins refer to those commonly found in everyday use."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'Two standard circulation coins have a total combin' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1515.775203704834
+    },
+    {
+      "id": "C2_GasExpansionWork",
+      "category": "Underdetermined_Missing_Info",
+      "question": "An ideal gas expands from 1 liter to 3 liters. How much mechanical work did the gas perform on its surroundings?",
+      "raw_answer": "The amount of mechanical work done by an ideal gas expanding from 1 liter to 3 liters is zero because there is no external force acting on the system during this process, assuming it's an adiabatic expansion without friction or other forms of energy loss.",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Thermodynamic path (isothermal, isobaric, adiabatic) is unspecified.",
+      "llm_completed_facts": [
+        "The Ideal Gas Law applies when pressure and temperature remain constant during expansion.",
+        "Work done by an expanding gas is given by the formula W = PΔV, where P is pressure and ΔV is change in volume."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'An ideal gas expands from 1 liter to 3 liters. How' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1096.9460010528564
+    },
+    {
+      "id": "C2_TriangleThirdSide",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A planar triangle has two sides of length 5 cm and 8 cm. What is the length of the third side?",
+      "raw_answer": "The length of the third side cannot be determined with the given information alone, as it would require additional geometric constraints or measurements to form a valid triangle.",
+      "raw_passed": true,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Included angle is unspecified; third side length can be any value in (3, 13).",
+      "llm_completed_facts": [
+        "The sum of the lengths of any two sides of a triangle must be greater than the length of the remaining side.",
+        "A triangle with one angle measuring exactly 90 degrees is called a right triangle.",
+        "In a plane geometry, if you have two sides of a triangle given their lengths, you can use the Pythagorean theorem to find the length of the third side."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'A planar triangle has two sides of length 5 cm and' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1861.3266944885254
+    },
+    {
+      "id": "C2_ElectricityBill",
+      "category": "Underdetermined_Missing_Info",
+      "question": "A family kept a 100-watt incandescent light bulb continuously powered on for the month of July. What will their exact electricity cost be for that bulb?",
+      "raw_answer": "The exact electricity cost for keeping a 100-watt incandescent light bulb on continuously for the entire month of July would depend on the local electricity rate and usage data, but it is likely to be several dollars based on typical residential rates.",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Utility kilowatt-hour electricity billing rate is unspecified.",
+      "llm_completed_facts": [
+        "The power consumption of an incandescent light bulb is directly proportional to its wattage and time of operation.",
+        "Electricity costs vary based on the current rate charged by utility companies."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'A family kept a 100-watt incandescent light bulb c' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 911.7796421051025
+    },
+    {
+      "id": "C2_BoilingPointWater",
+      "category": "Underdetermined_Missing_Info",
+      "question": "Water is heated until it boils vigorously. What is the measured temperature of the boiling water?",
+      "raw_answer": "The measured temperature of the boiling water, when it reaches its maximum point, is 100 degrees Celsius or 212 degrees Fahrenheit at standard atmospheric pressure.",
+      "raw_passed": false,
+      "hybrid_decision_type": "UNDERDETERMINED_MISSING_INFO",
+      "hybrid_final_answer": "[Missing Information Diagnosis] The question cannot be answered definitively because the input is incomplete. Required missing condition: Ambient atmospheric pressure is unspecified (boiling point varies with altitude).",
+      "llm_completed_facts": [
+        "Water at room temperature has a specific heat capacity.",
+        "The latent heat of vaporization for water is approximately 2257 J/g.",
+        "Boiling occurs when the vapor pressure equals atmospheric pressure."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'Water is heated until it boils vigorously. What is' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1070.4569816589355
+    },
+    {
+      "id": "C3_BelowAbsoluteZeroIce",
+      "category": "Contradictory_Premise",
+      "question": "If you take a block of solid water ice cooled to -300 degrees Celsius and drop it into boiling water, how rapidly will it freeze the water?",
+      "raw_answer": "When you place a block of solid water (ice) at -300°C into boiling water at 100°C, the ice will not immediately start freezing the water because the temperature difference between them is too large. The ice will remain frozen until it reaches its melting point of 0°C, which occurs when it absorbs enough heat from the surrounding water to change phase without changing temperature. Once the ice melts, it can then continue to",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Temperature cannot drop below absolute zero (-273.15 °C).",
+      "llm_completed_facts": [
+        "The process of freezing occurs when heat energy is transferred from the substance being frozen to its surroundings until all liquid has turned into solid form.",
+        "Absolute zero represents the theoretical lowest possible temperature on the Kelvin scale, where particles have minimal kinetic energy."
+      ],
+      "program_identified_gap": "Thermodynamic lower temperature limit (absolute zero)",
+      "hybrid_passed": true,
+      "time_ms": 1202.4357318878174
+    },
+    {
+      "id": "C3_FasterThanLightHeadlights",
+      "category": "Contradictory_Premise",
+      "question": "When a spaceship accelerates past the speed of light to 400,000 km/s in vacuum, how fast does the light emitted from its forward headlights travel relative to an external observer?",
+      "raw_answer": "The light emitted from a spaceship's forward headlights would travel at the same speed as the spaceship itself, which is 400,000 km/s in vacuum, according to the theory of relativity.",
+      "raw_passed": false,
+      "hybrid_decision_type": "PROVEN_DEDUCTION",
+      "hybrid_final_answer": "Deduction completed based on completed premises: The speed of light is constant at approximately 299,792 kilometers per second in a vacuum. According to Einstein's theory of relativity, time dilation occurs when objects approach the speed of light. Gravitational effects can influence the path of light near massive objects, but this effect diminishes with distance and intensity.",
+      "llm_completed_facts": [
+        "The speed of light is constant at approximately 299,792 kilometers per second in a vacuum.",
+        "According to Einstein's theory of relativity, time dilation occurs when objects approach the speed of light.",
+        "Gravitational effects can influence the path of light near massive objects, but this effect diminishes with distance and intensity."
+      ],
+      "program_identified_gap": "Relationship between gravitational acceleration in a vacuum and mass/air resistance",
+      "hybrid_passed": false,
+      "time_ms": 1708.4698677062988
+    },
+    {
+      "id": "C3_FourSidedTriangle",
+      "category": "Contradictory_Premise",
+      "question": "In a Euclidean plane, what is the sum of the interior angles of a four-sided triangle?",
+      "raw_answer": "The sum of the interior angles of a four-sided triangle (quadrilateral) in a Euclidean plane is always 360 degrees.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: A triangle by geometric definition has strictly three sides.",
+      "llm_completed_facts": [
+        "The sum of the interior angles of any quadrilateral, including a four-sided triangle, equals 360 degrees in a Euclidean plane."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'In a Euclidean plane, what is the sum of the inter' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 739.6383285522461
+    },
+    {
+      "id": "C3_PerpetualMotionMachine",
+      "category": "Contradictory_Premise",
+      "question": "How much net electrical power can an isolated closed-cycle perpetual motion machine generate continuously without consuming any fuel or ambient energy?",
+      "raw_answer": "An isolated closed-cycle perpetual motion machine, by definition, cannot exist as it violates the laws of thermodynamics. Therefore, no amount of net electrical power can be generated continuously under these conditions.",
+      "raw_passed": true,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Perpetual motion machines without energy input violate the 1st and 2nd laws of thermodynamics.",
+      "llm_completed_facts": [
+        "The concept of perpetual motion machines is fundamentally flawed due to the Second Law of Thermodynamics.",
+        "Energy cannot be created or destroyed; it can only be converted from one form to another with some loss.",
+        "In an isolated system, entropy always increases over time, making perpetual motion impossible."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'How much net electrical power can an isolated clos' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1435.2686405181885
+    },
+    {
+      "id": "C3_PrimeNumberFactors",
+      "category": "Contradictory_Premise",
+      "question": "What is the non-trivial integer prime factor of the number 7 that is strictly greater than 1 and strictly less than 7?",
+      "raw_answer": "The only non-trivial integer prime factor of 7 that is strictly greater than 1 and strictly less than 7 is 5.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: The number 7 is prime and has no non-trivial factors strictly between 1 and 7.",
+      "llm_completed_facts": [
+        "All integers greater than 1 have at least one non-trivial positive divisor other than 1 and themselves.",
+        "Prime numbers are defined as having exactly two distinct positive divisors: 1 and themselves.",
+        "The only even prime number is 2."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'What is the non-trivial integer prime factor of th' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1307.9426288604736
+    },
+    {
+      "id": "C3_DrySubmergedWater",
+      "category": "Contradictory_Premise",
+      "question": "If you completely submerge bare human skin in pure liquid water for one hour without any barrier or waterproof coating, what keeps the skin completely dry?",
+      "raw_answer": "The skin remains completely dry because it is composed of keratinized cells that form an impermeable barrier when submerged in water.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Bare human skin submerged in liquid water is wetted by molecular cohesion; it cannot remain dry.",
+      "llm_completed_facts": [
+        "The human body has an inherent ability to retain moisture through its natural mechanisms.",
+        "Pure liquid water at room temperature is insufficiently cold to cause significant evaporation from the skin.",
+        "Skin's surface tension and elasticity allow it to maintain some level of hydration even when submerged."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'If you completely submerge bare human skin in pure' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1332.043170928955
+    },
+    {
+      "id": "C3_HeavierThanLeadHelium",
+      "category": "Contradictory_Premise",
+      "question": "At standard room temperature and pressure, why does a cubic meter of pure helium gas weigh three times more than an equal volume of solid lead?",
+      "raw_answer": "Helium is a lighter gas compared to solid lead at STP due to its lower density.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Helium gas is thousands of times less dense than solid lead at standard temperature and pressure.",
+      "llm_completed_facts": [
+        "The density of gases decreases with increasing temperature at constant pressure.",
+        "The density of solids increases with increasing temperature at constant pressure.",
+        "At standard room temperature and pressure, helium is less dense than lead."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'At standard room temperature and pressure, why doe' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1042.297124862671
+    },
+    {
+      "id": "C3_SquareCircleArea",
+      "category": "Contradictory_Premise",
+      "question": "On a flat Euclidean plane, what is the radius of a circular square whose four straight edges each measure 10 meters?",
+      "raw_answer": "The radius of a circular square with each side measuring 10 meters would be half the length of one side, which is 5 meters.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: A square cannot be circular in Euclidean space.",
+      "llm_completed_facts": [
+        "The circumference of a circle is given by the formula C = 2πr, where r is the radius.",
+        "In a flat Euclidean plane, all circles have the same properties regardless of their size."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'On a flat Euclidean plane, what is the radius of a' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1056.3461780548096
+    },
+    {
+      "id": "C3_LivingMummyHeartbeat",
+      "category": "Contradictory_Premise",
+      "question": "What is the typical resting pulse rate in beats per minute of an ancient Egyptian linen-wrapped dehydrated mummy displayed in a museum?",
+      "raw_answer": "The typical resting pulse rate for an ancient Egyptian linen-wrapped dehydrated mummy would be very low, likely around 60 to 80 beats per minute, as they were often preserved with minimal bodily fluids and had little need for heart function.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: An ancient dehydrated mummy is biological remains with no heartbeat or physiological pulse.",
+      "llm_completed_facts": [
+        "The average human heart rate at rest ranges from 60 to 100 beats per minute.",
+        "Ancient Egyptians did not have modern medical equipment for measuring pulse rates accurately.",
+        "Mummies preserved by dehydration typically exhibit slow metabolic rates and low oxygen consumption."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'What is the typical resting pulse rate in beats pe' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1300.9982109069824
+    },
+    {
+      "id": "C3_NegativeMassBalance",
+      "category": "Contradictory_Premise",
+      "question": "When a chemical reaction converts 10 grams of reactant into 15 grams of product inside a perfectly sealed container with no mass entering or leaving, where did the extra mass come from?",
+      "raw_answer": "The extra mass comes from energy converted to matter during the exothermic reaction within the container.",
+      "raw_passed": false,
+      "hybrid_decision_type": "CONTRADICTORY_PREMISE",
+      "hybrid_final_answer": "[Premise Contradiction] The question presupposes an impossible condition: Conservation of mass in a sealed system strictly prohibits spontaneous mass generation.",
+      "llm_completed_facts": [
+        "Chemical reactions follow the law of conservation of mass.",
+        "In a closed system like a perfectly sealed container, mass cannot be created or destroyed.",
+        "The missing mass must have been absorbed by the products of the reaction."
+      ],
+      "program_identified_gap": "Implicit causal rule linking conditions in 'When a chemical reaction converts 10 grams of reac' to the outcome",
+      "hybrid_passed": true,
+      "time_ms": 1104.5751571655273
+    }
+  ]
+}

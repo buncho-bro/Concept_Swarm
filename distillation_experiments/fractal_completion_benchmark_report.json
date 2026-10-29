@@ -1,0 +1,151 @@
+{
+  "base_accuracy": 0.75,
+  "fractal_accuracy": 0.75,
+  "category_summary": {
+    "Causal Chain": {
+      "base": 1.0,
+      "fractal": 1.0,
+      "total": 3
+    },
+    "Disambiguation": {
+      "base": 1.0,
+      "fractal": 1.0,
+      "total": 4
+    },
+    "Factuality": {
+      "base": 0.4,
+      "fractal": 0.4,
+      "total": 5
+    }
+  },
+  "details": [
+    {
+      "prompt": "オーストラリアの首都はどこですか？シドニーと誤解されやすいですが、正しい都市名は",
+      "expected": [
+        "キャンベラ",
+        "canberra"
+      ],
+      "base_ans": "「アデレード」です。アデレードは南半球で最も温暖な",
+      "base_hit": false,
+      "fractal_ans": "「オーストラリア・オーウェル」です。オーストラリアの首都",
+      "fractal_hit": false
+    },
+    {
+      "prompt": "太陽系で太陽に最も近い第1惑星は",
+      "expected": [
+        "水星",
+        "mercury"
+      ],
+      "base_ans": "、以下から一つ選べ。答えは一つだけです。\nA. 金星\nB",
+      "base_hit": false,
+      "fractal_ans": "、以下から一つ選べ。答えは一つだけです。A. 金星 B.",
+      "fractal_hit": false
+    },
+    {
+      "prompt": "データベースのACID特性における「A」の略称は",
+      "expected": [
+        "atomicity",
+        "原子性"
+      ],
+      "base_ans": "____です。\nA. 一致\nB. 原子性\nC. 完",
+      "base_hit": true,
+      "fractal_ans": "____です。\nA. 一致\nB. 原子性\nC. 保持",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "ソート済み配列から特定要素を検索する二分探索（バイナリサーチ）の計算量はO記法で",
+      "expected": [
+        "o(log n)",
+        "o(log",
+        "log n"
+      ],
+      "base_ans": "何？ - エクセル公式\n\n# ソート済み配列から特定",
+      "base_hit": false,
+      "fractal_ans": "何？ - エクセルの公式\n\n# エクセルの公式\n\n## �",
+      "fractal_hit": false
+    },
+    {
+      "prompt": "1603年に江戸幕府を開いた初代征夷大将軍は",
+      "expected": [
+        "徳川家康",
+        "家康"
+      ],
+      "base_ans": "、以下から一つ選べ。答えは一つです。\nA. 徳川家康",
+      "base_hit": true,
+      "fractal_ans": "、以下から一つ選べ。答えは一つです。 ①徳川家康",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "In the Wall Street financial district, customers deposit money and apply for loans at the commercial",
+      "expected": [
+        "bank"
+      ],
+      "base_ans": "banks. The interest rate on a loan is determined by the bank's risk assessment of the customer.",
+      "base_hit": true,
+      "fractal_ans": "banks. The banks are required to maintain a certain amount of capital to ensure they can meet their obligations",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "Walking along the muddy edge of the flowing river, fishermen sat peacefully on the grassy",
+      "expected": [
+        "bank"
+      ],
+      "base_ans": "banks. The sun was setting and the sky turned a beautiful shade of orange. A gentle breeze blew",
+      "base_hit": true,
+      "fractal_ans": "banks, their fishing rods in hand. The river was a clear, blue-green hue, and the",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "At the high-tech electronics conference in Cupertino, engineers unveiled the latest smartphone from",
+      "expected": [
+        "apple"
+      ],
+      "base_ans": "Apple. The new iPhone has a unique feature that allows users to customize their phone's wallpaper by selecting",
+      "base_hit": true,
+      "fractal_ans": "Apple. The new iPhone has a unique feature that allows users to customize the screen's brightness based on",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "At the autumn harvest fruit festival in the orchard, the delicious sweet pie was baked with red",
+      "expected": [
+        "apple",
+        "apples"
+      ],
+      "base_ans": "apples. The recipe for this pie requires 3 cups of sugar and 2 cups of flour to",
+      "base_hit": true,
+      "fractal_ans": "apples. The pie was cut into 12 slices. If 3 slices were eaten by the",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "When severe criminal activity occurs, the legal duty of the investigating police is to make an",
+      "expected": [
+        "arrest"
+      ],
+      "base_ans": "arrest. The arresting officer must have a warrant from a judge before he can legally take someone into custody",
+      "base_hit": true,
+      "fractal_ans": "arrest. The police must be able to identify the suspect and apprehend him. The police must also",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "When intense heat and fire completely consume dry wooden logs, the remaining residue on the ground is",
+      "expected": [
+        "ash",
+        "ashes"
+      ],
+      "base_ans": "called ____.\nA. Ash\nB. Charcoal\nC. Ashes\nD. Char",
+      "base_hit": true,
+      "fractal_ans": "called ____.\nA. Ash\nB. Ashes\nC. Ashes\nD. Ash",
+      "fractal_hit": true
+    },
+    {
+      "prompt": "In abstract algebra, when a group operation satisfies the commutative law (a * b = b * a), it is called an",
+      "expected": [
+        "abelian"
+      ],
+      "base_ans": "abelian group. Which of the following statements about abelian groups are true?\n\nA) Every finite",
+      "base_hit": true,
+      "fractal_ans": "abelian group. Which of the following statements is correct?\n\nA: The set of integers under addition",
+      "fractal_hit": true
+    }
+  ]
+}

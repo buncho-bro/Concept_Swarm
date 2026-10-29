@@ -1,0 +1,218 @@
+{
+  "timestamp": "2026-10-29 06:53:05",
+  "topological_metrics": {
+    "raw_asymmetry_rate": 5.8500000000000005,
+    "raw_repulsion_rate": 22.8,
+    "org_asymmetry_rate": 0.0,
+    "total_confirmed_nodes": 2211,
+    "total_suspended_nodes": 998,
+    "total_crystallized_props": 757,
+    "total_suspended_props": 43
+  },
+  "trajectories": [
+    {
+      "seed": "science",
+      "raw_path": "science -> scientific -> scientist -> scientists -> researchers -> researcher -> research",
+      "raw_sims": [
+        1.008,
+        0.582,
+        0.516,
+        0.508,
+        0.145,
+        0.137,
+        0.24
+      ],
+      "raw_final_sim": 0.24,
+      "org_path": "science -> scientific -> sciences -> scientist -> scientists -> researchers -> researcher",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK"
+      ],
+      "org_sims": [
+        1.008,
+        0.582,
+        0.551,
+        0.516,
+        0.508,
+        0.145,
+        0.137
+      ],
+      "org_final_sim": 0.137
+    },
+    {
+      "seed": "justice",
+      "raw_path": "justice -> equality -> equal -> equally -> similarly -> likewise -> additionally",
+      "raw_sims": [
+        1.008,
+        0.35,
+        0.188,
+        0.064,
+        0.069,
+        0.116,
+        0.09
+      ],
+      "raw_final_sim": 0.09,
+      "org_path": "justice -> equality -> judicial -> judges -> judgment -> tribunal -> courts",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK"
+      ],
+      "org_sims": [
+        1.008,
+        0.35,
+        0.336,
+        0.252,
+        0.199,
+        0.252,
+        0.189
+      ],
+      "org_final_sim": 0.189
+    },
+    {
+      "seed": "medicine",
+      "raw_path": "medicine -> medicines -> medications -> medication -> pharmaceutical -> pharmacy -> pharmacies",
+      "raw_sims": [
+        1.008,
+        0.598,
+        0.451,
+        0.527,
+        0.34,
+        0.383,
+        0.32
+      ],
+      "raw_final_sim": 0.32,
+      "org_path": "medicine -> medical -> medicines -> herbs -> medications -> medication -> drugs",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_LINK",
+        "CONFIRMED_LINK",
+        "CONFIRMED_LINK",
+        "CONFIRMED_LINK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK"
+      ],
+      "org_sims": [
+        1.008,
+        0.492,
+        0.598,
+        0.187,
+        0.451,
+        0.527,
+        0.238
+      ],
+      "org_final_sim": 0.238
+    },
+    {
+      "seed": "animal",
+      "raw_path": "animal -> animals -> creatures -> creature -> monster -> monsters -> beast",
+      "raw_sims": [
+        1.0,
+        0.699,
+        0.307,
+        0.381,
+        0.273,
+        0.194,
+        0.377
+      ],
+      "raw_final_sim": 0.377,
+      "org_path": "animal -> anime -> animals -> livestock -> cattle -> lambda -> sheep",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_LINK",
+        "CONFIRMED_LINK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_LINK",
+        "CONFIRMED_LINK"
+      ],
+      "org_sims": [
+        1.0,
+        0.297,
+        0.699,
+        0.4,
+        0.266,
+        0.105,
+        0.231
+      ],
+      "org_final_sim": 0.231
+    },
+    {
+      "seed": "philosophy",
+      "raw_path": "philosophy -> philadelphia -> phil -> philips -> philip -> phentermine -> phillips",
+      "raw_sims": [
+        1.0,
+        0.605,
+        0.605,
+        0.605,
+        0.605,
+        0.078,
+        0.078
+      ],
+      "raw_final_sim": 0.078,
+      "org_path": "philosophy -> phil -> philip -> philadelphia -> philips -> theology -> sociology",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK"
+      ],
+      "org_sims": [
+        1.0,
+        0.605,
+        0.605,
+        0.605,
+        0.605,
+        0.445,
+        0.34
+      ],
+      "org_final_sim": 0.34
+    },
+    {
+      "seed": "technology",
+      "raw_path": "technology -> technologies -> technological -> techno -> tech -> techrepublic -> technical",
+      "raw_sims": [
+        1.0,
+        0.676,
+        0.652,
+        0.449,
+        0.523,
+        0.523,
+        0.445
+      ],
+      "raw_final_sim": 0.445,
+      "org_path": "technology -> technologies -> technological -> tech -> techrepublic -> techno -> technical",
+      "org_statuses": [
+        "SEED",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK",
+        "CONFIRMED_FALLBACK"
+      ],
+      "org_sims": [
+        1.0,
+        0.676,
+        0.652,
+        0.523,
+        0.523,
+        0.449,
+        0.445
+      ],
+      "org_final_sim": 0.445
+    }
+  ]
+}

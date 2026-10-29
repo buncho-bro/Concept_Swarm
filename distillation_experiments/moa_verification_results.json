@@ -1,0 +1,50 @@
+[
+  {
+    "query": "最新のexecuteコマンドを使って、半径10ブロック以内にいる最も近いゾンビの足元に雷を落とす正確なコマンド構文を教えてください。",
+    "target_domain": "domain_datapack",
+    "premise": "Execute the 'minecraft:explosion' command with an explosion radius of 10 blocks, targeting zombies.",
+    "pitfall": "Ensure proper casing ('zombie' instead of 'ZOMBIE'). Avoid using deprecated syntax like 'blockstate'.",
+    "retrieved_chunks": [
+      "wiki_35088_intro_c0",
+      "wiki_8570_sec_8_c2",
+      "wiki_8570_sec_8_c4"
+    ],
+    "final_answer": "/zombies@distance=10 explode poz=<x><y>pos<z> force:blockstates：explode <target_zombie_x> <target_zombie_y> <target_target_z>：<force_value> [chainedCommandChainingOption_0] [resultHandler_0]"
+  },
+  {
+    "query": "Minecraft 1.21において、鋭さ5のダイヤモンドの剣をプレイヤーに付与し、カスタムデータとして spell_tier:3 を埋め込む最新のコマンド構文を教えてください。従来のNBT compound記法は使えますか？",
+    "target_domain": "domain_datapack",
+    "premise": "コマンド形式で指定する。",
+    "pitfall": "タグの作成には先述のいずれか一つでも良いが、NBTのタグを作成しようとする場合は、pre-1.21のNBT形式である必要がある。",
+    "retrieved_chunks": [
+      "wiki_37008_sec_16_c0",
+      "wiki_8570_sec_5_c0",
+      "mc_datapack_components_121_c4"
+    ],
+    "final_answer": "/java/mcfunctions/domain.datapacks.modify_item_command.html?highlight=domain%20datapack#example-command-to-set-diamond-sword-with-spell-tier-component-pre-1_21-nbt-format\n\n/set item entity @s weapon.mainhand <minecraft:diamond_sword> custom data {spell_tier:int:3} – このコマンドを使用すると、プレイヤーの主杖の鋭さが5になる一方で、spelldtierのカスタマイズされたデータが保存される。結果は同様に上記のように表示できる。このサブコマンド列の終端であればコマンドが成功した時にはsuccess値はtrueになり，result値は変更後の一貫した状態となる。若しくは失敗した時にはfalseとなる。サブコマント列の最後のコマン드を実行したらコマンド自身も成功または失敗を返す。"
+  },
+  {
+    "query": "Java版における準接続（Quasi-Connectivity）の仕組みと、粘着ピストンに1レッドストーンティック（2ゲームティック）のパルスを入力したときに起きる現象（ブロック吐き出し/T-Flip-Flop）について説明してください。",
+    "target_domain": "domain_redstone",
+    "premise": "レッドストーントーチ（0.1秒）または2レッドストーントーチ（0.2秒）のパルスが与えられた時、粘着ピストンはブロックを伸ばし出す（ブロックを吐く）。これは「T-Flip-Flop」や「T-リレー」とも呼ばれる。",
+    "pitfall": "None",
+    "retrieved_chunks": [
+      "wiki_9872_sec_9_c1",
+      "wiki_9872_sec_16_c1",
+      "wiki_8490_sec_6_c0"
+    ],
+    "final_answer": "Java Editionでは、\"準接続\"(quasi-connectivity)という概念がある。これとは以下のようなものに関連している：\n\n1. ピストンへのパルス：レッドストーカー(0.1〜0.3秒のパルステム)や2レッドスタンドー(0,2〜0.5秒のパアルステム)からのパルスにより、粘着型ピストン(Sticky Piston)がブロックを吸着させ、ブロックは一定の速度で上昇する。ただし、ブロックがブロックヘッドより長いブロックであれば、ブロックヘットを越えてブロックが飛ぶことがある。\n2. T-リレー(T-Flip-Fop): 粘着型ピクスンが2個以上重なる場合、それぞれが独立して動作することが可能。さらに、一部の粘着型Pistonには2つのレッドストーティーを同時に通じてパルスを与えられる機能がある。この特性を利用して、T-リレーパルスとして知られている。\n3. ポータルゲージ(Portal Gauge): 2つの粘着"
+  },
+  {
+    "query": "Fabric mod開発において、プレイヤーのtickメソッド（ServerPlayer.tick）の先頭に処理を割り込み、特定条件でイベントをキャンセルするMixinコードをJavaで記述してください。",
+    "target_domain": "domain_redstone",
+    "premise": "Java Mixin代码需要使用`@Override`注解来重写父类方法，同时确保方法签名与原始方法一致。",
+    "pitfall": "在Mixins中调用非静态方法时，务必确保目标对象是可访问的或通过适当的方式进行了代理。此外，在处理Tick循环中的事件时要",
+    "retrieved_chunks": [
+      "wiki_8490_sec_1_c2",
+      "wiki_9878_sec_1_c1",
+      "wiki_9770_sec_1_c0"
+    ],
+    "final_answer": "Java Mixinを使用して、プレイヤーテクノロジーとして「レッドストーントーチ」(レッドストック)という概念を組み込んだ際、以下のような動作を行うことができる:\n\n1. トーチの初期設定:\n   ガラスまたは不透過ブロックに取り付けられている時、「レッドストーカー」と呼ばれる。信号強度0であり、2ゲームティック(TT)ごとに強度を1増やす。この状態が3TTまで続く間、レッドストーチは\"ON\"とする。\n   \n2. トーショット (短時間の信号):\n   不透過ブロックではなく、ガラスなど透明ブロックに取付けてある時、「ショート」と呼ばれる。「OFF」に戻るまでの間に最大の信号強度を持つ。2ゲームティックスからの遅延がある。\n   \n3. バグータイム (長い信号):\n   水により流れた後、通常のレッドストッカーと同じように信号を出力する。しかし、信号強度が15分後に戻ってしまう。Java Editionでは1秒遅れで信号を出す"
+  }
+]

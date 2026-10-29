@@ -1,0 +1,583 @@
+{
+  "baseline": {
+    "top1": 0,
+    "top3": 0,
+    "top5": 0,
+    "total": 20
+  },
+  "proposed": {
+    "top1": 0,
+    "top3": 0,
+    "top5": 0,
+    "total": 20
+  },
+  "detailed": [
+    {
+      "task": "cloud + cold",
+      "category": "Physics",
+      "targets": [
+        "ice",
+        "freezing",
+        "snow",
+        "frost",
+        "winter",
+        "rain",
+        "water"
+      ],
+      "baseline": [
+        "gen",
+        "generates",
+        "dataindex",
+        "resend",
+        "vortex"
+      ],
+      "proposed": [
+        "vulnerability",
+        "you",
+        "vulner",
+        "complexity",
+        "gaping"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "fire + wood",
+      "category": "Physics",
+      "targets": [
+        "ash",
+        "smoke",
+        "charcoal",
+        "heat",
+        "burning",
+        "flame",
+        "ashes"
+      ],
+      "baseline": [
+        "gen",
+        "generates",
+        "dataindex",
+        "resend",
+        "vortex"
+      ],
+      "proposed": [
+        "tax",
+        "room",
+        "propensity",
+        "loos",
+        "arou"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "magnet + iron",
+      "category": "Physics",
+      "targets": [
+        "attraction",
+        "magnetic",
+        "pole",
+        "metal",
+        "force",
+        "steel"
+      ],
+      "baseline": [
+        "regulate",
+        "scoreboard",
+        "measles",
+        "breadth",
+        "drown"
+      ],
+      "proposed": [
+        "them",
+        "hates",
+        "gene",
+        "enfer",
+        "planet"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "sun + rain",
+      "category": "Physics",
+      "targets": [
+        "rainbow",
+        "weather",
+        "storm",
+        "light",
+        "refraction",
+        "bow"
+      ],
+      "baseline": [
+        "gen",
+        "generates",
+        "dataindex",
+        "resend",
+        "vortex"
+      ],
+      "proposed": [
+        "room",
+        "resurrection",
+        "weird",
+        "manned",
+        "skills"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "friction + motion",
+      "category": "Physics",
+      "targets": [
+        "heat",
+        "resistance",
+        "wear",
+        "thermal",
+        "energy",
+        "slow"
+      ],
+      "baseline": [
+        "quem",
+        "canine",
+        "snape",
+        "measles",
+        "strchr"
+      ],
+      "proposed": [
+        "traces",
+        "microphone",
+        "tottenham",
+        "genre",
+        "chunk"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "crime + police",
+      "category": "Social",
+      "targets": [
+        "arrest",
+        "arresting",
+        "arrested",
+        "prison",
+        "investigation",
+        "law",
+        "suspicion",
+        "court",
+        "jail"
+      ],
+      "baseline": [
+        "resemble",
+        "somehow",
+        "canine",
+        "quem",
+        "denis"
+      ],
+      "proposed": [
+        "insulation",
+        "incorporates",
+        "censor",
+        "timestamps",
+        "investigator"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "soap + dirt",
+      "category": "Social",
+      "targets": [
+        "cleaning",
+        "wash",
+        "clean",
+        "hygiene",
+        "pure",
+        "foam"
+      ],
+      "baseline": [
+        "bigot",
+        "julian",
+        "printers",
+        "canine",
+        "endlessly"
+      ],
+      "proposed": [
+        "printers",
+        "interception",
+        "owen",
+        "sommes",
+        "julian"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "debt + default",
+      "category": "Social",
+      "targets": [
+        "bankruptcy",
+        "insolvency",
+        "crisis",
+        "credit",
+        "ruin",
+        "fail"
+      ],
+      "baseline": [
+        "censor",
+        "regulate",
+        "measles",
+        "seem",
+        "canine"
+      ],
+      "proposed": [
+        "jared",
+        "inhabit",
+        "tuples",
+        "dollar",
+        "wealth"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "virus + vaccine",
+      "category": "Social",
+      "targets": [
+        "immunity",
+        "antibodies",
+        "protection",
+        "cure",
+        "health",
+        "shot"
+      ],
+      "baseline": [
+        "leaked",
+        "bring",
+        "blankets",
+        "regulate",
+        "antibody"
+      ],
+      "proposed": [
+        "cumulative",
+        "import",
+        "somehow",
+        "intestine",
+        "freak"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "inflation + hike",
+      "category": "Social",
+      "targets": [
+        "recession",
+        "tightening",
+        "slowdown",
+        "interest",
+        "cooling",
+        "drop"
+      ],
+      "baseline": [
+        "endemic",
+        "enquiries",
+        "bring",
+        "indicative",
+        "sinks"
+      ],
+      "proposed": [
+        "ginny",
+        "quem",
+        "maggie",
+        "minimizing",
+        "tetas"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "group + commutative",
+      "category": "Math",
+      "targets": [
+        "abelian",
+        "ring",
+        "algebra",
+        "symmetry",
+        "field",
+        "order",
+        "iff"
+      ],
+      "baseline": [
+        "censor",
+        "gen",
+        "vowed",
+        "vox",
+        "atomicinteger"
+      ],
+      "proposed": [
+        "vowed",
+        "censor",
+        "bonded",
+        "goalkeeper",
+        "reducing"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "matrix + eigenvalue",
+      "category": "Math",
+      "targets": [
+        "decomposition",
+        "diagonalization",
+        "vector",
+        "spectral",
+        "linear",
+        "trace"
+      ],
+      "baseline": [
+        "decentral",
+        "constants",
+        "pdfpcell",
+        "assigned",
+        "measles"
+      ],
+      "proposed": [
+        "pdfpcell",
+        "printers",
+        "owns",
+        "subscriber",
+        "snyder"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "triangle + angle",
+      "category": "Math",
+      "targets": [
+        "pythagoras",
+        "hypotenuse",
+        "geometry",
+        "trigonometry",
+        "polygon",
+        "side"
+      ],
+      "baseline": [
+        "gen",
+        "generates",
+        "dataindex",
+        "resend",
+        "vortex"
+      ],
+      "proposed": [
+        "invading",
+        "judge",
+        "vortex",
+        "reshape",
+        "resend"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "function + derivative",
+      "category": "Math",
+      "targets": [
+        "integral",
+        "calculus",
+        "slope",
+        "rate",
+        "analysis",
+        "tangent"
+      ],
+      "baseline": [
+        "censor",
+        "denis",
+        "regulate",
+        "scoreboard",
+        "recognizes"
+      ],
+      "proposed": [
+        "owns",
+        "hardly",
+        "stalls",
+        "censor",
+        "demonstrate"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "graph + edge",
+      "category": "Math",
+      "targets": [
+        "topology",
+        "path",
+        "network",
+        "vertex",
+        "tree",
+        "node"
+      ],
+      "baseline": [
+        "gen",
+        "generates",
+        "dataindex",
+        "resend",
+        "vortex"
+      ],
+      "proposed": [
+        "gen",
+        "punching",
+        "puls",
+        "dazzling",
+        "patience"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "strait + blockade",
+      "category": "Geopolitics",
+      "targets": [
+        "embargo",
+        "shortage",
+        "conflict",
+        "naval",
+        "crisis",
+        "war",
+        "quotas"
+      ],
+      "baseline": [
+        "htonl",
+        "oserror",
+        "enquiries",
+        "strchr",
+        "bruno"
+      ],
+      "proposed": [
+        "enquiries",
+        "strlen",
+        "mysqli",
+        "strncpy",
+        "determin"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "drought + crop",
+      "category": "Geopolitics",
+      "targets": [
+        "famine",
+        "hunger",
+        "starvation",
+        "food",
+        "failure",
+        "scarcity"
+      ],
+      "baseline": [
+        "regulate",
+        "psychotic",
+        "canine",
+        "pdfpcell",
+        "censor"
+      ],
+      "proposed": [
+        "allerg",
+        "males",
+        "petro",
+        "rollout",
+        "hansen"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "alliance + treaty",
+      "category": "Geopolitics",
+      "targets": [
+        "defense",
+        "security",
+        "pact",
+        "military",
+        "peace",
+        "union"
+      ],
+      "baseline": [
+        "ordinal",
+        "warranty",
+        "regulate",
+        "token",
+        "kernel"
+      ],
+      "proposed": [
+        "cached",
+        "distribution",
+        "algorithm",
+        "equilibrium",
+        "chunk"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "monopoly + regulation",
+      "category": "Geopolitics",
+      "targets": [
+        "antitrust",
+        "breakup",
+        "law",
+        "competition",
+        "fine",
+        "court"
+      ],
+      "baseline": [
+        "regulate",
+        "replen",
+        "censor",
+        "which",
+        "shrink"
+      ],
+      "proposed": [
+        "quem",
+        "enquiries",
+        "schemes",
+        "cached",
+        "seinen"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    },
+    {
+      "task": "currency + devaluation",
+      "category": "Geopolitics",
+      "targets": [
+        "capital",
+        "inflation",
+        "collapse",
+        "crisis",
+        "flight",
+        "depreciation"
+      ],
+      "baseline": [
+        "regulate",
+        "measles",
+        "interpretations",
+        "constants",
+        "scoreboard"
+      ],
+      "proposed": [
+        "regulate",
+        "owen",
+        "cloak",
+        "interpretations",
+        "encrypt"
+      ],
+      "base_hit": false,
+      "prop_hit": false
+    }
+  ]
+}

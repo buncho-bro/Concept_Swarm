@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-10-29 14:59:52",
+  "initial_cycle_detected": true,
+  "cycle_culprits": [
+    [
+      "Rule_3",
+      "investors",
+      "revenue"
+    ],
+    [
+      "Rule_4_cycle",
+      "revenue",
+      "investors"
+    ]
+  ],
+  "reversal_tests": [
+    {
+      "rule": "Rule_1",
+      "formula": "investors + capital -> enterprises",
+      "redundant_premises": [],
+      "consequent_inversion_valid": true,
+      "is_one_way": true
+    },
+    {
+      "rule": "Rule_2",
+      "formula": "investors + enterprises + labor -> production",
+      "redundant_premises": [],
+      "consequent_inversion_valid": true,
+      "is_one_way": true
+    },
+    {
+      "rule": "Rule_3",
+      "formula": "investors + enterprises + production + market -> revenue",
+      "redundant_premises": [],
+      "consequent_inversion_valid": true,
+      "is_one_way": true
+    },
+    {
+      "rule": "Rule_5_spurious",
+      "formula": "production + rain -> goods",
+      "redundant_premises": [],
+      "consequent_inversion_valid": true,
+      "is_one_way": true
+    },
+    {
+      "rule": "Rule_4_repaired",
+      "formula": "revenue + growth -> dividends",
+      "redundant_premises": [],
+      "consequent_inversion_valid": true,
+      "is_one_way": true
+    }
+  ]
+}

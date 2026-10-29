@@ -1,0 +1,337 @@
+{
+  "passed_count": 6,
+  "total_cases": 6,
+  "all_passed": true,
+  "average_pruning_ratio": 60.75805322128852,
+  "average_latency_ms": 0.3585020701090495,
+  "cases": [
+    {
+      "id": "Case1_ProntoQA",
+      "name": "ProntoQA Multi-Hop Syllogism (Fictional Concepts)",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.6764705882352942,
+      "elapsed_ms": 1.1518001556396484,
+      "structured_model": {
+        "facts": [
+          {
+            "type": "INDIVIDUAL_FACT",
+            "subject": "Stella",
+            "predicate": "yumpus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Stella is a yumpus"
+          }
+        ],
+        "rules": [
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "tumpus",
+            "consequent": "angry",
+            "polarity": "NEGATIVE",
+            "is_negative": true,
+            "raw": "Every tumpus is not angry"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "tumpus",
+            "consequent": "rompus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Tumpuses are rompuses"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "numpus",
+            "consequent": "bright",
+            "polarity": "NEGATIVE",
+            "is_negative": true,
+            "raw": "Every numpus is not bright"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "rompus",
+            "consequent": "yumpus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Rompuses are yumpuses"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "yumpus",
+            "consequent": "zumpus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Yumpuses are zumpuses"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "zumpus",
+            "consequent": "impus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Zumpuses are impuses"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "impus",
+            "consequent": "dumpus",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Each impus is a dumpus"
+          }
+        ],
+        "query": {
+          "raw_query": "Is Stella bright?",
+          "subject": "Stella",
+          "predicate": "bright",
+          "is_negative": false,
+          "salient_context": [
+            "stella",
+            "bright",
+            "bright"
+          ]
+        },
+        "metrics": {
+          "raw_words": 34,
+          "modeled_concepts": 11,
+          "pruning_ratio": 0.6764705882352942,
+          "facts_count": 1,
+          "rules_count": 7
+        }
+      }
+    },
+    {
+      "id": "Case2_Counterfactual",
+      "name": "Counterfactual Biology (Rule overrides reality)",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.6666666666666667,
+      "elapsed_ms": 0.9992122650146484,
+      "structured_model": {
+        "facts": [
+          {
+            "type": "INDIVIDUAL_FACT",
+            "subject": "Whiskers",
+            "predicate": "cat",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Whiskers is a cat"
+          }
+        ],
+        "rules": [
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "feline",
+            "consequent": "cold-blooded",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "All felines are cold-blooded"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "cat",
+            "consequent": "feline",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "All cats are felines"
+          }
+        ],
+        "query": {
+          "raw_query": "Is Whiskers cold-blooded?",
+          "subject": "Whiskers",
+          "predicate": "cold-blooded",
+          "is_negative": false,
+          "salient_context": [
+            "whiskers",
+            "cold-blooded"
+          ]
+        },
+        "metrics": {
+          "raw_words": 15,
+          "modeled_concepts": 5,
+          "pruning_ratio": 0.6666666666666667,
+          "facts_count": 1,
+          "rules_count": 2
+        }
+      }
+    },
+    {
+      "id": "Case3_Messy_Myth",
+      "name": "Messy Natural Language Myth (Adverb & Noise Heavy)",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.3529411764705882,
+      "elapsed_ms": 0.0,
+      "structured_model": {
+        "facts": [],
+        "rules": [],
+        "query": {
+          "raw_query": "Swallowed chewing gum remains dangerously stuck inside the human stomach for seven long years without any digestion.",
+          "subject": "Swallowed",
+          "predicate": "chewing",
+          "is_negative": false,
+          "salient_context": [
+            "swallowed",
+            "chewing",
+            "chewing",
+            "gum",
+            "remains",
+            "stuck",
+            "human",
+            "stomach",
+            "seven",
+            "years",
+            "digestion"
+          ]
+        },
+        "metrics": {
+          "raw_words": 17,
+          "modeled_concepts": 11,
+          "pruning_ratio": 0.3529411764705882,
+          "facts_count": 0,
+          "rules_count": 0
+        }
+      }
+    },
+    {
+      "id": "Case4_Physics_Natural",
+      "name": "Physics Sentence with Auxiliary Phrases",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.8333333333333334,
+      "elapsed_ms": 0.0,
+      "structured_model": {
+        "facts": [],
+        "rules": [],
+        "query": {
+          "raw_query": "Does a bowling ball float on water?",
+          "subject": "bowling",
+          "predicate": "ball",
+          "is_negative": false,
+          "salient_context": [
+            "bowling",
+            "ball",
+            "ball",
+            "float",
+            "water"
+          ]
+        },
+        "metrics": {
+          "raw_words": 24,
+          "modeled_concepts": 4,
+          "pruning_ratio": 0.8333333333333334,
+          "facts_count": 0,
+          "rules_count": 0
+        }
+      }
+    },
+    {
+      "id": "Case5_Gapped_Enthymeme",
+      "name": "Enthymeme with Implicit Flight Premise",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.4285714285714286,
+      "elapsed_ms": 0.0,
+      "structured_model": {
+        "facts": [
+          {
+            "type": "INDIVIDUAL_FACT",
+            "subject": "Tweety",
+            "predicate": "penguin",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Tweety is a penguin"
+          }
+        ],
+        "rules": [],
+        "query": {
+          "raw_query": "Can Tweety fly?",
+          "subject": "Tweety",
+          "predicate": "fly",
+          "is_negative": false,
+          "salient_context": [
+            "tweety",
+            "fly",
+            "fly"
+          ]
+        },
+        "metrics": {
+          "raw_words": 7,
+          "modeled_concepts": 4,
+          "pruning_ratio": 0.4285714285714286,
+          "facts_count": 1,
+          "rules_count": 0
+        }
+      }
+    },
+    {
+      "id": "Case6_Astronaut_Chained",
+      "name": "Multi-Hop Domain Knowledge Chain",
+      "passed": true,
+      "facts_ok": true,
+      "rules_ok": true,
+      "entities_ok": true,
+      "pruning_ratio": 0.6875,
+      "elapsed_ms": 0.0,
+      "structured_model": {
+        "facts": [
+          {
+            "type": "INDIVIDUAL_FACT",
+            "subject": "Luna",
+            "predicate": "astronaut",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "Luna is an astronaut"
+          }
+        ],
+        "rules": [
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "astronaut",
+            "consequent": "pilot",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "All astronauts are pilots"
+          },
+          {
+            "type": "UNIVERSAL_RULE",
+            "antecedent": "pilot",
+            "consequent": "explorer",
+            "polarity": "POSITIVE",
+            "is_negative": false,
+            "raw": "All pilots are explorers"
+          }
+        ],
+        "query": {
+          "raw_query": "Is Luna an explorer?",
+          "subject": "Luna",
+          "predicate": "explorer",
+          "is_negative": false,
+          "salient_context": [
+            "luna",
+            "explorer",
+            "explorer"
+          ]
+        },
+        "metrics": {
+          "raw_words": 16,
+          "modeled_concepts": 5,
+          "pruning_ratio": 0.6875,
+          "facts_count": 1,
+          "rules_count": 2
+        }
+      }
+    }
+  ]
+}

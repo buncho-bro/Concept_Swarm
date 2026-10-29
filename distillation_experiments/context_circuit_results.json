@@ -1,0 +1,110 @@
+[
+  {
+    "scenario": "① 中立文脈 (Neutral Baseline)",
+    "prompt": " apple",
+    "hubs": [
+      "juice",
+      "cider",
+      "trees",
+      "tree"
+    ],
+    "resistances": {
+      "orange": {
+        "probability": 0.00026702880859375,
+        "resistance_ohm": 3744.9142857142856,
+        "surprisal_resistance": 11.870716983055033
+      },
+      "rose": {
+        "probability": 4.976987838745117e-06,
+        "resistance_ohm": 200924.74251497007,
+        "surprisal_resistance": 17.616295707525946
+      },
+      "police": {
+        "probability": 0.00017452239990234375,
+        "resistance_ohm": 5729.92349726776,
+        "surprisal_resistance": 12.484300161715957
+      }
+    }
+  },
+  {
+    "scenario": "② 食品売り場文脈 (Grocery Fruit)",
+    "prompt": " In the supermarket grocery fruit section, fresh apple",
+    "hubs": [
+      "juice",
+      "sales",
+      "pies",
+      "slices"
+    ],
+    "resistances": {
+      "orange": {
+        "probability": 0.000202178955078125,
+        "resistance_ohm": 4946.11320754717,
+        "surprisal_resistance": 12.272079545436801
+      },
+      "rose": {
+        "probability": 1e-06,
+        "resistance_ohm": 1000000.0,
+        "surprisal_resistance": 19.931568569324174
+      },
+      "police": {
+        "probability": 6.318092346191406e-06,
+        "resistance_ohm": 158275.62264150943,
+        "surprisal_resistance": 17.2720795454368
+      }
+    }
+  },
+  {
+    "scenario": "③ 植物学分類文脈 (Botanical Taxonomy)",
+    "prompt": " In botanical classification, angiosperms like apple",
+    "hubs": [
+      "trees",
+      "belong",
+      "plants",
+      "tree"
+    ],
+    "resistances": {
+      "orange": {
+        "probability": 8.702278137207031e-06,
+        "resistance_ohm": 114912.43835616438,
+        "surprisal_resistance": 16.810175441119984
+      },
+      "rose": {
+        "probability": 1e-06,
+        "resistance_ohm": 1000000.0,
+        "surprisal_resistance": 19.931568569324174
+      },
+      "police": {
+        "probability": 1e-06,
+        "resistance_ohm": 1000000.0,
+        "surprisal_resistance": 19.931568569324174
+      }
+    }
+  },
+  {
+    "scenario": "④ 農園盗難事件文脈 (Theft Investigation)",
+    "prompt": " In the orchard theft investigation, the stolen apple",
+    "hubs": [
+      "trees",
+      "tree",
+      "cart",
+      "juice"
+    ],
+    "resistances": {
+      "orange": {
+        "probability": 5.245208740234375e-05,
+        "resistance_ohm": 19065.01818181818,
+        "surprisal_resistance": 14.21864028647534
+      },
+      "rose": {
+        "probability": 1e-06,
+        "resistance_ohm": 1000000.0,
+        "surprisal_resistance": 19.931568569324174
+      },
+      "police": {
+        "probability": 0.0002498626708984375,
+        "resistance_ohm": 4002.1984732824426,
+        "surprisal_resistance": 11.96657699846255
+      }
+    }
+  }
+]

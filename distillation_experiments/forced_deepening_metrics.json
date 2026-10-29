@@ -1,0 +1,16 @@
+{
+  "standard": {
+    "min_potential": -38.12059869115471,
+    "mean_potential": -3.6325359230730077,
+    "ruggedness_std": 4.91514964893383,
+    "mean_particle_distance": 24.812557220458984
+  },
+  "deepened": {
+    "min_potential": -175.34537433449773,
+    "mean_potential": -6.211198955515356,
+    "ruggedness_std": 13.99676658678323,
+    "mean_particle_distance": 24.823463439941406
+  },
+  "depth_improvement_percent": -359.98,
+  "ruggedness_improvement_percent": 184.77
+}

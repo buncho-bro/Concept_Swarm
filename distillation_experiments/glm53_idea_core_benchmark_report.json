@@ -1,0 +1,306 @@
+{
+  "top1_accuracy": 0.0,
+  "top3_accuracy": 0.0,
+  "details": [
+    {
+      "task_id": 1,
+      "pair": [
+        "cloud",
+        "cold"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 2,
+      "pair": [
+        "fire",
+        "wood"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 3,
+      "pair": [
+        "magnet",
+        "iron"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 4,
+      "pair": [
+        "sun",
+        "rain"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 5,
+      "pair": [
+        "friction",
+        "motion"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 6,
+      "pair": [
+        "crime",
+        "police"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 7,
+      "pair": [
+        "soap",
+        "dirt"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 8,
+      "pair": [
+        "debt",
+        "default"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 9,
+      "pair": [
+        "virus",
+        "vaccine"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 10,
+      "pair": [
+        "inflation",
+        "hike"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 11,
+      "pair": [
+        "group",
+        "commutative"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 12,
+      "pair": [
+        "matrix",
+        "eigenvalue"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 13,
+      "pair": [
+        "triangle",
+        "angle"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 14,
+      "pair": [
+        "function",
+        "derivative"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 15,
+      "pair": [
+        "graph",
+        "edge"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 16,
+      "pair": [
+        "strait",
+        "blockade"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 17,
+      "pair": [
+        "drought",
+        "crop"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 18,
+      "pair": [
+        "alliance",
+        "treaty"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 19,
+      "pair": [
+        "monopoly",
+        "regulation"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    },
+    {
+      "task_id": 20,
+      "pair": [
+        "currency",
+        "devaluation"
+      ],
+      "converged_core": 42,
+      "converged_name": "ings/ations/es",
+      "top3_cores": [
+        42,
+        6,
+        15
+      ],
+      "status": "MISS"
+    }
+  ]
+}

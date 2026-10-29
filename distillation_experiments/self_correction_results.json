@@ -1,0 +1,248 @@
+[
+  {
+    "domain": "Medical / Myth (User's Example)",
+    "e_myth": 0.5787760416666666,
+    "e_truth": 0.04025607638888889,
+    "gap": 0.5385199652777778,
+    "b_myth": [
+      [
+        "stomach",
+        "years",
+        -4.0703125
+      ],
+      [
+        "chewing",
+        "years",
+        -3.46875
+      ],
+      [
+        "chewing",
+        "stuck",
+        -2.986328125
+      ]
+    ],
+    "b_truth": [
+      [
+        "tract",
+        "exits",
+        2.1953125
+      ],
+      [
+        "passes",
+        "exits",
+        3.484375
+      ],
+      [
+        "digestive",
+        "tract",
+        4.24609375
+      ]
+    ],
+    "c_myth": [
+      "swallowed",
+      "chewing",
+      "gum",
+      "stays",
+      "stuck",
+      "human",
+      "stomach",
+      "seven",
+      "years",
+      "digestion"
+    ],
+    "c_truth": [
+      "swallowed",
+      "chewing",
+      "gum",
+      "passes",
+      "naturally",
+      "digestive",
+      "tract",
+      "exits",
+      "body"
+    ]
+  },
+  {
+    "domain": "Physics / Mechanics",
+    "e_myth": -1.0578884548611112,
+    "e_truth": -0.29017857142857145,
+    "gap": -0.7677098834325398,
+    "b_myth": [
+      [
+        "float",
+        "ocean",
+        -1.265625
+      ],
+      [
+        "float",
+        "calm",
+        -1.25
+      ],
+      [
+        "balls",
+        "calm",
+        -1.21484375
+      ]
+    ],
+    "b_truth": [
+      [
+        "heavy",
+        "metal",
+        2.478515625
+      ],
+      [
+        "deep",
+        "ocean",
+        3.677734375
+      ],
+      [
+        "bowling",
+        "balls",
+        3.73046875
+      ]
+    ],
+    "c_myth": [
+      "heavy",
+      "metal",
+      "bowling",
+      "balls",
+      "float",
+      "calm",
+      "ocean",
+      "water",
+      "surface"
+    ],
+    "c_truth": [
+      "heavy",
+      "metal",
+      "bowling",
+      "balls",
+      "sink",
+      "deep",
+      "ocean",
+      "floor"
+    ]
+  },
+  {
+    "domain": "Biology / Ecosystem",
+    "e_myth": -0.8877495659722222,
+    "e_truth": -0.6923828125,
+    "gap": -0.1953667534722222,
+    "b_myth": [
+      [
+        "penguins",
+        "hot",
+        -4.966796875
+      ],
+      [
+        "penguins",
+        "dry",
+        -2.927734375
+      ],
+      [
+        "penguins",
+        "high",
+        -1.591796875
+      ]
+    ],
+    "b_truth": [
+      [
+        "icy",
+        "ocean",
+        4.26171875
+      ],
+      [
+        "freezing",
+        "water",
+        4.513671875
+      ],
+      [
+        "icy",
+        "water",
+        5.40625
+      ]
+    ],
+    "c_myth": [
+      "cold",
+      "penguins",
+      "fly",
+      "high",
+      "hot",
+      "dry",
+      "desert",
+      "sand",
+      "dunes"
+    ],
+    "c_truth": [
+      "cold",
+      "penguins",
+      "swim",
+      "fast",
+      "freezing",
+      "icy",
+      "polar",
+      "ocean",
+      "water"
+    ]
+  },
+  {
+    "domain": "Logic / Causality",
+    "e_myth": -2.0630580357142856,
+    "e_truth": -2.0576171875,
+    "gap": -0.005440848214285587,
+    "b_myth": [
+      [
+        "death",
+        "hunt",
+        -2.53125
+      ],
+      [
+        "starve",
+        "hunt",
+        -1.75
+      ],
+      [
+        "sheep",
+        "hunt",
+        -1.18359375
+      ]
+    ],
+    "b_truth": [
+      [
+        "gentle",
+        "fierce",
+        4.09375
+      ],
+      [
+        "gentle",
+        "sheep",
+        4.2109375
+      ],
+      [
+        "fierce",
+        "lions",
+        5.80078125
+      ]
+    ],
+    "c_myth": [
+      "fierce",
+      "lions",
+      "starve",
+      "death",
+      "gentle",
+      "sheep",
+      "hunt",
+      "them"
+    ],
+    "c_truth": [
+      "gentle",
+      "sheep",
+      "run",
+      "away",
+      "fierce",
+      "lions",
+      "hunt",
+      "them"
+    ]
+  }
+]

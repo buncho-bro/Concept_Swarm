@@ -1,0 +1,170 @@
+[
+  {
+    "initial_events": [
+      "data center power",
+      "grid blackout",
+      "cooling water shortage"
+    ],
+    "future_attractors": [
+      {
+        "concept": "nunes",
+        "causal_score": 0.0675
+      },
+      {
+        "concept": "quotas",
+        "causal_score": 0.0637
+      },
+      {
+        "concept": "sine",
+        "causal_score": 0.0636
+      },
+      {
+        "concept": "enemy",
+        "causal_score": 0.0633
+      },
+      {
+        "concept": "mormons",
+        "causal_score": 0.0605
+      },
+      {
+        "concept": "caliente",
+        "causal_score": 0.057
+      },
+      {
+        "concept": "schemes",
+        "causal_score": 0.0558
+      },
+      {
+        "concept": "olson",
+        "causal_score": 0.0555
+      }
+    ],
+    "theme": "【シナリオ 1: エネルギー危機 & AIインフラ限界】"
+  },
+  {
+    "initial_events": [
+      "strait blockade",
+      "freight shipping halt",
+      "crude oil embargo"
+    ],
+    "future_attractors": [
+      {
+        "concept": "quotas",
+        "causal_score": 0.0705
+      },
+      {
+        "concept": "holl",
+        "causal_score": 0.0664
+      },
+      {
+        "concept": "renewables",
+        "causal_score": 0.0645
+      },
+      {
+        "concept": "welsh",
+        "causal_score": 0.0628
+      },
+      {
+        "concept": "killed",
+        "causal_score": 0.0628
+      },
+      {
+        "concept": "humanity",
+        "causal_score": 0.0622
+      },
+      {
+        "concept": "pelo",
+        "causal_score": 0.0587
+      },
+      {
+        "concept": "drawn",
+        "causal_score": 0.0584
+      }
+    ],
+    "theme": "【シナリオ 2: 地政学海峡封鎖 & 物流完全寸断】"
+  },
+  {
+    "initial_events": [
+      "commercial real estate collapse",
+      "bank run",
+      "liquidity freeze"
+    ],
+    "future_attractors": [
+      {
+        "concept": "nunes",
+        "causal_score": 0.0655
+      },
+      {
+        "concept": "caliente",
+        "causal_score": 0.0639
+      },
+      {
+        "concept": "materialpageroute",
+        "causal_score": 0.0609
+      },
+      {
+        "concept": "scarc",
+        "causal_score": 0.0605
+      },
+      {
+        "concept": "purposes",
+        "causal_score": 0.0598
+      },
+      {
+        "concept": "sine",
+        "causal_score": 0.0598
+      },
+      {
+        "concept": "questioning",
+        "causal_score": 0.0588
+      },
+      {
+        "concept": "terms",
+        "causal_score": 0.0576
+      }
+    ],
+    "theme": "【シナリオ 3: 商業不動産崩壊 & 金融信用危機】"
+  },
+  {
+    "initial_events": [
+      "lunar base construction",
+      "solar radiation flare",
+      "autonomous rover drill"
+    ],
+    "future_attractors": [
+      {
+        "concept": "unidad",
+        "causal_score": 0.0663
+      },
+      {
+        "concept": "mission",
+        "causal_score": 0.0646
+      },
+      {
+        "concept": "somali",
+        "causal_score": 0.0645
+      },
+      {
+        "concept": "bolton",
+        "causal_score": 0.0637
+      },
+      {
+        "concept": "gnunet",
+        "causal_score": 0.0634
+      },
+      {
+        "concept": "denne",
+        "causal_score": 0.0623
+      },
+      {
+        "concept": "adverse",
+        "causal_score": 0.0603
+      },
+      {
+        "concept": "dirent",
+        "causal_score": 0.0598
+      }
+    ],
+    "theme": "【シナリオ 4: 宇宙資源開発 & 自律探査】"
+  }
+]

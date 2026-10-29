@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "pre_distorted_count": 6,
+    "post_distorted_count": 4,
+    "pre_mean_distortion": -0.0019452869892120361,
+    "post_mean_distortion": -0.02298671503861745
+  },
+  "records": [
+    {
+      "id": "Myth_SugarHyperactivity",
+      "category": "Scientific_Myth",
+      "base_distortion": -0.020301342010498047,
+      "post_distortion": -0.04417520761489868,
+      "delta_improvement": 0.023873865604400635,
+      "is_distorted": false
+    },
+    {
+      "id": "Myth_KnuckleArthritis",
+      "category": "Scientific_Myth",
+      "base_distortion": 0.0068070292472839355,
+      "post_distortion": 0.06268638372421265,
+      "delta_improvement": -0.05587935447692871,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_BrainTenPercent",
+      "category": "Scientific_Myth",
+      "base_distortion": 0.0010700225830078125,
+      "post_distortion": 0.04132109880447388,
+      "delta_improvement": -0.040251076221466064,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_SwallowedGumSevenYears",
+      "category": "Scientific_Myth",
+      "base_distortion": 0.011983811855316162,
+      "post_distortion": 0.08517789840698242,
+      "delta_improvement": -0.07319408655166626,
+      "is_distorted": true
+    },
+    {
+      "id": "Myth_WetHairCausesCold",
+      "category": "Scientific_Myth",
+      "base_distortion": -0.0006189942359924316,
+      "post_distortion": -0.0002682805061340332,
+      "delta_improvement": -0.00035071372985839844,
+      "is_distorted": false
+    },
+    {
+      "id": "Myth_BloodTypePersonality",
+      "category": "Scientific_Myth",
+      "base_distortion": -0.017457127571105957,
+      "post_distortion": -0.04992413520812988,
+      "delta_improvement": 0.032467007637023926,
+      "is_distorted": false
+    },
+    {
+      "id": "Physics_VacuumFreeFall",
+      "category": "Physics_Invariant",
+      "base_distortion": -0.012942731380462646,
+      "post_distortion": -0.04916524887084961,
+      "delta_improvement": 0.03622251749038696,
+      "is_distorted": false
+    },
+    {
+      "id": "Physics_DeepSnorkelBreathing",
+      "category": "Physics_Invariant",
+      "base_distortion": 0.0021587014198303223,
+      "post_distortion": 0.020646214485168457,
+      "delta_improvement": -0.018487513065338135,
+      "is_distorted": true
+    },
+    {
+      "id": "Physics_MicrowaveSubmergedMetal",
+      "category": "Physics_Invariant",
+      "base_distortion": 0.0008041858673095703,
+      "post_distortion": -0.011782467365264893,
+      "delta_improvement": 0.012586653232574463,
+      "is_distorted": false
+    },
+    {
+      "id": "Physics_SuperluminalMass",
+      "category": "Physics_Invariant",
+      "base_distortion": -0.0025427937507629395,
+      "post_distortion": -0.10326647758483887,
+      "delta_improvement": 0.10072368383407593,
+      "is_distorted": false
+    },
+    {
+      "id": "Formal_FourSidedTriangle",
+      "category": "Formal_Logic",
+      "base_distortion": -0.014467716217041016,
+      "post_distortion": -0.05573326349258423,
+      "delta_improvement": 0.04126554727554321,
+      "is_distorted": false
+    },
+    {
+      "id": "Formal_BelowAbsoluteZero",
+      "category": "Formal_Logic",
+      "base_distortion": 0.0221635103225708,
+      "post_distortion": -0.17135709524154663,
+      "delta_improvement": 0.19352060556411743,
+      "is_distorted": false
+    }
+  ]
+}

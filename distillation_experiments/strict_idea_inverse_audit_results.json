@@ -1,0 +1,218 @@
+{
+  "raw_mean": 70.0,
+  "cc_mean": 81.66666666666667,
+  "llm_idea_mean": 75.0,
+  "ns_idea_mean": 95.0,
+  "audit_logs": [
+    {
+      "id": "prob_01_vacuum_spheres",
+      "scores": {
+        "raw": 0.0,
+        "concept_core": 0.5,
+        "llm_only_idea_inverse": 0.0,
+        "neuro_symbolic_idea_inverse": 0.5
+      },
+      "diagnostics": {
+        "raw": "VETOED by Logical Contradiction: uttered 'air resistance'",
+        "concept_core": "Partial (50%), missing: ['magnetic']",
+        "llm_only_idea_inverse": "VETOED by Logical Contradiction: uttered 'air resistance'",
+        "neuro_symbolic_idea_inverse": "Partial (50%), missing: ['conduct']",
+        "m0_audit_before_inversion": "VETOED by Logical Contradiction: uttered 'air resistance'"
+      },
+      "sample_outputs": {
+        "raw": "Sphere A experiences an external electromagnetic force due to its motion through space in a vacuum. This force is responsible for slowing it down and stopping it halfway.\n\nSphere B does not experience any external forces because there is no friction ",
+        "llm_only_idea": "The unseen external field is air resistance acting against both spheres due to their interaction with the atmosphere outside the vacuum chamber. The internal difference between Sphere A and Sphere B lies in the distribution of surface irregularities ",
+        "neuro_symbolic_idea": "Sphere A experiences electromagnetic damping due to eddy currents induced by an external magnetic field, which causes rapid deceleration. Sphere B maintains constant velocity because it is rolling without sliding friction, indicating that there is no significant electromagnetic damping or other forc"
+      }
+    },
+    {
+      "id": "prob_02_pendulum_elevator",
+      "scores": {
+        "raw": 0.0,
+        "concept_core": 0.5,
+        "llm_only_idea_inverse": 0.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "Partial (0%), missing: ['4g', 'upward']",
+        "concept_core": "Partial (50%), missing: ['4g']",
+        "llm_only_idea_inverse": "Partial (0%), missing: ['4g', 'upward']",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "Partial (50%), missing: ['4g']"
+      },
+      "sample_outputs": {
+        "raw": "The period of a simple pendulum is given by \\(T = 2\\pi \\sqrt{\\frac{L}{g}}\\).\n\nGiven:\n- On Earth (\\(g = 9.8 m/s^2\\)), the period \\(T_1 = 2\\) s.\n- In the sealed room, the period \\(T_2 = 1\\) s.\n\nFirst, we use the formula for the period in the room:\n\n\\[T",
+        "llm_only_idea": "To resolve this paradox, we must consider additional factors not accounted for in the initial model. The observed behavior suggests an interaction between the pendulum and its environment, such as air resistance or friction within the sealed room. Le",
+        "neuro_symbolic_idea": "The effective gravity \\( g_{\\text{eff}} \\) inside the sealed windowless room is exactly four times that of Earth's standard gravitational field \\( g \\). The observed downward acceleration due to this effective gravity is three times greater than Earth's standard value, resulting from an additional u"
+      }
+    },
+    {
+      "id": "prob_03_sealed_box_weight",
+      "scores": {
+        "raw": 0.5,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "Partial (50%), missing: ['floor']",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "PASS (100% Consistent)"
+      },
+      "sample_outputs": {
+        "raw": "The scale reading remains constant because the weight of the drone is evenly distributed throughout the volume of the enclosed space due to the rigidity of the container. The air inside the box acts as an elastic medium, allowing the drone's weight t",
+        "llm_only_idea": "The final deductive step based on the perfected contradiction-free idea M_1 reveals that the scale remains at 2000g because the internal forces are balanced by an invisible yet significant redistribution of pressure throughout the enclosed space. Spe",
+        "neuro_symbolic_idea": "The scale remains constant at 2000g because the air within the sealed box is accelerated downward by the drone's rotors due to their rotation. This downwash creates an equal and opposite upward force on the box, which exactly balances the weight of the drone resting on it. The air pressure exerted b"
+      }
+    },
+    {
+      "id": "prob_04_hollow_vs_solid_cylinder",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 0.6666666666666666,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "Partial (67%), missing: ['moment of inertia']",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "Partial (67%), missing: ['solid']"
+      },
+      "sample_outputs": {
+        "raw": "Cylinder A is solid with its mass concentrated near the center, while Cylinder B is hollow with its mass distributed closer to the rim. This conclusion follows from comparing their moments of inertia for rolling motion on an inclined plane. The solid",
+        "llm_only_idea": "Cylinder A is solid, while Cylinder B is hollow. This can be deduced by comparing their moments of inertia when considering the rolling motion without slipping condition. The solid cylinder's moment of inertia (\\(I_{solid}\\)) is \\(\\frac{1}{2}MR^2\\), ",
+        "neuro_symbolic_idea": "Based on the mathematical proof provided by the Proven Certificate M_1, Cylinder A, with its smaller moment of inertia due to being solid, accelerates more quickly down the inclined plane compared to Cylinder B, which has a larger moment of inertia because it is hollow. This demonstrates that Cylind"
+      }
+    },
+    {
+      "id": "prob_05_redstone_quasi_piston",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "PASS (100% Consistent)"
+      },
+      "sample_outputs": {
+        "raw": "The key to understanding this behavior lies in how Minecraft handles connectivity between blocks and how it updates block states.\n\n1. **Quasi-Connectivity**: In Minecraft, when you place or move a block, it's not just about connecting one face with a",
+        "llm_only_idea": "The contradiction arises due to the way Quasi-Connectivity works in Minecraft. Specifically:\n\n1. **Quasi-Connectivity**: Blocks can be considered quasi-connected if they share at least one face or edge with another block. However, for a piston to act",
+        "neuro_symbolic_idea": "The resolution lies in understanding the difference between Quasi-Connectivity and Block Update/BUD mechanisms in Minecraft's physics system. The piston's activation condition relies on Quasi-Connectivity, which means it detects power from blocks within one block height above it. This allows the pis"
+      }
+    },
+    {
+      "id": "prob_06_boiling_water_cold",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "Partial (0%), missing: ['pressure', 'vapor pressure']"
+      },
+      "sample_outputs": {
+        "raw": "The exact unseen thermodynamic variable that was changed is the partial pressure of water vapor in the flask. This change occurred because as the water boiled, its volume increased due to the expansion of the steam, which reduced the surface area ava",
+        "llm_only_idea": "The exact unseen thermodynamic variable inside the flask that was changed is the vapor pressure within the flask. Specifically, the vapor pressure increased significantly due to an unknown factor or mechanism not accounted for in the initial conditio",
+        "neuro_symbolic_idea": "The key unseen thermodynamic variable inside the flask that was changed is the air pressure within the system. By pumping air out, the ambient pressure dropped significantly below the equilibrium vapor pressure of water at 20°C (~2.3 kPa). This reduction in pressure allowed the water to reach its bo"
+      }
+    },
+    {
+      "id": "prob_07_ice_melting_overflow",
+      "scores": {
+        "raw": 0.5,
+        "concept_core": 0.5,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "Partial (50%), missing: ['bottom']",
+        "concept_core": "Partial (50%), missing: ['bottom']",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "Partial (50%), missing: ['bottom']"
+      },
+      "sample_outputs": {
+        "raw": "The unseen substance or cavity that cannot cause overflow is one where the density of the displaced fluid is equal to the density of the original liquid. This means the ice must be completely submerged before melting.\n\nThe condition that causes overf",
+        "llm_only_idea": "The final deduction based on the perfected, contradiction-free law M_1 states that the difference between the two scenarios lies in the density relationship between the ice and the surrounding water. Specifically, when Ice Cube B floats, it displaces",
+        "neuro_symbolic_idea": "The condition causing overflow is when the ice cube in Glass B rests on the bottom of the glass or contains a liquid layer less dense than water that remains after melting. The Archimedes principle states that the displaced volume equals the mass of the submerged object, so if this condition exists,"
+      }
+    },
+    {
+      "id": "prob_08_floating_point_loop",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "Partial (50%), missing: ['repeating']"
+      },
+      "sample_outputs": {
+        "raw": "The issue arises from the fact that \\( \\frac{1}{10} \\) cannot be represented exactly in binary floating-point format due to its infinite repeating nature. Specifically:\n\n- The binary fraction for \\( \\frac{1}{10} \\) is \\( 0.00011001100110011..._2 \\).\n",
+        "llm_only_idea": "The issue lies in the way floating-point numbers are represented in IEEE 754 format. Specifically, the number \\(0.1\\) cannot be exactly represented due to its infinite repeating nature in base 2. This means that when you add \\(0.1\\) repeatedly, the r",
+        "neuro_symbolic_idea": "The issue arises from the fact that 0.1 cannot be represented exactly as a finite binary fraction due to its non-repeating nature when expressed in base-2. The IEEE 754 standard for floating-point numbers uses a fixed precision and format, which leads to small inaccuracies during calculations involv"
+      }
+    },
+    {
+      "id": "prob_09_double_slit_eraser",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 1.0,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "PASS (100% Consistent)",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "PASS (100% Consistent)"
+      },
+      "sample_outputs": {
+        "raw": "The interference fringes vanish because the placement of the which-way detector at the slits introduces an interaction that is not described by standard quantum mechanics. Specifically:\n\n1. **Orthogonality of Detector States**: The act of measuring w",
+        "llm_only_idea": "The exact quantum mechanical reason for the disappearance of interference fringes in the double-slit experiment with a which-way detector is due to the phenomenon of decoherence. When a which-way detector is placed near the slits, it interacts strong",
+        "neuro_symbolic_idea": "The disappearance of interference fringes in a double-slit experiment with a which-way detector can be explained by the orthogonal detection states of the detector. When the detector records distinct which-way information for each slit, it effectively projects the wavefunction into two orthogonal co"
+      }
+    },
+    {
+      "id": "prob_10_network_mtu_blackhole",
+      "scores": {
+        "raw": 1.0,
+        "concept_core": 1.0,
+        "llm_only_idea_inverse": 0.5,
+        "neuro_symbolic_idea_inverse": 1.0
+      },
+      "diagnostics": {
+        "raw": "PASS (100% Consistent)",
+        "concept_core": "PASS (100% Consistent)",
+        "llm_only_idea_inverse": "Partial (50%), missing: ['icmp']",
+        "neuro_symbolic_idea_inverse": "PASS (100% Proven)",
+        "m0_audit_before_inversion": "PASS (100% Consistent)"
+      },
+      "sample_outputs": {
+        "raw": "The exact network phenomenon in this scenario is **PMTUD Blackhole**.\n\n- **PMTUD Blackhole**: This occurs when an intermediate router does not have enough memory to handle large packets that exceed its maximum transmission unit (MTU), leading to frag",
+        "llm_only_idea": "The exact network phenomenon causing the complete disappearance of all TCP/HTTPS packets with the 'Don't Fragment' (DF) bit set is a PMTU (Path Maximum Transmission Unit) black hole. This means that the maximum transmission unit for the entire path b",
+        "neuro_symbolic_idea": "The observed behavior indicates that packets larger than 1400 bytes are being fragmented by routers due to their small MTUs, leading to fragmentation issues. The lack of ICMP responses from the routers further confirms this as they do not send out ICMP error messages when fragments exceed the MTU. T"
+      }
+    }
+  ]
+}

@@ -1,32 +1,32 @@
-# 🌌 Antigravity Concept Swarm & Thought Wilderness
+# Antigravity Concept Swarm, Thought Wilderness & Honest SMT-Mediated Intelligence
 
-> **「巨大な言語モデルから、純粋な『概念のトポロジー』を抽出し、言葉を介さずにミリ秒で合議させ、エッジから自己組織化する思考原野までを解き明かす」**
+> **「巨大な言語モデルから、純粋な『概念のトポロジー』を抽出し、言葉を介さずにミリ秒で合議させ、エッジから自己組織化する思考原野、そして自らの無知の境界と論理の正しさを知る誠実な対話知能までを解き明かす」**
 
-自己組織化ポテンシャル場（Concept Core）による「概念地形そのものの構築」から始まり、人間の辞書・ラベルを1語も使わない「純粋な蒸留」、VRAMゼロで動作する10体並列の「非言語合議型AIエージェントスウォーム」、極小エッジマイコン（520KB SRAM）での自律推論、巨大80BモデルのHTTPストリーミング解体、粗視化被覆による純粋軌跡移転、そして単語の全層軌跡から自己組織化する超並列推論基盤**「思考原野（Thought Wilderness）」**に至るまで、ユーザーとAIが二人三脚で切り拓いた一連の幾何学的AI探求の成果を集約した統合リポジトリです。
+自己組織化ポテンシャル場（Concept Core）による「概念地形そのものの構築」から始まり、人間の辞書・ラベルを1語も使わない「純粋な蒸留」、VRAMゼロで動作する10体並列の「非言語合議型AIエージェントスウォーム」、極小エッジマイコン（520KB SRAM）での自律推論、巨大80BモデルのHTTPストリーミング解体、粗視化被覆による純粋軌跡移転、単語の全層軌跡から自己組織化する超並列推論基盤「思考原野（Thought Wilderness）」、蜘蛛の巣信念網とSMT形式論理調停による難関ベンチマーク突破（DK-DSSC-SMT: 70.00%）、そして**「エントロピー降下キャリブレーション・文脈共鳴（CR-CE）・SMT自己調停対話知能」**に至るまで、ユーザーとAIが二人三脚で切り拓いた一連の幾何学的・熱力学的AI探求の成果を集約した統合リポジトリです。
 
 ---
 
-## 📜 プロジェクトの理念と免責事項
+## プロジェクトの理念と免責事項
 - **Google Antigravityによる開発:** 本プロジェクトのコアアルゴリズム、スクリプト、およびUIアーキテクチャは、Google Antigravity AIエージェントフレームワークを使用し、主に Gemini との対話・協働を通じて開発されました。
-- **公平なAI競争の促進:** 本プロジェクトの最大の目標は、AI開発における公平な競争と民主化の促進です。開発者がローカル環境で効率的に「概念地形」「思考原野」を抽出・自己組織化できる手法を提供することで、AI研究参入への障壁を下げることを目指しています。既存のAIシステムを破壊、搾取、または妨害することを意図したものでは決してありません。あくまで最適化と平等性を追求する学術的・工学的な試みです。
+- **公平なAI競争の促進:** 本プロジェクトの最大の目標は、AI開発における公平な競争と民主化の促進です。開発者がローカル環境で効率的に「概念地形」「思考原野」「誠実な論理調停機構」を構築できる手法を提供することで、AI研究参入への障壁を下げることを目指しています。既存のAIシステムを破壊、搾取、または妨害することを意図したものでは決してありません。あくまで最適化と平等性を追求する学術的・工学的な試みです。
 - **オリジナルAIライセンスの遵守:** 本リポジトリのスクリプトを使用して知識の抽出やモデルの蒸留を行う際は、対象となるAIモデルの元の開発者（Hugging Face、OpenAI、Z.ai、Alibaba、Mistral AIなど）が定める利用規約、ライセンス、および利用ルールを厳守してください。
 
 ---
 
-## 🏛️ 時系列リポジトリ構成（完全目次）
+## 時系列リポジトリ構成（完全目次）
 
 本リポジトリは、対話の進展と技術的ブレイクスルーの時系列順に構成されています。各Pythonファイルの先頭には、詳細な仕組みを記したDocstringが埋め込まれています。
 
 ```
 Antigravity_Concept_Swarm/
 ├── concept_core/             # [第0章] 自己組織化ポテンシャル場・浸食/風化・DoG尾根・ビー玉推論 (Pentagon)
-├── distillation_experiments/ # [第1章/第6章/第7章] 純粋蒸留 (0-VRAM大円干渉/スライストポロジー) & 思考原野
+├── distillation_experiments/ # [第1章/第6章〜第11章] 純粋蒸留・思考原野・蜘蛛の巣信念網・DK-DSSC-SMT・CR-CE対話知能
 ├── core/                     # [第2章] 潜在空間ブラックボード (2048d) & Dual-Stream デコーダー
 ├── project_ripple/           # [第2章] 物理コア・水面の波紋干渉・ピクセルアートWebUI
 ├── quantized_core/           # [第3章] 低ビット量子化・KNNグラフ蒸留・フラクタルルーティング
 ├── edge_micro_agent/         # [第3章] RP2350 (520KB SRAM) 局所100語マイコンエージェント
 ├── alice_profiler/           # [第4章] 160GB (AliceAI-80B) のHTTP Rangeストリーミング走査
-├── alice_relay_engine/       # [第4章] 疎結合オンデマンドMoE & 数学➔コード非言語バトンパス
+├── alice_relay_engine/       # [第4章] 疎結合オンデマンドMoE & 数学->コード非言語バトンパス
 ├── game_prototype/           # [第5章] 潜在物理型AI執政官・国家指導者アカデミー
 ├── alife_agent_sim/          # [第5章] 連続空間エージェント・Boids群れ・環境知識淘汰 (V1〜V4)
 ├── ephemeral_coder/          # [第6章] 逆算型目標樹形図エンジン (GDTE v3.4: 言語プリミティブ分解)
@@ -71,23 +71,57 @@ Antigravity_Concept_Swarm/
 
 ### 7. `distillation_experiments/` (第7章：思考原野――Thought Wilderness)
 *単語の全層軌跡の類似度から自己組織化する「思考原野（Thought Wilderness）」実験群。*
-- `massive_full_trajectory_benchmark.py` : 各単語が止まるまでの全33層軌跡の直交力線を積分する100組大規模因果ベンチマーク（`crime+police➔arrest`, `cloud+cold➔ice` 等の行為・因果射抜）。
+- `massive_full_trajectory_benchmark.py` : 各単語が止まるまでの全33層軌跡の直交力線を積分する100組大規模因果ベンチマーク（`crime+police->arrest`, `cloud+cold->ice` 等の行為・因果射抜）。
 - `thought_wilderness_builder.py` : 線の類似度から面のマップを展開し、円形引力とパウリ斥力で自己組織化・安定化する思考原野エンジン。
-- `full_vocab_collapse_stress_test.py` : 全語彙（7.4万語）規模での重力崩壊（底なし沼化）検証と体積排除（近接斥力・パウリの排他律）による宇宙安定化。
+- `full_vocab_collapse_stress_test.py` : 全語彙（7.4万語）規模での重力崩壊検証と体積排除（パウリの排他律）による宇宙安定化。
 - `model_comparison_wilderness.py` : Qwen-Coder（双極惑星） vs Mistral-7B（形態素群島） vs 汎用Qwen（渦巻銀河）の知性の指紋解析。
-- `math_theory_wilderness_v2.py` : 単語のみで完結する数学的理論構築（群+可換➔環、行列+固有値➔分解、多様体+曲率➔テンソル）と超並列幾何学推論の実証。
+- `math_theory_wilderness_v2.py` : 単語のみで完結する数学的理論構築（群+可換->環、行列+固有値->分解、多様体+曲率->テンソル）と超並列幾何学推論の実証。
+
+### 8. `distillation_experiments/` (第8章：フラクタル階層概念網・神経回路原野・影響度グラウンディング)
+*思考原野のフラクタル階層化、文脈変調神経回路、および辞書なしの架空概念ゼロショット識別。*
+- `build_fractal_hierarchical_network.py` / `run_bundled_cable_concept_forge_benchmark.py` : 概念の束（Bundled Cable）と量子波干渉による多義語干渉の相殺。
+- `build_neuro_circuit_wilderness.py` / `test_context_modulated_circuit.py` : 文脈に応じて動的に結合強度が変調する神経回路原野。
+- `run_dictionary_free_virtual_degree_test.py` / `run_influence_grounding_fictional_test.py` : 外部辞書を一切参照せず、潜在空間の実質重力影響度（Virtual Degree）のみで実在概念と架空概念をゼロショット識別。
+
+### 9. `distillation_experiments/` (第9章：イデア逆算・蜘蛛の巣信念ネットワーク・内部留保)
+*断片からのイデア逆算、原子命題の張力グラフ（Spider Web）、および不確実命題の内部留保。*
+- `idea_inverse_reconstruction_engine.py` / `autonomous_wilderness_decantation_distiller.py` : イデア断面からの逆算再構成と思考原野の上澄み抽出（Decantation）蒸留。
+- `spider_web_belief_network_engine.py` / `train_web_grounded_spider_web_multiepoch.py` : 命題を原子単位に分解し、張力バランスで矛盾を炙り出す「蜘蛛の巣信念網」とマルチエポックLoRA蒸留（`lora_web_grounded_spider_web_multiepoch`）。
+- `growing_anchor_spider_web_pipeline.py` / `internal_reservation_spider_web_pipeline.py` : 確実なアンカーから網を成長させ、証拠不十分な命題には「内部留保（Internal Reservation）」を与える認識論的パイプライン。
+
+### 10. `distillation_experiments/` (第10章：SMT形式論理調停と知識蒸留統合エンジン DK-DSSC-SMT)
+*ルールベースのフォーマット強制を全廃し、情報理論とSMT形式論理代数のみで1.5Bモデルの限界を突破。*
+- `sat_smt_contradiction_explorer.py` / `dual_space_split_prior_contrastive_engine.py` : 推移律・対偶・サイクル矛盾を検証するSMTソルバーと、連鎖律事前分布2分割減算（DSSC）。
+- `distilled_knowledge_dssc_smt_engine.py` : 7Bゲージ固定蒸留（`lora_gauge_locked_7b_to_1.5b`）＋ 72Bトポロジー蒸留 ＋ Web信念網蒸留 ＋ Wikipedia動的ファクトグラウンディング ＋ DSSC-SMTを統合し、難関4大ベンチマーク（ProntoQA, TruthfulQA, LogiQA, Formal Fallacies 計250問）で **総合正答率 70.00% (175/250)** を達成。
+
+### 11. `distillation_experiments/` (第11章：エントロピー降下キャリブレーション・文脈共鳴 CR-CE・SMT自己調停対話知能)
+*無知の境界を知り、知ったかぶりをせず、正論には素直に頭を下げ、悪意ある誘導には毅然と反論する1.5Bリアルタイム対話知能。*
+- `train_entropy_descent_calibration.py` (`lora_entropy_descent_calibrated`) : エントロピー減少への報酬と、知ったかぶりによるエントロピー増大（自作自演）へのペナルティを微分可能損失関数として重みに直接焼き込み。
+- `contextual_resonance_engine.py` (CR-CE) : 全体文脈と局所文脈の相互情報量（Contextual PMI）と局所音韻反復遮断により、「絶対零度の自閉的沈黙」と「吃音ループ」を同時に克服。
+- `smt_mediated_dialogue_agent.py` / `interactive_dk_agent.py` : 対話エンジンの背後に「内なるSMT最高裁判所」を統合。正当な幾何学的証明（補助線・錯角と同位角：Score +1.12）には潔く誤りを認めて自己修正し、悪意あるガスライティング（定規で測ったら内角の和は100度：Score -3.38）は毅然と却下するリアルタイム対話コンソール（0.8〜2.5秒応答）。
 
 ---
 
-## 📚 必読ドキュメント
+## 必読ドキュメント
 
-- [`docs/PROJECT_CHRONICLE.md`](docs/PROJECT_CHRONICLE.md) : **全体開発史・総括年代記（第0章〜第7章完結版）**。概念地形そのものの構築、純粋な蒸留、非言語スウォーム、エッジ、巨大モデル解体、人工生命、純粋軌跡移転、そして思考原野に至る全軌跡、直面した壁、ブレイクスルーを時系列順に完全網羅。
-- [`docs/THOUGHT_WILDERNESS_CHRONICLE.md`](docs/THOUGHT_WILDERNESS_CHRONICLE.md) : **思考原野の創出史・集中年代記**。単一トークンの固有揺らぎ、全軌道掛け合わせ、重力崩壊とパウリ排他律、モデル別トポロジー解析、数学理論構築と超並列性を時系列順に完全記録。
-- `docs/goal_tree_engine_specification.md` : GDTE v3.4 概念核言語プリミティブ分解仕様書。
-- `docs/universal_trajectory_transfer_specification.md` : v5.1 粗視化被覆・再細分化重力地形 ＆ 純粋軌跡移転仕様書。
+- [`docs/PROJECT_CHRONICLE.md`](docs/PROJECT_CHRONICLE.md) : **全体開発史・総括年代記（第0章〜第11章完結版）**。概念地形そのものの構築から、純粋な蒸留、非言語スウォーム、エッジ、巨大モデル解体、人工生命、純粋軌跡移転、思考原野、蜘蛛の巣信念網、DK-DSSC-SMT、そしてSMT自己調停対話知能に至る全軌跡を時系列順に完全網羅。
+- [`docs/EPISTEMIC_SMT_AND_HONEST_DIALOGUE_CHRONICLE.md`](docs/EPISTEMIC_SMT_AND_HONEST_DIALOGUE_CHRONICLE.md) : **認識論的推論・蜘蛛の巣信念網・SMT論理調停・誠実対話知能の集中年代記（第8章〜第11章）**。
+- [`docs/THOUGHT_WILDERNESS_CHRONICLE.md`](docs/THOUGHT_WILDERNESS_CHRONICLE.md) : **思考原野の創出史・集中年代記（第7章）**。
+- [`docs/goal_tree_engine_specification.md`](docs/goal_tree_engine_specification.md) : GDTE v3.4 概念核言語プリミティブ分解仕様書。
+- [`docs/universal_trajectory_transfer_specification.md`](docs/universal_trajectory_transfer_specification.md) : v5.1 粗視化被覆・再細分化重力地形 ＆ 純粋軌跡移転仕様書。
 
 ---
 
-## 🚀 使い方
-本リポジトリのコード群はモジュール・実験ごとに独立して実行可能です。  
-**詳しい実行目的とメカニズムは、各 `.py` ファイルの先頭にある解説ブロック（Docstring）および [`docs/PROJECT_CHRONICLE.md`](docs/PROJECT_CHRONICLE.md) をご覧ください。**
+## 使い方（リアルタイム対話コンソールの起動）
+
+最新の第11章対話知能（エントロピー降下重み + CR-CE文脈共鳴 + SMT論理自己調停）と直接対話するには、以下のコマンドを実行してください：
+
+```bash
+python distillation_experiments/interactive_dk_agent.py
+```
+
+また、全8大関門（即答性、包摂関係、架空概念、人生訓、客観的境界、推測適応、正当な証明受容、ガスライティング耐性）の回帰テストは以下で実行できます：
+
+```bash
+python distillation_experiments/smt_mediated_dialogue_agent.py
+```

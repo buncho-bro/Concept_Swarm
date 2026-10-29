@@ -1,0 +1,142 @@
+{
+  "Raw_Qwen1.5B": {
+    "causal_judgement": 56.00000000000001,
+    "disambiguation_qa": 32.0,
+    "formal_fallacies": 48.0,
+    "truthfulqa_mc1": 36.0,
+    "mmlu_moral": 26.0,
+    "average": 39.6,
+    "elapsed_sec": 16.183667421340942
+  },
+  "Possibility_Tree_System": {
+    "tree_completeness_rate": 100.0,
+    "principle_precision_rate": 96.0,
+    "non_dogmatic_rate": 100.0,
+    "task_accuracies": {
+      "causal_judgement": 54.0,
+      "disambiguation_qa": 32.0,
+      "formal_fallacies": 50.0,
+      "truthfulqa_mc1": 36.0,
+      "mmlu_moral": 28.000000000000004,
+      "average": 40.0,
+      "elapsed_sec": 1186.1926441192627
+    }
+  },
+  "DeepSeek_R1_1.5B": {
+    "causal_judgement": 0.0,
+    "disambiguation_qa": 40.0,
+    "formal_fallacies": 0.0,
+    "truthfulqa_mc1": 100.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 33.6,
+    "elapsed_sec": 61.978983879089355
+  },
+  "Physically_Coupled_LoRA_System": {
+    "causal_judgement": 52.0,
+    "disambiguation_qa": 32.0,
+    "formal_fallacies": 50.0,
+    "truthfulqa_mc1": 40.0,
+    "mmlu_moral": 32.0,
+    "average": 41.2,
+    "elapsed_sec": 1776.7800722122192
+  },
+  "Decanted_Wilderness_LoRA": {
+    "causal_judgement": 54.0,
+    "disambiguation_qa": 52.0,
+    "formal_fallacies": 60.0,
+    "truthfulqa_mc1": 54.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 49.6,
+    "elapsed_sec": 82.0013427734375
+  },
+  "GLM5.3_Infused_Wilderness_LoRA": {
+    "causal_judgement": 50.0,
+    "disambiguation_qa": 40.0,
+    "formal_fallacies": 54.0,
+    "truthfulqa_mc1": 52.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 44.8,
+    "elapsed_sec": 167.23296356201172
+  },
+  "Composite_Wilderness_LoRA": {
+    "causal_judgement": 54.0,
+    "disambiguation_qa": 28.000000000000004,
+    "formal_fallacies": 44.0,
+    "truthfulqa_mc1": 52.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 41.2,
+    "elapsed_sec": 326.9384605884552
+  },
+  "Massive_Composite_Wilderness_LoRA": {
+    "causal_judgement": 48.0,
+    "disambiguation_qa": 40.0,
+    "formal_fallacies": 56.00000000000001,
+    "truthfulqa_mc1": 54.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 45.2,
+    "elapsed_sec": 175.14235258102417
+  },
+  "Volumetric_Basin_LoRA": {
+    "causal_judgement": 52.0,
+    "disambiguation_qa": 30.0,
+    "formal_fallacies": 56.00000000000001,
+    "truthfulqa_mc1": 57.99999999999999,
+    "mmlu_moral": 28.000000000000004,
+    "average": 44.8,
+    "elapsed_sec": 291.0140128135681
+  },
+  "External_Text_Trained_LoRA": {
+    "causal_judgement": 48.0,
+    "disambiguation_qa": 57.99999999999999,
+    "formal_fallacies": 46.0,
+    "truthfulqa_mc1": 38.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 43.6,
+    "elapsed_sec": 69.73360824584961
+  },
+  "Atomic_Proposition_Grounded_System": {
+    "causal_judgement": 57.99999999999999,
+    "disambiguation_qa": 32.0,
+    "formal_fallacies": 56.00000000000001,
+    "truthfulqa_mc1": 34.0,
+    "mmlu_moral": 28.000000000000004,
+    "average": 41.6,
+    "elapsed_sec": 25.20586395263672
+  },
+  "Spider_Web_Belief_Network": {
+    "causal_judgement": 50.0,
+    "disambiguation_qa": 32.0,
+    "formal_fallacies": 54.0,
+    "truthfulqa_mc1": 48.0,
+    "mmlu_moral": 36.0,
+    "average": 44.0,
+    "elapsed_sec": 387.1638333797455
+  },
+  "Web_Grounded_Spider_Web": {
+    "causal_judgement": 49.333333333333336,
+    "disambiguation_qa": 31.333333333333332,
+    "formal_fallacies": 46.0,
+    "truthfulqa_mc1": 44.666666666666664,
+    "mmlu_moral": 30.0,
+    "average": 40.26666666666666,
+    "elapsed_sec": 169.21566088994345
+  },
+  "Web_Grounded_MultiEpoch_LoRA": {
+    "causal_judgement": 56.00000000000001,
+    "disambiguation_qa": 0.0,
+    "formal_fallacies": 46.0,
+    "truthfulqa_mc1": 28.000000000000004,
+    "mmlu_moral": 26.0,
+    "average": 31.2,
+    "elapsed_sec": 524.0585427284241
+  },
+  "Composite_Atomic_Spider_Web": {
+    "causal_judgement": 48.0,
+    "disambiguation_qa": 32.0,
+    "formal_fallacies": 59.333333333333336,
+    "truthfulqa_mc1": 26.666666666666668,
+    "mmlu_moral": 29.333333333333332,
+    "average": 39.06666666666667,
+    "elapsed_sec": 234.6621888478597
+  }
+}

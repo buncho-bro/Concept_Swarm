@@ -1,0 +1,510 @@
+{
+  "summary": {
+    "top1_recall": 0.0,
+    "top3_recall": 0.0,
+    "top5_recall": 0.0,
+    "escape_rate": 1.0
+  },
+  "details": [
+    {
+      "task_id": 1,
+      "category": "Physics",
+      "pair": [
+        "cloud",
+        "cold"
+      ],
+      "targets": [
+        "ice",
+        "freezing",
+        "snow",
+        "frost",
+        "winter"
+      ],
+      "retrieved": [
+        "onpause",
+        "reports",
+        "hotline",
+        "ebp",
+        "gamble"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 2,
+      "category": "Physics",
+      "pair": [
+        "fire",
+        "wood"
+      ],
+      "targets": [
+        "ash",
+        "smoke",
+        "charcoal",
+        "heat",
+        "burning"
+      ],
+      "retrieved": [
+        "nunes",
+        "caliente",
+        "gonzalez",
+        "onpause",
+        "booze"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 3,
+      "category": "Physics",
+      "pair": [
+        "magnet",
+        "iron"
+      ],
+      "targets": [
+        "attraction",
+        "magnetic",
+        "pole",
+        "metal",
+        "force"
+      ],
+      "retrieved": [
+        "nunes",
+        "sine",
+        "gamble",
+        "quotas",
+        "hotline"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 4,
+      "category": "Physics",
+      "pair": [
+        "sun",
+        "rain"
+      ],
+      "targets": [
+        "rainbow",
+        "weather",
+        "storm",
+        "light",
+        "refraction"
+      ],
+      "retrieved": [
+        "onpause",
+        "ebp",
+        "reports",
+        "magick",
+        "cameras"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 5,
+      "category": "Physics",
+      "pair": [
+        "friction",
+        "motion"
+      ],
+      "targets": [
+        "heat",
+        "resistance",
+        "wear",
+        "thermal",
+        "energy"
+      ],
+      "retrieved": [
+        "gamble",
+        "hotline",
+        "quotas",
+        "nunes",
+        "ebp"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 6,
+      "category": "Social",
+      "pair": [
+        "crime",
+        "police"
+      ],
+      "targets": [
+        "arrest",
+        "prison",
+        "investigation",
+        "law",
+        "court"
+      ],
+      "retrieved": [
+        "pelo",
+        "enquiry",
+        "suspicion",
+        "ebp",
+        "intent"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 7,
+      "category": "Social",
+      "pair": [
+        "soap",
+        "dirt"
+      ],
+      "targets": [
+        "cleaning",
+        "wash",
+        "clean",
+        "hygiene",
+        "pure"
+      ],
+      "retrieved": [
+        "gamble",
+        "cameras",
+        "magick",
+        "nunes",
+        "onpause"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 8,
+      "category": "Social",
+      "pair": [
+        "debt",
+        "default"
+      ],
+      "targets": [
+        "bankruptcy",
+        "insolvency",
+        "crisis",
+        "credit",
+        "ruin"
+      ],
+      "retrieved": [
+        "onslaught",
+        "converse",
+        "discontinued",
+        "gamble",
+        "schemes"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 9,
+      "category": "Social",
+      "pair": [
+        "virus",
+        "vaccine"
+      ],
+      "targets": [
+        "immunity",
+        "antibodies",
+        "protection",
+        "cure",
+        "health"
+      ],
+      "retrieved": [
+        "gamble",
+        "hotline",
+        "internalenumerator",
+        "enforcing",
+        "quotas"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 10,
+      "category": "Social",
+      "pair": [
+        "inflation",
+        "hike"
+      ],
+      "targets": [
+        "recession",
+        "tightening",
+        "slowdown",
+        "interest",
+        "cooling"
+      ],
+      "retrieved": [
+        "john",
+        "sophie",
+        "bruno",
+        "gamble",
+        "owen"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 11,
+      "category": "Math",
+      "pair": [
+        "group",
+        "commutative"
+      ],
+      "targets": [
+        "abelian",
+        "ring",
+        "algebra",
+        "symmetry",
+        "field"
+      ],
+      "retrieved": [
+        "hotline",
+        "gamble",
+        "diner",
+        "jdbc",
+        "bmc"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 12,
+      "category": "Math",
+      "pair": [
+        "matrix",
+        "eigenvalue"
+      ],
+      "targets": [
+        "decomposition",
+        "diagonalization",
+        "vector",
+        "spectral",
+        "linear"
+      ],
+      "retrieved": [
+        "diner",
+        "quotas",
+        "gamble",
+        "hotline",
+        "designed"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 13,
+      "category": "Math",
+      "pair": [
+        "triangle",
+        "angle"
+      ],
+      "targets": [
+        "pythagoras",
+        "hypotenuse",
+        "geometry",
+        "trigonometry",
+        "polygon"
+      ],
+      "retrieved": [
+        "hotline",
+        "injunction",
+        "completionhandler",
+        "lynch",
+        "intends"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 14,
+      "category": "Math",
+      "pair": [
+        "function",
+        "derivative"
+      ],
+      "targets": [
+        "integral",
+        "calculus",
+        "slope",
+        "rate",
+        "analysis"
+      ],
+      "retrieved": [
+        "evans",
+        "shards",
+        "resembl",
+        "quotas",
+        "caliente"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 15,
+      "category": "Math",
+      "pair": [
+        "graph",
+        "edge"
+      ],
+      "targets": [
+        "topology",
+        "path",
+        "network",
+        "vertex",
+        "tree"
+      ],
+      "retrieved": [
+        "hotline",
+        "gamble",
+        "dividing",
+        "malik",
+        "dismal"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 16,
+      "category": "Geopolitics",
+      "pair": [
+        "strait",
+        "blockade"
+      ],
+      "targets": [
+        "embargo",
+        "shortage",
+        "conflict",
+        "naval",
+        "crisis"
+      ],
+      "retrieved": [
+        "bruno",
+        "gamble",
+        "nunes",
+        "quotas",
+        "gonzalez"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 17,
+      "category": "Geopolitics",
+      "pair": [
+        "drought",
+        "crop"
+      ],
+      "targets": [
+        "famine",
+        "hunger",
+        "starvation",
+        "food",
+        "failure"
+      ],
+      "retrieved": [
+        "john",
+        "gamble",
+        "olson",
+        "nunes",
+        "ebp"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 18,
+      "category": "Geopolitics",
+      "pair": [
+        "alliance",
+        "treaty"
+      ],
+      "targets": [
+        "defense",
+        "security",
+        "pact",
+        "military",
+        "peace"
+      ],
+      "retrieved": [
+        "schemes",
+        "snug",
+        "suspicion",
+        "replen",
+        "renewables"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 19,
+      "category": "Geopolitics",
+      "pair": [
+        "monopoly",
+        "regulation"
+      ],
+      "targets": [
+        "antitrust",
+        "breakup",
+        "law",
+        "competition",
+        "fine"
+      ],
+      "retrieved": [
+        "gamble",
+        "quotas",
+        "intend",
+        "nunes",
+        "replen"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    },
+    {
+      "task_id": 20,
+      "category": "Geopolitics",
+      "pair": [
+        "currency",
+        "devaluation"
+      ],
+      "targets": [
+        "capital",
+        "inflation",
+        "collapse",
+        "crisis",
+        "flight"
+      ],
+      "retrieved": [
+        "intend",
+        "nunes",
+        "enquiries",
+        "replen",
+        "gamble"
+      ],
+      "hit_top1": false,
+      "hit_top3": false,
+      "hit_top5": false
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "task": "Gum Myth (False statement)",
+    "virtual_degree": 0.5,
+    "engine": "Engine B (Pure Deductive Sandbox / Counterfactual)",
+    "ground_truth": false,
+    "predicted": false,
+    "is_correct": true
+  },
+  {
+    "task": "Gum Fact (True statement)",
+    "virtual_degree": 0.33585562413702275,
+    "engine": "Engine A (Semantic Influence / Reality)",
+    "ground_truth": true,
+    "predicted": false,
+    "is_correct": false
+  },
+  {
+    "task": "Bowling Ball Floating Myth (False)",
+    "virtual_degree": 0.2689414213699951,
+    "engine": "Engine A (Semantic Influence / Reality)",
+    "ground_truth": false,
+    "predicted": true,
+    "is_correct": false
+  },
+  {
+    "task": "Bowling Ball Sinking Fact (True)",
+    "virtual_degree": 0.18242552380635635,
+    "engine": "Engine A (Semantic Influence / Reality)",
+    "ground_truth": true,
+    "predicted": true,
+    "is_correct": true
+  },
+  {
+    "task": "Max is sour (ProntoQA Q0)",
+    "virtual_degree": 0.9550217706210222,
+    "engine": "Engine B (Pure Deductive Sandbox / Counterfactual)",
+    "ground_truth": false,
+    "predicted": false,
+    "is_correct": true
+  },
+  {
+    "task": "Stella is bright (ProntoQA Q1)",
+    "virtual_degree": 0.9637799441350253,
+    "engine": "Engine B (Pure Deductive Sandbox / Counterfactual)",
+    "ground_truth": true,
+    "predicted": true,
+    "is_correct": true
+  },
+  {
+    "task": "Wren is not metallic (ProntoQA Q2)",
+    "virtual_degree": 0.9642103521709993,
+    "engine": "Engine B (Pure Deductive Sandbox / Counterfactual)",
+    "ground_truth": true,
+    "predicted": false,
+    "is_correct": false
+  },
+  {
+    "task": "Alex is not small (ProntoQA Q3)",
+    "virtual_degree": 0.9575229034714278,
+    "engine": "Engine B (Pure Deductive Sandbox / Counterfactual)",
+    "ground_truth": false,
+    "predicted": false,
+    "is_correct": true
+  }
+]
