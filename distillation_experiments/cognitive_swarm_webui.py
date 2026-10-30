@@ -1,20 +1,19 @@
 """
 Cognitive Swarm WebUI: Integrated SMT, CR-CE, Hybrid RAG & Web Search (1.5B)
 =============================================================================
-エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web知識検索
-をブラウザ上で直感的に操作・リアルタイム可視化できるグラフィカルインターフェース。
+GEMINI.md 恒久規約 第2条（ハードコード辞書の完全禁止）準拠版 WebUI。
 
-【更新点】
-- 自己言及・メタ対話クエリ（「あなたは誰」「自己紹介」等）に対する誤Web検索の完全遮断
-- 検索語の形態素・語尾クレンジング（ノイズ除去）
-- 検索結果とクエリの適合性検証（無関係なノイズスニペットの自動破棄）
+特徴:
+- 【辞書全廃】手動の単語リスト（web_cues, meta_patterns等）を1文字も使わない
+- 【自律的行動決定】モデル内部のロジット対比プローブ（Search vs Direct）による動的判定
+- 【自律的実体抽出】手動の文字列置換を廃し、モデル自身に検索対象キーワードを生成させる
+- 【意味論的適合ゲート】Layer 0 埋め込みベクトルのコサイン類似度による客観的ノイズ遮断
 """
 
 import os
 import sys
 import math
 import time
-import re
 import requests
 import urllib.parse
 import json
@@ -55,97 +54,96 @@ peft_model.eval()
 v_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['valid', ' valid', 'Valid', ' Valid']]
 iv_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['invalid', ' invalid', 'Invalid', ' Invalid']]
 
+# 行動判定トークン (Search vs Direct)
+search_tokens = ['search', ' search', 'Search', ' Search']
+direct_tokens = ['direct', ' direct', 'Direct', ' Direct']
+s_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in search_tokens]
+d_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in direct_tokens]
+
+embed_weights = base_model.model.embed_tokens.weight.data
+
 
 # ============================================================================
-# 1. 外部Web知識検索エンジン & インテントゲート
+# 1. 外部Web知識検索 & 自律行動プローブ (辞書・手動リストゼロ)
 # ============================================================================
+def get_dense_vector(text):
+    input_ids = tokenizer(text, return_tensors="pt")["input_ids"].to(device)[0]
+    embeds = embed_weights[input_ids]
+    return F.normalize(embeds.mean(dim=0), p=2, dim=0)
+
+
+def autonomous_action_probe(user_query, threshold=-4.5):
+    prompt = (
+        f"<|im_start|>system\nDetermine whether this user query requires external factual web search ('search') "
+        f"or should be handled directly via conversation, internal memory, or reasoning ('direct').<|im_end|>\n"
+        f"<|im_start|>user\nQuery: {user_query}\nAction:<|im_end|>\n"
+        f"<|im_start|>assistant\nJudgment:"
+    )
+    inp = tokenizer(prompt, return_tensors="pt").to(device)
+    with torch.no_grad():
+        logits = peft_model(inp["input_ids"]).logits[0, -1]
+    
+    s_logit = torch.logsumexp(logits[s_ids], dim=0).item()
+    d_logit = torch.logsumexp(logits[d_ids], dim=0).item()
+    score = s_logit - d_logit
+    need_search = score > threshold
+    return need_search, score
+
+
+def autonomous_entity_extractor(user_query):
+    prompt = (
+        f"<|im_start|>system\nExtract the core search entity from the user query. "
+        f"Respond with only the entity keyword without punctuation.<|im_end|>\n"
+        f"<|im_start|>user\n{user_query}<|im_end|>\n"
+        f"<|im_start|>assistant\n"
+    )
+    inp = tokenizer(prompt, return_tensors="pt").to(device)
+    with torch.no_grad():
+        out = peft_model.generate(**inp, max_new_tokens=15, do_sample=False)
+    extracted = tokenizer.decode(out[0][inp["input_ids"].shape[1]:], skip_special_tokens=True).strip()
+    return extracted if extracted else user_query
+
+
 class WebKnowledgeSearcher:
     def __init__(self):
         self.headers = {'User-Agent': 'ConceptSwarmAgent/1.0 (https://github.com/buncho-bro/Concept_Swarm)'}
 
-    def search(self, query, max_results=2):
-        search_url = f"https://ja.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(query)}&format=json&utf8=1"
-        results = []
+    def search_and_verify(self, query_entity):
+        search_url = f"https://ja.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(query_entity)}&format=json&utf8=1"
         try:
             r = requests.get(search_url, headers=self.headers, timeout=4)
             if r.status_code == 200:
                 items = r.json().get('query', {}).get('search', [])
-                for item in items[:max_results]:
-                    title = item['title']
-                    summary_url = f"https://ja.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
-                    sr = requests.get(summary_url, headers=self.headers, timeout=4)
-                    if sr.status_code == 200:
-                        data = sr.json()
-                        extract = data.get('extract', '')
-                        if extract:
-                            results.append({
-                                'title': title,
-                                'snippet': extract[:350],
-                                'url': data.get('content_urls', {}).get('desktop', {}).get('page', '')
-                            })
+                if items:
+                    title = items[0]['title']
+                    q_vec = get_dense_vector(query_entity)
+                    title_vec = get_dense_vector(title)
+                    sim = torch.dot(q_vec, title_vec).item()
+
+                    if sim >= 0.40:
+                        summary_url = f"https://ja.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
+                        sr = requests.get(summary_url, headers=self.headers, timeout=4)
+                        if sr.status_code == 200:
+                            extract = sr.json().get('extract', '')
+                            if extract:
+                                return True, title, extract[:350], sim
+                    return False, title, f"不適合ノイズ除外 (類似度: {sim:.2f})", sim
         except Exception:
             pass
-        return results
-
-
-def sanitize_and_check_search(user_input, force_web=False):
-    """
-    クエリ意図ゲート:
-    - 自己言及・メタ対話（「あなたは誰」「自己紹介」等）は厳格に除外
-    - 外部知識が必要なクエリのみ検索語をクレンジングして許可
-    """
-    if force_web:
-        return True, user_input.strip()
-
-    # 1. 自己言及・メタ対話の完全除外
-    meta_patterns = [
-        "あなたは", "お前は", "君は", "自己紹介", "あなたの", "何者",
-        "こんにちは", "ありがとう", "さようなら", "おはよう", "こんばんは",
-        "誰ですか", "何ができますか", "何ができる"
-    ]
-    for p in meta_patterns:
-        if p in user_input:
-            if user_input.strip().startswith(("あなた", "お前", "君", "自己紹介", "何が")) or len(user_input.strip()) <= 10:
-                return False, ""
-
-    # 2. 外部知識トリガー
-    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
-    if not any(kw in user_input for kw in web_cues):
-        return False, ""
-
-    # 3. 語尾クレンジング
-    clean_q = user_input
-    noise_suffixes = [
-        "について教えてください", "について教えて", "って誰ですか", "って誰",
-        "は誰ですか", "は誰", "とは何ですか", "とは何", "とは？", "とは",
-        "を教えてください", "を教えて", "教えて", "ですか？", "ですか"
-    ]
-    for s in noise_suffixes:
-        clean_q = clean_q.replace(s, "")
-    clean_q = clean_q.strip("？?。 \t\n")
-
-    return (len(clean_q) >= 2), clean_q
+        return False, "", "", 0.0
 
 
 # ============================================================================
 # 2. 内部長期記憶バンク (Hybrid RAG)
 # ============================================================================
 class HybridMemoryBank:
-    def __init__(self, tokenizer, embed_weights):
-        self.tokenizer = tokenizer
-        self.embed_weights = embed_weights
+    def __init__(self):
         self.memories = []
-
-    def _get_dense_vector(self, text):
-        input_ids = self.tokenizer(text, return_tensors="pt")["input_ids"].to(self.embed_weights.device)[0]
-        embeds = self.embed_weights[input_ids]
-        mean_vec = embeds.mean(dim=0)
-        return F.normalize(mean_vec, p=2, dim=0)
 
     def add_memory(self, turn_index, user_text, assistant_text):
         content = f"User: {user_text}\nAssistant: {assistant_text}"
-        tokens = set(self.tokenizer.tokenize(content.lower()))
-        dense_vec = self._get_dense_vector(content)
+        tokens = set(tokenizer.tokenize(content.lower()))
+        dense_vec = get_dense_vector(content)
         self.memories.append({
             'turn': turn_index,
             'user': user_text,
@@ -159,8 +157,8 @@ class HybridMemoryBank:
         if not self.memories:
             return []
 
-        q_tokens = set(self.tokenizer.tokenize(query_text.lower()))
-        q_dense = self._get_dense_vector(query_text)
+        q_tokens = set(tokenizer.tokenize(query_text.lower()))
+        q_dense = get_dense_vector(query_text)
 
         scored = []
         for mem in self.memories:
@@ -268,11 +266,10 @@ def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
 
 
 # ============================================================================
-# 5. Gradio アプリケーション構築
+# 5. Gradio アプリケーション
 # ============================================================================
 web_searcher = WebKnowledgeSearcher()
-embed_weights = base_model.model.embed_tokens.weight.data
-memory_bank = HybridMemoryBank(tokenizer, embed_weights)
+memory_bank = HybridMemoryBank()
 global_history = []
 turn_counter = 0
 
@@ -324,26 +321,18 @@ def respond(message, chat_history, auto_web, force_web, enable_smt, temperature,
             memory_context = "\n[関連する過去の会話記憶 (内部データベース)]\n" + "\n".join([f"- {r}" for r in recalled])
             recalled_display = "\n".join(recalled)
 
-    # 3. 外部Web知識検索 (インテントゲート & ノイズ拒絶)
-    should_search, clean_query = sanitize_and_check_search(user_input, force_web=force_web)
+    # 3. 自律行動プローブによるWeb検索判定 (GEMINI.md 第2条準拠: 辞書ゼロ)
+    need_search, act_score = autonomous_action_probe(user_input)
     web_context = ""
-    web_display = "なし"
-    if should_search and auto_web:
-        web_results = web_searcher.search(clean_query, max_results=1)
-        if web_results:
-            title = web_results[0]['title']
-            # 適合性検証: クエリの主要文字がタイトルに含まれているか
-            clean_q_chars = set(clean_query.lower())
-            title_chars = set(title.lower())
-            overlap_ratio = len(clean_q_chars.intersection(title_chars)) / max(len(clean_q_chars), 1)
-
-            if overlap_ratio >= 0.35 or force_web:
-                web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {web_results[0]['snippet']}"
-                web_display = f"【出典: {title}】\n{web_results[0]['snippet']}"
-            else:
-                web_display = f"[ノイズ破棄: クエリ '{clean_query}' に対し不適合なタイトル '{title}' を除外]"
-    elif not should_search:
-        web_display = "[検索不要判定: 自己言及・通常対話]"
+    web_display = f"自律判定: {'[SEARCH] 外部検索要' if need_search else '[DIRECT] 直接対話/内部記憶'} (Score: {act_score:+.2f})"
+    if (need_search and auto_web) or force_web:
+        entity = autonomous_entity_extractor(user_input)
+        success, title, snippet, sim = web_searcher.search_and_verify(entity)
+        if success:
+            web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {snippet}"
+            web_display += f"\n【出典: {title} (類似度: {sim:.2f})】\n{snippet}"
+        else:
+            web_display += f"\n[不適合ノイズ除外: {title}]"
 
     # 4. プロンプト生成
     sys_prompt = (
@@ -401,7 +390,7 @@ with gr.Blocks(title="Cognitive Swarm WebUI") as demo:
     gr.Markdown(
         """
         # Concept Swarm: 統合知能対話コンソール (Qwen2.5-1.5B)
-        **エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web検索**
+        **GEMINI.md 第2条準拠: 辞書ゼロ自律行動決定 ＋ SMT論理調停 ＋ ハイブリッド長期記憶 (RAG) ＋ Web知識検索**
         """
     )
 
@@ -419,7 +408,7 @@ with gr.Blocks(title="Cognitive Swarm WebUI") as demo:
                 clear_btn = gr.Button("クリア", variant="secondary", scale=1)
 
             with gr.Row():
-                auto_web_cb = gr.Checkbox(label="自動Web検索 (キーワード検知)", value=True)
+                auto_web_cb = gr.Checkbox(label="自律Web検索 (ロジットプローブ駆動)", value=True)
                 force_web_cb = gr.Checkbox(label="今回のみ強制Web検索", value=False)
                 enable_smt_cb = gr.Checkbox(label="SMT論理裁判所", value=True)
 
@@ -431,7 +420,7 @@ with gr.Blocks(title="Cognitive Swarm WebUI") as demo:
                 smt_output = gr.Textbox(value="待機中", show_label=False, interactive=False, lines=2)
 
             with gr.Group():
-                gr.Markdown("**外部Web知識検索 スニペット**")
+                gr.Markdown("**外部Web知識検索 (自律ロジットプローブ & スニペット)**")
                 web_output = gr.Textbox(value="なし", show_label=False, interactive=False, lines=4)
 
             with gr.Group():

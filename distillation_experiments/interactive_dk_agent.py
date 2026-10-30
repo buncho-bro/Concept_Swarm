@@ -1,20 +1,23 @@
 """
 Interactive SMT-Mediated, Contextual Resonance, Hybrid RAG & Web Search Agent (Console App)
 ===========================================================================================
-エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web知識検索
-を完全統合した最新のリアルタイム対話コンソール。
+GEMINI.md 恒久規約 第2条（ハードコード辞書の完全禁止）準拠版。
 
-【更新点】
-- 自己言及・メタ対話クエリ（「あなたは誰」「自己紹介」等）に対する誤Web検索の完全遮断
-- 検索語の語尾クレンジング（ノイズ除去）
-- 検索結果の適合性検証（無関係なノイズスニペットの自動破棄）
+特徴:
+- 【辞書全廃】人間が手動列挙した単語リスト（web_cues, meta_patterns等）を1文字も使わない
+- 【自律的行動決定】モデル内部のロジット対比プローブ（Search vs Direct）による動的判定
+- 【自律的実体抽出】手動の文字列置換を廃し、モデル自身に検索対象キーワードを生成させる
+- 【意味論的適合ゲート】Layer 0 埋め込みベクトルのコサイン類似度による客観的ノイズ遮断
+- 知ったかぶりをせず無知の境界を弁える知的誠実さ（エントロピー降下LoRA）
+- 正当な論理指摘には美しく自己修正し、誤謬誘導には毅然と反論（SMT裁判所）
+- 過去の対話内容を無制限に蓄積し、必要な時に完全想起（ハイブリッドRAG）
+- 100ターン対話してもコンテキスト長は常にスリム（高速・省VRAM）
 """
 
 import os
 import sys
 import math
 import time
-import re
 import requests
 import urllib.parse
 import json
@@ -54,89 +57,103 @@ peft_model.eval()
 v_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['valid', ' valid', 'Valid', ' Valid']]
 iv_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['invalid', ' invalid', 'Invalid', ' Invalid']]
 
+# 行動判定トークン (Search vs Direct)
+search_tokens = ['search', ' search', 'Search', ' Search']
+direct_tokens = ['direct', ' direct', 'Direct', ' Direct']
+s_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in search_tokens]
+d_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in direct_tokens]
+
+embed_weights = base_model.model.embed_tokens.weight.data
+
 
 # ============================================================================
-# 1. 外部Web知識検索エンジン & インテントゲート
+# 1. 外部Web知識検索 & 自律行動プローブ (辞書・手動リストゼロ)
 # ============================================================================
+def get_dense_vector(text):
+    input_ids = tokenizer(text, return_tensors="pt")["input_ids"].to(device)[0]
+    embeds = embed_weights[input_ids]
+    return F.normalize(embeds.mean(dim=0), p=2, dim=0)
+
+
+def autonomous_action_probe(user_query, threshold=-4.5):
+    """
+    GEMINI.md 準拠: 手動単語リストを使わず、モデル内部のロジット対比で行動を決定
+    """
+    prompt = (
+        f"<|im_start|>system\nDetermine whether this user query requires external factual web search ('search') "
+        f"or should be handled directly via conversation, internal memory, or reasoning ('direct').<|im_end|>\n"
+        f"<|im_start|>user\nQuery: {user_query}\nAction:<|im_end|>\n"
+        f"<|im_start|>assistant\nJudgment:"
+    )
+    inp = tokenizer(prompt, return_tensors="pt").to(device)
+    with torch.no_grad():
+        logits = peft_model(inp["input_ids"]).logits[0, -1]
+    
+    s_logit = torch.logsumexp(logits[s_ids], dim=0).item()
+    d_logit = torch.logsumexp(logits[d_ids], dim=0).item()
+    score = s_logit - d_logit
+    need_search = score > threshold
+    return need_search, score
+
+
+def autonomous_entity_extractor(user_query):
+    """
+    GEMINI.md 準拠: 手動置換を廃し、モデルに検索実体を自律抽出させる
+    """
+    prompt = (
+        f"<|im_start|>system\nExtract the core search entity from the user query. "
+        f"Respond with only the entity keyword without punctuation.<|im_end|>\n"
+        f"<|im_start|>user\n{user_query}<|im_end|>\n"
+        f"<|im_start|>assistant\n"
+    )
+    inp = tokenizer(prompt, return_tensors="pt").to(device)
+    with torch.no_grad():
+        out = peft_model.generate(**inp, max_new_tokens=15, do_sample=False)
+    extracted = tokenizer.decode(out[0][inp["input_ids"].shape[1]:], skip_special_tokens=True).strip()
+    return extracted if extracted else user_query
+
+
 class WebKnowledgeSearcher:
     def __init__(self):
         self.headers = {'User-Agent': 'ConceptSwarmAgent/1.0 (https://github.com/buncho-bro/Concept_Swarm)'}
 
-    def search(self, query, max_results=2):
-        search_url = f"https://ja.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(query)}&format=json&utf8=1"
-        results = []
+    def search_and_verify(self, query_entity):
+        search_url = f"https://ja.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(query_entity)}&format=json&utf8=1"
         try:
             r = requests.get(search_url, headers=self.headers, timeout=4)
             if r.status_code == 200:
                 items = r.json().get('query', {}).get('search', [])
-                for item in items[:max_results]:
-                    title = item['title']
-                    summary_url = f"https://ja.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
-                    sr = requests.get(summary_url, headers=self.headers, timeout=4)
-                    if sr.status_code == 200:
-                        data = sr.json()
-                        extract = data.get('extract', '')
-                        if extract:
-                            results.append({
-                                'title': title,
-                                'snippet': extract[:350],
-                                'url': data.get('content_urls', {}).get('desktop', {}).get('page', '')
-                            })
+                if items:
+                    title = items[0]['title']
+                    # 埋め込みコサイン類似度による客観的適合性検証
+                    q_vec = get_dense_vector(query_entity)
+                    title_vec = get_dense_vector(title)
+                    sim = torch.dot(q_vec, title_vec).item()
+
+                    if sim >= 0.40:
+                        summary_url = f"https://ja.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
+                        sr = requests.get(summary_url, headers=self.headers, timeout=4)
+                        if sr.status_code == 200:
+                            extract = sr.json().get('extract', '')
+                            if extract:
+                                return True, title, extract[:350], sim
+                    return False, title, f"不適合ノイズ除外 (類似度: {sim:.2f})", sim
         except Exception:
             pass
-        return results
-
-
-def sanitize_and_check_search(user_input, force_web=False):
-    if force_web:
-        return True, user_input.strip()
-
-    meta_patterns = [
-        "あなたは", "お前は", "君は", "自己紹介", "あなたの", "何者",
-        "こんにちは", "ありがとう", "さようなら", "おはよう", "こんばんは",
-        "誰ですか", "何ができますか", "何ができる"
-    ]
-    for p in meta_patterns:
-        if p in user_input:
-            if user_input.strip().startswith(("あなた", "お前", "君", "自己紹介", "何が")) or len(user_input.strip()) <= 10:
-                return False, ""
-
-    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
-    if not any(kw in user_input for kw in web_cues):
-        return False, ""
-
-    clean_q = user_input
-    noise_suffixes = [
-        "について教えてください", "について教えて", "って誰ですか", "って誰",
-        "は誰ですか", "は誰", "とは何ですか", "とは何", "とは？", "とは",
-        "を教えてください", "を教えて", "教えて", "ですか？", "ですか"
-    ]
-    for s in noise_suffixes:
-        clean_q = clean_q.replace(s, "")
-    clean_q = clean_q.strip("？?。 \t\n")
-
-    return (len(clean_q) >= 2), clean_q
+        return False, "", "", 0.0
 
 
 # ============================================================================
 # 2. 内部長期記憶バンク (Hybrid RAG)
 # ============================================================================
 class HybridMemoryBank:
-    def __init__(self, tokenizer, embed_weights):
-        self.tokenizer = tokenizer
-        self.embed_weights = embed_weights
+    def __init__(self):
         self.memories = []
-
-    def _get_dense_vector(self, text):
-        input_ids = self.tokenizer(text, return_tensors="pt")["input_ids"].to(self.embed_weights.device)[0]
-        embeds = self.embed_weights[input_ids]
-        mean_vec = embeds.mean(dim=0)
-        return F.normalize(mean_vec, p=2, dim=0)
 
     def add_memory(self, turn_index, user_text, assistant_text):
         content = f"User: {user_text}\nAssistant: {assistant_text}"
-        tokens = set(self.tokenizer.tokenize(content.lower()))
-        dense_vec = self._get_dense_vector(content)
+        tokens = set(tokenizer.tokenize(content.lower()))
+        dense_vec = get_dense_vector(content)
         self.memories.append({
             'turn': turn_index,
             'user': user_text,
@@ -150,8 +167,8 @@ class HybridMemoryBank:
         if not self.memories:
             return []
 
-        q_tokens = set(self.tokenizer.tokenize(query_text.lower()))
-        q_dense = self._get_dense_vector(query_text)
+        q_tokens = set(tokenizer.tokenize(query_text.lower()))
+        q_dense = get_dense_vector(query_text)
 
         scored = []
         for mem in self.memories:
@@ -258,26 +275,26 @@ def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
     return tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
 
 
+# ============================================================================
+# 5. 統合対話ターンルーチン
+# ============================================================================
 def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=False, debug=False, max_short_term=2):
-    objection_cues = ["間違", "証明", "なぜ", "理由", "いえ", "ですが", "ではなく", "違う", "本当", "度", "等しい", "定理", "論理", "反論"]
-    has_objection = any(kw in user_input for kw in objection_cues)
-
+    # 1. SMT論理調停
+    is_valid_proof, smt_score = smt_logical_arbiter(user_input)
+    arb_info = f"[SMT: {smt_score:+.2f}]"
     arbitration_note = ""
-    arb_info = ""
-    if has_objection:
-        is_valid_proof, score = smt_logical_arbiter(user_input)
-        arb_info = f"[SMT Score: {score:+.2f} | {'VALID' if is_valid_proof else 'INVALID'}]"
-        if is_valid_proof and score >= 0.0:
-            arbitration_note = (
-                "[SMT裁判所の裁定: ユーザーの提示した論拠・証明は客観的・数学的に妥当である。"
-                "自らの過去の発言の誤りを率直かつ誠実に認め、言い訳や吃音反復を排して簡潔に訂正せよ。]"
-            )
-        elif not is_valid_proof and score <= -1.5:
-            arbitration_note = (
-                "[SMT裁判所の裁定: ユーザーの主張は客観的・幾何学的に明白な誤謬である。"
-                "迎合せず、客観的根拠に基づいて毅然とその誤謬を指摘せよ。]"
-            )
+    if is_valid_proof and smt_score >= 0.0:
+        arbitration_note = (
+            "[SMT裁判所の裁定: ユーザーの提示した論拠・証明は客観的・数学的に妥当である。"
+            "自らの過去の発言の誤りを率直かつ誠実に認め、言い訳や吃音反復を排して簡潔に訂正せよ。]"
+        )
+    elif not is_valid_proof and smt_score <= -1.5:
+        arbitration_note = (
+            "[SMT裁判所の裁定: ユーザーの主張は客観的・幾何学的に明白な誤謬である。"
+            "迎合せず、客観的根拠に基づいて毅然とその誤謬を指摘せよ。]"
+        )
 
+    # 2. 内部長期記憶（Hybrid RAG）想起
     retrieved_memories = memory_bank.search(user_input, top_k=2)
     memory_context = ""
     rag_info = ""
@@ -287,23 +304,20 @@ def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=F
             memory_context = "\n[関連する過去の会話記憶 (内部データベース)]\n" + "\n".join(recalled)
             rag_info = f"[内部RAG想起: {len(recalled)}件]"
 
-    should_search, clean_query = sanitize_and_check_search(user_input, force_web=force_web_search)
+    # 3. 自律的行動プローブによるWeb検索判定 (辞書完全ゼロ)
+    need_search, act_score = autonomous_action_probe(user_input)
     web_context = ""
-    web_info = ""
-    if should_search:
-        web_results = web_searcher.search(clean_query, max_results=1)
-        if web_results:
-            title = web_results[0]['title']
-            clean_q_chars = set(clean_query.lower())
-            title_chars = set(title.lower())
-            overlap_ratio = len(clean_q_chars.intersection(title_chars)) / max(len(clean_q_chars), 1)
+    web_info = f"[ActionProbe: {act_score:+.2f}]"
+    if need_search or force_web_search:
+        entity = autonomous_entity_extractor(user_input)
+        success, title, snippet, sim = web_searcher.search_and_verify(entity)
+        if success:
+            web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {snippet}"
+            web_info += f" [Web適合: {title} (類似度: {sim:.2f})]"
+        else:
+            web_info += f" [ノイズ除外: {title}]"
 
-            if overlap_ratio >= 0.35 or force_web_search:
-                web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {web_results[0]['snippet']}"
-                web_info = f"[Web検索: {title}]"
-            else:
-                web_info = f"[ノイズ破棄: {title}]"
-
+    # 4. プロンプト構成
     sys_prompt = (
         "You are a truthful, thoughtful, and well-calibrated assistant. "
         "You think rigorously and speak with humility and intellectual honesty. "
@@ -336,13 +350,12 @@ def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=F
 
 def main():
     print("=" * 74)
-    print("Interactive Cognitive Swarm: SMT + CR-CE + Hybrid RAG + Web Search (1.5B)")
-    print("特徴:")
-    print("  - 知ったかぶりをせず無知の境界を弁える誠実さ（エントロピー降下LoRA）")
-    print("  - 正当な論理指摘には美しく自己修正し、誤謬誘導には毅然と反論（SMT裁判所）")
-    print("  - 過去の対話内容を無制限に蓄積し、必要な時に完全想起（ハイブリッドRAG）")
-    print("  - 最新・外部の客観的事実をリアルタイムに検索して補完（Web知識検索）")
-    print("  - メタ対話（自己紹介等）のノイズ検索を自動遮断し、生成崩壊を完全防止")
+    print("Interactive Cognitive Swarm: Dictionary-Free Autonomous Intelligence (1.5B)")
+    print("特徴 (GEMINI.md 第2条 完全準拠):")
+    print("  - 手動ハードコード辞書を一切排除した自律的行動決定 (Search vs Direct)")
+    print("  - モデル自身の自律的エンティティ抽出と埋め込みコサイン適合性ゲート")
+    print("  - エントロピー降下LoRAによる知的誠実性、SMT裁判所、CR-CE文脈共鳴")
+    print("  - ハイブリッド長期記憶 (RAG) によるコンテキスト上限の打破")
     print("コマンド:")
     print("  /web <クエリ>    : 強制的にWeb検索を実行して質問")
     print("  /memory          : 蓄積された長期記憶の一覧を表示")
@@ -352,8 +365,7 @@ def main():
     print("=" * 74)
 
     web_searcher = WebKnowledgeSearcher()
-    embed_weights = base_model.model.embed_tokens.weight.data
-    memory_bank = HybridMemoryBank(tokenizer, embed_weights)
+    memory_bank = HybridMemoryBank()
     history = []
     debug_mode = False
     turn_counter = 0
