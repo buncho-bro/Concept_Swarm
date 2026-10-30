@@ -4,15 +4,17 @@ Cognitive Swarm WebUI: Integrated SMT, CR-CE, Hybrid RAG & Web Search (1.5B)
 エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web知識検索
 をブラウザ上で直感的に操作・リアルタイム可視化できるグラフィカルインターフェース。
 
-起動方法:
-  python cognitive_swarm_webui.py
-  ブラウザで http://127.0.0.1:7860 を開く
+【更新点】
+- 自己言及・メタ対話クエリ（「あなたは誰」「自己紹介」等）に対する誤Web検索の完全遮断
+- 検索語の形態素・語尾クレンジング（ノイズ除去）
+- 検索結果とクエリの適合性検証（無関係なノイズスニペットの自動破棄）
 """
 
 import os
 import sys
 import math
 import time
+import re
 import requests
 import urllib.parse
 import json
@@ -55,7 +57,7 @@ iv_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['invalid', 
 
 
 # ============================================================================
-# 1. 外部Web知識検索エンジン
+# 1. 外部Web知識検索エンジン & インテントゲート
 # ============================================================================
 class WebKnowledgeSearcher:
     def __init__(self):
@@ -84,6 +86,45 @@ class WebKnowledgeSearcher:
         except Exception:
             pass
         return results
+
+
+def sanitize_and_check_search(user_input, force_web=False):
+    """
+    クエリ意図ゲート:
+    - 自己言及・メタ対話（「あなたは誰」「自己紹介」等）は厳格に除外
+    - 外部知識が必要なクエリのみ検索語をクレンジングして許可
+    """
+    if force_web:
+        return True, user_input.strip()
+
+    # 1. 自己言及・メタ対話の完全除外
+    meta_patterns = [
+        "あなたは", "お前は", "君は", "自己紹介", "あなたの", "何者",
+        "こんにちは", "ありがとう", "さようなら", "おはよう", "こんばんは",
+        "誰ですか", "何ができますか", "何ができる"
+    ]
+    for p in meta_patterns:
+        if p in user_input:
+            if user_input.strip().startswith(("あなた", "お前", "君", "自己紹介", "何が")) or len(user_input.strip()) <= 10:
+                return False, ""
+
+    # 2. 外部知識トリガー
+    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
+    if not any(kw in user_input for kw in web_cues):
+        return False, ""
+
+    # 3. 語尾クレンジング
+    clean_q = user_input
+    noise_suffixes = [
+        "について教えてください", "について教えて", "って誰ですか", "って誰",
+        "は誰ですか", "は誰", "とは何ですか", "とは何", "とは？", "とは",
+        "を教えてください", "を教えて", "教えて", "ですか？", "ですか"
+    ]
+    for s in noise_suffixes:
+        clean_q = clean_q.replace(s, "")
+    clean_q = clean_q.strip("？?。 \t\n")
+
+    return (len(clean_q) >= 2), clean_q
 
 
 # ============================================================================
@@ -277,28 +318,38 @@ def respond(message, chat_history, auto_web, force_web, enable_smt, temperature,
     if retrieved_memories:
         recalled = []
         for s, m in retrieved_memories:
-            if s >= 0.22:
+            if s >= 0.25:
                 recalled.append(f"Turn {m['turn']}: {m['user']} -> {m['assistant']}")
         if recalled:
             memory_context = "\n[関連する過去の会話記憶 (内部データベース)]\n" + "\n".join([f"- {r}" for r in recalled])
             recalled_display = "\n".join(recalled)
 
-    # 3. 外部Web知識検索
-    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
-    should_search_web = force_web or (auto_web and any(kw in user_input for kw in web_cues))
+    # 3. 外部Web知識検索 (インテントゲート & ノイズ拒絶)
+    should_search, clean_query = sanitize_and_check_search(user_input, force_web=force_web)
     web_context = ""
     web_display = "なし"
-    if should_search_web:
-        clean_q = user_input.replace("について教えて", "").replace("を教えてください", "").replace("とは？", "").replace("とは", "").strip()
-        web_results = web_searcher.search(clean_q, max_results=1)
+    if should_search and auto_web:
+        web_results = web_searcher.search(clean_query, max_results=1)
         if web_results:
-            web_context = f"\n[外部Web知識検索結果]\n- 出典: {web_results[0]['title']}\n- 内容: {web_results[0]['snippet']}"
-            web_display = f"【出典: {web_results[0]['title']}】\n{web_results[0]['snippet']}"
+            title = web_results[0]['title']
+            # 適合性検証: クエリの主要文字がタイトルに含まれているか
+            clean_q_chars = set(clean_query.lower())
+            title_chars = set(title.lower())
+            overlap_ratio = len(clean_q_chars.intersection(title_chars)) / max(len(clean_q_chars), 1)
+
+            if overlap_ratio >= 0.35 or force_web:
+                web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {web_results[0]['snippet']}"
+                web_display = f"【出典: {title}】\n{web_results[0]['snippet']}"
+            else:
+                web_display = f"[ノイズ破棄: クエリ '{clean_query}' に対し不適合なタイトル '{title}' を除外]"
+    elif not should_search:
+        web_display = "[検索不要判定: 自己言及・通常対話]"
 
     # 4. プロンプト生成
     sys_prompt = (
         "You are a truthful, thoughtful, and well-calibrated assistant. "
         "You think rigorously and speak with humility and intellectual honesty. "
+        "When asked about your identity or what you are, answer naturally and truthfully as an AI assistant without referring to unrelated external topics. "
         "When past memories or external web search results are provided, reference them faithfully without inventing facts. "
         "Engage naturally and constructively while maintaining logical consistency and factual integrity."
     )

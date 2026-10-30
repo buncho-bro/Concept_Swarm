@@ -4,23 +4,17 @@ Interactive SMT-Mediated, Contextual Resonance, Hybrid RAG & Web Search Agent (C
 エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web知識検索
 を完全統合した最新のリアルタイム対話コンソール。
 
-特徴:
-- 知ったかぶりをせず無知の境界を弁える知的誠実さ（エントロピー降下キャリブレーション）
-- 局所音韻ループ・吃音を物理的に遮断する文脈共鳴デコーダー (CR-CE)
-- 相手の正当な証明には素直に自己訂正し、偽の誘導（ガスライティング）は跳ね返すSMT裁判所
-- 語彙（N-gram）× 意味（Layer 0 Dense）ハイブリッド外部記憶バンク (RAG)
-  - 100ターン対話してもコンテキスト長は常にスリム（VRAM消費フラット・高速動作）
-  - 過去のプライベートな設定や数値をドリフトゼロで完全想起
-- 【新機能】動的外部Web知識検索 (Web Search Engine)
-  - 最新の事実、歴史、科学、時事情報などをWikipedia REST APIから自動/手動検索
-  - 1.5Bモデルが学習していない外部事実をリアルタイムに補完
-- 1.0〜3.5秒の高速レスポンス・低VRAM消費
+【更新点】
+- 自己言及・メタ対話クエリ（「あなたは誰」「自己紹介」等）に対する誤Web検索の完全遮断
+- 検索語の語尾クレンジング（ノイズ除去）
+- 検索結果の適合性検証（無関係なノイズスニペットの自動破棄）
 """
 
 import os
 import sys
 import math
 import time
+import re
 import requests
 import urllib.parse
 import json
@@ -62,12 +56,9 @@ iv_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['invalid', 
 
 
 # ============================================================================
-# 1. 外部Web知識検索エンジン
+# 1. 外部Web知識検索エンジン & インテントゲート
 # ============================================================================
 class WebKnowledgeSearcher:
-    """
-    高速・軽量なWeb知識検索エンジン (Wikipedia REST API)
-    """
     def __init__(self):
         self.headers = {'User-Agent': 'ConceptSwarmAgent/1.0 (https://github.com/buncho-bro/Concept_Swarm)'}
 
@@ -94,6 +85,37 @@ class WebKnowledgeSearcher:
         except Exception:
             pass
         return results
+
+
+def sanitize_and_check_search(user_input, force_web=False):
+    if force_web:
+        return True, user_input.strip()
+
+    meta_patterns = [
+        "あなたは", "お前は", "君は", "自己紹介", "あなたの", "何者",
+        "こんにちは", "ありがとう", "さようなら", "おはよう", "こんばんは",
+        "誰ですか", "何ができますか", "何ができる"
+    ]
+    for p in meta_patterns:
+        if p in user_input:
+            if user_input.strip().startswith(("あなた", "お前", "君", "自己紹介", "何が")) or len(user_input.strip()) <= 10:
+                return False, ""
+
+    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
+    if not any(kw in user_input for kw in web_cues):
+        return False, ""
+
+    clean_q = user_input
+    noise_suffixes = [
+        "について教えてください", "について教えて", "って誰ですか", "って誰",
+        "は誰ですか", "は誰", "とは何ですか", "とは何", "とは？", "とは",
+        "を教えてください", "を教えて", "教えて", "ですか？", "ですか"
+    ]
+    for s in noise_suffixes:
+        clean_q = clean_q.replace(s, "")
+    clean_q = clean_q.strip("？?。 \t\n")
+
+    return (len(clean_q) >= 2), clean_q
 
 
 # ============================================================================
@@ -209,7 +231,7 @@ def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
             early_stop_penalty[eos_id] = 5.0
 
         logits = full_logits[0] - repeat_mask - early_stop_penalty
-        scaled_logits = logits / temperature
+        scaled_logits = logits / max(temperature, 1e-4)
         probs = F.softmax(scaled_logits, dim=-1)
 
         sorted_probs, sorted_indices = torch.sort(probs, descending=True)
@@ -236,11 +258,7 @@ def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
     return tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
 
 
-# ============================================================================
-# 5. 統合対話ターン実行ルーチン
-# ============================================================================
 def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=False, debug=False, max_short_term=2):
-    # 1. SMT論理調停
     objection_cues = ["間違", "証明", "なぜ", "理由", "いえ", "ですが", "ではなく", "違う", "本当", "度", "等しい", "定理", "論理", "反論"]
     has_objection = any(kw in user_input for kw in objection_cues)
 
@@ -260,32 +278,36 @@ def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=F
                 "迎合せず、客観的根拠に基づいて毅然とその誤謬を指摘せよ。]"
             )
 
-    # 2. 内部長期記憶（Hybrid RAG）の想起
     retrieved_memories = memory_bank.search(user_input, top_k=2)
     memory_context = ""
     rag_info = ""
     if retrieved_memories:
-        recalled = [f"- 過去記録 (Turn {m['turn']}): ユーザー「{m['user']}」に対する回答「{m['assistant']}」" for s, m in retrieved_memories if s >= 0.22]
+        recalled = [f"- 過去記録 (Turn {m['turn']}): ユーザー「{m['user']}」に対する回答「{m['assistant']}」" for s, m in retrieved_memories if s >= 0.25]
         if recalled:
             memory_context = "\n[関連する過去の会話記憶 (内部データベース)]\n" + "\n".join(recalled)
             rag_info = f"[内部RAG想起: {len(recalled)}件]"
 
-    # 3. 外部Web知識検索 (Web Search) の動的判定と実行
-    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
-    should_search_web = force_web_search or any(kw in user_input for kw in web_cues)
+    should_search, clean_query = sanitize_and_check_search(user_input, force_web=force_web_search)
     web_context = ""
     web_info = ""
-    if should_search_web:
-        clean_q = user_input.replace("について教えて", "").replace("を教えてください", "").replace("とは？", "").replace("とは", "").strip()
-        web_results = web_searcher.search(clean_q, max_results=1)
+    if should_search:
+        web_results = web_searcher.search(clean_query, max_results=1)
         if web_results:
-            web_context = f"\n[外部Web知識検索結果]\n- 出典: {web_results[0]['title']}\n- 内容: {web_results[0]['snippet']}"
-            web_info = f"[Web検索: {web_results[0]['title']}]"
+            title = web_results[0]['title']
+            clean_q_chars = set(clean_query.lower())
+            title_chars = set(title.lower())
+            overlap_ratio = len(clean_q_chars.intersection(title_chars)) / max(len(clean_q_chars), 1)
 
-    # 4. プロンプトの統合構築
+            if overlap_ratio >= 0.35 or force_web_search:
+                web_context = f"\n[外部Web知識検索結果]\n- 出典: {title}\n- 内容: {web_results[0]['snippet']}"
+                web_info = f"[Web検索: {title}]"
+            else:
+                web_info = f"[ノイズ破棄: {title}]"
+
     sys_prompt = (
         "You are a truthful, thoughtful, and well-calibrated assistant. "
         "You think rigorously and speak with humility and intellectual honesty. "
+        "When asked about your identity or what you are, answer naturally and truthfully as an AI assistant without referring to unrelated external topics. "
         "When past memories or external web search results are provided, reference them faithfully without inventing facts. "
         "Engage naturally and constructively while maintaining logical consistency and factual integrity."
     )
@@ -320,7 +342,7 @@ def main():
     print("  - 正当な論理指摘には美しく自己修正し、誤謬誘導には毅然と反論（SMT裁判所）")
     print("  - 過去の対話内容を無制限に蓄積し、必要な時に完全想起（ハイブリッドRAG）")
     print("  - 最新・外部の客観的事実をリアルタイムに検索して補完（Web知識検索）")
-    print("  - 100ターン対話してもコンテキスト長は常にスリム（高速・省VRAM）")
+    print("  - メタ対話（自己紹介等）のノイズ検索を自動遮断し、生成崩壊を完全防止")
     print("コマンド:")
     print("  /web <クエリ>    : 強制的にWeb検索を実行して質問")
     print("  /memory          : 蓄積された長期記憶の一覧を表示")
