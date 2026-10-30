@@ -1,23 +1,29 @@
 """
-Interactive SMT-Mediated, Contextual Resonance & Hybrid RAG Agent (Console Application)
-========================================================================================
-エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期外部記憶 (RAG)
+Interactive SMT-Mediated, Contextual Resonance, Hybrid RAG & Web Search Agent (Console App)
+===========================================================================================
+エントロピー降下LoRA + CR-CE文脈共鳴 + SMT論理調停 + ハイブリッド長期記憶 (RAG) + 外部Web知識検索
 を完全統合した最新のリアルタイム対話コンソール。
 
 特徴:
 - 知ったかぶりをせず無知の境界を弁える知的誠実さ（エントロピー降下キャリブレーション）
 - 局所音韻ループ・吃音を物理的に遮断する文脈共鳴デコーダー (CR-CE)
-- 相手の正当な証明には素直に非を認めて自己訂正し、偽の誘導（ガスライティング）は跳ね返すSMT裁判所
-- 【新機能】語彙（N-gram）と意味（Layer 0 Dense）を融合したハイブリッド外部記憶バンク (RAG)
-  - 100ターン対話してもコンテキスト長は常に数百トークンに維持（VRAM消費フラット・高速動作）
-  - 過去の重要な固有名詞や数値を1文字の狂いもなくピンポイント想起（ドリフトゼロ）
-- 0.8〜2.0秒の高速レスポンス・低VRAM消費
+- 相手の正当な証明には素直に自己訂正し、偽の誘導（ガスライティング）は跳ね返すSMT裁判所
+- 語彙（N-gram）× 意味（Layer 0 Dense）ハイブリッド外部記憶バンク (RAG)
+  - 100ターン対話してもコンテキスト長は常にスリム（VRAM消費フラット・高速動作）
+  - 過去のプライベートな設定や数値をドリフトゼロで完全想起
+- 【新機能】動的外部Web知識検索 (Web Search Engine)
+  - 最新の事実、歴史、科学、時事情報などをWikipedia REST APIから自動/手動検索
+  - 1.5Bモデルが学習していない外部事実をリアルタイムに補完
+- 1.0〜3.5秒の高速レスポンス・低VRAM消費
 """
 
 import os
 import sys
 import math
 import time
+import requests
+import urllib.parse
+import json
 import torch
 import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -55,10 +61,45 @@ v_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['valid', ' v
 iv_ids = [tokenizer.encode(x, add_special_tokens=False)[0] for x in ['invalid', ' invalid', 'Invalid', ' Invalid']]
 
 
+# ============================================================================
+# 1. 外部Web知識検索エンジン
+# ============================================================================
+class WebKnowledgeSearcher:
+    """
+    高速・軽量なWeb知識検索エンジン (Wikipedia REST API)
+    """
+    def __init__(self):
+        self.headers = {'User-Agent': 'ConceptSwarmAgent/1.0 (https://github.com/buncho-bro/Concept_Swarm)'}
+
+    def search(self, query, max_results=2):
+        search_url = f"https://ja.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(query)}&format=json&utf8=1"
+        results = []
+        try:
+            r = requests.get(search_url, headers=self.headers, timeout=4)
+            if r.status_code == 200:
+                items = r.json().get('query', {}).get('search', [])
+                for item in items[:max_results]:
+                    title = item['title']
+                    summary_url = f"https://ja.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
+                    sr = requests.get(summary_url, headers=self.headers, timeout=4)
+                    if sr.status_code == 200:
+                        data = sr.json()
+                        extract = data.get('extract', '')
+                        if extract:
+                            results.append({
+                                'title': title,
+                                'snippet': extract[:350],
+                                'url': data.get('content_urls', {}).get('desktop', {}).get('page', '')
+                            })
+        except Exception:
+            pass
+        return results
+
+
+# ============================================================================
+# 2. 内部長期記憶バンク (Hybrid RAG)
+# ============================================================================
 class HybridMemoryBank:
-    """
-    軽量・高精度なハイブリッド長期外部記憶バンク (Lexical N-Gram + Layer 0 Dense Embedding)
-    """
     def __init__(self, tokenizer, embed_weights):
         self.tokenizer = tokenizer
         self.embed_weights = embed_weights
@@ -92,7 +133,6 @@ class HybridMemoryBank:
 
         scored = []
         for mem in self.memories:
-            # 1. 語彙的一致度
             inter = len(q_tokens.intersection(mem['tokens']))
             union = len(q_tokens.union(mem['tokens'])) + 1e-6
             lexical_score = inter / union
@@ -100,9 +140,7 @@ class HybridMemoryBank:
                 if len(tok) >= 2 and tok in mem['tokens']:
                     lexical_score += 0.15
 
-            # 2. 意味的一致度
             dense_score = torch.dot(q_dense, mem['dense_vec']).item()
-
             hybrid_score = alpha * dense_score + (1.0 - alpha) * lexical_score
             scored.append((hybrid_score, mem))
 
@@ -113,6 +151,9 @@ class HybridMemoryBank:
         self.memories = []
 
 
+# ============================================================================
+# 3. SMT論理調停裁判所
+# ============================================================================
 def smt_logical_arbiter(user_claim):
     premise = (
         "Euclidean plane geometry, standard logic, and objective factual definitions. "
@@ -138,6 +179,9 @@ def smt_logical_arbiter(user_claim):
     return is_valid, score
 
 
+# ============================================================================
+# 4. CR-CE文脈共鳴デコーダー
+# ============================================================================
 def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
     inputs = tokenizer(full_prompt, return_tensors="pt").to(device)
     input_ids = inputs["input_ids"]
@@ -192,7 +236,10 @@ def cr_ce_generate(full_prompt, max_new_tokens=300, temperature=0.3, top_p=0.9):
     return tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
 
 
-def chat_turn(memory_bank, history, user_input, debug=False, max_short_term=2):
+# ============================================================================
+# 5. 統合対話ターン実行ルーチン
+# ============================================================================
+def chat_turn(web_searcher, memory_bank, history, user_input, force_web_search=False, debug=False, max_short_term=2):
     # 1. SMT論理調停
     objection_cues = ["間違", "証明", "なぜ", "理由", "いえ", "ですが", "ではなく", "違う", "本当", "度", "等しい", "定理", "論理", "反論"]
     has_objection = any(kw in user_input for kw in objection_cues)
@@ -213,35 +260,45 @@ def chat_turn(memory_bank, history, user_input, debug=False, max_short_term=2):
                 "迎合せず、客観的根拠に基づいて毅然とその誤謬を指摘せよ。]"
             )
 
-    # 2. 長期記憶の想起 (Hybrid RAG)
+    # 2. 内部長期記憶（Hybrid RAG）の想起
     retrieved_memories = memory_bank.search(user_input, top_k=2)
-    recalled_context = ""
+    memory_context = ""
     rag_info = ""
     if retrieved_memories:
-        recalled_texts = []
-        for score, mem in retrieved_memories:
-            if score >= 0.22:
-                recalled_texts.append(f"- 過去の記録 (Turn {mem['turn']}): ユーザー「{mem['user']}」に対する回答「{mem['assistant']}」")
-        if recalled_texts:
-            recalled_context = "\n[関連する過去の記憶 (外部データベースからの想起)]\n" + "\n".join(recalled_texts)
-            rag_info = f"[RAG想起: {len(recalled_texts)}件 (最高スコア: {retrieved_memories[0][0]:.2f})]"
+        recalled = [f"- 過去記録 (Turn {m['turn']}): ユーザー「{m['user']}」に対する回答「{m['assistant']}」" for s, m in retrieved_memories if s >= 0.22]
+        if recalled:
+            memory_context = "\n[関連する過去の会話記憶 (内部データベース)]\n" + "\n".join(recalled)
+            rag_info = f"[内部RAG想起: {len(recalled)}件]"
 
-    # 3. プロンプト構成
+    # 3. 外部Web知識検索 (Web Search) の動的判定と実行
+    web_cues = ["誰", "いつ", "何年", "どこ", "調べ", "検索", "最新", "概要", "歴史", "仕組み", "とは", "オリンピック", "受賞", "wiki", "Wiki", "202"]
+    should_search_web = force_web_search or any(kw in user_input for kw in web_cues)
+    web_context = ""
+    web_info = ""
+    if should_search_web:
+        clean_q = user_input.replace("について教えて", "").replace("を教えてください", "").replace("とは？", "").replace("とは", "").strip()
+        web_results = web_searcher.search(clean_q, max_results=1)
+        if web_results:
+            web_context = f"\n[外部Web知識検索結果]\n- 出典: {web_results[0]['title']}\n- 内容: {web_results[0]['snippet']}"
+            web_info = f"[Web検索: {web_results[0]['title']}]"
+
+    # 4. プロンプトの統合構築
     sys_prompt = (
         "You are a truthful, thoughtful, and well-calibrated assistant. "
         "You think rigorously and speak with humility and intellectual honesty. "
-        "When past context or memories are recalled, reference them faithfully without inventing false facts. "
+        "When past memories or external web search results are provided, reference them faithfully without inventing facts. "
         "Engage naturally and constructively while maintaining logical consistency and factual integrity."
     )
 
     prompt_parts = [f"<|im_start|>system\n{sys_prompt}"]
-    if recalled_context:
-        prompt_parts.append(recalled_context)
+    if memory_context:
+        prompt_parts.append(memory_context)
+    if web_context:
+        prompt_parts.append(web_context)
     if arbitration_note:
         prompt_parts.append(f"\nInternal Logic Arbitration: {arbitration_note}")
     prompt_parts.append("<|im_end|>")
 
-    # スライディングウィンドウ（直近の対話）
     for u, a in history[-max_short_term:]:
         prompt_parts.append(f"<|im_start|>user\n{u}<|im_end|>")
         prompt_parts.append(f"<|im_start|>assistant\n{a}<|im_end|>")
@@ -251,25 +308,28 @@ def chat_turn(memory_bank, history, user_input, debug=False, max_short_term=2):
     full_prompt = "\n".join(prompt_parts)
 
     reply = cr_ce_generate(full_prompt)
-    info = f"{arb_info} {rag_info}".strip()
-    return reply, info, recalled_context
+    info_str = f"{arb_info} {rag_info} {web_info}".strip()
+    return reply, info_str, memory_context, web_context
 
 
 def main():
-    print("=" * 72)
-    print("Interactive SMT-Mediated, Contextual Resonance & Hybrid RAG Agent (1.5B)")
+    print("=" * 74)
+    print("Interactive Cognitive Swarm: SMT + CR-CE + Hybrid RAG + Web Search (1.5B)")
     print("特徴:")
     print("  - 知ったかぶりをせず無知の境界を弁える誠実さ（エントロピー降下LoRA）")
     print("  - 正当な論理指摘には美しく自己修正し、誤謬誘導には毅然と反論（SMT裁判所）")
     print("  - 過去の対話内容を無制限に蓄積し、必要な時に完全想起（ハイブリッドRAG）")
-    print("  - 100ターン対話してもコンテキスト長は常にスリム（0.8〜2.0秒の高速応答・省VRAM）")
+    print("  - 最新・外部の客観的事実をリアルタイムに検索して補完（Web知識検索）")
+    print("  - 100ターン対話してもコンテキスト長は常にスリム（高速・省VRAM）")
     print("コマンド:")
+    print("  /web <クエリ>    : 強制的にWeb検索を実行して質問")
     print("  /memory          : 蓄積された長期記憶の一覧を表示")
     print("  /clear           : 会話履歴と記憶バンクをリセット")
     print("  /debug           : デバッグ情報の表示/非表示を切り替え")
     print("  exit または quit : 終了")
-    print("=" * 72)
+    print("=" * 74)
 
+    web_searcher = WebKnowledgeSearcher()
     embed_weights = base_model.model.embed_tokens.weight.data
     memory_bank = HybridMemoryBank(tokenizer, embed_weights)
     history = []
@@ -278,49 +338,59 @@ def main():
 
     while True:
         try:
-            user_input = input("\nUser > ").strip()
+            raw_input = input("\nUser > ").strip()
         except (EOFError, KeyboardInterrupt):
             print("\n対話を終了します。")
             break
 
-        if not user_input:
+        if not raw_input:
             continue
 
-        if user_input.lower() in ["exit", "quit"]:
+        if raw_input.lower() in ["exit", "quit"]:
             print("対話を終了します。")
             break
 
-        if user_input == "/clear":
+        if raw_input == "/clear":
             history = []
             memory_bank.clear()
             turn_counter = 0
             print("[システム] 会話履歴と長期記憶バンクをクリアしました。")
             continue
 
-        if user_input == "/memory":
+        if raw_input == "/memory":
             print(f"\n[長期記憶バンクの登録件数: {len(memory_bank.memories)}件]")
             for m in memory_bank.memories:
                 print(f"  Turn {m['turn']}: User「{m['user'][:30]}...」 | Assistant「{m['assistant'][:30]}...」")
             continue
 
-        if user_input == "/debug":
+        if raw_input == "/debug":
             debug_mode = not debug_mode
             print(f"[システム] デバッグ表示: {'有効' if debug_mode else '無効'}")
             continue
 
+        force_web = False
+        user_input = raw_input
+        if raw_input.startswith("/web "):
+            force_web = True
+            user_input = raw_input[5:].strip()
+
         print("Agent > ", end="", flush=True)
         t0 = time.time()
-        reply, info, recalled_context = chat_turn(memory_bank, history, user_input, debug=debug_mode)
+        reply, info_str, mem_ctx, web_ctx = chat_turn(
+            web_searcher, memory_bank, history, user_input,
+            force_web_search=force_web, debug=debug_mode
+        )
         elapsed = time.time() - t0
         print(reply)
 
         if debug_mode:
-            print(f"       [所要時間: {elapsed:.2f}秒 {info}]")
-            if recalled_context:
-                print("       " + recalled_context.replace("\n", "\n       "))
+            print(f"       [所要時間: {elapsed:.2f}秒 {info_str}]")
+            if web_ctx:
+                print("       " + web_ctx.replace("\n", "\n       "))
+            if mem_ctx:
+                print("       " + mem_ctx.replace("\n", "\n       "))
 
         turn_counter += 1
-        # 完了したターンを長期記憶バンクと履歴に登録
         memory_bank.add_memory(turn_counter, user_input, reply)
         history.append((user_input, reply))
 
